@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0xuqxmmanleb"]
+[gd_scene load_steps=23 format=3 uid="uid://0xuqxmmanleb"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/terrain_tiles_v2.png" id="1_bd66d"]
 [ext_resource type="Texture2D" uid="uid://d3k35yg7pyknr" path="res://resources/tilemap/ground_decorations.png" id="2_quoqe"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="9_lyih0"]
 [ext_resource type="PackedScene" uid="uid://dwcrojx5ok7aq" path="res://scenes/actionable.tscn" id="10_f7vgx"]
 [ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="11_60ekm"]
+[ext_resource type="PackedScene" uid="uid://fxg3457ek2u4" path="res://characters/char_soldier/soldier.tscn" id="12_ahrv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_bd66d")
