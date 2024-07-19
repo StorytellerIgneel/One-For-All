@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bjwnl2l0qs5hk" path="res://resources/tilemap/decorations.png" id="5_v5lkx"]
 [ext_resource type="Texture2D" uid="uid://1o5cbfig1ton" path="res://resources/tilemap/assets_spritesheet_v2_free.png" id="6_eq30v"]
 [ext_resource type="Texture2D" uid="uid://b6rwcpf2t6gcf" path="res://resources/tilemap/water_and_island_tiles_v2.png" id="7_mnjc4"]
-[ext_resource type="Script" path="res://scenes/CharacterBody2D.gd" id="8_8rcb2"]
+[ext_resource type="PackedScene" uid="uid://b1eashsd6s5nw" path="res://scenes/test.tscn" id="8_2jdyf"]
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="9_lyih0"]
 [ext_resource type="PackedScene" uid="uid://dwcrojx5ok7aq" path="res://scenes/actionable.tscn" id="10_f7vgx"]
 [ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="11_60ekm"]
@@ -1678,9 +1678,9 @@ sources/4 = SubResource("TileSetAtlasSource_6giku")
 sources/5 = SubResource("TileSetAtlasSource_fx8dw")
 sources/6 = SubResource("TileSetAtlasSource_pwqwk")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pnna0"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57t7x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv66u"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -1702,21 +1702,25 @@ layer_3/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 144
 layer_4/name = "Props2"
 layer_4/tile_data = PackedInt32Array(1572867, 5, 10, 1572868, 65541, 10, 1638403, 5, 11, 1638404, 65541, 11, 851971, 5, 10, 917507, 5, 11, 851972, 65541, 10, 917508, 65541, 11, 983043, 5, 10, 1048579, 5, 11, 983044, 65541, 10, 1048580, 65541, 11, 786454, 5, 0, 851990, 5, 1, 917526, 5, 2, 983062, 5, 3, 1048598, 5, 4, 786455, 65541, 0, 851991, 65541, 1, 917527, 65541, 2, 983063, 65541, 3, 1048599, 65541, 4, 786456, 131077, 0, 851992, 131077, 1, 917528, 131077, 2, 983064, 131077, 3, 1048600, 131077, 4, 1114136, 589829, 9, 1179672, 589829, 10, 1245208, 589829, 11, 1114137, 655365, 9, 1179673, 655365, 10, 1245209, 655365, 11, 1114132, 196613, 12, 1179668, 196613, 13, 1245204, 196613, 14, 1114133, 262149, 12, 1179669, 262149, 13, 1245205, 262149, 14, 1114134, 327685, 12, 1179670, 327685, 13, 1245206, 327685, 14, 458784, 458757, 0, 524320, 458757, 1, 589856, 458757, 2, 655392, 458757, 3, 720928, 458757, 4, 786464, 458757, 5, 852000, 458757, 6, 458785, 524293, 0, 524321, 524293, 1, 589857, 524293, 2, 655393, 524293, 3, 720929, 524293, 4, 786465, 524293, 5, 852001, 524293, 6, 458786, 589829, 0, 524322, 589829, 1, 589858, 589829, 2, 655394, 589829, 3, 720930, 589829, 4, 786466, 589829, 5, 852002, 589829, 6, 458787, 655365, 0, 524323, 655365, 1, 589859, 655365, 2, 655395, 655365, 3, 720931, 655365, 4, 786467, 655365, 5, 852003, 655365, 6, 458788, 720901, 0, 524324, 720901, 1, 589860, 720901, 2, 655396, 720901, 3, 720932, 720901, 4, 786468, 720901, 5, 852004, 720901, 6, 458799, 458757, 0, 524335, 458757, 1, 589871, 458757, 2, 655407, 458757, 3, 720943, 458757, 4, 786479, 458757, 5, 852015, 458757, 6, 458800, 524293, 0, 524336, 524293, 1, 589872, 524293, 2, 655408, 524293, 3, 720944, 524293, 4, 786480, 524293, 5, 852016, 524293, 6, 458801, 589829, 0, 524337, 589829, 1, 589873, 589829, 2, 655409, 589829, 3, 720945, 589829, 4, 786481, 589829, 5, 852017, 589829, 6, 458802, 655365, 0, 524338, 655365, 1, 589874, 655365, 2, 655410, 655365, 3, 720946, 655365, 4, 786482, 655365, 5, 852018, 655365, 6, 458803, 720901, 0, 524339, 720901, 1, 589875, 720901, 2, 655411, 720901, 3, 720947, 720901, 4, 786483, 720901, 5, 852019, 720901, 6)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("8_8rcb2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_pnna0")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(264, 559.5)
-scale = Vector2(0.203125, 0.210938)
-texture = ExtResource("9_lyih0")
+[node name="CharacterBody2D" parent="." instance=ExtResource("8_2jdyf")]
+position = Vector2(265, 550)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(166, 437)
+metadata/_edit_group_ = true
 
 [node name="Actionable" parent="CharacterBody2D2" instance=ExtResource("10_f7vgx")]
 dialogue_resource = ExtResource("11_60ekm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Actionable"]
+position = Vector2(4, -7)
 shape = SubResource("CapsuleShape2D_57t7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(5, -6)
+scale = Vector2(0.287109, 0.285156)
+texture = ExtResource("9_lyih0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(5, -7)
+shape = SubResource("CapsuleShape2D_iv66u")

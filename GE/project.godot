@@ -18,6 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+State="*res://state.gd"
+
+[dialogue_manager]
+
+general/states=["State"]
+general/balloon_path="res://Dialogues/balloon.tscn"
 
 [dotnet]
 
