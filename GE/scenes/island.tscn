@@ -5021,7 +5021,6 @@ position = Vector2(248, 392)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(182, 408)
-metadata/_edit_group_ = true
 
 [node name="Actionable" parent="CharacterBody2D2" instance=ExtResource("10_f7vgx")]
 dialogue_resource = ExtResource("11_60ekm")

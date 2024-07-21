@@ -217,7 +217,7 @@ height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g0y3g"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Soldier" type="Node2D"]
 
 [node name="soldierBody" type="CharacterBody2D" parent="."]
 script = ExtResource("1_7j51u")
@@ -227,9 +227,7 @@ texture_filter = 1
 position = Vector2(-1, 2)
 scale = Vector2(1.35, 1.245)
 sprite_frames = SubResource("SpriteFrames_fd54w")
-animation = &"soldier_atk3"
-frame = 2
-frame_progress = 0.252615
+animation = &"soldier_atk1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="soldierBody"]
 shape = SubResource("CapsuleShape2D_7vwdo")
