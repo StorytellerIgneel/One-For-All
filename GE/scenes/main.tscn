@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://btuw5xqm7pobk"]
 
-[ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/volcanoe_tiles.png" id="1_klr0n"]
-[ext_resource type="Texture2D" uid="uid://bcif60hbbv8lc" path="res://resources/tilemap/volcanoe_assets.png" id="2_5o3a8"]
-[ext_resource type="Texture2D" uid="uid://boxqj18f10og4" path="res://resources/tilemap/Screenshot 2024-07-10 163305.png" id="3_4rufr"]
+[ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_klr0n"]
+[ext_resource type="Texture2D" uid="uid://bcif60hbbv8lc" path="res://resources/tilemap/island/volcanoe_assets.png" id="2_5o3a8"]
+[ext_resource type="Texture2D" uid="uid://boxqj18f10og4" path="res://resources/tilemap/island/Screenshot 2024-07-10 163305.png" id="3_4rufr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uksdp"]
 texture = ExtResource("1_klr0n")

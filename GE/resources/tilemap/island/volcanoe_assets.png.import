@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjwnl2l0qs5hk"
-path="res://.godot/imported/decorations.png-9cebeb9f8df718822995e504a9e14f7e.ctex"
+uid="uid://bcif60hbbv8lc"
+path="res://.godot/imported/volcanoe_assets.png-f8d4f9d2641e18870a24bf24a0cf536e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tilemap/decorations.png"
-dest_files=["res://.godot/imported/decorations.png-9cebeb9f8df718822995e504a9e14f7e.ctex"]
+source_file="res://resources/tilemap/island/volcanoe_assets.png"
+dest_files=["res://.godot/imported/volcanoe_assets.png-f8d4f9d2641e18870a24bf24a0cf536e.ctex"]
 
 [params]
 

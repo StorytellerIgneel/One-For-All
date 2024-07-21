@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6rwcpf2t6gcf"
-path="res://.godot/imported/water_and_island_tiles_v2.png-d49f530b4d0f24128471c50ea783a48e.ctex"
+uid="uid://bjwnl2l0qs5hk"
+path="res://.godot/imported/decorations.png-c411d7141d9d815c7b3a9655631cb302.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tilemap/water_and_island_tiles_v2.png"
-dest_files=["res://.godot/imported/water_and_island_tiles_v2.png-d49f530b4d0f24128471c50ea783a48e.ctex"]
+source_file="res://resources/tilemap/island/decorations.png"
+dest_files=["res://.godot/imported/decorations.png-c411d7141d9d815c7b3a9655631cb302.ctex"]
 
 [params]
 

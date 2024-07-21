@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv78b50cpohbb"
-path="res://.godot/imported/dirtpath_tiles.png-b150e619950b29894aa4d8f54f4f3673.ctex"
+uid="uid://c5w8vqmc2qkoj"
+path="res://.godot/imported/fence_tiles.png-c89e6f394b1320e0dbd0981a110c757e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tilemap/dirtpath_tiles.png"
-dest_files=["res://.godot/imported/dirtpath_tiles.png-b150e619950b29894aa4d8f54f4f3673.ctex"]
+source_file="res://resources/tilemap/island/fence_tiles.png"
+dest_files=["res://.godot/imported/fence_tiles.png-c89e6f394b1320e0dbd0981a110c757e.ctex"]
 
 [params]
 

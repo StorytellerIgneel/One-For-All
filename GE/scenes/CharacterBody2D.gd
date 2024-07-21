@@ -15,7 +15,7 @@ func _physics_process(delta):
 	#	velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("uiAccept"):
+	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()

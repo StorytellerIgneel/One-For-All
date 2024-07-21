@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnajayo25kiv"
-path="res://.godot/imported/terrain_tiles_v2.png-27c23f2fcb30cac09d5cc944d9dff552.ctex"
+uid="uid://bpp48bsxserc"
+path="res://.godot/imported/Screenshot 2024-07-10 163418.png-814d5b0aca3298dd174df32b13c2d8c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tilemap/terrain_tiles_v2.png"
-dest_files=["res://.godot/imported/terrain_tiles_v2.png-27c23f2fcb30cac09d5cc944d9dff552.ctex"]
+source_file="res://resources/tilemap/island/Screenshot 2024-07-10 163418.png"
+dest_files=["res://.godot/imported/Screenshot 2024-07-10 163418.png-814d5b0aca3298dd174df32b13c2d8c7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcif60hbbv8lc"
-path="res://.godot/imported/volcanoe_assets.png-ff5ee2deeaa215c42a3b2fb797e48011.ctex"
+uid="uid://bbhomgtkiw5hj"
+path="res://.godot/imported/volcanoe_tiles.png-60c228d71fa1bf9e3ad2671eb5a36b45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tilemap/volcanoe_assets.png"
-dest_files=["res://.godot/imported/volcanoe_assets.png-ff5ee2deeaa215c42a3b2fb797e48011.ctex"]
+source_file="res://resources/tilemap/island/volcanoe_tiles.png"
+dest_files=["res://.godot/imported/volcanoe_tiles.png-60c228d71fa1bf9e3ad2671eb5a36b45.ctex"]
 
 [params]
 
