@@ -1,0 +1,161 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1fsqqtnxv5a7"]
+
+[ext_resource type="Script" path="res://UI/Menu/main.gd" id="1_rxlim"]
+[ext_resource type="Texture2D" uid="uid://brh3sesksn1ky" path="res://UI/Menu/asset/PNG/panel_blue.png" id="2_fbp2e"]
+[ext_resource type="Texture2D" uid="uid://cbc453xi4sivj" path="res://UI/Menu/asset/PNG/panelInset_beige.png" id="3_af6er"]
+[ext_resource type="Texture2D" uid="uid://co86eddxjynp5" path="res://UI/Menu/asset/PNG/buttonLong_grey.png" id="4_26y0u"]
+[ext_resource type="Texture2D" uid="uid://dtc088wq2aosf" path="res://UI/Menu/asset/PNG/buttonLong_brown_pressed.png" id="5_8devv"]
+[ext_resource type="Texture2D" uid="uid://bp5jf2gbrtx8b" path="res://UI/Menu/asset/PNG/arrowSilver_left.png" id="6_8p5ml"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxlim")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.996078, 0.843137, 0, 1)
+
+[node name="BluePanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -213.5
+offset_right = 160.5
+offset_bottom = 213.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fbp2e")
+
+[node name="Label" type="Label" parent="BluePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.997
+anchor_bottom = 0.134
+offset_right = -0.0370178
+offset_bottom = 0.0459995
+theme_override_font_sizes/font_size = 20
+text = "Super awsome game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WhitePanel" type="TextureRect" parent="BluePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_af6er")
+
+[node name="MarginContainer" type="MarginContainer" parent="BluePanel/WhitePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_right = 2.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BluePanel/WhitePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="SoundBtn" type="TextureButton" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_26y0u")
+texture_pressed = ExtResource("5_8devv")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer/SoundBtn"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Sound
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BrightnessBtn" type="TextureButton" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_26y0u")
+texture_pressed = ExtResource("5_8devv")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer/BrightnessBtn"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Brightness
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BackBtn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 463.0
+offset_right = 522.0
+offset_bottom = 529.0
+texture_normal = ExtResource("6_8p5ml")
+texture_pressed = ExtResource("5_8devv")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BackBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -11.5
+offset_right = 18.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+
+[connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/SoundBtn" to="." method="_on_sound_btn_pressed"]
+[connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/BrightnessBtn" to="." method="_on_brightness_btn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_texture_button_pressed"]

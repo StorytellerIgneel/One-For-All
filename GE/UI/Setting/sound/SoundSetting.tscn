@@ -1,0 +1,158 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbam3lfx8oqm4"]
+
+[ext_resource type="Script" path="res://UI/Setting/sound/setting.gd" id="1_sg2o4"]
+[ext_resource type="Script" path="res://UI/Setting/sound/AudioOptions.gd" id="2_rvx15"]
+
+[node name="SettingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sg2o4")
+
+[node name="AudioOptions" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_rvx15")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.225
+anchor_top = 2.625
+anchor_right = 19.725
+anchor_bottom = 11.675
+offset_left = -3.05176e-05
+offset_right = 0.000427246
+offset_bottom = 0.000152588
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterLabel" type="Label" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Master
+"
+
+[node name="MasterSlider" type="HSlider" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="MusicLabel" type="Label" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Music
+"
+
+[node name="MusicSlider" type="HSlider" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="SFXLabel" type="Label" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="ConfirmBtn" type="Button" parent="AudioOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.15
+anchor_top = 12.425
+anchor_right = 23.275
+anchor_bottom = 13.85
+offset_left = -1.00006
+offset_top = 6.0
+offset_right = -1.00006
+offset_bottom = 3.0
+
+[node name="Label" type="Label" parent="AudioOptions/ConfirmBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -11.5
+offset_right = 31.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm
+"
+
+[node name="MainMenuBtn" type="Button" parent="AudioOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.15
+anchor_top = 12.425
+anchor_right = 23.275
+anchor_bottom = 13.85
+offset_left = -246.0
+offset_top = 7.0
+offset_right = -246.0
+offset_bottom = 4.0
+
+[node name="Label" type="Label" parent="AudioOptions/MainMenuBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -11.5
+offset_right = 31.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="BackBtn" type="Button" parent="AudioOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.7
+anchor_top = 12.425
+anchor_right = 16.825
+anchor_bottom = 13.95
+offset_left = -242.0
+offset_top = 6.0
+offset_right = -242.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="AudioOptions/BackBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -11.5
+offset_right = 18.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+
+[connection signal="mouse_exited" from="AudioOptions/VBoxContainer/MasterSlider" to="AudioOptions" method="_on_master_slider_2_mouse_exited"]
+[connection signal="mouse_exited" from="AudioOptions/VBoxContainer/MusicSlider" to="AudioOptions" method="_on_music_slider_2_mouse_exited"]
+[connection signal="mouse_exited" from="AudioOptions/VBoxContainer/SFXSlider" to="AudioOptions" method="_on_sfx_slider_3_mouse_exited"]
+[connection signal="pressed" from="AudioOptions/ConfirmBtn" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="AudioOptions/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="AudioOptions/BackBtn" to="." method="_on_back_btn_pressed"]

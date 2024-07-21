@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var _anim = $AnimatedSprite2D
+@onready var actionable_finder = $Direction/ActionableFinder
 
 const maxSpeed: int = 100
 const accel:int = 10000
@@ -15,7 +16,18 @@ func _ready():
 func _physics_process(delta):
 	player_movement(delta)
 	mc_animate()
+	check_interact()
 	pass
+
+func check_interact():
+	if Input.is_action_just_pressed("Interact"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		print(actionables)
+		if actionables.size() > 0:
+			var actionable = actionables[0]
+			print(actionable.name)
+			actionable.action()
+		return
 	
 func get_input():
 	inputAxis.x = int(Input.is_action_pressed("toRight")) - int(Input.is_action_pressed("toLeft"))

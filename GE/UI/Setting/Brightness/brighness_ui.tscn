@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cptdu8wsduf1i"]
+
+[ext_resource type="Script" path="res://UI/Setting/Brightness/HSlider.gd" id="1_6wbxf"]
+
+[node name="BrighnessUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -8.0
+offset_right = 195.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+script = ExtResource("1_6wbxf")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+light_mask = 0
+offset_left = 377.0
+offset_top = 396.0
+offset_right = 786.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Can you see me!!"
+
+[connection signal="value_changed" from="CanvasLayer/BrightnessSlider" to="CanvasLayer/BrightnessSlider" method="_on_value_changed"]
