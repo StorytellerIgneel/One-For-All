@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://fxg3457ek2u4"]
+[gd_scene load_steps=48 format=3 uid="uid://fxg3457ek2u4"]
 
 [ext_resource type="Script" path="res://characters/char_soldier/soldierBody.gd" id="1_7j51u"]
 [ext_resource type="Texture2D" uid="uid://cex0e5wjtq4wh" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile000.png" id="2_opkda"]
@@ -212,14 +212,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vwdo"]
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0y3g"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="soldierBody" type="CharacterBody2D" parent="."]
 script = ExtResource("1_7j51u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="soldierBody"]
+texture_filter = 1
+position = Vector2(-1, 2)
+scale = Vector2(1.35, 1.245)
 sprite_frames = SubResource("SpriteFrames_fd54w")
 animation = &"soldier_atk3"
-frame_progress = 0.7584
+frame = 2
+frame_progress = 0.252615
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="soldierBody"]
+shape = SubResource("CapsuleShape2D_7vwdo")
+
+[node name="Direction" type="Marker2D" parent="soldierBody"]
+
+[node name="ActionableFinder" type="Area2D" parent="soldierBody/Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="soldierBody/Direction/ActionableFinder"]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_g0y3g")
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="soldierBody"]
+zoom = Vector2(4, 4)

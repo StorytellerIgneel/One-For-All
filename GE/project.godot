@@ -33,6 +33,10 @@ project/assembly_name="GE"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[gui]
+
+fonts/fullsize=false
+
 [input]
 
 toLeft={
