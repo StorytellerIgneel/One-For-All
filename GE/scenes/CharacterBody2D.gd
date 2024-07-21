@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var actionable_finder = $Direction/ActionableFinder
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -15,8 +16,9 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("uiAccept"):
-		velocity.y = JUMP_VELOCITY
-		DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/main.dialogue"), "start")
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
 		return
 
 	# Get the input direction and handle the movement/deceleration.
@@ -26,5 +28,11 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	var directionY = Input.get_axis("ui_down", "ui_up")
+	if direction:
+		velocity.y = direction * SPEED
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
