@@ -28,7 +28,6 @@ func check_interact():
 			var actionable = actionables[0]
 			isInteracting = true
 			actionable.action()
-			isInteracting = false
 	else:
 		isInteracting = false
 		return
