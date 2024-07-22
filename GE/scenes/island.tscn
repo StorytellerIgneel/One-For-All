@@ -5057,17 +5057,3 @@ texture = ExtResource("9_lyih0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 position = Vector2(5, -7)
 shape = SubResource("CapsuleShape2D_iv66u")
-<<<<<<< HEAD
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 225.0
-offset_top = 312.0
-offset_right = 342.0
-offset_bottom = 343.0
-text = "sadasdasdasd"
-
-[connection signal="pressed" from="Button" to="CharacterBody2D2/Actionable" method="_on_button_pressed"]
-=======
->>>>>>> a2206c486668334559519552e57dfc7d34dd105a
