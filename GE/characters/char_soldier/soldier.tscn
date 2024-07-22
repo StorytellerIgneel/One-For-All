@@ -235,7 +235,6 @@ shape = SubResource("CapsuleShape2D_7vwdo")
 [node name="Direction" type="Marker2D" parent="soldierBody"]
 
 [node name="ActionableFinder" type="Area2D" parent="soldierBody/Direction"]
-collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="soldierBody/Direction/ActionableFinder"]

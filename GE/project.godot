@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://state.gd"
 GlobalWorldEnvironment="*res://UI/Setting/Brightness/world_environment.tscn"
-BgMusic="*res://UI/Setting/sound/BG_Music.tscn"
 
 [dialogue_manager]
 
