@@ -15,7 +15,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	player_movement(delta)
+	if (!isInteracting):
+		player_movement(delta)
 	mc_animate()
 	check_interact()
 	pass
@@ -30,6 +31,7 @@ func check_interact():
 			actionable.action()
 			isInteracting = false
 		return
+		
 	
 func get_input():
 	inputAxis.x = int(Input.is_action_pressed("toRight")) - int(Input.is_action_pressed("toLeft"))
@@ -38,17 +40,16 @@ func get_input():
 	pass
 	
 func player_movement(delta):
-	if (!isInteracting):
-		inputAxis = get_input()
-		if inputAxis == Vector2.ZERO:
-			if velocity.length() > (friction * delta): #check if char still moving
-				velocity -= velocity.normalized() * (friction * delta) #if char still got velocity, decrease it
-			else: 
-				velocity = Vector2.ZERO
-		else: #increase the velocity until the max limit
-			velocity += (inputAxis * accel * delta) #acceleration
-			velocity = velocity.limit_length(maxSpeed) #limiter
-		move_and_slide()#moves in accordance to built-in velocity values
+	inputAxis = get_input()
+	if inputAxis == Vector2.ZERO:
+		if velocity.length() > (friction * delta): #check if char still moving
+			velocity -= velocity.normalized() * (friction * delta) #if char still got velocity, decrease it
+		else: 
+			velocity = Vector2.ZERO
+	else: #increase the velocity until the max limit
+		velocity += (inputAxis * accel * delta) #acceleration
+		velocity = velocity.limit_length(maxSpeed) #limiter
+	move_and_slide()#moves in accordance to built-in velocity values
 	pass
 
 func mc_animate():
