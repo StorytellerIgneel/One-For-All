@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0xuqxmmanleb"]
+[gd_scene load_steps=28 format=3 uid="uid://0xuqxmmanleb"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_bd66d"]
 [ext_resource type="Texture2D" uid="uid://d3k35yg7pyknr" path="res://resources/tilemap/island/ground_decorations.png" id="2_quoqe"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="9_lyih0"]
 [ext_resource type="Resource" uid="uid://dc843ggjkm6nk" path="res://Dialogues/house.dialogue" id="9_mpb5p"]
 [ext_resource type="PackedScene" uid="uid://dwcrojx5ok7aq" path="res://scenes/actionable.tscn" id="10_f7vgx"]
+[ext_resource type="Script" path="res://scenes/NextLevel.gd" id="10_vu5fh"]
 [ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="11_60ekm"]
+[ext_resource type="Resource" uid="uid://ebx5agme1ch1" path="res://Dialogues/NextLevel.dialogue" id="11_loqbq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_bd66d")
@@ -4978,6 +4980,8 @@ sources/6 = SubResource("TileSetAtlasSource_pwqwk")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgyuw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmo8l"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57t7x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv66u"]
@@ -5014,6 +5018,19 @@ light_mask = 17
 visibility_layer = 17
 shape = SubResource("CapsuleShape2D_lgyuw")
 
+[node name="NextLevel" type="Area2D" parent="TileMap"]
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("10_vu5fh")
+dialogue_resource = ExtResource("11_loqbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/NextLevel"]
+light_mask = 17
+visibility_layer = 17
+z_index = 1
+position = Vector2(666, 15)
+shape = SubResource("RectangleShape2D_tmo8l")
+
 [node name="CollisionMap" type="TileMap" parent="."]
 texture_filter = 1
 texture_repeat = 2
@@ -5037,7 +5054,7 @@ z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(254, 397)
+position = Vector2(670, 70)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(182, 408)

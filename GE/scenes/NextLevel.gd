@@ -13,7 +13,12 @@ func action() -> void:
 	var balloon: Node = balloon.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(dialogue_resource, dialogue_start)
+	if (State.NextLevel == true):
+		get_tree().change_scene_to_file("res://scenes/beach.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://UI/Setting/KeyBinding/input_settings.tscn")

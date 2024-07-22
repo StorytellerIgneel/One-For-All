@@ -15,21 +15,22 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if (!isInteracting):
-		player_movement(delta)
 	mc_animate()
 	check_interact()
+	if (!isInteracting):
+		player_movement(delta)
 	pass
 
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
-		print(actionables)
 		if actionables.size() > 0:
 			var actionable = actionables[0]
-			print(actionable.name)
+			isInteracting = true
 			actionable.action()
 			isInteracting = false
+	else:
+		isInteracting = false
 		return
 		
 	

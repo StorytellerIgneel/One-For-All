@@ -1,0 +1,8 @@
+~ start
+
+Mysterious Voice: Go to Next Level?
+- Continue the adventure
+	set State.NextLevel = true
+- Stay in this level for some more time.
+
+=> END
