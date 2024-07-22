@@ -1,0 +1,11 @@
+~ start
+
+Player: This is my house
+- Go inside
+	Player: Its still early..
+- Second one
+	Player: Time for adventure!
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END

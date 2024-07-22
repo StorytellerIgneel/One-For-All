@@ -1,17 +1,5 @@
 ~ start
 
 Gay: Hi FUck
-if apple_status == "has":
-	Gay: I have an apple.
-	- Give to fuck
-		set apple_status = "gave"
-		Gay: Here you go
-		Fuck: Thanks
-	-Keep ot
-		Gay: But its mine
-		Fuck: No wonder ur gay
-elif apple_status == "gave":
-	Fuck: thanks for the shiet once agn
-else
-	Fuck: I wish I had a gay
+
 => END!
