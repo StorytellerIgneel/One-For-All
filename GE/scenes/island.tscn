@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://0xuqxmmanleb"]
+[gd_scene load_steps=34 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
+[ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
 [ext_resource type="Texture2D" uid="uid://d3k35yg7pyknr" path="res://resources/tilemap/island/ground_decorations.png" id="2_qqb63"]
 [ext_resource type="Texture2D" uid="uid://c5w8vqmc2qkoj" path="res://resources/tilemap/island/fence_tiles.png" id="3_5u7mj"]
 [ext_resource type="Texture2D" uid="uid://cv78b50cpohbb" path="res://resources/tilemap/island/dirtpath_tiles.png" id="4_u2hna"]
@@ -4995,6 +4996,7 @@ size = Vector2(20, 21)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-3, -5)
+script = ExtResource("1_who21")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -5050,6 +5052,7 @@ position = Vector2(222, 577)
 shape = SubResource("RectangleShape2D_pihc3")
 
 [node name="CollisionMap" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 texture_repeat = 2
 tile_set = SubResource("TileSet_5744t")
@@ -5087,7 +5090,7 @@ position = Vector2(5, -7)
 shape = SubResource("CapsuleShape2D_iv66u")
 
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
-position = Vector2(636, 375)
+position = Vector2(214, 571)
 
 [node name="slime" parent="." instance=ExtResource("18_aqvnu")]
 position = Vector2(681, 282)

@@ -3,13 +3,13 @@ extends Node
 var NextLevel: bool = false
 
 const balloon_scene = preload("res://Dialogues/balloon.tscn")
-@export var dialogue_resource_path: String = "res://Dialogues/NewGame.dialogue"
-@export var dialogue_start: String = "tutorial"
+@onready var dialogue_resource_path: String = "res://Dialogues/NewGame.dialogue"
+@onready var dialogue_start: String = "start"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
 var dialogue_resource: DialogueResource
-var balloon: Control
+var balloon: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
