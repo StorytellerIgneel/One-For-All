@@ -1,0 +1,250 @@
+[gd_scene load_steps=48 format=3 uid="uid://d3rnnyrkhevw5"]
+
+[ext_resource type="Script" path="res://characters/char_soldier/soldier_v2.gd" id="1_8j6si"]
+[ext_resource type="Texture2D" uid="uid://cex0e5wjtq4wh" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile000.png" id="1_w5oxu"]
+[ext_resource type="Texture2D" uid="uid://3slikryh57km" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile001.png" id="2_egdnp"]
+[ext_resource type="Texture2D" uid="uid://smyc2la74ui7" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile002.png" id="3_vyyis"]
+[ext_resource type="Texture2D" uid="uid://c61dgpi13ghei" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile003.png" id="4_053ce"]
+[ext_resource type="Texture2D" uid="uid://bqf3iigorn7ca" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile004.png" id="5_ijw73"]
+[ext_resource type="Texture2D" uid="uid://14m6m0wc5f1g" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile005.png" id="6_p1yqp"]
+[ext_resource type="Texture2D" uid="uid://g8lgwy6od5n" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile000.png" id="7_sheyw"]
+[ext_resource type="Texture2D" uid="uid://ct3hswmokhx4l" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile001.png" id="8_iudhy"]
+[ext_resource type="Texture2D" uid="uid://blpn2m5hio3t4" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile002.png" id="9_dbvxk"]
+[ext_resource type="Texture2D" uid="uid://cll1vsipumpid" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile003.png" id="10_40t1p"]
+[ext_resource type="Texture2D" uid="uid://c8w4pwl77ksl6" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile004.png" id="11_te36v"]
+[ext_resource type="Texture2D" uid="uid://ch86cuat1duv2" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack02/tile005.png" id="12_j8ywt"]
+[ext_resource type="Texture2D" uid="uid://bv8b8xbdgpd5w" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile000.png" id="13_whyda"]
+[ext_resource type="Texture2D" uid="uid://rct8snpdkof4" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile001.png" id="14_c4vkb"]
+[ext_resource type="Texture2D" uid="uid://b83bvm0yxoldm" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile002.png" id="15_e4xd4"]
+[ext_resource type="Texture2D" uid="uid://bk2dcdye0juu6" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile003.png" id="16_rwfyp"]
+[ext_resource type="Texture2D" uid="uid://ds0cm8dn0aivf" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile004.png" id="17_lb6w4"]
+[ext_resource type="Texture2D" uid="uid://b2pwqrvghpb4k" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile005.png" id="18_qbvid"]
+[ext_resource type="Texture2D" uid="uid://yy60mwgvno7e" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile006.png" id="19_dw71c"]
+[ext_resource type="Texture2D" uid="uid://dubtfhxk4k3mj" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile007.png" id="20_7fj2p"]
+[ext_resource type="Texture2D" uid="uid://b6iosa68p1i63" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack03/tile008.png" id="21_bly1p"]
+[ext_resource type="Texture2D" uid="uid://cy0j1m7p18pyx" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Death/tile000.png" id="22_lfbu6"]
+[ext_resource type="Texture2D" uid="uid://bt3if2giavvyp" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Death/tile001.png" id="23_3i6lf"]
+[ext_resource type="Texture2D" uid="uid://c7ici0b3ahass" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Death/tile002.png" id="24_rwfx3"]
+[ext_resource type="Texture2D" uid="uid://bny1qiunep7im" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Death/tile003.png" id="25_xluwn"]
+[ext_resource type="Texture2D" uid="uid://btmbon5xi7dae" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Hurt/tile000.png" id="26_giw8r"]
+[ext_resource type="Texture2D" uid="uid://7x16ea07beir" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Hurt/tile001.png" id="27_gbsoh"]
+[ext_resource type="Texture2D" uid="uid://i0d5e1belc05" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Hurt/tile002.png" id="28_0aima"]
+[ext_resource type="Texture2D" uid="uid://d2tpvj7hu0b0v" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Hurt/tile003.png" id="29_xrqyu"]
+[ext_resource type="Texture2D" uid="uid://pgnleojqqkqe" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile000.png" id="30_65r5j"]
+[ext_resource type="Texture2D" uid="uid://ce4tc1a0trplw" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile001.png" id="31_3gfn3"]
+[ext_resource type="Texture2D" uid="uid://ds11hcd4hkfic" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile002.png" id="32_15i8u"]
+[ext_resource type="Texture2D" uid="uid://1u6u2npk8o3s" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile003.png" id="33_hmx0s"]
+[ext_resource type="Texture2D" uid="uid://cmt7eavfimksx" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile004.png" id="34_3vyw5"]
+[ext_resource type="Texture2D" uid="uid://dcbd2ipljguix" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Idle/tile005.png" id="35_dhohm"]
+[ext_resource type="Texture2D" uid="uid://cjmdx48xttth5" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile000.png" id="36_5ybhi"]
+[ext_resource type="Texture2D" uid="uid://yiavv0p8bxxa" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile001.png" id="37_xpsmw"]
+[ext_resource type="Texture2D" uid="uid://chk3a2wo5cq7w" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile002.png" id="38_qbxw3"]
+[ext_resource type="Texture2D" uid="uid://ywg8okntvhux" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile003.png" id="39_hgjfu"]
+[ext_resource type="Texture2D" uid="uid://dh171ado82qfc" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile004.png" id="40_hy3nb"]
+[ext_resource type="Texture2D" uid="uid://dmrwxqffeex0c" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile005.png" id="41_aifrl"]
+[ext_resource type="Texture2D" uid="uid://crwqklr5ibflk" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile006.png" id="42_w803x"]
+[ext_resource type="Texture2D" uid="uid://d3px0tcntxla2" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile007.png" id="43_bgv5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v83k4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_es4cr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w5oxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_egdnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vyyis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_053ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ijw73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p1yqp")
+}],
+"loop": true,
+"name": &"soldier_atk1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_sheyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iudhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dbvxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_40t1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_te36v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j8ywt")
+}],
+"loop": true,
+"name": &"soldier_atk2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_whyda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c4vkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_e4xd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rwfyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lb6w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qbvid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dw71c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7fj2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bly1p")
+}],
+"loop": true,
+"name": &"soldier_atk3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_lfbu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3i6lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rwfx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xluwn")
+}],
+"loop": true,
+"name": &"soldier_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_giw8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gbsoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0aima")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xrqyu")
+}],
+"loop": true,
+"name": &"soldier_hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_65r5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3gfn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_15i8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hmx0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_3vyw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_dhohm")
+}],
+"loop": true,
+"name": &"soldier_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_5ybhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_xpsmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_qbxw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_hgjfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_hy3nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_aifrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_w803x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_bgv5a")
+}],
+"loop": true,
+"name": &"soldier_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_op44t"]
+
+[node name="soldierV2" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_8j6si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v83k4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 2)
+scale = Vector2(1.35, 1.245)
+sprite_frames = SubResource("SpriteFrames_es4cr")
+animation = &"soldier_atk1"
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_op44t")
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(1.35, 1.245)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 2496
+limit_bottom = 1280

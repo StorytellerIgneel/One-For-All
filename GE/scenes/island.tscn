@@ -4980,7 +4980,8 @@ sources/6 = SubResource("TileSetAtlasSource_pwqwk")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgyuw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmo8l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyep"]
+size = Vector2(20, 21)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57t7x"]
 
@@ -5028,8 +5029,8 @@ dialogue_resource = ExtResource("11_loqbq")
 light_mask = 17
 visibility_layer = 17
 z_index = 1
-position = Vector2(666, 15)
-shape = SubResource("RectangleShape2D_tmo8l")
+position = Vector2(671, 14)
+shape = SubResource("RectangleShape2D_tpyep")
 
 [node name="CollisionMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -5054,7 +5055,7 @@ z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(670, 70)
+position = Vector2(668, 57)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(182, 408)
