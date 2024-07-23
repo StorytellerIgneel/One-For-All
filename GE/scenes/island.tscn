@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=35 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="17_koqes"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
+[ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="21_khr7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -5098,3 +5099,6 @@ position = Vector2(681, 282)
 
 [node name="elite_orc" parent="." instance=ExtResource("19_fvp73")]
 position = Vector2(692, 414)
+
+[node name="slimeV2" parent="." instance=ExtResource("21_khr7d")]
+position = Vector2(343, 385)
