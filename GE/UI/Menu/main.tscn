@@ -176,6 +176,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/LevelSelectionBtn" to="." method="_on_level_selection_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

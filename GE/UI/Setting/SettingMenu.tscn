@@ -151,6 +151,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="Restart" type="TextureButton" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_26y0u")
+texture_pressed = ExtResource("5_8devv")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Restart"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Restart
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="BackBtn" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 428.0
@@ -179,5 +201,7 @@ text = "Back"
 
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/SoundBtn" to="." method="_on_sound_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/BrightnessBtn" to="." method="_on_brightness_btn_pressed"]
-[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Key Binds" to="." method="_on_key_binds_pressed"]
+[connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
