@@ -5049,6 +5049,7 @@ position = Vector2(222, 577)
 shape = SubResource("RectangleShape2D_pihc3")
 
 [node name="CollisionMap" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 texture_repeat = 2
 tile_set = SubResource("TileSet_5744t")
