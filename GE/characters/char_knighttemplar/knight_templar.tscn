@@ -1,5 +1,6 @@
-[gd_scene load_steps=72 format=3 uid="uid://c784f7qx2xtm8"]
+[gd_scene load_steps=73 format=3 uid="uid://c784f7qx2xtm8"]
 
+[ext_resource type="Script" path="res://characters/char_knighttemplar/knight_templar.gd" id="1_u0uwf"]
 [ext_resource type="Texture2D" uid="uid://b8xgbmb6lm7i1" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack01.png" id="1_ujr5h"]
 [ext_resource type="Texture2D" uid="uid://chgbsarx2koco" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack02.png" id="2_aonst"]
 [ext_resource type="Texture2D" uid="uid://kwuqwkg6oa0t" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack03.png" id="3_e1pp5"]
@@ -480,14 +481,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Knight Templar" type="Node2D"]
+[node name="knight_templar" type="CharacterBody2D"]
+script = ExtResource("1_u0uwf")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kebcc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_edjes")
 animation = &"k.templar_walk2"
 frame_progress = 0.834321

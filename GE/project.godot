@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="GE"
+run/main_scene="res://scenes/island.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GlobalWorldEnvironment="*res://UI/Setting/Brightness/world_environment.tscn"
 State="*res://scenes/state.gd"
+GlobalWorldEnvironment="*res://UI/Setting/Brightness/world_environment.tscn"
 
 [dialogue_manager]
 
