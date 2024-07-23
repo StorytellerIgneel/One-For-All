@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://0xuqxmmanleb"]
+[gd_scene load_steps=33 format=3 uid="uid://0xuqxmmanleb"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Texture2D" uid="uid://d3k35yg7pyknr" path="res://resources/tilemap/island/ground_decorations.png" id="2_qqb63"]
@@ -14,10 +14,11 @@
 [ext_resource type="Script" path="res://scenes/NewGame.gd" id="12_jp7r0"]
 [ext_resource type="Resource" uid="uid://b6r725k3eij5v" path="res://Dialogues/NewGame.dialogue" id="13_u4vgq"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
-[ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="14_vkukb"]
 [ext_resource type="PackedScene" uid="uid://dwcrojx5ok7aq" path="res://scenes/actionable.tscn" id="15_etfqd"]
 [ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="16_g0imf"]
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="17_koqes"]
+[ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
+[ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -5086,10 +5087,11 @@ texture = ExtResource("17_koqes")
 position = Vector2(5, -7)
 shape = SubResource("CapsuleShape2D_iv66u")
 
-[node name="slimeV2" parent="." instance=ExtResource("14_vkukb")]
-position = Vector2(746, 369)
-collision_layer = 1
-collision_mask = 1
-
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 position = Vector2(636, 375)
+
+[node name="slime" parent="." instance=ExtResource("18_aqvnu")]
+position = Vector2(681, 282)
+
+[node name="elite_orc" parent="." instance=ExtResource("19_fvp73")]
+position = Vector2(692, 414)
