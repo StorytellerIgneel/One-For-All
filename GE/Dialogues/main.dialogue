@@ -1,5 +1,7 @@
 ~ start
 
-Gay: Hi FUck
+set State.is_dialogue_active = true
+Gay: Hi There
+set State.is_dialogue_active = false
 
 => END!

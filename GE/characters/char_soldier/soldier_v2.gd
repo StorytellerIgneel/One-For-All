@@ -14,7 +14,6 @@ const maxSpeed: int = 100
 const accel:int = 10000
 const friction:int = 1000
 
-var isInteracting = false;
 var inputAxis = Vector2.ZERO
 
 func _ready():
@@ -22,10 +21,10 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if(!isInteracting):
+	if(not State.is_dialogue_active):
 		player_movement(delta)
-	mc_animate()
-	check_interact()
+		mc_animate()
+		check_interact()
 	enemy_attack()
 	attack()
 	
@@ -39,13 +38,12 @@ func _physics_process(delta):
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
-		print(actionables)
 		if actionables.size() > 0:
+			State.is_dialogue_active = true
 			var actionable = actionables[0]
-			print(actionable.name)
 			actionable.action()
-			isInteracting = false
-		return
+	State.is_dialogue_active = false
+	return
 	
 func get_input():
 	inputAxis.x = int(Input.is_action_pressed("toRight")) - int(Input.is_action_pressed("toLeft"))

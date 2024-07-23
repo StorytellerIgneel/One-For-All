@@ -1,5 +1,6 @@
 ~ start
 
+set State.is_dialogue_active = true
 Mysterious Voice: Welcome to the lands of sword and magic. 
 Mysterious Voice: Here, you will go through an indellible adventure.
 Mysterious Voice: But first, are you an experienced warrior? Or a novice adventurer?
@@ -8,5 +9,6 @@ Mysterious Voice: But first, are you an experienced warrior? Or a novice adventu
 	Mysterious Voice: Obviously we have no budget yet so yeah. Enjoy!
 - I've kicked the ass of this world's boss. (Skip tutorial)
 	Mysterious Voice: Well... Enjoy then! Ciao
+set State.is_dialogue_active = false
 
 => END

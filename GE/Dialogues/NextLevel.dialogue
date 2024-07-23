@@ -1,8 +1,10 @@
 ~ start
 
+set State.is_dialogue_active = true
 Mysterious Voice: Go to Next Level?
 - Continue the adventure
 	set State.NextLevel = true
 - Stay in this level for some more time.
+set State.is_dialogue_active = false
 
 => END

@@ -12,6 +12,7 @@ func action() -> void:
 	#DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 	var balloon: Node = balloon.instantiate()
 	get_tree().current_scene.add_child(balloon)
+	State.is_dialogue_active = true
 	balloon.start(dialogue_resource, dialogue_start)
 	if (State.NextLevel == true):
 		get_tree().change_scene_to_file("res://scenes/beach.tscn")
