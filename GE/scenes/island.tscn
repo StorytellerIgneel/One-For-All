@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=33 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -18,9 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="17_koqes"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
-[ext_resource type="Script" path="res://scenes/minimap.gd" id="20_idpw8"]
-[ext_resource type="Script" path="res://scenes/Node2D.gd" id="21_beu06"]
 [ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="21_khr7d"]
+[ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -4993,7 +4992,7 @@ size = Vector2(20, 21)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv66u"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
 position = Vector2(-3, -5)
 script = ExtResource("1_who21")
 
@@ -5081,7 +5080,7 @@ shape = SubResource("CapsuleShape2D_iv66u")
 
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
-position = Vector2(210, 568)
+position = Vector2(219, 565)
 
 [node name="slime" parent="." instance=ExtResource("18_aqvnu")]
 position = Vector2(681, 282)
@@ -5092,27 +5091,17 @@ position = Vector2(692, 414)
 [node name="slimeV2" parent="." instance=ExtResource("21_khr7d")]
 position = Vector2(343, 385)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-offset_left = 298.0
-offset_top = 502.0
-offset_right = 338.0
-offset_bottom = 542.0
-
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(40, 40)
-render_target_update_mode = 4
-script = ExtResource("20_idpw8")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(568, 320)
 zoom = Vector2(0.1, 0.1)
+script = ExtResource("22_qtekk")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer"]
-position = Vector2(20, 20)
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("21_beu06")
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 27.0
+grow_horizontal = 0

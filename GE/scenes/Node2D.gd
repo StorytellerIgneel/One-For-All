@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var output_file_path: String = "res://tilemap_export.png"
+@export var output_file_path: String = "es://tilemap_export.png"
 
 func _ready():
 	# Get the TileMap node

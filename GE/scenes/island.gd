@@ -10,6 +10,9 @@ const balloon_scene = preload("res://Dialogues/balloon.tscn")
 var game_paused = false
 var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
+@onready var viewport = get_parent().get_node("SubViewport1")
+@onready var camera = $SubViewport/Camera2D
+@onready var tilemap = $TileMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

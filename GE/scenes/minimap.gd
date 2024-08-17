@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	camera.position = owner.find_child("soldierV2").position
+	camera.position = owner.position - Vector2(200, 100)
