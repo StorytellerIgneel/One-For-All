@@ -15,9 +15,9 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
-const maxSpeed: int = 100
-const accel:int = 10000
-const friction:int = 1000
+var maxSpeed: int = 100
+var accel:int = 10000
+var friction:int = 1000
 
 var inputAxis = Vector2.ZERO
 var water_region: Area2D
@@ -71,13 +71,14 @@ func check_environment():
 				inWater_cooldown = true
 				$inWaterTimer.start()
 		elif (actionables[1] == muddy_region):
-			pass #muddyregion physics
+			maxSpeed = 30
 			
 	else: #section for cooling all level down
 		if (outWater_cooldown == false):
 			OutWaterRegion.emit()
 			outWater_cooldown = true
 			$outWaterTimer.start()
+		maxSpeed = 100
 	return
 
 func _on_inWaterTimer_timeout():

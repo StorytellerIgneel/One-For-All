@@ -12,11 +12,9 @@ var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
 
 @onready var viewport = get_parent().get_node("SubViewport1")
-@onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
 @onready var muddyRegion = $TileMap/muddyRegion
 @onready var player = $soldierV2
-@onready var oxygenLevel = $OxygenLevel/ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,9 +33,6 @@ func _ready():
 		balloon.start(dialogue_resource, dialogue_start)
 	else:
 		print("Error: 'start' method not found in balloon instance.")
-	
-	player.InWaterRegion.connect(inWater)
-	player.OutWaterRegion.connect(outWater)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -51,14 +46,4 @@ func _unhandled_input(event):
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
-		  
-func inWater():
-	oxygenLevel.value = oxygenLevel.value + 10
-	if (oxygenLevel.value == 100):
-		player.health = 0;
-
-func outWater():
-	if(oxygenLevel.value > 0):
-		oxygenLevel.value = oxygenLevel.value - 10
-		if (oxygenLevel.value < 0):
-			oxygenLevel.value = 0
+		
