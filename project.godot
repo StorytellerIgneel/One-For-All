@@ -32,7 +32,7 @@ project/assembly_name="GE"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
