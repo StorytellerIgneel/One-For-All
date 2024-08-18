@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbde0dirn3o6c"]
+
+[ext_resource type="PackedScene" uid="uid://cmxtfp3qbiolb" path="res://UI/HUD/Skill/Skill.tscn" id="1_en0t8"]
+[ext_resource type="Script" path="res://UI/HUD/Skill/ActionBar.gd" id="1_wjwxc"]
+[ext_resource type="Texture2D" uid="uid://cxsr7o7l2u7rv" path="res://UI/HUD/Skill/Thunder.png" id="3_0i88l"]
+[ext_resource type="Texture2D" uid="uid://74ygb3po1orl" path="res://UI/HUD/Skill/Wind.png" id="4_0h7ld"]
+[ext_resource type="Texture2D" uid="uid://dknelqipry2la" path="res://UI/HUD/Skill/HellFire.png" id="5_yt4pj"]
+[ext_resource type="Texture2D" uid="uid://cfaqj272s16d6" path="res://UI/HUD/Skill/Water.png" id="6_em0q2"]
+
+[node name="Skill_gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.0123, 0.985531)
+script = ExtResource("1_wjwxc")
+
+[node name="SpellButton" parent="ActionBar" instance=ExtResource("1_en0t8")]
+layout_mode = 2
+texture_normal = ExtResource("3_0i88l")
+
+[node name="SpellButton2" parent="ActionBar" instance=ExtResource("1_en0t8")]
+layout_mode = 2
+texture_normal = ExtResource("4_0h7ld")
+
+[node name="SpellButton3" parent="ActionBar" instance=ExtResource("1_en0t8")]
+layout_mode = 2
+texture_normal = ExtResource("5_yt4pj")
+
+[node name="SpellButton4" parent="ActionBar" instance=ExtResource("1_en0t8")]
+layout_mode = 2
+texture_normal = ExtResource("6_em0q2")
