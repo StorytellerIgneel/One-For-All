@@ -10,10 +10,11 @@ const balloon_scene = preload("res://Dialogues/balloon.tscn")
 var game_paused = false
 var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
+
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
-@onready var water_region = $WaterRegion
+@onready var water_region = $TileMap/WaterRegion
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
@@ -21,6 +22,7 @@ var balloon: CanvasLayer
 func _ready():
 	# Load the dialogue resource directly from the path
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource
+	print(water_region)
 	player.set_water_region(water_region)
 	
 	if dialogue_resource == null:
@@ -36,6 +38,7 @@ func _ready():
 		print("Error: 'start' method not found in balloon instance.")
 	
 	player.InWaterRegion.connect(inWater)
+	player.OutWaterRegion.connect(outWater)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -51,4 +54,10 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 		  
 func inWater():
-	oxygenLevel.value = 10
+	oxygenLevel.value = oxygenLevel.value + 10
+
+func outWater():
+	if(oxygenLevel.value > 0):
+		oxygenLevel.value = oxygenLevel.value - 10
+		if (oxygenLevel.value < 0):
+			oxygenLevel.value = 0

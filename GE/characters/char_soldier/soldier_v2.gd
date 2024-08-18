@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 signal InWaterRegion
+signal OutWaterRegion
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
+var inWater_cooldown = false
+var outWater_cooldown = false
 var health = 100
 var player_alive = true
-`var attack_ip = false
-@onread var
+var attack_ip = false
+
 @onready var _anim = $AnimatedSprite2D
 @onready var actionable_finder = $Direction/ActionableFinder
 
@@ -20,8 +23,11 @@ var water_region: Area2D
 
 func set_water_region(region: Area2D):
 	water_region = region
+	print(water_region)
 
 func _ready():
+	$inWaterTimer.connect("timeout", _on_inWaterTimer_timeout)
+	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
 	_anim.play("soldier_idle")
 	pass
 
@@ -53,11 +59,25 @@ func check_interact():
 
 func check_environment():
 	var actionables = actionable_finder.get_overlapping_areas()
-	
 	if actionables.size() > 0:
-		print(actionables[0] == water_region)
-		InWaterRegion.emit()
+		if (actionables[0] == water_region):
+			if (inWater_cooldown == false):
+				print("InWater")
+				InWaterRegion.emit()
+				inWater_cooldown = true
+				$inWaterTimer.start()
+	else: #section for cooling all level down
+		if (outWater_cooldown == false):
+			OutWaterRegion.emit()
+			outWater_cooldown = true
+			$outWaterTimer.start()
 	return
+
+func _on_inWaterTimer_timeout():
+	inWater_cooldown = false
+
+func _on_outWaterTimer_timeout():
+	outWater_cooldown = false
 	
 func get_input():
 	inputAxis.x = int(Input.is_action_pressed("toRight")) - int(Input.is_action_pressed("toLeft"))

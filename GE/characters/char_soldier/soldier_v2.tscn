@@ -264,7 +264,9 @@ wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 
-[node name="waterTimer" type="Timer" parent="."]
+[node name="inWaterTimer" type="Timer" parent="."]
+
+[node name="outWaterTimer" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
