@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
+signal InWaterRegion
+
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
-
-var attack_ip = false
-
+`var attack_ip = false
+@onread var
 @onready var _anim = $AnimatedSprite2D
 @onready var actionable_finder = $Direction/ActionableFinder
 
@@ -15,6 +16,10 @@ const accel:int = 10000
 const friction:int = 1000
 
 var inputAxis = Vector2.ZERO
+var water_region: Area2D
+
+func set_water_region(region: Area2D):
+	water_region = region
 
 func _ready():
 	_anim.play("soldier_idle")
@@ -25,6 +30,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		mc_animate()
 		check_interact()
+	check_environment()
 	enemy_attack()
 	attack()
 	
@@ -34,7 +40,7 @@ func _physics_process(delta):
 		print("player has been killed")
 		self.queue_free()
 	pass
-
+	
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
@@ -43,6 +49,14 @@ func check_interact():
 			var actionable = actionables[0]
 			actionable.action()
 	State.is_dialogue_active = false
+	return
+
+func check_environment():
+	var actionables = actionable_finder.get_overlapping_areas()
+	
+	if actionables.size() > 0:
+		print(actionables[0] == water_region)
+		InWaterRegion.emit()
 	return
 	
 func get_input():
