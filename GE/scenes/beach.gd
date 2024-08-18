@@ -3,8 +3,8 @@ extends Node
 var NextLevel: bool = false
 
 const balloon_scene = preload("res://Dialogues/balloon.tscn")
-@onready var dialogue_resource_path: String = "res://Dialogues/NewGame.dialogue"
-@onready var dialogue_start: String = "start"
+@onready var dialogue_resource_path: String = "res://Dialogues/beach.dialogue"
+@onready var dialogue_start: String = "beach_start"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
@@ -14,7 +14,7 @@ var balloon: CanvasLayer
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
-@onready var water_region = $TileMap/WaterRegion
+@onready var muddyRegion = $TileMap/muddyRegion
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
@@ -22,8 +22,7 @@ var balloon: CanvasLayer
 func _ready():
 	# Load the dialogue resource directly from the path
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource
-	print(water_region)
-	player.set_water_region(water_region)
+	player.set_muddy_region(muddyRegion)
 	
 	if dialogue_resource == null:
 		print("Error: Failed to load dialogue resource.")

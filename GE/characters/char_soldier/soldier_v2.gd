@@ -13,6 +13,7 @@ var attack_ip = false
 
 @onready var _anim = $AnimatedSprite2D
 @onready var actionable_finder = $Direction/ActionableFinder
+@onready var body_interactor = $player_hitbox
 
 const maxSpeed: int = 100
 const accel:int = 10000
@@ -20,11 +21,14 @@ const friction:int = 1000
 
 var inputAxis = Vector2.ZERO
 var water_region: Area2D
+var muddy_region: Area2D
 
 func set_water_region(region: Area2D):
 	water_region = region
-	print(water_region)
 
+func set_muddy_region(region: Area2D):
+	muddy_region = region
+	
 func _ready():
 	$inWaterTimer.connect("timeout", _on_inWaterTimer_timeout)
 	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
@@ -58,14 +62,17 @@ func check_interact():
 	return
 
 func check_environment():
-	var actionables = actionable_finder.get_overlapping_areas()
-	if actionables.size() > 0:
-		if (actionables[0] == water_region):
+	var actionables = body_interactor.get_overlapping_areas()
+	if actionables.size() > 1:
+		if (actionables[1] == water_region):
 			if (inWater_cooldown == false):
 				print("InWater")
 				InWaterRegion.emit()
 				inWater_cooldown = true
 				$inWaterTimer.start()
+		elif (actionables[1] == muddy_region):
+			pass #muddyregion physics
+			
 	else: #section for cooling all level down
 		if (outWater_cooldown == false):
 			OutWaterRegion.emit()
