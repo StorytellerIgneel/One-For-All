@@ -41,11 +41,9 @@ func _ready():
 	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	_anim.play("soldier_idle")
-	print(fire_region)
 	pass
 
 func _physics_process(delta):
-	print(State.is_dialogue_active)
 	if(State.is_dialogue_active == false):
 		player_movement(delta)
 		mc_animate()

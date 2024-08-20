@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 const fireBallPath = preload("res://characters/fireball.tscn")
 
@@ -11,12 +11,12 @@ var target: Node2D = null
 func _ready():
 	pass
 
-#func _physics_process(delta):
-#	var angle_to_target = global_position.direction_to(target.global_position)
-#	rayCast.global_rotation = angle_to_target
+func _physics_process(delta):
+	var angle_to_target = global_position.direction_to(target.global_position)
+	rayCast.set_target_position(angle_to_target)
 	
-#	if (reloadTimer.is_stopped()):
-#		shoot()
+	if (reloadTimer.is_stopped()):
+		shoot()
 		
 func shoot():
 	rayCast.enabled = false

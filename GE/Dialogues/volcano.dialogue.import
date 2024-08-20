@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://djuw6h5wnpuc1"
+path="res://.godot/imported/volcano.dialogue-ea04c652738e97d78839215c8e0f6aa3.tres"
+
+[deps]
+
+source_file="res://Dialogues/volcano.dialogue"
+dest_files=["res://.godot/imported/volcano.dialogue-ea04c652738e97d78839215c8e0f6aa3.tres"]
+
+[params]
+
+defaults=true
