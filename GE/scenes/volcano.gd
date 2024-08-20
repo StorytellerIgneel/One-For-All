@@ -15,6 +15,7 @@ var balloon: CanvasLayer
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
 @onready var player = $soldierV2
+@onready var shooters = $volcanoShooters
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,9 +33,9 @@ func _ready():
 		balloon.start(dialogue_resource, dialogue_start)
 	else:
 		print("Error: 'start' method not found in balloon instance.")
-	
-	$volcanoShooters.target = player
-	initialize_camera_limit()
+
+	shooters.target = player
+	#initialize_camera_limit()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):

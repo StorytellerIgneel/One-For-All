@@ -220,18 +220,27 @@ animations = [{
 radius = 15.0
 
 [node name="soldierV2" type="CharacterBody2D"]
+position = Vector2(136, 80)
 collision_layer = 3
 script = ExtResource("1_8j6si")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v83k4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.90735e-06, -1.90735e-06)
 scale = Vector2(1.85437, 1.71)
 sprite_frames = SubResource("SpriteFrames_es4cr")
 animation = &"soldier_atk1"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.245, 1.245)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 2496
+limit_bottom = 1280
 
 [node name="Direction" type="Marker2D" parent="."]
 
@@ -242,15 +251,6 @@ collision_mask = 16
 position = Vector2(0, -19)
 shape = SubResource("CircleShape2D_op44t")
 metadata/_edit_group_ = true
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(-1, 2)
-scale = Vector2(1.35, 1.245)
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 2496
-limit_bottom = 1280
 
 [node name="player_hitbox" type="Area2D" parent="."]
 

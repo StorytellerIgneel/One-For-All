@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 #func _physics_process(delta):
-#	var angle_to_target = global_position.direction_to(target.global_position)
+	var angle_to_target = global_position.direction_to(target.global_position)
 #	rayCast.global_rotation = angle_to_target
 	
 #	if (reloadTimer.is_stopped()):
