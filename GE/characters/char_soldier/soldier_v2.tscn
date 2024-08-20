@@ -268,6 +268,9 @@ wait_time = 0.5
 
 [node name="outWaterTimer" type="Timer" parent="."]
 
+[node name="fireTimer" type="Timer" parent="."]
+wait_time = 0.75
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)

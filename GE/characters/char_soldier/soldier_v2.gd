@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 signal InWaterRegion
 signal OutWaterRegion
+signal InFireRegion
+signal OutFireRegion
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
 var inWater_cooldown = false
 var outWater_cooldown = false
+var fire_cooldown = false
 var health = 100
 var player_alive = true
 var attack_ip = false
@@ -22,21 +25,28 @@ var friction:int = 1000
 var inputAxis = Vector2.ZERO
 var water_region: Area2D
 var muddy_region: Area2D
+var fire_region: Array[Area2D]
 
 func set_water_region(region: Area2D):
 	water_region = region
 
 func set_muddy_region(region: Area2D):
 	muddy_region = region
+
+func set_fire_region(region: Array[Area2D]):
+	fire_region = region
 	
 func _ready():
 	$inWaterTimer.connect("timeout", _on_inWaterTimer_timeout)
 	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
+	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	_anim.play("soldier_idle")
+	print(fire_region)
 	pass
 
 func _physics_process(delta):
-	if(not State.is_dialogue_active):
+	print(State.is_dialogue_active)
+	if(State.is_dialogue_active == false):
 		player_movement(delta)
 		mc_animate()
 		check_interact()
@@ -66,28 +76,39 @@ func check_environment():
 	if actionables.size() > 1:
 		if (actionables[1] == water_region):
 			if (inWater_cooldown == false):
-				print("InWater")
 				InWaterRegion.emit()
 				inWater_cooldown = true
 				$inWaterTimer.start()
 		elif (actionables[1] == muddy_region):
 			maxSpeed = 30
+		elif (actionables[1] in fire_region):
+			if (fire_cooldown == false):
+				InFireRegion.emit()
+				fire_cooldown = true
+				$fireTimer.start()
 			
 	else: #section for cooling all level down
 		if (outWater_cooldown == false):
 			OutWaterRegion.emit()
 			outWater_cooldown = true
 			$outWaterTimer.start()
+		OutFireRegion.emit()
 		maxSpeed = 100
 	return
-
+	
+	
 func _on_inWaterTimer_timeout():
 	inWater_cooldown = false
 
 func _on_outWaterTimer_timeout():
 	outWater_cooldown = false
+
+func _on_fireTimer_timeout():
+	fire_cooldown = false
 	
 func get_input():
+	if (State.is_dialogue_active == true):
+		return
 	inputAxis.x = int(Input.is_action_pressed("toRight")) - int(Input.is_action_pressed("toLeft"))
 	inputAxis.y = int(Input.is_action_pressed("toDown")) - int(Input.is_action_pressed("toUp"))
 	return inputAxis.normalized()#set values as normalised [0, +1, or -1]
@@ -137,7 +158,6 @@ func player():
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = true
-
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
