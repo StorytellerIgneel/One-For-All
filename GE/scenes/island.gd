@@ -53,7 +53,10 @@ func _unhandled_input(event):
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
-		  
+	
+	if event.is_action_pressed("NextMap"):
+		get_tree().change_scene_to_file("res://scenes/beach.tscn")
+		
 func inWater():
 	oxygenLevel.value = oxygenLevel.value + 10
 	if (oxygenLevel.value == 100):

@@ -225,7 +225,7 @@ collision_layer = 3
 script = ExtResource("1_8j6si")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollide" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v83k4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -234,7 +234,7 @@ scale = Vector2(1.85437, 1.71)
 sprite_frames = SubResource("SpriteFrames_es4cr")
 animation = &"soldier_atk1"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
 zoom = Vector2(4, 4)
 limit_left = 0

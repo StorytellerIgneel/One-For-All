@@ -7,6 +7,7 @@ const balloon_scene = preload("res://Dialogues/balloon.tscn")
 @onready var dialogue_start: String = "volcano_start"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
+var fireball = load("res://characters/fireball.tscn")
 var game_paused = false
 var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
@@ -34,6 +35,7 @@ func _ready():
 	else:
 		print("Error: 'start' method not found in balloon instance.")
 
+	shooters.playerHit2.connect(player_hit_by_fireball)
 	shooters.target = player
 	#initialize_camera_limit()
 
@@ -51,6 +53,8 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 
 func initialize_camera_limit():
-	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
-	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
-	print($soldierV2/PlayerCamera.limit_right)
+	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 32
+	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 32
+
+func player_hit_by_fireball():
+	player.health -= 10

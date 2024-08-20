@@ -1169,7 +1169,7 @@ position = Vector2(554, 581)
 visible = false
 
 [node name="volcanoShooters" parent="." instance=ExtResource("2_pbncq")]
-position = Vector2(541, 514)
+position = Vector2(581, 79)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

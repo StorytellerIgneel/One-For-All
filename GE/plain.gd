@@ -3,8 +3,8 @@ extends Node
 var NextLevel: bool = false
 
 const balloon_scene = preload("res://Dialogues/balloon.tscn")
-@onready var dialogue_resource_path: String = "res://Dialogues/plain.dialogue"
-@onready var dialogue_start: String = "start"
+@onready var dialogue_resource_path: String = "res://Dialogues/volcano.dialogue"
+@onready var dialogue_start: String = "volcano_start"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
@@ -34,11 +34,23 @@ func _ready():
 	else:
 		print("Error: 'start' method not found in balloon instance.")
 	
-	player.InWaterRegion.connect(inWater)
-	player.OutWaterRegion.connect(outWater)
-	
 	initialize_camera_limit()
 
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		game_paused = !game_paused
+		
+		if game_paused:
+			Engine.time_scale = 0
+			pause_menu.visible = true
+		else:
+			Engine.time_scale = 1
+			pause_menu.visible = false
+			
+		get_tree().root.get_viewport().set_input_as_handled()
+	
+	if event.is_action_pressed("NextMap"):
+		get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -35,6 +35,9 @@ func set_muddy_region(region: Area2D):
 
 func set_fire_region(region: Array[Area2D]):
 	fire_region = region
+
+func get_hitbox():
+	return $player_hitbox
 	
 func _ready():
 	$inWaterTimer.connect("timeout", _on_inWaterTimer_timeout)
