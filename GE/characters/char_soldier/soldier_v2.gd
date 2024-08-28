@@ -126,9 +126,12 @@ func mc_animate():
 func player():
 	pass
 
-func _on_player_hitbox_body_entered(body):
+func _on_player_hitbox_body_entered(body, area):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = true
+		
+	if area.has_method("collect"):
+		area.collect()
 
 
 func _on_player_hitbox_body_exited(body):
@@ -163,3 +166,7 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
 	attack_ip = false
+
+func _on_hurt_box_area_entered(area):
+	if area.has_method("collecting"):
+		area.collecting()

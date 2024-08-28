@@ -6,7 +6,6 @@ extends TextureButton
 @onready var key = $Key
 
 # Adjust the size of the btn in Skill_gui through SpellButton in skill scene, layout --> custom minimum size
-
 var change_key = "":
 	set(value):
 		change_key = value

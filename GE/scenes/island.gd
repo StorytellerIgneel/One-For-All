@@ -61,3 +61,8 @@ func outWater():
 		oxygenLevel.value = oxygenLevel.value - 10
 		if (oxygenLevel.value < 0):
 			oxygenLevel.value = 0
+			
+func _on_hurt_box_area_entered(area):
+	if area.has_method("_collecting"):
+		area._collecting()
+		

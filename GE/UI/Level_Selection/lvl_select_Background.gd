@@ -34,6 +34,9 @@ func change_to_scene(level_num: int):
 			
 func animatorGridPosition(finalValue):	create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).tween_property(grid_container, "position:x", finalValue, 0.5)
 
-
 func _on_back_btn_pressed():
 	get_tree().change_scene_to_file("res://UI/Menu/main.tscn")
+
+func _on_loading_btn_pressed():
+	LoadManager.load_scene("res://scenes/island.tscn")
+
