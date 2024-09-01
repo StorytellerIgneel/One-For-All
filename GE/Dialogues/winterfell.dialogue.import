@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bwfk6yo7xcmie"
+path="res://.godot/imported/winterfell.dialogue-6a9748057b5ce4ae307bf39f8091564d.tres"
+
+[deps]
+
+source_file="res://Dialogues/winterfell.dialogue"
+dest_files=["res://.godot/imported/winterfell.dialogue-6a9748057b5ce4ae307bf39f8091564d.tres"]
+
+[params]
+
+defaults=true

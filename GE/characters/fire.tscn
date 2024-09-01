@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw6gfhe4b8hsb"]
+
+[ext_resource type="Texture2D" uid="uid://cwexvsvbk12bg" path="res://resources/tilemap/christmas-village-asset-pack/fireplace.png" id="1_7ij2n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mxnt"]
+radius = 56.5685
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mn6lo"]
+
+[node name="Fire" type="CharacterBody2D"]
+
+[node name="Fire" type="Area2D" parent="."]
+
+[node name="fireRegion" type="CollisionShape2D" parent="Fire"]
+shape = SubResource("CircleShape2D_4mxnt")
+
+[node name="Fireplace" type="Sprite2D" parent="Fire/fireRegion"]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(1.48437, 1.5)
+texture = ExtResource("1_7ij2n")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_mn6lo")

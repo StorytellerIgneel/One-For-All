@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d3rnnyrkhevw5"]
+[gd_scene load_steps=49 format=3 uid="uid://d3rnnyrkhevw5"]
 
 [ext_resource type="Script" path="res://characters/char_soldier/soldier_v2.gd" id="1_8j6si"]
 [ext_resource type="Texture2D" uid="uid://cex0e5wjtq4wh" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile000.png" id="1_w5oxu"]
@@ -44,8 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://dmrwxqffeex0c" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile005.png" id="41_aifrl"]
 [ext_resource type="Texture2D" uid="uid://crwqklr5ibflk" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile006.png" id="42_w803x"]
 [ext_resource type="Texture2D" uid="uid://d3px0tcntxla2" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Walk/tile007.png" id="43_bgv5a"]
-[ext_resource type="Script" path="res://scenes/minimap.gd" id="45_7m45w"]
-[ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="46_5hr5i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v83k4"]
 
@@ -222,18 +220,27 @@ animations = [{
 radius = 15.0
 
 [node name="soldierV2" type="CharacterBody2D"]
+position = Vector2(136, 80)
 collision_layer = 3
 script = ExtResource("1_8j6si")
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollide" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v83k4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.19209e-07, 0.875002)
-scale = Vector2(1.35, 1.2625)
+scale = Vector2(1.85437, 1.71)
 sprite_frames = SubResource("SpriteFrames_es4cr")
 animation = &"soldier_atk1"
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+scale = Vector2(1.245, 1.245)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 2496
+limit_bottom = 1280
 
 [node name="Direction" type="Marker2D" parent="."]
 
@@ -244,15 +251,6 @@ collision_mask = 16
 position = Vector2(0, -19)
 shape = SubResource("CircleShape2D_op44t")
 metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 2)
-scale = Vector2(1.35, 1.245)
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 2496
-limit_bottom = 1280
 
 [node name="player_hitbox" type="Area2D" parent="."]
 
@@ -268,25 +266,8 @@ wait_time = 0.5
 
 [node name="outWaterTimer" type="Timer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(150, 290)
-transform = Transform2D(1, 0, 0, 1, 150, 290)
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-offset_right = 100.0
-offset_bottom = 100.0
-
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(100, 100)
-render_target_update_mode = 4
-script = ExtResource("45_7m45w")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-texture = ExtResource("46_5hr5i")
-centered = false
-
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+[node name="fireTimer" type="Timer" parent="."]
+wait_time = 0.75
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

@@ -1,0 +1,8 @@
+~ beach_start
+
+set State.is_dialogue_active = true
+Mysterious Voice: Welcome to the beach map.
+Mysterious Voice: Beware of the muds! It can slow you down. 
+set State.is_dialogue_active = false
+
+=> END
