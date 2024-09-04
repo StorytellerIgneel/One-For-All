@@ -18,6 +18,7 @@ var balloon: CanvasLayer
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load the dialogue resource directly from the pat
@@ -69,11 +70,18 @@ func outWater():
 			oxygenLevel.value = 0
 			
 func _on_hurt_box_area_entered(area):
-	if area.has_method("_collecting"):
-		area._collecting()
+	if area.has_method("collect"):
+		area.collect()
 		
 
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
 	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
 	print($soldierV2/PlayerCamera.limit_right)
+
+
+func _on_inventory_gui_closed():
+	get_tree().paused = false
+
+func _on_inventory_gui_opened():
+	get_tree().paused = true

@@ -68,7 +68,3 @@ func mc_animate():
 		_anim.play("soldier_idle")
 	pass
 pass
-
-func _on_hurt_box_area_entered(area):
-	if area.has_method("collecting"):
-		area.collecting()

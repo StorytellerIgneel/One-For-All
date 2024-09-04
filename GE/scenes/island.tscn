@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=43 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/houseInteract.gd" id="8_ov2wj"]
 [ext_resource type="Resource" uid="uid://dc843ggjkm6nk" path="res://Dialogues/house.dialogue" id="9_8o4qf"]
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="9_tehue"]
+[ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="10_2qu8q"]
 [ext_resource type="Script" path="res://scenes/NextLevel.gd" id="10_c6770"]
 [ext_resource type="Script" path="res://scenes/islandMap.gd" id="10_n6xb0"]
 [ext_resource type="Resource" uid="uid://ebx5agme1ch1" path="res://Dialogues/NextLevel.dialogue" id="11_d858f"]
@@ -22,11 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
 [ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="21_khr7d"]
-[ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="22_2cfy6"]
-[ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer.gd" id="22_2ut3c"]
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
+[ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer2.gd" id="26_w8st3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -4987,6 +4987,10 @@ texture = ExtResource("9_tehue")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sxxxu"]
+resource_name = "Collectables"
+scenes/1/scene = ExtResource("10_2qu8q")
+
 [sub_resource type="TileSet" id="TileSet_5744t"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pp55u")
@@ -4997,6 +5001,7 @@ sources/4 = SubResource("TileSetAtlasSource_6giku")
 sources/5 = SubResource("TileSetAtlasSource_fx8dw")
 sources/6 = SubResource("TileSetAtlasSource_pwqwk")
 sources/7 = SubResource("TileSetAtlasSource_cq6i3")
+sources/8 = SubResource("TileSetScenesCollectionSource_sxxxu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1egr"]
 size = Vector2(280, 48)
@@ -5050,6 +5055,8 @@ layer_3/name = "Dirtpath"
 layer_3/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 1441806, 65539, 4, 1507342, 65539, 5, 1441804, 3, 6, 1507340, 3, 7, 1441805, 65539, 6, 1507341, 65539, 7, 1441808, 65539, 6, 1507344, 65539, 7, 1441809, 131075, 6, 1507345, 131075, 7, 1441810, 65539, 6, 1507346, 65539, 7, 1441811, 131075, 6, 1507347, 131075, 7, 1441812, 131075, 4, 1507348, 131075, 5, 1245204, 3, 0, 1310740, 3, 1, 1376276, 196611, 4, 1245205, 65539, 6, 1310741, 65539, 7, 1245206, 65539, 6, 1310742, 65539, 7, 1245207, 65539, 6, 1310743, 65539, 7, 1245209, 65539, 6, 1310745, 65539, 7)
 layer_4/name = "Collisions"
 layer_4/tile_data = PackedInt32Array()
+layer_5/name = "collectables"
+layer_5/tile_data = PackedInt32Array(2424847, 8, 65536, 2228241, 8, 65536, 2228235, 8, 65536, 2293769, 8, 65536)
 script = ExtResource("10_n6xb0")
 
 [node name="WaterRegion" type="Area2D" parent="TileMap"]
@@ -5134,20 +5141,6 @@ offset_left = -48.0
 offset_bottom = 27.0
 grow_horizontal = 0
 
-[node name="CanvasLayer2#InventoryGUI" parent="." instance=ExtResource("21_7ch0l")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.5
-offset_top = -197.0
-offset_right = 308.5
-offset_bottom = 197.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)
@@ -5174,3 +5167,22 @@ texture = ExtResource("24_2yvvb")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("26_w8st3")
+
+[node name="InventoryGUI" parent="CanvasLayer2" instance=ExtResource("21_7ch0l")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.5
+offset_top = -197.0
+offset_right = 308.5
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="opened" from="CanvasLayer2/InventoryGUI" to="." method="_on_inventory_gui_opened"]

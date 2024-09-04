@@ -1,4 +1,4 @@
 extends Area2D
 
-func _collecting():
+func collect():
 	queue_free()

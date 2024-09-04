@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dv5p6ci8ntt14"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b7d1qyogbtt20"]
 
-[ext_resource type="Script" path="res://UI/HUD/Inventory/InventoryItem.gd" id="1_l4kwg"]
-[ext_resource type="Texture2D" uid="uid://bvlpgnlsggpat" path="res://UI/HUD/Inventory/HealthPot.png" id="2_l24rs"]
+[ext_resource type="Script" path="res://UI/HUD/Inventory/InventoryItem.gd" id="1_4aj73"]
+[ext_resource type="Texture2D" uid="uid://bvlpgnlsggpat" path="res://UI/HUD/Inventory/HealthPot.png" id="2_bi6s3"]
 
 [resource]
-script = ExtResource("1_l4kwg")
+script = ExtResource("1_4aj73")
 name = "lifepot"
-texture = ExtResource("2_l24rs")
+texture = ExtResource("2_bi6s3")

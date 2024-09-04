@@ -18,6 +18,8 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
+@export var inventory: Inventory
+
 var maxSpeed: int = 100
 var accel:int = 10000
 var friction:int = 1000
@@ -43,6 +45,8 @@ func _ready():
 	$inWaterTimer.connect("timeout", _on_inWaterTimer_timeout)
 	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
+	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
+	print("Signals connected")
 	_anim.play("soldier_idle")
 	pass
 
@@ -156,17 +160,14 @@ func mc_animate():
 func player():
 	pass
 
-func _on_player_hitbox_body_entered(body, area):
+func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = true
 		
-	if area.has_method("collect"):
-		area.collect()
-
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = false
-
+	
 func enemy_attack():
 	if enemy_in_atk_range and enemy_attack_cooldown ==true:
 		health = health - 5
@@ -196,6 +197,11 @@ func _on_deal_attack_timer_timeout():
 	Global.player_current_attack = false
 	attack_ip = false
 
-func _on_hurt_box_area_entered(area):
-	if area.has_method("collecting"):
-		area.collecting()
+
+
+func _on_player_hitbox_area_entered(area):
+	if area.has_method("collect"):
+		print("Collected the Item", area)
+		area.collect()
+	else:
+		print("No collect meth found for:", area)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6xojlp8xawco" path="res://UI/HUD/Inventory/slot_gui.tscn" id="2_c2ttq"]
 
 [node name="InventoryGUI" type="Control"]
-custom_minimum_size = Vector2(617, 394)
+custom_minimum_size = Vector2(123, 106)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 617.0

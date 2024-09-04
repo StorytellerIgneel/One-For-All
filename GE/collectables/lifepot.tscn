@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojyua"]
 resource_local_to_scene = true
-size = Vector2(8, 10)
+size = Vector2(10, 12)
 
 [node name="Collecttable" instance=ExtResource("1_8pryq")]
 

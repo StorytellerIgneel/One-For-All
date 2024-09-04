@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://d3rnnyrkhevw5"]
+[gd_scene load_steps=50 format=3 uid="uid://d3rnnyrkhevw5"]
 
 [ext_resource type="Script" path="res://characters/char_soldier/soldier_v2.gd" id="1_8j6si"]
 [ext_resource type="Texture2D" uid="uid://cex0e5wjtq4wh" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile000.png" id="1_w5oxu"]
 [ext_resource type="Texture2D" uid="uid://3slikryh57km" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile001.png" id="2_egdnp"]
+[ext_resource type="Resource" uid="uid://cnj53oh25x6tw" path="res://UI/HUD/Inventory/PlayerInventory.tres" id="2_n016i"]
 [ext_resource type="Texture2D" uid="uid://smyc2la74ui7" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile002.png" id="3_vyyis"]
 [ext_resource type="Texture2D" uid="uid://c61dgpi13ghei" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile003.png" id="4_053ce"]
 [ext_resource type="Texture2D" uid="uid://bqf3iigorn7ca" path="res://resources/characters/Soldier/Soldier with shadows/Soldier-Attack01/tile004.png" id="5_ijw73"]
@@ -223,6 +224,7 @@ radius = 15.0
 position = Vector2(136, 80)
 collision_layer = 3
 script = ExtResource("1_8j6si")
+inventory = ExtResource("2_n016i")
 metadata/_edit_group_ = true
 
 [node name="PlayerCollide" type="CollisionShape2D" parent="."]
@@ -269,6 +271,7 @@ wait_time = 0.5
 [node name="fireTimer" type="Timer" parent="."]
 wait_time = 0.75
 
+[connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
