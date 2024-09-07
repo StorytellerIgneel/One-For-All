@@ -260,7 +260,6 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_nyhg3")
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 
@@ -270,6 +269,14 @@ wait_time = 0.5
 
 [node name="fireTimer" type="Timer" parent="."]
 wait_time = 0.75
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 124.0
+offset_bottom = 11.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
