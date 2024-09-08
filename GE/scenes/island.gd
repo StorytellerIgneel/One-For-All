@@ -42,6 +42,7 @@ func _ready():
 	
 	initialize_camera_limit()
 
+
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		game_paused = !game_paused
@@ -57,6 +58,11 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("NextMap"):
 		get_tree().change_scene_to_file("res://scenes/beach.tscn")
+		
+	# YAP TESTING SCENE, DONT TOUCH
+	if event.is_action_pressed("YAP_TESTING_SCENE"):
+		get_tree().change_scene_to_file("res://scenes/yap_testing_scene.tscn")
+	
 		
 func inWater():
 	oxygenLevel.value = oxygenLevel.value + 10

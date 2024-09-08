@@ -336,7 +336,6 @@ shape = SubResource("CircleShape2D_jflfb")
 shape = SubResource("CircleShape2D_vwpvy")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
-wait_time = 0.5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -18,7 +18,16 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
+@export var soldier_atk1dmg = 10
+@export var soldier_atk2dmg = 15
+@export var soldier_atk3dmg = 20
+var damage = 0
+
 @export var inventory: Inventory
+
+var bow_equipped = true
+var bow_cooldown = true
+var arrow = preload("res://characters/char_soldier/arrow.tscn")
 
 var maxSpeed: int = 100
 var accel:int = 10000
@@ -125,12 +134,12 @@ func player_movement(delta):
 		velocity.x = -maxSpeed
 		velocity.y = 0
 	elif Input.is_action_pressed("toDown"):
-		current_dir = "down"
+		#current_dir = "down"
 		play_anim(1)
 		velocity.y = maxSpeed
 		velocity.x = 0
 	elif Input.is_action_pressed("toUp"):
-		current_dir = "up"
+		#current_dir = "up"
 		play_anim(1)
 		velocity.y = -maxSpeed
 		velocity.x = 0
@@ -161,21 +170,21 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("soldier_idle")
 				
-	if dir == "down":
-		#anim.flip_h = true
-		if movement == 1:
-			anim.play("soldier_walk")
-		elif movement == 0:
-			if attack_ip == false:
-				anim.play("soldier_idle")
-				
-	if dir == "up":
-		#anim.flip_h = true
-		if movement == 1:
-			anim.play("soldier_walk")
-		elif movement == 0:
-			if attack_ip == false:
-				anim.play("soldier_idle")
+	#if dir == "down":
+		##anim.flip_h = true
+		#if movement == 1:
+			#anim.play("soldier_walk")
+		#elif movement == 0:
+			#if attack_ip == false:
+				#anim.play("soldier_idle")
+				#
+	#if dir == "up":
+		##anim.flip_h = true
+		#if movement == 1:
+			#anim.play("soldier_walk")
+		#elif movement == 0:
+			#if attack_ip == false:
+				#anim.play("soldier_idle")
 
 func player():
 	pass
@@ -205,6 +214,8 @@ func attack():
 	if Input.is_action_just_pressed("atk1"):
 		Global.player_current_attack = true
 		attack_ip = true
+		damage = soldier_atk1dmg
+		print("Attack 1 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk1")
@@ -220,6 +231,7 @@ func attack():
 	if Input.is_action_just_pressed("atk2"):
 		Global.player_current_attack = true
 		attack_ip = true
+		damage = soldier_atk2dmg
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk2")
@@ -232,21 +244,23 @@ func attack():
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
 	
-	if Input.is_action_just_pressed("atk3"):
+	if Input.is_action_just_pressed("atk3") and bow_equipped and bow_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
-		if dir == "right":
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("soldier_atk3")
-			$deal_attack_timer.start()
-		if dir == "left":
-			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("soldier_atk3")
-			$deal_attack_timer.start()
-		if dir == "down" || dir == "up":
-			$AnimatedSprite2D.play("soldier_atk3")
-			$deal_attack_timer.start()
-
+		damage = soldier_atk3dmg
+		bow_cooldown = false
+		var arrow_instance = arrow.instantiate()
+		if _anim.flip_h == false:
+			arrow_instance.rotation = 0
+			arrow_instance.position = position + Vector2(10, 0) 
+		else:
+			arrow_instance.rotation = PI  # Facing left
+			arrow_instance.position = position + Vector2(-10, 0)
+		
+		add_child(arrow_instance)
+		await get_tree().create_timer(1).timeout
+		bow_cooldown = true
+		$deal_attack_timer.start()
 
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
