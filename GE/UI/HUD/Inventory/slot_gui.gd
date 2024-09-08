@@ -10,3 +10,10 @@ func insert(isg: ItemStackGui):
 	backgroundSprite.frame = 1
 	
 	container.add_child(itemStackGui)
+
+func clear() -> void:
+	if itemStackGui:
+		container.remove_child(itemStackGui)
+		itemStackGui = null
+		
+	backgroundSprite.frame = 0

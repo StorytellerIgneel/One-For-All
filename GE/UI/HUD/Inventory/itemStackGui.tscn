@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://deog8tjsaogi3"]
+[gd_scene load_steps=3 format=3 uid="uid://deog8tjsaogi3"]
 
 [ext_resource type="Script" path="res://UI/HUD/Inventory/itemStackGui.gd" id="1_12bhd"]
+[ext_resource type="Texture2D" uid="uid://spk3av82ym00" path="res://collectables/LifePot.png" id="2_x2mk7"]
 
 [node name="Panel" type="Panel"]
 script = ExtResource("1_12bhd")
 
 [node name="item" type="Sprite2D" parent="."]
 scale = Vector2(3.52778, 3.84091)
+texture = ExtResource("2_x2mk7")
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(11, 11)
