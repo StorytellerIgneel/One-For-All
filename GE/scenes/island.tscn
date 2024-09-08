@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=44 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer2.gd" id="26_w8st3"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -5184,5 +5185,19 @@ offset_right = 308.5
 offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Hotbar" parent="CanvasLayer2" instance=ExtResource("28_hq4ks")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -106.0
+offset_right = 63.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
 
 [connection signal="opened" from="CanvasLayer2/InventoryGUI" to="." method="_on_inventory_gui_opened"]

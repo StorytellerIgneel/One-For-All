@@ -202,6 +202,6 @@ func _on_deal_attack_timer_timeout():
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
 		print("Collected the Item", area)
-		area.collect()
+		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
