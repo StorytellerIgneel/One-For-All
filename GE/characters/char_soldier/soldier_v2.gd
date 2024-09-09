@@ -13,8 +13,8 @@ var enemy_attack_cooldown = true
 var inWater_cooldown = false
 var outWater_cooldown = false
 var fire_cooldown = false
-const max_health = 100
-var health = max_health
+var max_health = 100
+var health = 50
 
 #var health = 100
 var player_alive = true
@@ -74,6 +74,7 @@ func _physics_process(delta):
 	check_environment()
 	enemy_attack()
 	attack()
+	update_health()
 	
 	if health <= 0:
 		player_alive = false  # add end screen
@@ -211,6 +212,18 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print("player health = ", health)
 
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+
+func _on_regen_timer_timeout():
+	if health < max_health:
+		health = health + 0
+		if health > max_health:
+			health = max_health
+	if health <= 0:
+		health = 0
+
 func increase_health(amount: int) -> void:
 	health += amount
 	health = min(max_health, health)
@@ -294,3 +307,6 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
+
+
+
