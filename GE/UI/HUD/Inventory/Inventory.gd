@@ -64,4 +64,3 @@ func use_item_at_index(index: int) -> void:
 			##return
 			
 	updated.emit()
-	

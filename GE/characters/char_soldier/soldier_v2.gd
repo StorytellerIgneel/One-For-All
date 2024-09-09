@@ -1,16 +1,22 @@
 extends CharacterBody2D
 
+class_name Player
+
 signal InWaterRegion
 signal OutWaterRegion
 signal InFireRegion
 signal OutFireRegion
+signal healthChanged	
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
 var inWater_cooldown = false
 var outWater_cooldown = false
 var fire_cooldown = false
-var health = 100
+const max_health = 100
+var health = max_health
+
+#var health = 100
 var player_alive = true
 var attack_ip = false
 
@@ -56,6 +62,7 @@ func _ready():
 	$outWaterTimer.connect("timeout", _on_outWaterTimer_timeout)
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
+	inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("soldier_idle")
 	pass
@@ -203,6 +210,17 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print("player health = ", health)
+
+func increase_health(amount: int) -> void:
+	health += amount
+	health = min(max_health, health)
+		
+	healthChanged.emit(health)
+		
+	print("player health increase = ", health)
+	
+func use_item(item: InventoryItem) -> void:
+	item.use(self)
 
 
 func _on_attack_cooldown_timeout():
