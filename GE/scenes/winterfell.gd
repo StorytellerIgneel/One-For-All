@@ -1,61 +1,103 @@
-extends Control
+extends Node
 
-@onready var grid_container: = %GridContainer
+var NextLevel: bool = false
 
-var num_grids = 1
-var current_grid = 1
-var grid_width = 548
+const balloon_scene = preload("res://Dialogues/balloon.tscn")
+@onready var dialogue_resource_path: String = "res://Dialogues/winterfell.dialogue"
+@onready var dialogue_start: String = "winterfell_start"
+@onready var pause_menu = $CanvasLayer/InputSettings
 
-# Dictionary mapping level numbers to their corresponding scene file names
-var level_scenes = {
-	1: "res://scenes/island.tscn",
-	2: "res://plain.tscn",
-	3: "res://scenes/beach.tscn",
-	4: "res://scenes/winterfell.tscn",
-	5: "res://scenes/volcano.tscn"
-}
+var game_paused = false
+var dialogue_resource: DialogueResource
+var balloon: CanvasLayer
+var freeze_cooldown = false
+var fire_region: Array[Area2D]
+var in_fire_region = false
 
+@onready var freeze_level = $CanvasLayer/FreezeLevel
+@onready var viewport = get_parent().get_node("SubViewport1")
+@onready var camera = $SubViewport/Camera2D
+@onready var tilemap = $TileMap
+@onready var player = $soldierV2
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	num_grids = grid_container.get_child_count()
-	grid_width = grid_container.custom_minimum_size.x
-
-	setup_level_box()
+	$FreezeTimer.connect("timeout", _on_FreezeTimer_timeout)
+	fire_region.clear()
+	for child in get_children():
+		for i in range(1, 9):
+		# Get the node by name using the format "Fire" + i
+			var node_name = "Fire" + str(i)
+			var fire = get_node(node_name)
+			
+			for fireChild in fire.get_children():
+				if fireChild is Area2D:
+					fire_region.append(fireChild)
+	fire_region = fire_region.slice(0, 8)
+	player.set_fire_region(fire_region)
+	# Load the dialogue resource directly from the path
+	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	
-	connect_level_selected_to_level_box()
-
-func setup_level_box():
-	for grid in grid_container.get_children():
-		for box in grid.get_children():
-			# Adjusted level numbering and ensure it's within the level_scenes map
-			# calculate the level number for each box within a grid inside the grid_container
-			var level_num = box.get_index() + 1 + grid.get_child_count() * grid.get_index()
-			if level_scenes.has(level_num):
-				box.level_num = level_num
-				box.locked = false  # You can modify this if certain levels should remain locked
-			else:
-				box.locked = true  # Lock boxes for levels not present in the dictionary
-
-func connect_level_selected_to_level_box():
-	for grid in grid_container.get_children():
-		for box in grid.get_children():
-			box.connect("level_selected", change_to_scene)
-
-func change_to_scene(level_num: int):
+	if dialogue_resource == null:
+		print("Error: Failed to load dialogue resource.")
+		return
 	
-	# Use the level_scenes dictionary to get the correct scene based on the level number
-	if level_scenes.has(level_num):
-		var next_level = level_scenes[level_num]
-		
-		if FileAccess.file_exists(next_level):
-			get_tree().change_scene_to_file(next_level)
+	balloon = balloon_scene.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	# Check if the balloon instance has the expected method
+	if balloon.has_method("start"):
+		balloon.start(dialogue_resource, dialogue_start)
 	else:
-		print("Level does not exist for level number: ", level_num)
+		print("Error: 'start' method not found in balloon instance.")
+	
+	player.InFireRegion.connect(inFireRegion)
+	player.OutFireRegion.connect(OutFireRegion)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		game_paused = !game_paused
 		
-func animatorGridPosition(finalValue):
-	create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).tween_property(grid_container, "position:x", finalValue, 0.5)
+		if game_paused:
+			Engine.time_scale = 0
+			pause_menu.visible = true
+		else:
+			Engine.time_scale = 1
+			pause_menu.visible = false
+			
+		get_tree().root.get_viewport().set_input_as_handled()
+	
+	if event.is_action_pressed("NextMap"):
+		await LoadManager.load_scene("res://scenes/volcano.tscn")
+		
+		#get_tree().change_scene_to_file("res://scenes/volcano.tscn")
+		  
+func _physics_process(delta):
+	if (freeze_cooldown == false && !in_fire_region):
+		freeze_cooldown = true
+		freeze_level.value += 10
+		if (freeze_level.value == 100):
+			player.health = 0
+		$FreezeTimer.start()
+	
+	# the below code is having error when trying to use load_screen from winter scene to volcano scene
+	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
+	if actionables.size() > 1:
+		if (actionables[1] == $TileMap/Ice):
+			player.friction = 100
+	else:
+		player.friction = 1000
+		
 
-func _on_back_btn_pressed():
-	get_tree().change_scene_to_file("res://UI/Menu/main.tscn")
+func _on_FreezeTimer_timeout():
+	freeze_cooldown = false
 
-#func _on_loading_btn_pressed():
-		#LoadManager.load_scene("res://scenes/island.tscn")
+func inFireRegion():
+	in_fire_region = true
+	if (freeze_level.value > 0):
+		freeze_level.value -= 10
+		if (freeze_level.value < 0):
+			freeze_level.value = 0
+
+func OutFireRegion():
+	in_fire_region = false

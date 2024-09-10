@@ -57,7 +57,11 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		get_tree().change_scene_to_file("res://scenes/beach.tscn")
+		# Added Loading scene, added by Sia
+		await LoadManager.load_scene("NextMap")
+
+		# Below is the Original Code
+		# get_tree().change_scene_to_file("res://scenes/beach.tscn")
 		
 	# YAP TESTING SCENE, DONT TOUCH
 	if event.is_action_pressed("YAP_TESTING_SCENE"):

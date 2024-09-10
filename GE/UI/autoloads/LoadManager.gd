@@ -9,7 +9,6 @@ var _loaded_resource: PackedScene
 var _scene_path: String
 var _progress: Array = [0.0]  # Initialize with a default value
 
-
 var use_sub_threads : bool = true
 
 func load_scene(scene_path: String) -> void:
@@ -46,6 +45,7 @@ func _process(_delta):
 			return
 		1: # Thread_load_in_progress
 			emit_signal("progress_changed", _progress[0])
+			
 		3: # Thread_load_loaded(finished)
 			_loaded_resource = ResourceLoader.load_threaded_get(_scene_path)
 			emit_signal("progress_changed", 1.0)

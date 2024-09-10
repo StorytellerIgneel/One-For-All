@@ -102,12 +102,12 @@ anchor_left = 0.431
 anchor_top = 0.696
 anchor_right = 0.541
 anchor_bottom = 0.767
-offset_left = 619.76
-offset_top = 422.16
-offset_right = 744.36
-offset_bottom = 460.32
+offset_left = 483.76
+offset_top = 410.16
+offset_right = 608.36
+offset_bottom = 448.32
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="BackBtnBackground/BackBtn"]
 layout_mode = 1
@@ -127,46 +127,4 @@ theme_override_font_sizes/font_size = 20
 text = "Back
 "
 
-[node name="BackBtnBackground2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -25.0
-offset_right = 41.0
-offset_bottom = 15.0
-texture = ExtResource("5_03eem")
-expand_mode = 3
-
-[node name="LoadingBtn" type="Button" parent="BackBtnBackground2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.431
-anchor_top = 0.696
-anchor_right = 0.541
-anchor_bottom = 0.767
-offset_left = 323.76
-offset_top = 422.16
-offset_right = 528.36
-offset_bottom = 460.32
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="BackBtnBackground2/LoadingBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.5
-offset_top = -14.0
-offset_right = 23.5
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Test loading screen
-"
-
 [connection signal="pressed" from="BackBtnBackground/BackBtn" to="." method="_on_back_btn_pressed"]
-[connection signal="pressed" from="BackBtnBackground2/LoadingBtn" to="." method="_on_loading_btn_pressed"]

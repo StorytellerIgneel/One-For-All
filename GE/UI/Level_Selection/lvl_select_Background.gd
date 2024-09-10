@@ -41,7 +41,6 @@ func connect_level_selected_to_level_box():
 			box.connect("level_selected", change_to_scene)
 
 func change_to_scene(level_num: int):
-
 	
 	# Use the level_scenes dictionary to get the correct scene based on the level number
 	if level_scenes.has(level_num):
@@ -54,11 +53,11 @@ func change_to_scene(level_num: int):
 			
 	else:
 		print("Level does not exist for level number: ", level_num)
-		
-func _on_scene_change(next_level: String):
 	
-	await get_tree().change_scene_to_file(next_level)
-	
+# Redudant code as it will function normally as of now	
+#func _on_scene_change(next_level: String):
+	#await get_tree().change_scene_to_file(next_level)
+	#pass
 		
 func animatorGridPosition(finalValue):
 	create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).tween_property(grid_container, "position:x", finalValue, 0.5)

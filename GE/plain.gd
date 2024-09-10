@@ -50,7 +50,9 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+		await LoadManager.load_scene("res://scenes/winterfell.tscn")
+		
+		# get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
