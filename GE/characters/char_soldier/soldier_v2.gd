@@ -14,7 +14,7 @@ var inWater_cooldown = false
 var outWater_cooldown = false
 var fire_cooldown = false
 var max_health = 100
-var health = 50
+var health = max_health
 
 #var health = 100
 var player_alive = true
@@ -28,6 +28,8 @@ var attack_ip = false
 @export var soldier_atk2dmg = 15
 @export var soldier_atk3dmg = 20
 var damage = 0
+var slime
+var damage_deal
 
 @export var inventory: Inventory
 
@@ -65,6 +67,7 @@ func _ready():
 	inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("soldier_idle")
+	slime = get_node("../slimeV2")
 	pass
 
 func _physics_process(delta):
@@ -207,7 +210,10 @@ func _on_player_hitbox_body_exited(body):
 	
 func enemy_attack():
 	if enemy_in_atk_range and enemy_attack_cooldown ==true:
-		health = health - 5
+		
+		# fetch the damage from the slime
+		damage_deal = slime.slime_atk1dmg
+		health = health - damage_deal
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print("player health = ", health)
@@ -280,7 +286,18 @@ func attack():
 		attack_ip = true
 		damage = soldier_atk3dmg
 		bow_cooldown = false
+		
+		# Play attack animation
+		$AnimatedSprite2D.play("soldier_atk3")
+		
+		# Wait for animation to finish
+		await $AnimatedSprite2D.animation_finished
+		
+		# Create and configure arrow instance
 		var arrow_instance = arrow.instantiate()
+		arrow_instance.damage = soldier_atk3dmg # Pass damage to the arrow
+		
+		# Check which direction of soldier is facing and set arrow direction
 		if _anim.flip_h == false:
 			arrow_instance.rotation = 0
 			arrow_instance.position = position + Vector2(10, 0) 
@@ -289,6 +306,8 @@ func attack():
 			arrow_instance.position = position + Vector2(-10, 0)
 		
 		add_child(arrow_instance)
+		
+		# Cooldown for bow attack
 		await get_tree().create_timer(1).timeout
 		bow_cooldown = true
 		$deal_attack_timer.start()
@@ -307,6 +326,4 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
-
-
 

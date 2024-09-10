@@ -320,7 +320,7 @@ script = ExtResource("1_pq6gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e85s5")
-animation = &"slime_walk"
+animation = &"slime_atk1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ec1n0")

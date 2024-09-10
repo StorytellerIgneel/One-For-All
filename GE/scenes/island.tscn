@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="16_g0imf"]
 [ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="17_koqes"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
-[ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
+[ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/enemy_elite_orc/elite_orc.tscn" id="19_fvp73"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
 [ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="21_khr7d"]
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
