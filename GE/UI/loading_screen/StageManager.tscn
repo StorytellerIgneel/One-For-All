@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdj7553q3qaxf"]
+
+[ext_resource type="Script" path="res://UI/loading_screen/StageManager.gd" id="1_7p5am"]
+
+[node name="StageManager" type="CanvasLayer"]
+script = ExtResource("1_7p5am")

@@ -7,7 +7,8 @@ var _load_screen_path: String = "res://UI/loading_screen/loading_screen.tscn"
 var _load_screen = load(_load_screen_path)
 var _loaded_resource: PackedScene
 var _scene_path: String
-var _progress: Array = []
+var _progress: Array = [0.0]  # Initialize with a default value
+
 
 var use_sub_threads : bool = true
 
@@ -19,6 +20,10 @@ func load_scene(scene_path: String) -> void:
 	
 	self.progress_changed.connect(new_loading_screen._update_progress_bar)
 	self.load_done.connect(new_loading_screen._start_outro_animation)
+	
+	#self.new_loading_screen.connect("progress_changed", new_loading_screen, "_update_progress_bar")
+	#self.connect("load_done", new_loading_screen, "_start_outro_animation")
+
 	
 	await Signal(new_loading_screen, "loading_screen_has_full_coverage")
 	

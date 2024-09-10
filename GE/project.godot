@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GE"
-run/main_scene="res://scenes/island.tscn"
+run/main_scene="res://UI/Level_Selection/lvl_select_Background.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/island.tscn"
@@ -23,6 +23,7 @@ GlobalWorldEnvironment="*res://UI/Setting/Brightness/world_environment.tscn"
 State="*res://scenes/state.gd"
 Global="*res://global.gd"
 LoadManager="*res://UI/autoloads/LoadManager.gd"
+StageManager="*res://UI/loading_screen/StageManager.tscn"
 
 [dialogue_manager]
 
