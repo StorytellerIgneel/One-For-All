@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf3dv0v4kfd4x"]
+[gd_scene load_steps=5 format=3 uid="uid://cf3dv0v4kfd4x"]
 
+[ext_resource type="PackedScene" uid="uid://bjr0ac1slekh" path="res://characters/npc_wizard/wizard.tscn" id="2_t7fh7"]
 [ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="2_y242t"]
-[ext_resource type="PackedScene" uid="uid://c784f7qx2xtm8" path="res://characters/char_knighttemplar/knight_templar.tscn" id="3_kgggd"]
+[ext_resource type="PackedScene" uid="uid://65as8q566h5r" path="res://characters/npc_priest/priest.tscn" id="3_cbf5d"]
+[ext_resource type="PackedScene" uid="uid://ky0yh3cnd3bm" path="res://characters/npc_archer/archer.tscn" id="4_uumtu"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="slimeV2" parent="." instance=ExtResource("2_y242t")]
-position = Vector2(350, 184)
+position = Vector2(510, 331)
 
-[node name="knight_templar" parent="." instance=ExtResource("3_kgggd")]
-position = Vector2(189, 188)
+[node name="wizard" parent="." instance=ExtResource("2_t7fh7")]
+position = Vector2(183, 181)
+
+[node name="priest" parent="." instance=ExtResource("3_cbf5d")]
+position = Vector2(183, 223)
+
+[node name="archer" parent="." instance=ExtResource("4_uumtu")]
+position = Vector2(209, 225)
