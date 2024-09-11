@@ -39,7 +39,9 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		get_tree().change_scene_to_file("res://plain.tscn")
+		await LoadManager.load_scene("res://plain.tscn")
+		
+		# get_tree().change_scene_to_file("res://plain.tscn")
 		
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16

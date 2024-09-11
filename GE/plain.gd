@@ -44,6 +44,10 @@ func _unhandled_input(event):
 		else:
 			pass
 		
+	await LoadManager.load_scene("res://scenes/winterfell.tscn")
+		
+		# get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

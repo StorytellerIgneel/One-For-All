@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceukadlwicamv"]
+[gd_scene load_steps=8 format=3 uid="uid://ceukadlwicamv"]
 
 [ext_resource type="Texture2D" uid="uid://b8mpqrlmowyiv" path="res://UI/Setting/Time/ui_9patchrect.png" id="1_hdpwf"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_ui.gd" id="1_kqywh"]
+[ext_resource type="LabelSettings" uid="uid://bl8qtlr3ngeny" path="res://UI/Setting/Time/label_settings.tres" id="3_3jasb"]
+[ext_resource type="Texture2D" uid="uid://d1ng24tf788pp" path="res://UI/Setting/Time/time_gui.png" id="4_sno6c"]
+[ext_resource type="LabelSettings" uid="uid://deussixtej6so" path="res://UI/Setting/Time/hours_label_settings.tres" id="5_1cej6"]
+[ext_resource type="LabelSettings" uid="uid://cxm1j2iwd7j5f" path="res://UI/Setting/Time/space_label_settings.tres" id="6_nxyqd"]
+[ext_resource type="LabelSettings" uid="uid://cpkowknqor1sp" path="res://UI/Setting/Time/min_label_settings.tres" id="7_r8cj2"]
 
 [node name="TImeGui" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 200.0
-offset_bottom = 94.0
+offset_right = 184.0
+offset_bottom = 124.0
 script = ExtResource("1_kqywh")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 384.0
-offset_bottom = 268.0
+offset_right = 167.0
+offset_bottom = 123.0
 texture = ExtResource("1_hdpwf")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 7
@@ -23,54 +28,94 @@ patch_margin_bottom = 7
 
 [node name="DayControl" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 9.0
-offset_right = 154.0
-offset_bottom = 86.0
+offset_left = 33.0
+offset_top = 9.0
+offset_right = 158.0
+offset_bottom = 52.0
 
 [node name="days" type="Label" parent="DayControl"]
 layout_mode = 0
-offset_left = 131.0
-offset_top = 52.0
-offset_right = 218.0
-offset_bottom = 121.0
+offset_left = 39.0
+offset_top = 2.0
+offset_right = 90.0
+offset_bottom = 44.0
 theme_override_font_sizes/font_size = 50
 text = "999"
-horizontal_alignment = 1
+label_settings = ExtResource("3_3jasb")
+horizontal_alignment = 2
+
+[node name="SunBG" type="Sprite2D" parent="DayControl"]
+position = Vector2(13.75, 24.25)
+scale = Vector2(2.18421, 1.80556)
+texture = ExtResource("4_sno6c")
+region_enabled = true
+region_rect = Rect2(46, 15, 19, 18)
+
+[node name="Sun" type="Sprite2D" parent="DayControl"]
+position = Vector2(15.5, 26.5)
+scale = Vector2(1.88889, 1.7)
+texture = ExtResource("4_sno6c")
+region_enabled = true
+region_rect = Rect2(47, 1, 18, 15)
 
 [node name="ClockBG" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 113.0
-offset_bottom = 74.0
+offset_left = 2.0
+offset_top = 63.0
+offset_right = 161.0
+offset_bottom = 95.0
+texture = ExtResource("4_sno6c")
+region_rect = Rect2(15, 16, 18, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="ClockControl" type="Control" parent="ClockBG"]
-anchors_preset = 0
-offset_left = 8.0
-offset_right = 48.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -21.0
+offset_right = 65.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="hours" type="Label" parent="ClockBG/ClockControl"]
 layout_mode = 0
-offset_left = 99.0
-offset_top = 116.0
-offset_right = 157.0
-offset_bottom = 185.0
+offset_left = 23.0
+offset_right = 57.0
+offset_bottom = 42.0
 theme_override_font_sizes/font_size = 50
 text = "23"
+label_settings = ExtResource("5_1cej6")
 
 [node name="space" type="Label" parent="ClockBG/ClockControl"]
 layout_mode = 0
-offset_left = 171.0
-offset_top = 113.0
-offset_right = 185.0
-offset_bottom = 182.0
+offset_left = 61.0
+offset_top = 9.0
+offset_right = 67.0
+offset_bottom = 32.0
 theme_override_font_sizes/font_size = 50
 text = ":"
+label_settings = ExtResource("6_nxyqd")
 
 [node name="minutes" type="Label" parent="ClockBG/ClockControl"]
 layout_mode = 0
-offset_left = 198.0
-offset_top = 115.0
-offset_right = 256.0
-offset_bottom = 184.0
+offset_left = 70.0
+offset_right = 104.0
+offset_bottom = 42.0
 theme_override_font_sizes/font_size = 50
 text = "59"
+label_settings = ExtResource("7_r8cj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="ClockBG/ClockControl"]
+position = Vector2(-1, 20)
+scale = Vector2(2.03846, 1.63333)
+texture = ExtResource("4_sno6c")
+region_enabled = true
+region_rect = Rect2(33, 0, 13, 15)

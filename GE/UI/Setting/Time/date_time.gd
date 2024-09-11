@@ -8,6 +8,7 @@ class_name DateTime extends Resource
 var delta_time: float = 0
 
 func increase_by_sec(delta_seconds: float) -> void:
+
 	delta_time += delta_seconds
 	
 	if delta_time < 1: return

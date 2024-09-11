@@ -52,6 +52,8 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
+		await LoadManager.load_scene("res://scenes/volcano.tscn")
+		
 		get_tree().change_scene_to_file("res://scenes/volcano.tscn")
 		  
 func _physics_process(delta):
@@ -62,13 +64,14 @@ func _physics_process(delta):
 			player.health = 0
 		$FreezeTimer.start()
 	
+	# the below code is having error when trying to use load_screen from winter scene to volcano scene
 	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
 	if actionables.size() > 1:
 		if (actionables[1] == $TileMap/Ice):
 			player.friction = 100
 	else:
 		player.friction = 1000
-		
 
 func _on_FreezeTimer_timeout():
 	freeze_cooldown = false

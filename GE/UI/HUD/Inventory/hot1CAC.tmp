@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ynl1fgvnf8mx"]
+
+[ext_resource type="Script" path="res://UI/HUD/Inventory/hotbar_slot.gd" id="1_bvmss"]
+[ext_resource type="Texture2D" uid="uid://p1p8d1cq75i2" path="res://UI/HUD/Inventory/inventorySlot.png" id="2_0ufba"]
+
+[node name="HotbarSlot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(123, 106)
+offset_right = 123.0
+offset_bottom = 106.0
+script = ExtResource("1_bvmss")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(6.1, 5.25)
+texture = ExtResource("2_0ufba")
+centered = false
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(123, 106)
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 106.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 45.0
+offset_bottom = 43.0
+text = "99
+"
+horizontal_alignment = 2

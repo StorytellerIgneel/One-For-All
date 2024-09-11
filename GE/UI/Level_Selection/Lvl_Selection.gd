@@ -1,7 +1,8 @@
 @tool
 extends TextureButton
 
-signal level_selected
+# signal level_selected(original code)
+signal level_selected(level_num)
 
 @export var level_num: int = 1
 

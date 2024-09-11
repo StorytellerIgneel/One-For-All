@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc4vy6vdcoly1"]
+
+[ext_resource type="PackedScene" uid="uid://bcwy5paeadic8" path="res://collectables/collectable.tscn" id="1_4bm7p"]
+[ext_resource type="Texture2D" uid="uid://buhcanm6fd3x4" path="res://collectables/key.png" id="2_2nho0"]
+[ext_resource type="Resource" uid="uid://drnlbxj5ynf2t" path="res://UI/HUD/Inventory/Items/Key.tres" id="2_v07b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4y2g"]
+resource_local_to_scene = true
+size = Vector2(6, 11)
+
+[node name="Key" instance=ExtResource("1_4bm7p")]
+itemRes = ExtResource("2_v07b1")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_k4y2g")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(1.19209e-07, -3.57628e-07)
+scale = Vector2(0.824824, 0.68394)
+texture = ExtResource("2_2nho0")

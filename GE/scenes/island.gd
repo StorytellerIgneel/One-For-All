@@ -13,6 +13,7 @@ var game_paused = false
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.set_water_region(water_region)
@@ -23,6 +24,7 @@ func _ready():
 	player.OutWaterRegion.connect(outWater)
 	
 	initialize_camera_limit()
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -38,7 +40,16 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		get_tree().change_scene_to_file("res://scenes/beach.tscn")
+		# Added Loading scene, added by Sia
+		await LoadManager.load_scene("res://scenes/beach.tscn")
+
+		# Below is the Original Code
+		# get_tree().change_scene_to_file("res://scenes/beach.tscn")
+		
+	# YAP TESTING SCENE, DONT TOUCH
+	if event.is_action_pressed("YAP_TESTING_SCENE"):
+		get_tree().change_scene_to_file("res://scenes/yap_testing_scene.tscn")
+	
 		
 func inWater():
 	oxygenLevel.value = oxygenLevel.value + 10
@@ -50,8 +61,26 @@ func outWater():
 		oxygenLevel.value = oxygenLevel.value - 10
 		if (oxygenLevel.value < 0):
 			oxygenLevel.value = 0
+			
+func _on_hurt_box_area_entered(area):
+	if area.has_method("collect"):
+		area.collect()
+		
 
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
 	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
 	print($soldierV2/PlayerCamera.limit_right)
+
+
+func _on_inventory_gui_closed():
+	get_tree().paused = false
+
+func _on_inventory_gui_opened():
+	get_tree().paused = true	
+
+func _on_setting_menu_closed():
+	get_tree().paused = false
+	
+func _on_setting_menu_opened():
+	get_tree().paused = false
