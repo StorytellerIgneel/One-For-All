@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://dw6clma0uud3y"]
 
-[ext_resource type="Script" path="res://characters/elite_orc/elite_orc.gd" id="1_w0h63"]
+[ext_resource type="Script" path="res://characters/enemy_elite_orc/elite_orc.gd" id="1_w0h63"]
 [ext_resource type="Texture2D" uid="uid://b2nx1lcug8t0m" path="res://resources/characters/Elite Orc/Elite Orc/Elite Orc-Attack01.png" id="2_dkmtk"]
 [ext_resource type="Texture2D" uid="uid://oepexmf1bqql" path="res://resources/characters/Elite Orc/Elite Orc/Elite Orc-Death.png" id="3_ejq0h"]
 [ext_resource type="Texture2D" uid="uid://c2uyuw28rfg3c" path="res://resources/characters/Elite Orc/Elite Orc/Elite Orc-Hurt.png" id="4_dudeu"]

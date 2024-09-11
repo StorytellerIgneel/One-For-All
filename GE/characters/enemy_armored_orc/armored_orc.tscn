@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://wcqvdj22v1j7"]
 
-[ext_resource type="Script" path="res://characters/armored_orc/armored_orc.gd" id="1_ykt6k"]
+[ext_resource type="Script" path="res://characters/enemy_armored_orc/armored_orc.gd" id="1_ykt6k"]
 [ext_resource type="Texture2D" uid="uid://bb1igewvkli0v" path="res://resources/characters/Armored Orc/Armored Orc/Armored Orc-Attack03.png" id="2_61qf4"]
 [ext_resource type="Texture2D" uid="uid://cigvxyk07j43f" path="res://resources/characters/Armored Orc/Armored Orc/Armored Orc-Attack01.png" id="3_wmnyg"]
 [ext_resource type="Texture2D" uid="uid://svn6tdvym3kj" path="res://resources/characters/Armored Orc/Armored Orc/Armored Orc-Death.png" id="4_gjo1x"]

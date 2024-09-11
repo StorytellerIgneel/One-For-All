@@ -71,7 +71,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"soldier_atk1",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -94,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"soldier_atk2",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"soldier_atk3",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -234,7 +234,7 @@ shape = SubResource("CircleShape2D_v83k4")
 texture_filter = 1
 scale = Vector2(1.85437, 1.71)
 sprite_frames = SubResource("SpriteFrames_es4cr")
-animation = &"soldier_atk1"
+animation = &"soldier_atk3"
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
@@ -262,6 +262,7 @@ shape = SubResource("CircleShape2D_nyhg3")
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="inWaterTimer" type="Timer" parent="."]
 
@@ -272,7 +273,6 @@ wait_time = 0.75
 
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0, 1, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 offset_left = -6.0
 offset_top = -16.0
 offset_right = 124.0

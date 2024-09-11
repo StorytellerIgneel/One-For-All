@@ -5,8 +5,10 @@ var player_chase = false
 var player = null
 
 var health = 100
+@export var slime_atk1dmg = 5
 var player_in_attack_zone = false
 var can_take_damage = true
+var damage = 0
 var soldier
 var damage_deal
 
@@ -45,13 +47,15 @@ func _on_enemy_hitbox_body_exited(body):
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
 		if can_take_damage == true:
-			#fetch the updated damage from the soldier node dynamically
+			
+			# fetch the damage from the soldier
 			damage_deal = soldier.damage
 			print("The damage received: ", damage_deal)
 			health = health - damage_deal
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime health = ", health)
+		
 			if health <= 0:
 				self.queue_free()
 
