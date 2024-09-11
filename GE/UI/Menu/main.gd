@@ -34,12 +34,13 @@ func _on_brightness_btn_pressed():
 
 # Back button logic to return to the last known screen
 func _on_back_btn_pressed():
-	if scene_history.size() > 0:
-		var last_scene = scene_history.pop_back()  # Get the last scene path and remove it from history
-		current_scene_path = last_scene  # Update the current scene path
-		get_tree().change_scene_to_file(last_scene)  # Change to the previous scene
-	else:
-		print("No previous scene to go back to.")  # Optionally return to a default screen like the main menu
+	_switch_scene("res://scenes/island.tscn")
+	#if scene_history.size() > 0:
+		#var last_scene = scene_history.pop_back()  # Get the last scene path and remove it from history
+		#current_scene_path = last_scene  # Update the current scene path
+		#get_tree().change_scene_to_file(last_scene)  # Change to the previous scene
+	#else:
+		#print("No previous scene to go back to.")  # Optionally return to a default screen like the main menu
 
 # Function to switch to the keybinding settings screen
 func _on_key_binds_pressed():

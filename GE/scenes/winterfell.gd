@@ -69,7 +69,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("NextMap"):
 		await LoadManager.load_scene("res://scenes/volcano.tscn")
 		
-		#get_tree().change_scene_to_file("res://scenes/volcano.tscn")
+		get_tree().change_scene_to_file("res://scenes/volcano.tscn")
 		  
 func _physics_process(delta):
 	if (freeze_cooldown == false && !in_fire_region):
@@ -87,7 +87,6 @@ func _physics_process(delta):
 			player.friction = 100
 	else:
 		player.friction = 1000
-		
 
 func _on_FreezeTimer_timeout():
 	freeze_cooldown = false

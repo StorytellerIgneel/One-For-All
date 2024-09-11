@@ -5211,6 +5211,17 @@ script = ExtResource("29_ye47x")
 
 [node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("29_dbkf0")]
 visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 0.0
+offset_right = 0.5
+offset_bottom = 0.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="closed" from="CanvasLayer2/InventoryGUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer2/InventoryGUI" to="." method="_on_inventory_gui_opened"]

@@ -27,7 +27,7 @@ func load_scene(scene_path: String) -> void:
 	await Signal(new_loading_screen, "loading_screen_has_full_coverage")
 	
 	start_load()
-	
+
 func start_load() -> void:
 	# Load scene
 	var state = ResourceLoader.load_threaded_request(_scene_path, "", use_sub_threads)
