@@ -4,10 +4,9 @@ set State.is_dialogue_active = true
 Player: This is my house
 - Go inside
 	Player: Its still early..
+	#set State.is_dialogue_active = false
 - Second one
 	Player: Time for adventure!
-- End the conversation => END
-Nathan: For more information see the online documentation.
-set State.is_dialogue_active = false
+	#set State.is_dialogue_active = false
 
 => END

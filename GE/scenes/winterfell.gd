@@ -2,14 +2,10 @@ extends Node
 
 var NextLevel: bool = false
 
-const balloon_scene = preload("res://Dialogues/balloon.tscn")
-@onready var dialogue_resource_path: String = "res://Dialogues/winterfell.dialogue"
-@onready var dialogue_start: String = "winterfell_start"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
-var dialogue_resource: DialogueResource
-var balloon: CanvasLayer
+
 var freeze_cooldown = false
 var fire_region: Array[Area2D]
 var in_fire_region = false
@@ -36,19 +32,8 @@ func _ready():
 	fire_region = fire_region.slice(0, 8)
 	player.set_fire_region(fire_region)
 	# Load the dialogue resource directly from the path
-	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	
-	if dialogue_resource == null:
-		print("Error: Failed to load dialogue resource.")
-		return
-	
-	balloon = balloon_scene.instantiate()
-	get_tree().current_scene.add_child(balloon)
-	# Check if the balloon instance has the expected method
-	if balloon.has_method("start"):
-		balloon.start(dialogue_resource, dialogue_start)
-	else:
-		print("Error: 'start' method not found in balloon instance.")
+	Global.trigger_dialogue("res://Dialogues/winterfell.dialogue", "winterfell_start")
 	
 	player.InFireRegion.connect(inFireRegion)
 	player.OutFireRegion.connect(OutFireRegion)

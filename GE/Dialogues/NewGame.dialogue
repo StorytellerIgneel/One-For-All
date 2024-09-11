@@ -7,8 +7,9 @@ Mysterious Voice: But first, are you an experienced warrior? Or a novice adventu
 - I'm new to this world. (Tutorial)
 	Mysterious Voice: WASD for movement. Space bar for interaction.
 	Mysterious Voice: Obviously we have no budget yet so yeah. Enjoy!
+	set State.is_dialogue_active = false
 - I've kicked the ass of this world's boss. (Skip tutorial)
 	Mysterious Voice: Well... Enjoy then! Ciao
-set State.is_dialogue_active = false
+	set State.is_dialogue_active = false
 
 => END

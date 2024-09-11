@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=35 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -15,9 +15,6 @@
 [ext_resource type="Script" path="res://scenes/islandMap.gd" id="10_n6xb0"]
 [ext_resource type="Resource" uid="uid://ebx5agme1ch1" path="res://Dialogues/NextLevel.dialogue" id="11_d858f"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
-[ext_resource type="PackedScene" uid="uid://dwcrojx5ok7aq" path="res://scenes/actionable.tscn" id="15_etfqd"]
-[ext_resource type="Resource" uid="uid://d1r6f0voqb7lt" path="res://Dialogues/main.dialogue" id="16_g0imf"]
-[ext_resource type="Texture2D" uid="uid://bp3eh8ucsa6bi" path="res://icon.svg" id="17_koqes"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/elite_orc/elite_orc.tscn" id="19_fvp73"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
@@ -5004,10 +5001,6 @@ size = Vector2(280, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyep"]
 size = Vector2(20, 21)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57t7x"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv66u"]
-
 [node name="Level" type="Node2D"]
 position = Vector2(-3, -5)
 script = ExtResource("1_who21")
@@ -5047,7 +5040,7 @@ layer_2/tile_data = PackedInt32Array(2031628, 196613, 17, 2097164, 196613, 16, 2
 layer_3/name = "Dirtpath"
 layer_3/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 1441806, 65539, 4, 1507342, 65539, 5, 1441804, 3, 6, 1507340, 3, 7, 1441805, 65539, 6, 1507341, 65539, 7, 1441808, 65539, 6, 1507344, 65539, 7, 1441809, 131075, 6, 1507345, 131075, 7, 1441810, 65539, 6, 1507346, 65539, 7, 1441811, 131075, 6, 1507347, 131075, 7, 1441812, 131075, 4, 1507348, 131075, 5, 1245204, 3, 0, 1310740, 3, 1, 1376276, 196611, 4, 1245205, 65539, 6, 1310741, 65539, 7, 1245206, 65539, 6, 1310742, 65539, 7, 1245207, 65539, 6, 1310743, 65539, 7, 1245209, 65539, 6, 1310745, 65539, 7)
 layer_4/name = "Collisions"
-layer_4/tile_data = PackedInt32Array()
+layer_4/tile_data = PackedInt32Array(917509, 7, 0, 983045, 7, 0, 1048581, 7, 0, 1114117, 7, 0, 1179653, 7, 0, 1245189, 7, 0, 1310725, 7, 0, 1376261, 7, 0, 1441797, 7, 0, 1507333, 7, 0, 1572869, 7, 0, 1638405, 7, 0, 1703941, 7, 0, 1769478, 7, 0, 1769479, 7, 0, 1769480, 7, 0)
 script = ExtResource("10_n6xb0")
 
 [node name="WaterRegion" type="Area2D" parent="TileMap"]
@@ -5084,25 +5077,6 @@ visibility_layer = 17
 z_index = 1
 position = Vector2(671, 14)
 shape = SubResource("RectangleShape2D_tpyep")
-
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(182, 408)
-
-[node name="RandomStuff" parent="CharacterBody2D2" instance=ExtResource("15_etfqd")]
-dialogue_resource = ExtResource("16_g0imf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/RandomStuff"]
-position = Vector2(4, -7)
-shape = SubResource("CapsuleShape2D_57t7x")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
-position = Vector2(5, -6)
-scale = Vector2(0.287109, 0.285156)
-texture = ExtResource("17_koqes")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(5, -7)
-shape = SubResource("CapsuleShape2D_iv66u")
 
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2

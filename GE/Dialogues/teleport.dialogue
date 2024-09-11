@@ -1,0 +1,8 @@
+~ teleport
+
+Mysterious Voice: Teleport?
+- Bring me fly
+	set State.teleport = true
+- I prefer to stick to the ground and be a friendly neighbourhood Spider- I mean warrior
+
+=> END
