@@ -58,7 +58,7 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("NextMap"):
 		# Added Loading scene, added by Sia
-		await LoadManager.load_scene("NextMap")
+		await LoadManager.load_scene("res://scenes/beach.tscn")
 
 		# Below is the Original Code
 		# get_tree().change_scene_to_file("res://scenes/beach.tscn")
@@ -94,4 +94,10 @@ func _on_inventory_gui_closed():
 	get_tree().paused = false
 
 func _on_inventory_gui_opened():
-	get_tree().paused = true
+	get_tree().paused = true	
+
+func _on_setting_menu_closed():
+	get_tree().paused = false
+	
+func _on_setting_menu_opened():
+	get_tree().paused = false

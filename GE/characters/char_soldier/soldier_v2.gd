@@ -299,8 +299,6 @@ func _on_deal_attack_timer_timeout():
 	attack_ip = false
 	#_anim.play("soldier_idle")
 
-
-
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
 		print("Collected the Item", area)
