@@ -75,7 +75,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		check_interact()
 	check_environment()
-	enemy_attack()
+	#enemy_attack()
 	attack()
 	update_health()
 	
@@ -208,15 +208,15 @@ func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = false
 	
-func enemy_attack():
-	if enemy_in_atk_range and enemy_attack_cooldown ==true:
-		
-		# fetch the damage from the slime
-		damage_deal = slime.slime_atk1dmg
-		health = health - damage_deal
-		enemy_attack_cooldown = false
-		$attack_cooldown.start()
-		print("player health = ", health)
+#func enemy_attack():
+	#if enemy_in_atk_range and enemy_attack_cooldown ==true:
+		#
+		## fetch the damage from the slime
+		#damage_deal = slime.slime_atk1dmg
+		#health = health - damage_deal
+		#enemy_attack_cooldown = false
+		#$attack_cooldown.start()
+		#print("player health = ", health)
 
 func update_health():
 	var healthbar = $healthbar

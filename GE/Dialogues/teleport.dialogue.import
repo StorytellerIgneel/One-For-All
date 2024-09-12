@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cpvuc6hurcn0w"
+path="res://.godot/imported/teleport.dialogue-efcffdc9aee7ca623dd8d5a28020b035.tres"
+
+[deps]
+
+source_file="res://Dialogues/teleport.dialogue"
+dest_files=["res://.godot/imported/teleport.dialogue-efcffdc9aee7ca623dd8d5a28020b035.tres"]
+
+[params]
+
+defaults=true

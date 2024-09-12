@@ -1,0 +1,131 @@
+[gd_scene load_steps=20 format=3 uid="uid://65as8q566h5r"]
+
+[ext_resource type="Texture2D" uid="uid://b7ft2k4ldk5f4" path="res://resources/characters/Priest/Priest with shadows/Priest-Idle.png" id="1_8wqel"]
+[ext_resource type="Script" path="res://characters/npc_priest/priest.gd" id="1_t8iwa"]
+[ext_resource type="Texture2D" uid="uid://ue81x60lkmlq" path="res://resources/characters/Priest/Priest with shadows/Priest-Walk.png" id="2_4ho6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3pr6d"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7mqy"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwmtm"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w4ks"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmafc"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcogw"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3lgj"]
+atlas = ExtResource("1_8wqel")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mrwc"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr743"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7in3"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ejl"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28nqg"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaetp"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8hyd"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nvqr"]
+atlas = ExtResource("2_4ho6c")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfvfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7mqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwmtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w4ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmafc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcogw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3lgj")
+}],
+"loop": true,
+"name": &"priest_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mrwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr743")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7in3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6ejl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28nqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaetp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8hyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nvqr")
+}],
+"loop": true,
+"name": &"priest_walk",
+"speed": 5.0
+}]
+
+[node name="priest" type="CharacterBody2D"]
+script = ExtResource("1_t8iwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3pr6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wfvfb")
+animation = &"priest_walk"
+
+[node name="idle_timer" type="Timer" parent="."]
