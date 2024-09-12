@@ -8,7 +8,17 @@ signal use_item
 @export var slots: Array[InventorySlot]
 
 func insert(item: InventoryItem):
+	if item is Key:
+		
+		var key_count = get_total_keys()
+
+		# Stop collecting keys if the count is 3 or more
+		if key_count >= 3:
+			print("You already have 3 keys. Can't collect more!")
+			return
+	
 	var itemSlots = slots.filter(func(slot): return slot.item == item )
+	
 	if !itemSlots.is_empty():
 		itemSlots[0].amount += 1
 	else:

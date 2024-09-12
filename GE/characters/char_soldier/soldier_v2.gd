@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 class_name Player
@@ -32,30 +31,6 @@ var slime
 var damage_deal
 
 @export var inventory: Inventory
-
-func check_key_count():
-	var key_count = inventory.get_total_keys()
-	if key_count == 3:
-		print("You have exactly 3 keys!")
-	else:
-		print("You have", key_count, "keys.")
-
-
-# Function to count total keys in the inventory
-#func get_total_keys() -> int:
-	#var key_count = 0
-	#for item in inventory.items:
-		#if item is Key:
-			#key_count += item.key_amount  # Summing up all keys
-	#return key_count
-#
-#func open_gate():
-	#var total_keys = get_total_keys()
-	#if total_keys == 3:
-		#print("The gate opens with exactly 3 keys!")
-		## Add your logic to open the gate
-	#else:
-		#print("You don't have exactly 3 keys.")
 
 var bow_equipped = true
 var bow_cooldown = true
@@ -93,7 +68,7 @@ func _ready():
 	_anim.play("soldier_idle")
 	slime = get_node("../slimev3")
 	pass
-
+	
 func _physics_process(delta):
 	#print(Global.disablePlayerInput)
 	if(Global.disablePlayerInput == false):
@@ -337,11 +312,26 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
 	attack_ip = false
+<<<<<<< HEAD
+=======
+	#_anim.play("soldier_idle")
+	
+func _on_key_picked_up():
+	check_key_count()  # Call the function here when a key is picked up
+
+func check_key_count():
+	var key_count = inventory.get_total_keys()
+	if key_count == 3:
+		print("You have exactly 3 keys!")
+	else:
+		print("You have", key_count, "keys.")
+>>>>>>> ecd76a2055fcd3c1f08da5154be0d712e267e257
 
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
 		print("Collected the Item", area)
 		area.collect(inventory)
+		check_key_count()
 	else:
 		print("No collect meth found for:", area)
 
