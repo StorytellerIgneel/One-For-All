@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 class_name Player
@@ -33,6 +34,22 @@ var damage_deal
 
 @export var inventory: Inventory
 
+# Function to count total keys in the inventory
+func get_total_keys() -> int:
+	var key_count = 0
+	for item in inventory.items:
+		if item is Key:
+			key_count += item.key_amount  # Summing up all keys
+	return key_count
+
+func open_gate():
+	var total_keys = get_total_keys()
+	if total_keys == 3:
+		print("The gate opens with exactly 3 keys!")
+		# Add your logic to open the gate
+	else:
+		print("You don't have exactly 3 keys.")
+
 var bow_equipped = true
 var bow_cooldown = true
 var arrow = preload("res://characters/char_soldier/arrow.tscn")
@@ -67,7 +84,7 @@ func _ready():
 	inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("soldier_idle")
-	slime = get_node("../slimeV2")
+	slime = get_node("../slimev3")
 	pass
 
 func _physics_process(delta):
@@ -76,7 +93,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		check_interact()
 	check_environment()
-	#enemy_attack()
+	enemy_attack()
 	attack()
 	update_health()
 	
@@ -206,16 +223,17 @@ func _on_player_hitbox_body_entered(body):
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = false
-	
-#func enemy_attack():
-	#if enemy_in_atk_range and enemy_attack_cooldown ==true:
-		#
-		## fetch the damage from the slime
-		#damage_deal = slime.slime_atk1dmg
-		#health = health - damage_deal
-		#enemy_attack_cooldown = false
-		#$attack_cooldown.start()
-		#print("player health = ", health)
+
+# receive damage
+func enemy_attack():
+	if enemy_in_atk_range and Global.slime_current_attack and enemy_attack_cooldown == true:
+		
+		# fetch the damage from the slime
+		damage_deal = slime.slime_atk1dmg
+		health = health - damage_deal
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		print("player health = ", health)
 
 func update_health():
 	var healthbar = $healthbar
@@ -268,6 +286,7 @@ func attack():
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = soldier_atk2dmg
+		print("Attack 2 Damage: ", damage)
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk2")
@@ -323,4 +342,5 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
+
 
