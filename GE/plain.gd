@@ -24,13 +24,13 @@ func _ready():
 	if date_time == null:
 		date_time = DateTime.new()  # Ensure it's not null
 		
-	print("TimeManager ready with date_time initialized.")
+	#print("TimeManager ready with date_time initialized.")
 	
 	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 	
-func _on_time_system_updated(date_time: DateTime) -> void:
-	# Handle time updates (e.g., update UI or trigger events based on time)
-	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
+#func _on_time_system_updated(date_time: DateTime) -> void:
+	## Handle time updates (e.g., update UI or trigger events based on time)
+	#print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -62,6 +62,7 @@ func _unhandled_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(State.teleport)
 	pass
 
 func initialize_camera_limit():
