@@ -35,7 +35,7 @@ func _ready():
 	player.set_fire_region(fire_region)
 	# Load the dialogue resource directly from the path
 	
-	Global.trigger_dialogue("res://Dialogues/winterfell.dialogue", "winterfell_start")
+	#Global.trigger_dialogue("res://Dialogues/winterfell.dialogue", "winterfell_start")
 	
 	player.InFireRegion.connect(inFireRegion)
 	player.OutFireRegion.connect(OutFireRegion)
@@ -74,15 +74,18 @@ func _physics_process(delta):
 		freeze_cooldown = true
 		freeze_level.value += 10
 		if (freeze_level.value == 100):
-			player.health = 0
+			pass
+			#player.health = 0
 		$FreezeTimer.start()
 	
 	# the below code is having error when trying to use load_screen from winter scene to volcano scene
 	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
-	
 	if actionables.size() > 1:
 		if (actionables[1] == $TileMap/Ice):
 			player.friction = 100
+		if (Global.findElement(actionables, "IcePuzzleArea")):
+			if (!Global.findElement(actionables, "IceHoleArea")):
+				player.health = 0
 	else:
 		player.friction = 1000
 

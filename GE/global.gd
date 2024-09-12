@@ -7,12 +7,14 @@ const balloon_scene = preload("res://Dialogues/balloon.tscn")
 var game_paused = false
 var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
+var disablePlayerInput: bool = false
 
 
 var player_current_attack = false
 var slime_current_attack = false
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
+	disablePlayerInput = true
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	
 	if dialogue_resource == null:
@@ -26,9 +28,17 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 		balloon.start(dialogue_resource, dialogue_start)
 	else:
 		print("Error: 'start' method not found in balloon instance.")
+	disablePlayerInput = false
+
 	
 func nextLevel(nextScene):
 	trigger_dialogue ("res://Dialogues/teleport.dialogue", "start")
 	if (State.NextLevel == true):
 		get_tree().change_scene_to_file(nextScene)
 		State.NextLevel = false
+
+func findElement(areaArray, toFind):
+	for area in areaArray:
+		if (area.name == toFind):
+			return true
+	return false

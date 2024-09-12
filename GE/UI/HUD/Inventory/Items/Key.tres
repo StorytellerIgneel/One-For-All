@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://drnlbxj5ynf2t"]
+[gd_resource type="Resource" script_class="Key" load_steps=3 format=3 uid="uid://drnlbxj5ynf2t"]
 
-[ext_resource type="Script" path="res://UI/HUD/Inventory/InventoryItem.gd" id="1_rvosh"]
+[ext_resource type="Script" path="res://UI/HUD/Inventory/Items/key_item.gd" id="1_p8gg4"]
 [ext_resource type="Texture2D" uid="uid://buhcanm6fd3x4" path="res://collectables/key.png" id="2_mxtso"]
 
 [resource]
-script = ExtResource("1_rvosh")
+script = ExtResource("1_p8gg4")
+key = 3
 name = "key"
 texture = ExtResource("2_mxtso")
 maxAmountPerStack = 0

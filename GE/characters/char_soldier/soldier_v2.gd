@@ -34,6 +34,22 @@ var damage_deal
 
 @export var inventory: Inventory
 
+# Function to count total keys in the inventory
+func get_total_keys() -> int:
+	var key_count = 0
+	for item in inventory.items:
+		if item is Key:
+			key_count += item.key_amount  # Summing up all keys
+	return key_count
+
+func open_gate():
+	var total_keys = get_total_keys()
+	if total_keys == 3:
+		print("The gate opens with exactly 3 keys!")
+		# Add your logic to open the gate
+	else:
+		print("You don't have exactly 3 keys.")
+
 var bow_equipped = true
 var bow_cooldown = true
 var arrow = preload("res://characters/char_soldier/arrow.tscn")
@@ -72,7 +88,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if(State.is_dialogue_active == false):
+	#print(Global.disablePlayerInput)
+	if(Global.disablePlayerInput == false):
 		player_movement(delta)
 		check_interact()
 	check_environment()
@@ -91,10 +108,8 @@ func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
-			State.is_dialogue_active = true
 			var actionable = actionables[0]
 			actionable.action()
-	State.is_dialogue_active = false
 	return
 
 func check_environment():
@@ -327,4 +342,5 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
+
 
