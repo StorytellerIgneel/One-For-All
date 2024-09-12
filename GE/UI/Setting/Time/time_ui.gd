@@ -4,6 +4,12 @@ extends Control
 @onready var hours_label: Label = $ClockBG/ClockControl/hours
 @onready var minutes_label: Label = $ClockBG/ClockControl/minutes
 
+func _ready() -> void:
+	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
+
+	# Initialize the UI with the current time when the scene loads
+	_on_time_system_updated(TimeManager.date_time)
+	
 func _on_time_system_updated(date_time: DateTime) -> void:
 	#days_label.text = str(date_time.days)
 	#hours_label.text = str(date_time.hours)

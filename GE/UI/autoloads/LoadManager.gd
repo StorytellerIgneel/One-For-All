@@ -38,6 +38,8 @@ func start_load() -> void:
 # Handle all the loading logic
 func _process(_delta):
 	var load_status = ResourceLoader.load_threaded_get_status(_scene_path, _progress)
+	print("Load Status: ", load_status)
+	print("Progress: ", _progress[0])
 	
 	match load_status:
 		0, 2: # Thread_load_invalid_resource, Thread_load_failed

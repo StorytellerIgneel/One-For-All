@@ -24,7 +24,15 @@ func _ready():
 	Global.trigger_dialogue(dialogue_resource, "beach_start")
 
 	initialize_camera_limit()
+	
+	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 
+	#print("DateTime at scene start: ", TimeManager.date_time)
+
+
+func _on_time_system_updated(date_time: DateTime) -> void:
+	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
+	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		game_paused = !game_paused
@@ -39,7 +47,7 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		await LoadManager.load_scene("res://plain.tscn")
+		await LoadManager.load_scene("NextMap")
 		
 		# get_tree().change_scene_to_file("res://plain.tscn")
 		

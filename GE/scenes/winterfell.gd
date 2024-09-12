@@ -4,6 +4,8 @@ var NextLevel: bool = false
 
 @onready var pause_menu = $CanvasLayer/InputSettings
 
+@export var date_time: DateTime = DateTime.new()
+
 var game_paused = false
 
 var freeze_cooldown = false
@@ -37,6 +39,17 @@ func _ready():
 	
 	player.InFireRegion.connect(inFireRegion)
 	player.OutFireRegion.connect(OutFireRegion)
+	
+	if date_time == null:
+		date_time = DateTime.new()  # Ensure it's not null
+
+	print("TimeManager ready with date_time initialized.")
+
+	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
+
+func _on_time_system_updated(date_time: DateTime) -> void:
+	# Handle time updates (e.g., update UI or trigger events based on time)
+	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -54,7 +67,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("NextMap"):
 		await LoadManager.load_scene("res://scenes/volcano.tscn")
 		
-		get_tree().change_scene_to_file("res://scenes/volcano.tscn")
+		#get_tree().change_scene_to_file("res://scenes/volcano.tscn")
 		  
 func _physics_process(delta):
 	if (freeze_cooldown == false && !in_fire_region):

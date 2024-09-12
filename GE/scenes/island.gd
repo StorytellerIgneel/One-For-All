@@ -34,7 +34,7 @@ func _unhandled_input(event):
 			Engine.time_scale = 0
 			pause_menu.visible = true
 		else:
-			Engine.time_scale = 1
+				Engine.time_scale = 1
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
@@ -62,9 +62,10 @@ func outWater():
 		if (oxygenLevel.value < 0):
 			oxygenLevel.value = 0
 			
-func _on_hurt_box_area_entered(area):
-	if area.has_method("collect"):
-		area.collect()
+# Inventory function
+#func _on_hurt_box_area_entered(area):
+	#if area.has_method("collect"):
+		#area.collect()
 		
 
 func initialize_camera_limit():
