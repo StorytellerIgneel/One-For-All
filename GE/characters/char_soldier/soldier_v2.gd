@@ -88,10 +88,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	#print(Global.disablePlayerInput)
-	if(Global.disablePlayerInput == false):
-		player_movement(delta)
-		check_interact()
+	player_movement(delta)
+	check_interact()
 	check_environment()
 	enemy_attack()
 	attack()
@@ -149,33 +147,34 @@ func _on_fireTimer_timeout():
 	
 	
 func player_movement(delta):
-	
-	if Input.is_action_pressed("toRight"):
-		current_dir = "right"
-		play_anim(1)
-		velocity.x = maxSpeed
-		velocity.y = 0
-	elif Input.is_action_pressed("toLeft"):
-		current_dir = "left"
-		play_anim(1)
-		velocity.x = -maxSpeed
-		velocity.y = 0
-	elif Input.is_action_pressed("toDown"):
-		#current_dir = "down"
-		play_anim(1)
-		velocity.y = maxSpeed
-		velocity.x = 0
-	elif Input.is_action_pressed("toUp"):
-		#current_dir = "up"
-		play_anim(1)
-		velocity.y = -maxSpeed
-		velocity.x = 0
-	else:
-		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
-	
-	move_and_slide()
+	print(Global.disablePlayerInput)
+	if (Global.disablePlayerInput == false):
+		if Input.is_action_pressed("toRight"):
+			current_dir = "right"
+			play_anim(1)
+			velocity.x = maxSpeed
+			velocity.y = 0
+		elif Input.is_action_pressed("toLeft"):
+			current_dir = "left"
+			play_anim(1)
+			velocity.x = -maxSpeed
+			velocity.y = 0
+		elif Input.is_action_pressed("toDown"):
+			#current_dir = "down"
+			play_anim(1)
+			velocity.y = maxSpeed
+			velocity.x = 0
+		elif Input.is_action_pressed("toUp"):
+			#current_dir = "up"
+			play_anim(1)
+			velocity.y = -maxSpeed
+			velocity.x = 0
+		else:
+			play_anim(0)
+			velocity.x = 0
+			velocity.y = 0
+		
+		move_and_slide()
 	
 func play_anim(movement):
 	var dir = current_dir

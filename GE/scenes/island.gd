@@ -34,7 +34,7 @@ func _unhandled_input(event):
 			Engine.time_scale = 0
 			pause_menu.visible = true
 		else:
-				Engine.time_scale = 1
+			Engine.time_scale = 1
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()

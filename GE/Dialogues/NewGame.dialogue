@@ -1,15 +1,15 @@
 ~ start
 
-set State.is_dialogue_active = true
+set Global.disablePlayerInput = true
 Mysterious Voice: Welcome to the lands of sword and magic. 
 Mysterious Voice: Here, you will go through an indellible adventure.
 Mysterious Voice: But first, are you an experienced warrior? Or a novice adventurer?
 - I'm new to this world. (Tutorial)
 	Mysterious Voice: WASD for movement. Space bar for interaction.
 	Mysterious Voice: Obviously we have no budget yet so yeah. Enjoy!
-	set State.is_dialogue_active = false
+	set Global.disablePlayerInput = false
 - I've kicked the ass of this world's boss. (Skip tutorial)
 	Mysterious Voice: Well... Enjoy then! Ciao
-	set State.is_dialogue_active = false
+	set Global.disablePlayerInput = false
 
 => END
