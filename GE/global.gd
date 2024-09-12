@@ -10,6 +10,7 @@ var balloon: CanvasLayer
 
 
 var player_current_attack = false
+var slime_current_attack = false
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource

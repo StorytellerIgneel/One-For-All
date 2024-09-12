@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 var current_states = enemy_status.MOVERIGHT
@@ -13,12 +14,14 @@ var can_take_damage = true
 @export var health = 100
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
+var soldier
 
 @onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
 @onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
 
 func _ready():
 	# Ensure death_time Timer is not running automatically
+	soldier = get_node("../soldierV2")
 	$death_time.autostart = false
 	# Set up move_change Timer
 	$move_change.wait_time = 3.0
@@ -166,8 +169,9 @@ func _on_hitbox_area_body_exited(body):
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
 		$slime.play('hurt')
+		var damage = soldier.damage
 		if can_take_damage:
-			health -= 20
+			health -= damage
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("Slime health:", health)
@@ -189,6 +193,7 @@ func attack():
 		custom_velocity = Vector2.ZERO  # Stop movement during the attack
 		#print("Attacking player!")
 		$slime.play("attack")  # Play attack animation
+		Global.slime_current_attack = true
 		# Apply damage or other effects to the player
 		if player and player.has_method("take_damage"):
 			player.take_damage(1)  # Assuming the player has a `take_damage` method
