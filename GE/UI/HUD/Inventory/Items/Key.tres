@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_p8gg4")
-key = 3
+key_amount = 1
 name = "key"
 texture = ExtResource("2_mxtso")
 maxAmountPerStack = 0

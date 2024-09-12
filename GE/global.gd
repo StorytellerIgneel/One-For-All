@@ -11,6 +11,7 @@ var disablePlayerInput: bool = false
 
 
 var player_current_attack = false
+var slime_current_attack = false
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	disablePlayerInput = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bebb1gkj86wdu"]
+[gd_scene load_steps=38 format=3 uid="uid://diirvvb5ib0gb"]
 
 [ext_resource type="Texture2D" uid="uid://7qsghjdk67cn" path="res://resources/characters/Slime/Slime with shadows/Slime-Walk.png" id="1_rck5e"]
 [ext_resource type="Script" path="res://characters/char_slime/slimev_3.gd" id="1_tb4vg"]
@@ -223,7 +223,7 @@ animations = [{
 radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7pn4"]
-radius = 12.0
+radius = 13.1529
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0p5ve"]
 radius = 46.0109

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=20 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -1598,7 +1598,7 @@ position = Vector2(72, 376)
 position = Vector2(224, 576)
 
 [node name="Fire2" parent="." instance=ExtResource("4_6lesy")]
-position = Vector2(208, 216)
+position = Vector2(360, 264)
 
 [node name="Fire3" parent="." instance=ExtResource("4_6lesy")]
 position = Vector2(776, 288)
@@ -1616,7 +1616,7 @@ position = Vector2(1048, 632)
 position = Vector2(944, 112)
 
 [node name="Fire8" parent="." instance=ExtResource("4_6lesy")]
-position = Vector2(64, 160)
+position = Vector2(80, 336)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -24,7 +24,7 @@ func _ready():
 	if date_time == null:
 		date_time = DateTime.new()  # Ensure it's not null
 		
-	print("TimeManager ready with date_time initialized.")
+	#print("TimeManager ready with date_time initialized.")
 	
 	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 	
@@ -52,8 +52,15 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Interact"):
 		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
 		if actionables.size() > 1:
-			if (actionables[1] == $TileMap/Portal1 or actionables[1] == $TileMap/Portal2):
+			if (Global.findElement(actionables, "PortalArea")):
 				Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
+				if (State.teleport == true):
+					for area in actionables:
+						if area.get_parent().name == "Portal1":
+							player.global_position = $Portal2.global_position
+						elif area.get_parent().name == "Portal2":
+							player.global_position = $Portal1.global_position
+					State.teleport = false
 				#logic to tp
 		else:
 			pass
@@ -62,6 +69,7 @@ func _unhandled_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(State.teleport)
 	pass
 
 func initialize_camera_limit():

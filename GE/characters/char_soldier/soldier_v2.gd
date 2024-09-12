@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 class_name Player
@@ -91,7 +92,7 @@ func _ready():
 	inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("soldier_idle")
-	slime = get_node("../slimeV2")
+	slime = get_node("../slimev3")
 	pass
 
 func _physics_process(delta):
@@ -100,7 +101,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		check_interact()
 	check_environment()
-	#enemy_attack()
+	enemy_attack()
 	attack()
 	update_health()
 	
@@ -230,16 +231,17 @@ func _on_player_hitbox_body_entered(body):
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = false
-	
-#func enemy_attack():
-	#if enemy_in_atk_range and enemy_attack_cooldown ==true:
-		#
-		## fetch the damage from the slime
-		#damage_deal = slime.slime_atk1dmg
-		#health = health - damage_deal
-		#enemy_attack_cooldown = false
-		#$attack_cooldown.start()
-		#print("player health = ", health)
+
+# receive damage
+func enemy_attack():
+	if enemy_in_atk_range and Global.slime_current_attack and enemy_attack_cooldown == true:
+		
+		# fetch the damage from the slime
+		damage_deal = slime.slime_atk1dmg
+		health = health - damage_deal
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		print("player health = ", health)
 
 func update_health():
 	var healthbar = $healthbar
@@ -292,6 +294,7 @@ func attack():
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = soldier_atk2dmg
+		print("Attack 2 Damage: ", damage)
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk2")
