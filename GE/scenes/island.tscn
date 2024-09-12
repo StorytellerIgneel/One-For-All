@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=47 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -27,7 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
-[ext_resource type="PackedScene" uid="uid://bebb1gkj86wdu" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
+[ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="32_7od38"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="32_fyh2l"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="32_xj5tp"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="33_2po53"]
@@ -5218,6 +5219,9 @@ offset_right = 1096.0
 offset_bottom = 159.0
 
 [node name="slimev3" parent="." instance=ExtResource("31_hbvl1")]
-position = Vector2(334, 398)
+position = Vector2(358, 359)
+
+[node name="slimeV2" parent="." instance=ExtResource("32_7od38")]
+position = Vector2(355, 433)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer4/TImeGui" method="_on_time_system_updated"]

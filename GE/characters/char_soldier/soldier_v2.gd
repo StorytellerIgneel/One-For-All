@@ -7,17 +7,16 @@ signal InWaterRegion
 signal OutWaterRegion
 signal InFireRegion
 signal OutFireRegion
-signal healthChanged	
+signal healthChanged
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
 var inWater_cooldown = false
 var outWater_cooldown = false
 var fire_cooldown = false
-var max_health = 100
+var max_health = Global.health
 var health = max_health
 
-#var health = 100
 var player_alive = true
 var attack_ip = false
 
@@ -25,9 +24,9 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
-@export var soldier_atk1dmg = 10
-@export var soldier_atk2dmg = 15
-@export var soldier_atk3dmg = 20
+@export var soldier_atk1dmg = Global.dmg
+@export var soldier_atk2dmg = Global.dmg + 5
+@export var soldier_atk3dmg = Global.dmg + 10
 var damage = 0
 var slime
 var damage_deal
@@ -234,7 +233,7 @@ func _on_player_hitbox_body_exited(body):
 
 # receive damage
 func enemy_attack():
-	if enemy_in_atk_range and Global.slime_current_attack and enemy_attack_cooldown == true:
+	if enemy_in_atk_range and enemy_attack_cooldown == true:
 		
 		# fetch the damage from the slime
 		damage_deal = slime.slime_atk1dmg
@@ -282,13 +281,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
-		if dir == "left":
+		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
-		if dir == "down" || dir == "up":
-			$AnimatedSprite2D.play("soldier_atk1")
-			$deal_attack_timer.start()
+
 	
 	if Input.is_action_just_pressed("atk2"):
 		Global.player_current_attack = true
@@ -299,13 +296,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
-		if dir == "left":
+		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
-		if dir == "down" || dir == "up":
-			$AnimatedSprite2D.play("soldier_atk2")
-			$deal_attack_timer.start()
+
 	
 	if Input.is_action_just_pressed("atk3") and bow_equipped and bow_cooldown:
 		Global.player_current_attack = true
@@ -342,7 +337,6 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
 	attack_ip = false
-	#_anim.play("soldier_idle")
 
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
