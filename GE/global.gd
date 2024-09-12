@@ -12,7 +12,9 @@ var GoddessHeal: bool = false
 
 
 var player_current_attack = false
-var slime_current_attack = false
+#var slime_current_attack = false
+var health = 100
+var dmg = 20
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	disablePlayerInput = true

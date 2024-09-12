@@ -238,8 +238,6 @@ animation = &"hurt"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(1, 2)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_yp305")

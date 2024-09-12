@@ -21,7 +21,7 @@ var soldier
 
 func _ready():
 	# Ensure death_time Timer is not running automatically
-	soldier = get_node("../soldierV2")
+	soldier = get_node("../knight")
 	$death_time.autostart = false
 	# Set up move_change Timer
 	$move_change.wait_time = 3.0
@@ -193,7 +193,7 @@ func attack():
 		custom_velocity = Vector2.ZERO  # Stop movement during the attack
 		#print("Attacking player!")
 		$slime.play("attack")  # Play attack animation
-		Global.slime_current_attack = true
+		#Global.slime_current_attack = true
 		# Apply damage or other effects to the player
 		if player and player.has_method("take_damage"):
 			player.take_damage(1)  # Assuming the player has a `take_damage` method
@@ -210,5 +210,3 @@ func updateHealth():
 
 func enemy():
 	pass
-
-
