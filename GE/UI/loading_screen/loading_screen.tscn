@@ -83,15 +83,18 @@ autoplay = "start_load"
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1152, 648)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 6912.0
-offset_bottom = 3888.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 324.0
+offset_right = 1152.0
+offset_bottom = 972.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_rq8cd")

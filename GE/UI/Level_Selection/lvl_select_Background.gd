@@ -9,8 +9,8 @@ var grid_width = 548
 # Dictionary mapping level numbers to their corresponding scene file names
 var level_scenes = {
 	1: "res://scenes/island.tscn",
-	2: "res://plain.tscn",
-	3: "res://scenes/beach.tscn",
+	2: "res://scenes/beach.tscn",
+	3: "res://plain.tscn",
 	4: "res://scenes/winterfell.tscn",
 	5: "res://scenes/volcano.tscn"
 }

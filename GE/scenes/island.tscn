@@ -5019,8 +5019,8 @@ size = Vector2(20, 21)
 [sub_resource type="Resource" id="Resource_myi7o"]
 script = ExtResource("33_2po53")
 seconds = 0
-minutes = 0
-hours = 0
+minutes = 55
+hours = 23
 days = 0
 
 [node name="Level" type="Node2D"]

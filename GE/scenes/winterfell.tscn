@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=18 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cwexvsvbk12bg" path="res://resources/tilemap/christmas-village-asset-pack/fireplace.png" id="3_hy3ar"]
 [ext_resource type="PackedScene" uid="uid://dw6gfhe4b8hsb" path="res://characters/fire.tscn" id="4_6lesy"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="6_i6rfr"]
+[ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="8_4aage"]
+[ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_q5s5u"]
+[ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1516,6 +1519,13 @@ tile_proxies/coords_level = [[91, Vector2i(0, 0)], [93, Vector2i(0, 0)], [92, Ve
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4i4"]
 size = Vector2(402, 272)
 
+[sub_resource type="Resource" id="Resource_vh080"]
+script = ExtResource("10_r1f3e")
+seconds = 0
+minutes = 0
+hours = 0
+days = 0
+
 [node name="Winterfell" type="Node2D"]
 script = ExtResource("1_vnu2o")
 
@@ -1582,3 +1592,22 @@ offset_bottom = 27.0
 grow_horizontal = 0
 
 [node name="FreezeTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TImeGui" parent="CanvasLayer2" instance=ExtResource("8_4aage")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -207.0
+offset_top = 24.0
+offset_right = -23.0
+offset_bottom = 148.0
+grow_horizontal = 0
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("9_q5s5u")
+date_time = SubResource("Resource_vh080")
+ticks_pr_second = 60
+
+[connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

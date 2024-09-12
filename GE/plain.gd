@@ -5,6 +5,8 @@ var NextLevel: bool = false
 @onready var dialogue_start_teleport: String = "teleport"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
+@export var date_time: DateTime = DateTime.new()
+
 var game_paused = false
 
 @onready var viewport = get_parent().get_node("SubViewport1")
@@ -18,6 +20,17 @@ func _ready():
 	Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 	
 	initialize_camera_limit()
+	
+	if date_time == null:
+		date_time = DateTime.new()  # Ensure it's not null
+		
+	print("TimeManager ready with date_time initialized.")
+	
+	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
+	
+func _on_time_system_updated(date_time: DateTime) -> void:
+	# Handle time updates (e.g., update UI or trigger events based on time)
+	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -33,7 +46,8 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("NextMap"):
-		get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+		#get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+		await LoadManager.load_scene("res://scenes/winterfell.tscn")
 		
 	if event.is_action_pressed("Interact"):
 		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
@@ -43,8 +57,6 @@ func _unhandled_input(event):
 				#logic to tp
 		else:
 			pass
-		
-	await LoadManager.load_scene("res://scenes/winterfell.tscn")
 		
 		# get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 
