@@ -42,7 +42,7 @@ func get_hitbox():
 	
 func _ready():
 	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
-	#inventory.use_item.connect(use_item)
+	inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("knight_idle")
 	slime = get_node("../slimev3")
