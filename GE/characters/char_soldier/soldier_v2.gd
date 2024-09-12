@@ -33,6 +33,22 @@ var damage_deal
 
 @export var inventory: Inventory
 
+# Function to count total keys in the inventory
+func get_total_keys() -> int:
+	var key_count = 0
+	for item in inventory.items:
+		if item is Key:
+			key_count += item.key_amount  # Summing up all keys
+	return key_count
+
+func open_gate():
+	var total_keys = get_total_keys()
+	if total_keys == 3:
+		print("The gate opens with exactly 3 keys!")
+		# Add your logic to open the gate
+	else:
+		print("You don't have exactly 3 keys.")
+
 var bow_equipped = true
 var bow_cooldown = true
 var arrow = preload("res://characters/char_soldier/arrow.tscn")
@@ -324,4 +340,5 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
+
 
