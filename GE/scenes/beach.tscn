@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctsqks6453r08"]
+[gd_scene load_steps=18 format=3 uid="uid://ctsqks6453r08"]
 
 [ext_resource type="Script" path="res://scenes/beach.gd" id="1_g2ddp"]
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="8_twbmo"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_segts"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="10_fs6n4"]
+[ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="11_cx0xj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2812,5 +2813,8 @@ anchor_right = 1.0
 offset_left = -184.0
 offset_right = 0.0
 grow_horizontal = 0
+
+[node name="Node2D" parent="." instance=ExtResource("11_cx0xj")]
+position = Vector2(877, 358)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

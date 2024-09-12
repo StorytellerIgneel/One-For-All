@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=48 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/enemy_elite_orc/elite_orc.tscn" id="19_fvp73"]
+[ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
@@ -5112,6 +5113,9 @@ position = Vector2(681, 282)
 
 [node name="elite_orc" parent="." instance=ExtResource("19_fvp73")]
 position = Vector2(692, 414)
+
+[node name="GoddessStatue" parent="." instance=ExtResource("20_hsoah")]
+position = Vector2(377, 263)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(568, 320)

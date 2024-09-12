@@ -82,12 +82,18 @@ func _physics_process(delta):
 		health = 0
 		print("player has been killed")
 		self.queue_free()
+	
+	if (Global.GoddessHeal == true):
+		health = 100
+		Global.GoddessHeal = false
+		
 	pass
 	
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
+			print(actionables)
 			var actionable = actionables[0]
 			actionable.action()
 	return
@@ -129,7 +135,6 @@ func _on_fireTimer_timeout():
 	
 	
 func player_movement(delta):
-	print(Global.disablePlayerInput)
 	if (Global.disablePlayerInput == false):
 		if Input.is_action_pressed("toRight"):
 			current_dir = "right"
@@ -311,8 +316,6 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
 	attack_ip = false
-<<<<<<< HEAD
-=======
 	#_anim.play("soldier_idle")
 	
 func _on_key_picked_up():
@@ -324,7 +327,6 @@ func check_key_count():
 		print("You have exactly 3 keys!")
 	else:
 		print("You have", key_count, "keys.")
->>>>>>> ecd76a2055fcd3c1f08da5154be0d712e267e257
 
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
