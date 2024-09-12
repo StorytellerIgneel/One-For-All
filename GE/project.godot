@@ -24,6 +24,7 @@ State="*res://scenes/state.gd"
 Global="*res://global.gd"
 LoadManager="*res://UI/autoloads/LoadManager.gd"
 StageManager="*res://UI/loading_screen/StageManager.tscn"
+TimeManager="*res://UI/Setting/Time/time_system.gd"
 
 [dialogue_manager]
 

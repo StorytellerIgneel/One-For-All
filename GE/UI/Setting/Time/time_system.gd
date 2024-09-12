@@ -2,7 +2,7 @@ class_name TimeSystem extends Node
 
 signal updated
 
-@export var date_time: DateTime
+@export var date_time: DateTime = DateTime.new()
 # Set Ticks using the system can be found in Test.tscn and in TimeSystem node
 @export var ticks_pr_second: int = 6
 

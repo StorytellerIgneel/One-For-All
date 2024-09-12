@@ -34,7 +34,15 @@ func _ready():
 	else:
 		print("Error: 'start' method not found in balloon instance.")
 	initialize_camera_limit()
+	
+	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 
+	#print("DateTime at scene start: ", TimeManager.date_time)
+
+
+func _on_time_system_updated(date_time: DateTime) -> void:
+	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
+	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		game_paused = !game_paused
