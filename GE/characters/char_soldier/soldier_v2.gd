@@ -71,7 +71,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if(State.is_dialogue_active == false):
+	#print(Global.disablePlayerInput)
+	if(Global.disablePlayerInput == false):
 		player_movement(delta)
 		check_interact()
 	check_environment()
@@ -90,10 +91,8 @@ func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
-			State.is_dialogue_active = true
 			var actionable = actionables[0]
 			actionable.action()
-	State.is_dialogue_active = false
 	return
 
 func check_environment():
