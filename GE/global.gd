@@ -41,4 +41,4 @@ func findElement(areaArray, toFind):
 	for area in areaArray:
 		if (area.name == toFind):
 			return true
-	return false
+	#return false

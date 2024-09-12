@@ -13,10 +13,15 @@ class_name Key extends InventoryItem
 	#else:
 		#print("You have less than 3 keys.")
 
-func get_total_keys_from_inventory(player: CharacterBody2D) -> int:
-	var key_count = 0
-	# Assuming `player.inventory` is the player's inventory containing items
-	for item in player.inventory.items:
-		if item is Key:
-			key_count += item.key_amount
-	return key_count
+#func get_total_keys_from_inventory(player: CharacterBody2D) -> int:
+	#var key_count = 0
+	## Assuming `player.inventory` is the player's inventory containing items
+	#for item in player.inventory.items:
+		#if item is Key:
+			#key_count += item.key_amount
+	#return key_count
+	
+func use(player: CharacterBody2D) -> void:
+	player.check_key_count()  # Assuming the player has this method
+
+	

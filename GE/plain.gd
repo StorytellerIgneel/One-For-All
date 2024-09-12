@@ -7,6 +7,8 @@ var NextLevel: bool = false
 
 @export var date_time: DateTime = DateTime.new()
 
+@export var inventory: Inventory
+
 var game_paused = false
 
 @onready var viewport = get_parent().get_node("SubViewport1")
@@ -49,27 +51,54 @@ func _unhandled_input(event):
 		#get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 		await LoadManager.load_scene("res://scenes/winterfell.tscn")
 		
+	#if event.is_action_pressed("Interact"):
+		#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+		#if actionables.size() > 1:
+			#if (Global.findElement(actionables, "PortalArea")):
+				#Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
+				#if (State.teleport == true):
+					#for area in actionables:
+						#if area.get_parent().name == "Portal1":
+							#player.global_position = $Portal2.global_position
+						#elif area.get_parent().name == "Portal2":
+							#player.global_position = $Portal1.global_position
+					#State.teleport = false
+				##logic to tp
+		#else:
+			#pass
 	if event.is_action_pressed("Interact"):
 		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
+	# Check if the player is overlapping with any areas
 		if actionables.size() > 1:
-			if (Global.findElement(actionables, "PortalArea")):
+		
+		# Check if the area contains a PortalArea and if the player has 3 keys
+			if Global.findElement(actionables, "PortalArea"):
+			
+				# Check inventory key amount
+				if player.inventory.get_total_keys() < 3:
+					print("You need 3 keys to teleport.")
+					return  # Exit if the player doesn't have 3 keys
+			
 				Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
-				if (State.teleport == true):
+
+			# If teleport is triggered, execute teleport logic
+				if State.teleport == true:
 					for area in actionables:
 						if area.get_parent().name == "Portal1":
 							player.global_position = $Portal2.global_position
 						elif area.get_parent().name == "Portal2":
 							player.global_position = $Portal1.global_position
+							print("Teleporting to the next scene...")
+							get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 					State.teleport = false
-				#logic to tp
-		else:
-			pass
+					return
 		
 		# get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(State.teleport)
+	#print(State.teleport)
 	pass
 
 func initialize_camera_limit():
