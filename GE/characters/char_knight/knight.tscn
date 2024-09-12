@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://m4sfn5b4jp8x"]
+[gd_scene load_steps=67 format=3 uid="uid://m4sfn5b4jp8x"]
 
 [ext_resource type="Texture2D" uid="uid://bieorgfstgb81" path="res://resources/characters/Knight/Knight with shadows/Knight-Attack01.png" id="1_b8108"]
 [ext_resource type="Script" path="res://characters/char_knight/knight.gd" id="1_mja8w"]
@@ -252,7 +252,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"knight_atk1",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -287,7 +287,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"knight_atk2",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -325,7 +325,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"knight_atk3",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -432,13 +432,26 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7lwl"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nerv"]
+radius = 8.0
 
 [node name="knight" type="CharacterBody2D"]
 script = ExtResource("1_mja8w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oumcq")
-animation = &"knight_idle"
+animation = &"knight_atk2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a7lwl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1nerv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

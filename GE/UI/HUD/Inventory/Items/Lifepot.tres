@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HealthItem" load_steps=3 format=3 uid="uid://b7d1qyogbtt20"]
+
+[ext_resource type="Script" path="res://UI/HUD/Inventory/Items/health_item.gd" id="1_3kedw"]
+[ext_resource type="Texture2D" uid="uid://spk3av82ym00" path="res://collectables/LifePot.png" id="2_uklfn"]
+
+[resource]
+script = ExtResource("1_3kedw")
+health_increase = 5
+name = ""
+texture = ExtResource("2_uklfn")

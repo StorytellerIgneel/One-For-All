@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3yp361ebhcc3"]
+
+[ext_resource type="Script" path="res://UI/Level_Selection/lvl_select_Background.gd" id="1_l36tg"]
+[ext_resource type="Texture2D" uid="uid://2rs0oh4k6nvg" path="res://UI/Level_Selection/assets/BG.png" id="1_vcpwy"]
+[ext_resource type="Texture2D" uid="uid://cdijtyaf6f880" path="res://UI/Level_Selection/assets/Window.png" id="2_hfvsi"]
+[ext_resource type="PackedScene" uid="uid://daqeo1g2k0pot" path="res://UI/Level_Selection/grid_container.tscn" id="4_ps6ou"]
+[ext_resource type="Texture2D" uid="uid://blofme1il303v" path="res://UI/Menu/asset/PNG/buttonSquare_blue.png" id="5_03eem"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atj1u"]
+atlas = ExtResource("2_hfvsi")
+region = Rect2(1001, 2026, 769, 619)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1lp4"]
+atlas = ExtResource("2_hfvsi")
+region = Rect2(1320, 56, 352, 72)
+
+[node name="Lvl_Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l36tg")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vcpwy")
+expand_mode = 1
+
+[node name="LvlMenu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.5
+offset_top = -266.0
+offset_right = 331.5
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_atj1u")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="LvlMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 11.0
+offset_right = 139.0
+offset_bottom = 84.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_m1lp4")
+expand_mode = 1
+
+[node name="ClipControl" type="Control" parent="LvlMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="HBoxContainer" parent="LvlMenu/ClipControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -592.0
+offset_right = 37.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GridContainer" parent="LvlMenu/ClipControl/GridContainer" instance=ExtResource("4_ps6ou")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BackBtnBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -25.0
+offset_right = 41.0
+offset_bottom = 15.0
+texture = ExtResource("5_03eem")
+expand_mode = 3
+
+[node name="BackBtn" type="Button" parent="BackBtnBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.696
+anchor_right = 0.541
+anchor_bottom = 0.767
+offset_left = 619.76
+offset_top = 422.16
+offset_right = 744.36
+offset_bottom = 460.32
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="BackBtnBackground/BackBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -14.0
+offset_right = 23.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Back
+"
+
+[node name="BackBtnBackground2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -25.0
+offset_right = 41.0
+offset_bottom = 15.0
+texture = ExtResource("5_03eem")
+expand_mode = 3
+
+[node name="LoadingBtn" type="Button" parent="BackBtnBackground2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.696
+anchor_right = 0.541
+anchor_bottom = 0.767
+offset_left = 323.76
+offset_top = 422.16
+offset_right = 528.36
+offset_bottom = 460.32
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="BackBtnBackground2/LoadingBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -14.0
+offset_right = 23.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Test loading screen
+"
+
+[connection signal="pressed" from="BackBtnBackground/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="BackBtnBackground2/LoadingBtn" to="." method="_on_loading_btn_pressed"]

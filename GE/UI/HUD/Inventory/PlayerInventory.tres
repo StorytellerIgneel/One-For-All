@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=12 format=3 uid="uid://cnj53oh25x6tw"]
+
+[ext_resource type="Script" path="res://UI/HUD/Inventory/Inventory.gd" id="2_jecd7"]
+[ext_resource type="Script" path="res://UI/HUD/Inventory/inventorySlot.gd" id="2_q8syc"]
+
+[sub_resource type="Resource" id="Resource_wfq3a"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_vfmuq"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_c55u0"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_k3pil"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ufvcl"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_e1bku"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_bnfn6"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_14pf3"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_get7e"]
+script = ExtResource("2_q8syc")
+amount = 0
+
+[resource]
+script = ExtResource("2_jecd7")
+slots = Array[ExtResource("2_q8syc")]([SubResource("Resource_wfq3a"), SubResource("Resource_vfmuq"), SubResource("Resource_c55u0"), SubResource("Resource_k3pil"), SubResource("Resource_ufvcl"), SubResource("Resource_e1bku"), SubResource("Resource_bnfn6"), SubResource("Resource_14pf3"), SubResource("Resource_get7e")])

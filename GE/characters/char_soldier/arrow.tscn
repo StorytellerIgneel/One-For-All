@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2i4q8olrqw4"]
+
+[ext_resource type="Texture2D" uid="uid://brgvn4hakbue0" path="res://resources/arrow(projectile)/Arrow01(32x32).png" id="1_3orb6"]
+[ext_resource type="Script" path="res://characters/char_soldier/arrow.gd" id="1_rsx6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgw44"]
+size = Vector2(19, 7)
+
+[node name="arrow" type="Area2D"]
+script = ExtResource("1_rsx6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vgw44")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3orb6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.95, 0.35)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

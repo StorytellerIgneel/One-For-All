@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dhum00ii3voyn"
+path="res://.godot/imported/GoddessStatue.dialogue-653981dc6f7b6c42bfbcac5f019b4301.tres"
+
+[deps]
+
+source_file="res://Dialogues/GoddessStatue.dialogue"
+dest_files=["res://.godot/imported/GoddessStatue.dialogue-653981dc6f7b6c42bfbcac5f019b4301.tres"]
+
+[params]
+
+defaults=true

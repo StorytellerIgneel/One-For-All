@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bp5jf2gbrtx8b" path="res://UI/Menu/asset/PNG/arrowSilver_left.png" id="6_8p5ml"]
 
 [node name="SettingMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.996078, 0.843137, 0, 1)
+color = Color(1, 1, 1, 0)
 
 [node name="BluePanel" type="TextureRect" parent="."]
 layout_mode = 1
@@ -203,5 +204,5 @@ text = "Back"
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/BrightnessBtn" to="." method="_on_brightness_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Key Binds" to="." method="_on_key_binds_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="BackBtn" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_texture_button_pressed"]
