@@ -39,17 +39,14 @@ func _physics_process(delta):
 			dead()
 	elif player_chase and player:
 		if current_states != enemy_status.ATTACK:
-			var distance_to_player = (player.position - position).length()
-			if distance_to_player > 10:
+			if player.position:
+				# Calculate movement towards the player
 				custom_velocity = (player.position - position).normalized() * speed
-			else:
-				custom_velocity = Vector2.ZERO
-			
-			velocity = custom_velocity
-			move_and_slide()
-			$slime.play("walk")
-			$slime.flip_h = (player.position.x - position.x) < 0
-			
+				# Move the character towards the player
+				velocity = custom_velocity
+				move_and_slide()  # Use move_and_slide() without arguments
+				$slime.play("walk")
+				$slime.flip_h = (player.position.x - position.x) < 0
 
 			# Stop the move_change timer while chasing
 			if !$move_change.is_stopped():
