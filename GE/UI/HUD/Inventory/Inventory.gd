@@ -19,6 +19,14 @@ func insert(item: InventoryItem):
 			emptySlots[0].amount = 1
 	
 	updated.emit()
+	
+# Method to get the total number of keys in the inventory
+func get_total_keys() -> int:
+	var key_count = 0
+	for slot in slots:
+		if slot.item is Key:
+			key_count += slot.amount  # Add the number of keys in this slot
+	return key_count
 			
 func removeSlot(inventorySlot: InventorySlot):
 	var index = slots.find(inventorySlot)

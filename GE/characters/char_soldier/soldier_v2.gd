@@ -33,21 +33,29 @@ var damage_deal
 
 @export var inventory: Inventory
 
-# Function to count total keys in the inventory
-func get_total_keys() -> int:
-	var key_count = 0
-	for item in inventory.items:
-		if item is Key:
-			key_count += item.key_amount  # Summing up all keys
-	return key_count
-
-func open_gate():
-	var total_keys = get_total_keys()
-	if total_keys == 3:
-		print("The gate opens with exactly 3 keys!")
-		# Add your logic to open the gate
+func check_key_count():
+	var key_count = inventory.get_total_keys()
+	if key_count == 3:
+		print("You have exactly 3 keys!")
 	else:
-		print("You don't have exactly 3 keys.")
+		print("You have", key_count, "keys.")
+
+
+# Function to count total keys in the inventory
+#func get_total_keys() -> int:
+	#var key_count = 0
+	#for item in inventory.items:
+		#if item is Key:
+			#key_count += item.key_amount  # Summing up all keys
+	#return key_count
+#
+#func open_gate():
+	#var total_keys = get_total_keys()
+	#if total_keys == 3:
+		#print("The gate opens with exactly 3 keys!")
+		## Add your logic to open the gate
+	#else:
+		#print("You don't have exactly 3 keys.")
 
 var bow_equipped = true
 var bow_cooldown = true

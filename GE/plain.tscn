@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="8_sd62l"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="12_4ldot"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="12_qhkhw"]
-[ext_resource type="PackedScene" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="15_idnnt"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="16_gsp6b"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="16_lh2ad"]
