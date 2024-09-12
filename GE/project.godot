@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="GE"
+<<<<<<< HEAD
 run/main_scene="res://scenes/yap_testing_scene.tscn"
+=======
+run/main_scene="res://plain.tscn"
+>>>>>>> 952f7adeb23bf3de32adc3632842124d11a07cce
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/island.tscn"
