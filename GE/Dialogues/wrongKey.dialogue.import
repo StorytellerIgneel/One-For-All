@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dl0n73buwyaa2"
+path="res://.godot/imported/wrongKey.dialogue-569d258d67df1059f46028082b5f2415.tres"
+
+[deps]
+
+source_file="res://Dialogues/wrongKey.dialogue"
+dest_files=["res://.godot/imported/wrongKey.dialogue-569d258d67df1059f46028082b5f2415.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cfskda01buhio"
+path="res://.godot/imported/Key2.dialogue-94a21d098a1f17dd19f342cfc8e687e7.tres"
+
+[deps]
+
+source_file="res://Dialogues/Key2.dialogue"
+dest_files=["res://.godot/imported/Key2.dialogue-94a21d098a1f17dd19f342cfc8e687e7.tres"]
+
+[params]
+
+defaults=true
