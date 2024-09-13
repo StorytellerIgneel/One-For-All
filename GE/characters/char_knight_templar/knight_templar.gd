@@ -124,6 +124,22 @@ func play_anim(movement):
 		elif movement == 0:
 			if attack_ip == false:
 				_anim.play("knight.t_idle")
+	
+	if dir == "down":
+		#anim.flip_h = true
+		if movement == 1:
+			_anim.play("knight.t_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				_anim.play("knight.t_idle")
+				
+	if dir == "up":
+		#anim.flip_h = true
+		if movement == 1:
+			_anim.play("knight.t_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				_anim.play("knight.t_idle")
 
 func player():
 	pass
@@ -186,8 +202,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk1")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("knight.t_atk1")
+			$deal_attack_timer.start()
 	
-	if Input.is_action_just_pressed("atk2"):
+	if Input.is_action_just_pressed("atk2")and not atk2_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = knighttemp_atk1dmg
@@ -200,10 +219,14 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("knight.t_atk2")
+			$deal_attack_timer.start()
+			
 		atk2_cooldown = true
 		$atk2_cooldown.start()
 
-	if Input.is_action_just_pressed("atk3"):
+	if Input.is_action_just_pressed("atk3") and not atk3_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = knighttemp_atk1dmg
@@ -214,6 +237,9 @@ func attack():
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("knight.t_atk3")
+			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
 			

@@ -29,6 +29,7 @@ var attack_ip = false
 var damage = 0
 var slime
 var damage_deal
+var atk2_cooldown = false
 
 @export var inventory: Inventory
 
@@ -262,12 +263,12 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
-		if dir == "down" || dir == "up":
+		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
 
 	
-	if Input.is_action_just_pressed("atk2"):
+	if Input.is_action_just_pressed("atk2") and not atk2_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = soldier_atk2dmg
@@ -280,6 +281,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("soldier_atk2")
+			$deal_attack_timer.start()
+		atk2_cooldown = true
+		$atk2_cooldown.start()
 
 
 func _on_deal_attack_timer_timeout():
@@ -400,3 +406,7 @@ func place_tile_in_front():
 			inventory.removeSlot(item_slots[0])
 
 	inventory.updated.emit()  # Emit the updated signal after placing a block
+
+
+func _on_atk_2_cooldown_timeout():
+	atk2_cooldown = false
