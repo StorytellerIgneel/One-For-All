@@ -16,6 +16,14 @@ func insert(item: InventoryItem):
 		if key_count >= 3:
 			print("You already have 3 keys. Can't collect more!")
 			return
+			
+	if item is BuildingItem:
+		var building_count = get_total_building()
+		
+		# Allow collecting only if there's one BuildingItem in the inventory
+		if building_count >= 1:
+			print("You can use the block.")
+			return
 	
 	var itemSlots = slots.filter(func(slot): return slot.item == item )
 	
@@ -37,6 +45,15 @@ func get_total_keys() -> int:
 		if slot.item is Key:
 			key_count += slot.amount  # Add the number of keys in this slot
 	return key_count
+	
+func get_total_building() -> int:
+	var building_count = 0
+	
+	for slot in slots:
+		if slot.item is BuildingItem:
+			building_count += slot.amount
+	print("Total BuildingItems: ", building_count)
+	return building_count
 			
 func removeSlot(inventorySlot: InventorySlot):
 	var index = slots.find(inventorySlot)
@@ -68,17 +85,11 @@ func use_item_at_index(index: int) -> void:
 	
 	remove_at_index(index)
 			
-	#for slot in slots:
-		#if slot.item == item:
-			#slot.amount += 1
-			#updated.emit()
-			#return
-			
-	#for i in range(slots.size()):
-		#if !slots[i].item:
-			#slots[i].item = item
-			##slots[i].amount = 1
-			##updated.emit()
-			##return
-			
 	updated.emit()
+	
+func has_one_building_item() -> bool:
+	for slot in slots:
+		if slot.item is BuildingItem and slot.amount == 1:
+			return true
+	return false
+

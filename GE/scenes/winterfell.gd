@@ -4,7 +4,7 @@ var NextLevel: bool = false
 
 @onready var pause_menu = $CanvasLayer/InputSettings
 
-@export var date_time: DateTime = DateTime.new()
+#@export var date_time: DateTime = DateTime.new()
 
 var game_paused = false
 
@@ -41,10 +41,10 @@ func _ready():
 	player.InFireRegion.connect(inFireRegion)
 	player.OutFireRegion.connect(OutFireRegion)
 	
-	if date_time == null:
-		date_time = DateTime.new()  # Ensure it's not null
-
-	print("TimeManager ready with date_time initialized.")
+	#if date_time == null:
+		#date_time = DateTime.new()  # Ensure it's not null
+#
+	#print("TimeManager ready with date_time initialized.")
 
 	#TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 
