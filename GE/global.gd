@@ -48,3 +48,6 @@ func findElement(areaArray, toFind):
 
 func allowInput():
 	Global.disablePlayerInput = false
+
+func removeCollision(tilePosition):
+	currentTilemap.set_cell(0, tilePosition, -1)

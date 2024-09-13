@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=51 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -18,14 +18,14 @@
 [ext_resource type="Resource" uid="uid://ebx5agme1ch1" path="res://Dialogues/NextLevel.dialogue" id="11_d858f"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
 [ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="18_54ev4"]
-[ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="19_fvp73"]
+[ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="19_fvp73"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer2.gd" id="26_w8st3"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="32_fyh2l"]
@@ -33,10 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="32_xj5tp"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="33_2po53"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer5.gd" id="35_au7sd"]
-[ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="35_xoxt8"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="36_ejjpy"]
+[ext_resource type="PackedScene" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="35_xoxt8"]
 [ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="36_s8c1h"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="37_20pte"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="37_20pte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -5236,7 +5235,7 @@ position = Vector2(581, 286)
 position = Vector2(777, 344)
 script = ExtResource("36_s8c1h")
 
-[node name="slimev3" parent="." instance=ExtResource("36_ejjpy")]
+[node name="slimev3" parent="." instance=ExtResource("37_20pte")]
 position = Vector2(736, 279)
 
 [node name="armored_orc" parent="." instance=ExtResource("37_20pte")]

@@ -60,7 +60,7 @@ func _ready():
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
 	inventory.use_item.connect(use_item)
-	print("Signals connected")
+	#print("Signals connected")
 	_anim.play("soldier_idle")
 	slime = get_node("../slimev3")
 	pass
@@ -96,6 +96,10 @@ func check_interact():
 	
 	if Input.is_action_just_pressed("createTile"):
 		place_tile_in_front()
+	
+	if Input.is_action_just_pressed("createWoodenBlock"):
+		place_wooden_blocks()
+		
 	return
 
 func check_environment():
@@ -330,6 +334,8 @@ func place_tile_in_front():
 		source_id = 7
 	elif (tilemap.name == "PlainTileMap"):
 		source_id = 0
+	elif (tilemap.name == "BeachTileMap"):
+		source_id = 3
 	#print("tile_position: " ,tile_position)
 	#print(Global.currentTilemap.get_cell_tile_data(0, Vector2i(0,0)))
 	#print(Global.currentTilemap.local_to_map(self.global_position))
@@ -341,3 +347,57 @@ func place_tile_in_front():
 	#print("Tile placed at: ", tile_position)
 	#else:
 		#print("Tile already exists at: ", tile_position)
+
+func place_wooden_blocks():
+	var facing_direction = current_dir
+	var position_in_front
+	
+	# Calculate the world position in front of the player
+	if (current_dir == "right"):
+		position_in_front = self.global_position + Vector2(16, 0)
+	elif (current_dir == "left"):
+		position_in_front = self.global_position + Vector2(-16, 0)
+	elif (current_dir == "down"):
+		position_in_front = self.global_position + Vector2(0, 16)
+	elif (current_dir == "up"):
+		position_in_front = self.global_position + Vector2(0, -16)
+	
+	var tilemap = Global.currentTilemap
+	var source_id
+	# Convert world position to tilemap coordinates
+
+	var tile_position = Global.currentTilemap.local_to_map(position_in_front)
+	
+	if (tilemap.name == "IslandTileMap"):
+		source_id = 7
+	elif (tilemap.name == "PlainTileMap"):
+		source_id = 0
+	elif (tilemap.name == "BeachTileMap"):
+		source_id = 3
+		
+	var sourceId = 0
+	var base_atlas_coord = Vector2(8, 10)
+	
+	 # Coordinates for each of the 2x2 tiles (relative to the base position)
+	var tile_offsets = [
+		Vector2i(-1, 1),  # Top-left
+		Vector2i(0, 1),  # Top-right
+		Vector2i(-1, 2),  # Bottom-left
+		Vector2i(0, 2)   # Bottom-right
+		#all y axis are + 1 to create at the feet so can directly walk thru
+	]
+	
+	var atlas_offsets = [
+		Vector2(0, 0),  # Top-left
+		Vector2(1, 0),  # Top-right
+		Vector2(0, 1),  # Bottom-left
+		Vector2(1, 1)   # Bottom-right
+	]
+	
+	print(tile_position)
+	for i in range (4):
+		var currentTilePosition = tile_position + tile_offsets[i]
+		var currentAtlasCoord = base_atlas_coord + atlas_offsets[i]
+		var deleteCollisionPosition = currentTilePosition + Vector2i(0, -1) #let the player walk pass
+		Global.removeCollision((deleteCollisionPosition))
+		tilemap.set_cell(4, currentTilePosition, sourceId, currentAtlasCoord)
