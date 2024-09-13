@@ -5107,10 +5107,10 @@ shape = SubResource("RectangleShape2D_tpyep")
 
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
-position = Vector2(-166, 450)
+position = Vector2(213, 389)
 
 [node name="knight" parent="." instance=ExtResource("18_54ev4")]
-position = Vector2(190, 393)
+position = Vector2(-66, 428)
 
 [node name="slime" parent="." instance=ExtResource("18_aqvnu")]
 position = Vector2(681, 282)

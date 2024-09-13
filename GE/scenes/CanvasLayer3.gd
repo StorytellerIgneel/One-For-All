@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-@onready var settingScreen = $SettingMenu
+@onready var inventory = $InventoryGUI
 
 func _ready():
-	settingScreen.close()
+	inventory.close()
 	
 func _input(event):
-	if event.is_action_pressed("Setting"):
-		if settingScreen.isOpen:
-			settingScreen.close()
+	if event.is_action_pressed("toggle_inventory"):
+		if inventory.isOpen:
+			inventory.close()
 		else:
-			settingScreen.open()
+			inventory.open()
+	
