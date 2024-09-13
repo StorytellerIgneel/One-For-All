@@ -286,6 +286,8 @@ show_percentage = false
 wait_time = 10.0
 autostart = true
 
+[node name="atk2_cooldown" type="Timer" parent="."]
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

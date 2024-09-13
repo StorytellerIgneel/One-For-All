@@ -183,21 +183,21 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("soldier_idle")
 				
-	#if dir == "down":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
-				#
-	#if dir == "up":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
+	if dir == "down":
+		#anim.flip_h = true
+		if movement == 1:
+			anim.play("soldier_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				anim.play("soldier_idle")
+				
+	if dir == "up":
+		#anim.flip_h = true
+		if movement == 1:
+			anim.play("soldier_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				anim.play("soldier_idle")
 
 func player():
 	pass
@@ -261,6 +261,9 @@ func attack():
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("soldier_atk1")
+			$deal_attack_timer.start()
+		if dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
 
