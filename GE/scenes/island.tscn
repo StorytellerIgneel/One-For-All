@@ -5232,6 +5232,9 @@ offset_bottom = 159.0
 position = Vector2(358, 359)
 
 [node name="slimeV2" parent="." instance=ExtResource("32_7od38")]
-position = Vector2(355, 433)
+position = Vector2(589, 400)
+
+[node name="slimev4" parent="." instance=ExtResource("31_hbvl1")]
+position = Vector2(576, 303)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer4/TImeGui" method="_on_time_system_updated"]
