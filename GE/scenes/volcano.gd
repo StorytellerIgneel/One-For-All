@@ -7,7 +7,7 @@ var NextLevel: bool = false
 var fireball = load("res://characters/fireball.tscn")
 var game_paused = false
 var boulders: Array[Node]
-
+var overlappingLava: Array[Area2D]
 
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
@@ -25,8 +25,12 @@ func _ready():
 			var boulder = get_node(node_name)
 			boulders.append(boulder)
 			
+	for child in $OverlappingLava.get_children():
+		overlappingLava.append(child)
+				
 	boulders = boulders.slice(0, 4)
-	print(boulders)
+	print(overlappingLava)
+	#print(boulders)
 	
 	#Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 	# Load the dialogue resource directly from the pat
@@ -90,7 +94,10 @@ func _unhandled_input(event):
 					var direction = "up"  if (boulder_no % 2 == 0) else "down"
 					var offset =  16 if (player.current_dir == "right") else -16
 					boulder.position += Vector2(offset, 0)  # Adjust to move in the desired direction (e.g., right)	
-					clear_tiles_in_range(boulder.position, direction, 7)
+					if ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(boulder.position)) == null): #detect if nothing is there then create lava
+						lavaOverflow(boulder.position + Vector2(16, 0), direction, 7)
+					else:
+						clear_tiles_in_range(boulder.position, direction, 7)
 
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 32
@@ -114,6 +121,24 @@ func clear_tiles_in_range(start_pos: Vector2, direction: String, num_tiles: int)
 		# Remove the tile at the calculated position
 		remove_tile(tile_pos)
 
+func lavaOverflow(start_pos: Vector2, direction: String, num_tiles: int):
+	
+	var step_size = 16  # Each tile is spaced 16 pixels apart
+	var tilemap_pos = $OverlappingLava.local_to_map(start_pos)  # Convert world position to tilemap coordinates
+	print(tilemap_pos)
+	var tile_pos
+	# Loop to clear the tiles in the range
+	for i in range(num_tiles):
+		var offset_y = i * step_size
+		if direction == "down":
+			tile_pos = tilemap_pos +  $OverlappingLava.local_to_map(Vector2i(0, offset_y))  # Going down, increase the y-coordinate
+		elif direction == "up":
+			tile_pos = tilemap_pos -  $OverlappingLava.local_to_map(Vector2i(0, offset_y))  # Going up, decrease the y-coordinate
+		
+		# Remove the tile at the calculated position
+		$OverlappingLava.set_cell(0, tile_pos, 0, Vector2i(32, 2))
+		
+
 # Helper function to remove a tile
 func remove_tile(tilemap_pos: Vector2):
 	if $OverlappingLava.get_cell_tile_data(0, tilemap_pos, -1) != null:
@@ -126,3 +151,10 @@ func remove_tile(tilemap_pos: Vector2):
 
 func player_hit_by_fireball():
 	player.health -= 10	
+
+func _physics_process(delta):
+	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
+	for lavaArea in overlappingLava:
+		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):
+			player.health = 0
