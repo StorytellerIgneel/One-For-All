@@ -237,7 +237,7 @@ func increase_health(amount: int) -> void:
 	health += amount
 	health = min(max_health, health)
 		
-	healthChanged.emit(health)
+	#healthChanged.emit(health)
 		
 	print("player health increase = ", health)
 	
