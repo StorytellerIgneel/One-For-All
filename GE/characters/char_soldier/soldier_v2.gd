@@ -96,6 +96,9 @@ func check_interact():
 			print(actionables)
 			var actionable = actionables[0]
 			actionable.action()
+	
+	if Input.is_action_just_pressed("createTile"):
+		place_tile_in_front()
 	return
 
 func check_environment():
@@ -147,12 +150,12 @@ func player_movement(delta):
 			velocity.x = -maxSpeed
 			velocity.y = 0
 		elif Input.is_action_pressed("toDown"):
-			#current_dir = "down"
+			current_dir = "down"
 			play_anim(1)
 			velocity.y = maxSpeed
 			velocity.x = 0
 		elif Input.is_action_pressed("toUp"):
-			#current_dir = "up"
+			current_dir = "up"
 			play_anim(1)
 			velocity.y = -maxSpeed
 			velocity.x = 0
@@ -336,4 +339,39 @@ func _on_player_hitbox_area_entered(area):
 	else:
 		print("No collect meth found for:", area)
 
+#func for placing tiles
+func place_tile_in_front():
+	# Get the player's facing direction (assuming you have a velocity-based movement)
+	var facing_direction = current_dir
+	var position_in_front
+	
+	# Calculate the world position in front of the player
+	if (current_dir == "right"):
+		position_in_front = self.global_position + Vector2(16, 0)
+	elif (current_dir == "left"):
+		position_in_front = self.global_position + Vector2(-16, 0)
+	elif (current_dir == "down"):
+		position_in_front = self.global_position + Vector2(0, 16)
+	elif (current_dir == "up"):
+		position_in_front = self.global_position + Vector2(0, -16)
+	
+	var tilemap = Global.currentTilemap
+	var source_id
+	# Convert world position to tilemap coordinates
 
+	var tile_position = Global.currentTilemap.local_to_map(position_in_front)
+	if (tilemap.name == "IslandTileMap"):
+		source_id = 7
+	elif (tilemap.name == "PlainTileMap"):
+		source_id = 0
+	#print("tile_position: " ,tile_position)
+	#print(Global.currentTilemap.get_cell_tile_data(0, Vector2i(0,0)))
+	#print(Global.currentTilemap.local_to_map(self.global_position))
+	# Check if the tile is empty (if it returns -1, the tile is empty)
+	#if Global.currentTilemap.get_cell_tile_data(0, tile_position, -1) != null:
+		# Place the tile in front of the player
+	tilemap.set_cell(4, tile_position, source_id, Vector2(0,0))
+	#print(Global.currentTilemap.get_cell_tile_data(0, tile_position))
+	#print("Tile placed at: ", tile_position)
+	#else:
+		#print("Tile already exists at: ", tile_position)

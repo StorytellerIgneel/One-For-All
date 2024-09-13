@@ -17,7 +17,7 @@ var boulders: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	Global.currentTilemap = $VolcanoTileMap
 	for child in get_children():
 		for i in range(1, 5):
 		# Get the node by name using the format "Fire" + i

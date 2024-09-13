@@ -254,6 +254,8 @@ position = Vector2(0, -19)
 shape = SubResource("CircleShape2D_op44t")
 metadata/_edit_group_ = true
 
+[node name="ActionableFinder2" type="Area2D" parent="Direction"]
+
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]

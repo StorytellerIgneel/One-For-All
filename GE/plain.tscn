@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="16_lh2ad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv40g"]
+resource_name = "CollisionBlock"
 texture = ExtResource("1_4e2x3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -5722,6 +5723,8 @@ texture = ExtResource("6_ljbgy")
 [sub_resource type="TileSet" id="TileSet_iwxan"]
 physics_layer_0/collision_layer = 17
 physics_layer_0/collision_mask = 17
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
 sources/5 = SubResource("TileSetAtlasSource_sc0mk")
 sources/6 = SubResource("TileSetAtlasSource_x6tfo")
 sources/8 = SubResource("TileSetAtlasSource_pmlsu")
@@ -5742,7 +5745,7 @@ days = 0
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pjqho")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="PlainTileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_iwxan")
 collision_animatable = true
@@ -5780,10 +5783,10 @@ collision_layer = 17
 collision_mask = 17
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("12_qhkhw")
 
 [node name="InventoryGUI" parent="CanvasLayer" instance=ExtResource("12_4ldot")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -5815,6 +5818,7 @@ date_time = SubResource("Resource_184ch")
 ticks_pr_second = 60
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TImeGui" parent="CanvasLayer2" instance=ExtResource("16_gsp6b")]
 anchors_preset = 1

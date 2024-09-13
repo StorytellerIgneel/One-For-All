@@ -17,6 +17,7 @@ var balloon: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.currentTilemap = $TileMap
 	# Load the dialogue resource directly from the path
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	player.set_muddy_region(muddyRegion)

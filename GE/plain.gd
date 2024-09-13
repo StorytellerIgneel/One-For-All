@@ -20,8 +20,8 @@ var health = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
+	Global.currentTilemap = $PlainTileMap
+	#Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 	
 	initialize_camera_limit()
 	

@@ -2769,7 +2769,7 @@ size = Vector2(174, 76)
 [node name="world" type="Node2D"]
 script = ExtResource("1_g2ddp")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="BeachTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wwd03")
 format = 2
 layer_0/name = "Collision"
@@ -2790,9 +2790,9 @@ layer_6/tile_data = PackedInt32Array(2293766, 524288, 0, 2359302, 524288, 1, 229
 layer_7/name = "Props3"
 layer_7/tile_data = PackedInt32Array(720902, 65536, 0, 786438, 65536, 1, 851974, 65536, 2, 917510, 65536, 3, 720903, 131072, 0, 786439, 131072, 1, 851975, 131072, 2, 917511, 131072, 3, 983047, 131072, 4, 1048583, 131072, 5, 720904, 196608, 0, 786440, 196608, 1, 851976, 196608, 2, 917512, 196608, 3, 983048, 196608, 4, 1048584, 196608, 5, 720905, 262144, 0, 786441, 262144, 1, 851977, 262144, 2, 917513, 262144, 3, 983049, 262144, 4, 786442, 327680, 1, 851978, 327680, 2, 917514, 327680, 3, 720907, 65536, 0, 786443, 65536, 1, 851979, 65536, 2, 917515, 65536, 3, 720908, 131072, 0, 786444, 131072, 1, 851980, 131072, 2, 917516, 131072, 3, 983052, 131072, 4, 1048588, 131072, 5, 720909, 196608, 0, 786445, 196608, 1, 851981, 196608, 2, 917517, 196608, 3, 983053, 196608, 4, 1048589, 196608, 5, 720910, 262144, 0, 786446, 262144, 1, 851982, 262144, 2, 917518, 262144, 3, 983054, 262144, 4, 786447, 327680, 1, 851983, 327680, 2, 917519, 327680, 3)
 
-[node name="muddyRegion" type="Area2D" parent="TileMap"]
+[node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/muddyRegion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/muddyRegion"]
 position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 
