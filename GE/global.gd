@@ -9,7 +9,7 @@ var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
 var disablePlayerInput: bool = false
 var GoddessHeal: bool = false
-
+var currentTilemap
 
 var player_current_attack = false
 #var slime_current_attack = false

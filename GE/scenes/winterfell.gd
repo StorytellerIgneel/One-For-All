@@ -20,6 +20,7 @@ var in_fire_region = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.currentTilemap = $WinterfellTileMap
 	$FreezeTimer.connect("timeout", _on_FreezeTimer_timeout)
 	fire_region.clear()
 	for child in get_children():

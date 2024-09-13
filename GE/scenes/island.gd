@@ -17,6 +17,7 @@ var game_paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.currentTilemap = $IslandTileMap
 	player.set_water_region(water_region)
 	
 	#Global.trigger_dialogue("res://Dialogues/NewGame.dialogue", "start")
@@ -98,8 +99,8 @@ func outWater():
 		
 
 func initialize_camera_limit():
-	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
-	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
+	$soldierV2/PlayerCamera.limit_right = $IslandTileMap.get_used_rect().size.x * 16
+	$soldierV2/PlayerCamera.limit_bottom = $IslandTileMap.get_used_rect().size.y * 16
 	print($soldierV2/PlayerCamera.limit_right)
 
 

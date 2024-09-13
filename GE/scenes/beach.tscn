@@ -2777,7 +2777,7 @@ size = Vector2(174, 76)
 [node name="world" type="Node2D"]
 script = ExtResource("1_g2ddp")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="BeachTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wwd03")
 format = 2
 layer_0/name = "Collision"
@@ -2800,9 +2800,9 @@ layer_7/tile_data = PackedInt32Array(720902, 65536, 0, 786438, 65536, 1, 851974,
 layer_8/name = "collectables"
 layer_8/tile_data = PackedInt32Array(1769506, 4, 65536, 1769504, 4, 65536, 2424851, 4, 65536, 2031632, 4, 65536, 1769488, 4, 65536, 2359308, 4, 131072, 2097166, 4, 131072, 2228242, 4, 131072, 1900557, 4, 131072, 1703946, 4, 131072)
 
-[node name="muddyRegion" type="Area2D" parent="TileMap"]
+[node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/muddyRegion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/muddyRegion"]
 position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 

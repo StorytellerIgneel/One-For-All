@@ -1765,7 +1765,7 @@ sources/0 = SubResource("TileSetAtlasSource_vwcd1")
 [node name="Volcano" type="Node2D"]
 script = ExtResource("1_ej23f")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="VolcanoTileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_bqy1a")
 format = 2

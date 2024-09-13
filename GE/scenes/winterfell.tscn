@@ -1548,7 +1548,7 @@ days = 0
 [node name="Winterfell" type="Node2D"]
 script = ExtResource("1_vnu2o")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="WinterfellTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nhfgv")
 format = 2
 layer_0/name = "Collision"
@@ -1566,10 +1566,10 @@ layer_5/tile_data = PackedInt32Array(196611, 1572952, 8, 262147, 1572952, 9, 327
 layer_6/name = "collectables"
 layer_6/tile_data = PackedInt32Array(1507347, 2, 65536, 1310736, 2, 65536, 1310730, 2, 65536, 1441806, 2, 65536, 1179663, 2, 65536, 1179657, 2, 131072, 917507, 2, 131072, 1179658, 2, 131072, 983047, 2, 131072, 1048581, 2, 131072)
 
-[node name="Ice" type="Area2D" parent="TileMap"]
+[node name="Ice" type="Area2D" parent="WinterfellTileMap"]
 position = Vector2(896, 520)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Ice"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinterfellTileMap/Ice"]
 position = Vector2(-136, 32)
 shape = SubResource("RectangleShape2D_yf4i4")
 
