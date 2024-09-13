@@ -218,8 +218,8 @@ func enemy_attack():
 	if enemy_in_atk_range and enemy_attack_cooldown == true:
 		
 		# fetch the damage from the slime
-		damage_deal = slime.slime_atk1dmg
-		health = health - damage_deal
+		#damage_deal = slime.slime_atk1dmg
+		#health = health - damage_deal
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print("player health = ", health)

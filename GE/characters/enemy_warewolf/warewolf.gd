@@ -47,8 +47,8 @@ func _physics_process(delta):
 				# Move the character towards the player
 				velocity = custom_velocity
 				move_and_slide()  # Use move_and_slide() without arguments
-				$armored_orc.play("walk")
-				$armored_orc.flip_h = (player.position.x - position.x) < 0
+				$warewolf.play("walk")
+				$warewolf.flip_h = (player.position.x - position.x) < 0
 
 			# Stop the move_change timer while chasing
 			if !$move_change.is_stopped():
@@ -90,12 +90,12 @@ func _physics_process(delta):
 		move_and_slide()  # Use move_and_slide() without arguments
 
 	# Check if animation has ended and queue_free() if necessary
-	if $armored_orc.animation == "death" and !$armored_orc.is_playing():
+	if $warewolf.animation == "death" and !$warewolf.is_playing():
 		queue_free()
 
 func dead():
 	custom_velocity = Vector2.ZERO
-	$armored_orc.play('death')
+	$warewolf.play('death')
 	$death_time.start()  # Start Timer when death animation plays
 
 # This function will be called when the move_change timer times out
@@ -124,25 +124,25 @@ func random_direction():
 
 func move_right():
 	custom_velocity = Vector2(speed, 0)
-	$armored_orc.play('walk')
-	$armored_orc.flip_h = false
+	$warewolf.play('walk')
+	$warewolf.flip_h = false
 
 func move_left():
 	custom_velocity = Vector2(-speed, 0)
-	$armored_orc.play('walk')
-	$armored_orc.flip_h = true
+	$warewolf.play('walk')
+	$warewolf.flip_h = true
 
 func move_up():
 	custom_velocity = Vector2(0, -speed)
-	$armored_orc.play('walk')
+	$warewolf.play('walk')
 
 func move_down():
 	custom_velocity = Vector2(0, speed)
-	$armored_orc.play('walk')
+	$warewolf.play('walk')
 
 func stop():
 	custom_velocity = Vector2.ZERO
-	$armored_orc.play('idle')
+	$warewolf.play('idle')
 
 
 # Handle area detections for player chase
@@ -170,7 +170,7 @@ func _on_hitbox_area_body_exited(body):
 
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
-		$armored_orc.play('hurt')
+		$warewolf.play('hurt')
 		if can_take_damage:
 			health -= 20
 			$take_damage_cooldown.start()
@@ -196,10 +196,10 @@ func attack():
 		attack_counter += 1  # Increment attack counter
 
 		if attack_counter >= skill_threshold:
-			$armored_orc.play("skill")  # Play the "skill" animation
+			$warewolf.play("skill")  # Play the "skill" animation
 			attack_counter = 0  # Reset attack counter after skill is triggered
 		else:
-			$armored_orc.play("attack")  # Regular attack animation
+			$warewolf.play("attack")  # Regular attack animation
 			
 
 		if player and player.has_method("take_damage"):
