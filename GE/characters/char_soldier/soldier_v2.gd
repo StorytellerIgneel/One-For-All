@@ -25,7 +25,7 @@ var attack_ip = false
 
 @export var soldier_atk1dmg = Global.dmg
 @export var soldier_atk2dmg = Global.dmg + 5
-@export var soldier_atk3dmg = Global.dmg + 10
+
 var damage = 0
 var slime
 var damage_deal
