@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciidn6dx8qo5v"]
+
+[ext_resource type="Script" path="res://Chest.gd" id="1_vqiv3"]
+[ext_resource type="Script" path="res://ChestArea.gd" id="2_3ywl7"]
+[ext_resource type="Texture2D" uid="uid://cu1jjtrs4l0fx" path="res://resources/tilemap/plain/Texture/closedChest.png" id="3_yfnum"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lq6ki"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo0js"]
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_vqiv3")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(1.11837, -1.96355)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = -4.70805
+shape = SubResource("CapsuleShape2D_lq6ki")
+
+[node name="ChestArea" type="Area2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(1.63129, 1.08868)
+collision_mask = 17
+script = ExtResource("2_3ywl7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2(3.05176e-05, 0)
+rotation = -4.70487
+shape = SubResource("RectangleShape2D_oo0js")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -1.0842e-19)
+scale = Vector2(0.970588, 0.986188)
+texture = ExtResource("3_yfnum")

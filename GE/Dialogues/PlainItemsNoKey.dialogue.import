@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bpdeoqe5r5qq5"
+path="res://.godot/imported/PlainItemsNoKey.dialogue-608346445f5dd5ab6b78ade1be535f1d.tres"
+
+[deps]
+
+source_file="res://Dialogues/PlainItemsNoKey.dialogue"
+dest_files=["res://.godot/imported/PlainItemsNoKey.dialogue-608346445f5dd5ab6b78ade1be535f1d.tres"]
+
+[params]
+
+defaults=true
