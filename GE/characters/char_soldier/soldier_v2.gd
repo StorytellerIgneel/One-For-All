@@ -6,7 +6,7 @@ signal InWaterRegion
 signal OutWaterRegion
 signal InFireRegion
 signal OutFireRegion
-signal healthChanged	
+#signal healthChanged	
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
@@ -234,7 +234,7 @@ func increase_health(amount: int) -> void:
 	health += amount
 	health = min(max_health, health)
 		
-	healthChanged.emit(health)
+	#healthChanged.emit(health)
 		
 	print("player health increase = ", health)
 	
