@@ -24,6 +24,7 @@ var attack_ip = false
 var damage = 0
 var slime
 var damage_deal
+var atk2_cooldown = false
 var atk3_cooldown = false
 
 # No Problem
@@ -199,12 +200,14 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
-	
+		atk2_cooldown = true
+		$atk2_cooldown.start()
+
 	if Input.is_action_just_pressed("atk3"):
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = knighttemp_atk1dmg
-		print("Attack 2 Damage: ", damage)  # Debugging: check damage value
+		print("Attack 3 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight.t_atk3")
@@ -229,6 +232,12 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
-	
+
+func _on_atk_2_cooldown_timeout():
+	atk2_cooldown = false
+
 func _on_atk_3_cooldown_timeout():
 	atk3_cooldown = false
+
+
+
