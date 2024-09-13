@@ -26,10 +26,10 @@ func insert(item: InventoryItem):
 		
 		if !emptySlots.is_empty():
 			emptySlots[0].item = item
-			emptySlots[0].amount = 1
-	
+			emptySlots[0].amount = 1			
+			
 	updated.emit()
-	
+
 # Method to get the total number of keys in the inventory
 func get_total_keys() -> int:
 	var key_count = 0

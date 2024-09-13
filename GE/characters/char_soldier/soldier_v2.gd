@@ -243,8 +243,7 @@ func increase_health(amount: int) -> void:
 	
 func use_item(item: InventoryItem) -> void:
 	item.use(self)
-
-
+	
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
@@ -328,6 +327,7 @@ func check_key_count():
 	else:
 		print("You have", key_count, "keys.")
 
+# For using Health_Item
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
 		print("Collected the Item", area)

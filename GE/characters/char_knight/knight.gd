@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Knight
+
 signal healthChanged
 
 var enemy_in_atk_range = false
@@ -18,13 +20,22 @@ var attack_ip = false
 @export var knight_atk1dmg = Global.dmg
 @export var knight_atk2dmg = Global.dmg + 10
 @export var knight_atk3dmg = Global.dmg + 15
+
+@export var inventory: Inventory
+
 var damage = 0
 var slime
 var damage_deal
 var atk3_cooldown = false
 
-@export var inventory: Inventory
+# No problem
+#@export var inventory: Inventory
 
+# No Problem
+func _on_key_picked_up():
+	check_key_count()  # Call the function here when a key is picked up
+
+# No Problem
 func check_key_count():
 	var key_count = inventory.get_total_keys()
 	if key_count == 3:
@@ -41,12 +52,31 @@ func get_hitbox():
 	return $player_hitbox
 	
 func _ready():
-	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
+	# No Problem
+	#$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
 	#inventory.use_item.connect(use_item)
 	print("Signals connected")
 	_anim.play("knight_idle")
 	slime = get_node("../slimev3")
-	pass
+	
+	#if inventory != null:
+		#inventory.use_item.connect(use_item)
+		#
+		#print("Signals connected")
+	#else:
+		#print("Inventory is not initialized")
+	
+# No Problem
+func use_item(item: InventoryItem) -> void:
+	item.use(self)
+
+	 ## Connect signal only if inventory is valid
+	#if inventory != null:
+		#inventory.use_item.connect(use_item)
+		#print("Signals connected")
+	#else:
+		#print("Inventory is not initialized")
+	#pass
 
 func _physics_process(delta):
 	if(Global.disablePlayerInput == false):
@@ -177,10 +207,6 @@ func increase_health(amount: int) -> void:
 	healthChanged.emit(health)
 		
 	print("player health increase = ", health)
-	
-func use_item(item: InventoryItem) -> void:
-	item.use(self)
-
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
@@ -245,12 +271,13 @@ func _on_deal_attack_timer_timeout():
 	Global.player_current_attack = false
 	attack_ip = false
 
+# No problem
 func _on_player_hitbox_area_entered(area):
 	if area.has_method("collect"):
 		print("Collected the Item", area)
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
-
+	
 func _on_atk_3_cooldown_timeout():
 	atk3_cooldown = false

@@ -10,6 +10,7 @@ var NextLevel: bool = false
 @export var inventory: Inventory
 
 var game_paused = false
+var health = 0
 
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D

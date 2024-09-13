@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=49 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="11_4wsnw"]
 [ext_resource type="Resource" uid="uid://ebx5agme1ch1" path="res://Dialogues/NextLevel.dialogue" id="11_d858f"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
+[ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="18_54ev4"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/enemy_elite_orc/elite_orc.tscn" id="19_fvp73"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
@@ -25,7 +26,7 @@
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer2.gd" id="26_w8st3"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
@@ -5066,7 +5067,7 @@ layer_3/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 144
 layer_4/name = "Collisions"
 layer_4/tile_data = PackedInt32Array(917509, 7, 0, 983045, 7, 0, 1048581, 7, 0, 1114117, 7, 0, 1179653, 7, 0, 1245189, 7, 0, 1310725, 7, 0, 1376261, 7, 0, 1441797, 7, 0, 1507333, 7, 0, 1572869, 7, 0, 1638405, 7, 0, 1703941, 7, 0, 1769478, 7, 0, 1769479, 7, 0, 1769480, 7, 0)
 layer_5/name = "collectables"
-layer_5/tile_data = PackedInt32Array(2424847, 8, 65536, 2228241, 8, 65536, 2228235, 8, 65536, 2293769, 8, 65536)
+layer_5/tile_data = PackedInt32Array(2424847, 8, 65536, 2228241, 8, 65536, 2228235, 8, 65536, 2293769, 8, 65536, 1769483, 8, 65536, 1507336, 8, 65536, 1441802, 8, 65536, 1507344, 8, 65536, 1703950, 8, 131072, 1638414, 8, 131072, 1703947, 8, 131072)
 script = ExtResource("10_n6xb0")
 
 [node name="WaterRegion" type="Area2D" parent="TileMap"]
@@ -5106,7 +5107,10 @@ shape = SubResource("RectangleShape2D_tpyep")
 
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
-position = Vector2(232, 416)
+position = Vector2(-166, 450)
+
+[node name="knight" parent="." instance=ExtResource("18_54ev4")]
+position = Vector2(190, 393)
 
 [node name="slime" parent="." instance=ExtResource("18_aqvnu")]
 position = Vector2(681, 282)
@@ -5142,10 +5146,10 @@ anchor_left = -0.13
 anchor_top = -0.448
 anchor_right = -0.13
 anchor_bottom = -0.448
-offset_left = -0.23999
-offset_top = 0.304016
-offset_right = 99.76
-offset_bottom = 100.304
+offset_left = 0.759995
+offset_top = -1.69598
+offset_right = 200.76
+offset_bottom = 198.304
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false

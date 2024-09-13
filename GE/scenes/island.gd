@@ -12,6 +12,7 @@ var game_paused = false
 @onready var water_region = $TileMap/WaterRegion
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
+@onready var Player = $knight
 
 
 # Called when the node enters the scene tree for the first time.

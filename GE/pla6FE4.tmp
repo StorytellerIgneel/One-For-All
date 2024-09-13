@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b0if0mcwakx6y"]
+[gd_scene load_steps=30 format=3 uid="uid://b0if0mcwakx6y"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_4e2x3"]
 [ext_resource type="Texture2D" uid="uid://d2hbpe4lvorgs" path="res://resources/tilemap/plain/Texture/infrastructures.png" id="1_57vt1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="8_sd62l"]
 [ext_resource type="PackedScene" uid="uid://cktmruispklh2" path="res://characters/portal.tscn" id="11_qlj3m"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="12_4ldot"]
+[ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="12_l5no7"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="12_qhkhw"]
 [ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="15_idnnt"]
@@ -5773,9 +5774,11 @@ position = Vector2(107, 577)
 [node name="Portal2" parent="." instance=ExtResource("11_qlj3m")]
 position = Vector2(548, -61)
 
+[node name="knight" parent="." instance=ExtResource("12_l5no7")]
+
 [node name="soldierV2" parent="." instance=ExtResource("8_sd62l")]
 z_index = 2
-position = Vector2(102, 564)
+position = Vector2(110, 575)
 collision_layer = 17
 collision_mask = 17
 
