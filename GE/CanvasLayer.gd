@@ -10,5 +10,4 @@ func _input(event):
 		if inventory.isOpen:
 			inventory.close()
 		else:
-			inventory.open()
-	
+			inventory.open()]
