@@ -48,6 +48,7 @@ var current_dir = "none"
 func _ready():
 	_anim.play("knight.t_idle")
 	slime = get_node("../slimev3")
+	$atk_hitbox.set_deferred("monitoring", false)
 
 func use_item(item: InventoryItem) -> void:
 	item.use(self)
@@ -197,39 +198,53 @@ func attack():
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight.t_atk1")
+			$atk_hitbox.scale.x = 1
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk1")
+			$atk_hitbox.scale.x = -1
 			$deal_attack_timer.start()
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight.t_atk1")
 			$deal_attack_timer.start()
+			
+		$atk_hitbox.set_deferred("monitoring", true)
+		
+		await get_tree().create_timer(0.2).timeout
+		$atk_hitbox.set_deferred("monitoring", false)
 	
-	if Input.is_action_just_pressed("atk2")and not atk2_cooldown:
+	if Input.is_action_just_pressed("atk2") and not atk2_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
-		damage = knighttemp_atk1dmg
+		damage = knighttemp_atk2dmg
 		print("Attack 2 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight.t_atk2")
+			$atk_hitbox.scale.x = 1
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk2")
+			$atk_hitbox.scale.x = -1
 			$deal_attack_timer.start()
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
-			
+		
+		$atk_hitbox.set_deferred("monitoring", true)
+		
+		await get_tree().create_timer(0.2).timeout
+		$atk_hitbox.set_deferred("monitoring", false)
+		
 		atk2_cooldown = true
 		$atk2_cooldown.start()
 
 	if Input.is_action_just_pressed("atk3") and not atk3_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
-		damage = knighttemp_atk1dmg
+		damage = knighttemp_atk3dmg
 		print("Attack 3 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
@@ -242,7 +257,12 @@ func attack():
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
-			
+		
+		$atk_hitbox.set_deferred("monitoring", true)
+		
+		await get_tree().create_timer(0.2).timeout
+		$atk_hitbox.set_deferred("monitoring", false)
+		
 		atk3_cooldown = true
 		$atk3_cooldown.start()
 
@@ -266,4 +286,21 @@ func _on_atk_3_cooldown_timeout():
 	atk3_cooldown = false
 
 
+func _on_atk_hitbox_area_entered(area):
+	#if area.name == "hitbox_area":
+		#print("Can detect")
+		#if area.is_in_group("enemies"):
+			#if area.has_method("enemy"):
+				#area.health = area.health - damage
+				#print("ENEMY HEALTH AFTER ATK3 MODULE is ", area.health)
+	
+	if area.name == "hitbox_area":
+		print("Can detect")
+		var enemy = get_node("../slimev3")
+		enemy.health = enemy.health - damage
+		print("ENEMY HEALTH AFTER ATK3 MODULE is ", enemy.health)
 
+
+func _on_atk_hitbox_area_exited(area):
+	if area.name == "hitbox_area":
+		print("Exit detect")

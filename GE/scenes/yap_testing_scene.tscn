@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf3dv0v4kfd4x"]
 
-[ext_resource type="PackedScene" uid="uid://cyteuulb2ml41" path="res://characters/char_knight_templar/knight_templar.tscn" id="2_bj6wd"]
+[ext_resource type="PackedScene" uid="uid://dmk7h18e25fs5" path="res://characters/char_swordsman/swordsman.tscn" id="2_k32hk"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="2_rqgjs"]
 
 [node name="Node2D" type="Node2D"]
@@ -8,5 +8,5 @@
 [node name="slimev3" parent="." instance=ExtResource("2_rqgjs")]
 position = Vector2(280, 99)
 
-[node name="knight_templar" parent="." instance=ExtResource("2_bj6wd")]
-position = Vector2(182, 113)
+[node name="swordsman" parent="." instance=ExtResource("2_k32hk")]
+position = Vector2(177, 105)

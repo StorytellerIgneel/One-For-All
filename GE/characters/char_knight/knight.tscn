@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://m4sfn5b4jp8x"]
+[gd_scene load_steps=71 format=3 uid="uid://m4sfn5b4jp8x"]
 
 [ext_resource type="Texture2D" uid="uid://bieorgfstgb81" path="res://resources/characters/Knight/Knight with shadows/Knight-Attack01.png" id="1_b8108"]
 [ext_resource type="Script" path="res://characters/char_knight/knight.gd" id="1_mja8w"]
@@ -438,7 +438,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bo3o0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1nerv"]
-radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg0b7"]
+size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyf4"]
+size = Vector2(46, 31)
 
 [node name="knight" type="CharacterBody2D"]
 position = Vector2(144, 81)
@@ -451,7 +456,8 @@ shape = SubResource("CircleShape2D_a7lwl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oumcq")
-animation = &"knight_atk3"
+animation = &"knight_atk2"
+frame_progress = 0.684483
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
@@ -501,6 +507,18 @@ wait_time = 3.0
 wait_time = 6.0
 autostart = true
 
+[node name="atk2_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atk2_hitbox"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_kg0b7")
+
+[node name="atk3_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atk3_hitbox"]
+position = Vector2(13, -5.5)
+shape = SubResource("RectangleShape2D_iyyf4")
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
@@ -509,3 +527,7 @@ autostart = true
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="atk2_cooldown" to="." method="_on_atk_2_cooldown_timeout"]
 [connection signal="timeout" from="atk3_cooldown" to="." method="_on_atk_3_cooldown_timeout"]
+[connection signal="area_entered" from="atk2_hitbox" to="." method="_on_atk_2_hitbox_area_entered"]
+[connection signal="area_exited" from="atk2_hitbox" to="." method="_on_atk_2_hitbox_area_exited"]
+[connection signal="area_entered" from="atk3_hitbox" to="." method="_on_atk_3_hitbox_area_entered"]
+[connection signal="area_exited" from="atk3_hitbox" to="." method="_on_atk_3_hitbox_area_exited"]

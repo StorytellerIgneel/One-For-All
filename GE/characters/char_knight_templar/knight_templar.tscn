@@ -1,8 +1,9 @@
-[gd_scene load_steps=66 format=3 uid="uid://cyteuulb2ml41"]
+[gd_scene load_steps=68 format=3 uid="uid://cyteuulb2ml41"]
 
 [ext_resource type="Texture2D" uid="uid://b8xgbmb6lm7i1" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack01.png" id="1_revu5"]
 [ext_resource type="Script" path="res://characters/char_knight_templar/knight_templar.gd" id="1_vvrgc"]
 [ext_resource type="Texture2D" uid="uid://chgbsarx2koco" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack02.png" id="2_d77v8"]
+[ext_resource type="Resource" uid="uid://cnj53oh25x6tw" path="res://UI/HUD/Inventory/PlayerInventory.tres" id="2_p4e5a"]
 [ext_resource type="Texture2D" uid="uid://kwuqwkg6oa0t" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Attack03.png" id="3_jilni"]
 [ext_resource type="Texture2D" uid="uid://dqhukqbsr4e4" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Block.png" id="4_u274m"]
 [ext_resource type="Texture2D" uid="uid://cn7vt0kq474fj" path="res://resources/characters/Knight Templar/Knight Templar with shadows/Knight Templar-Death.png" id="5_855xl"]
@@ -424,15 +425,20 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bpfcr"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jl4k"]
+height = 130.0
+
 [node name="knight_templar" type="CharacterBody2D"]
 script = ExtResource("1_vvrgc")
+inventory = ExtResource("2_p4e5a")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hbuek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2tj5")
-animation = &"knight.t_block"
+animation = &"knight.t_atk2"
+frame_progress = 0.604303
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
@@ -476,11 +482,18 @@ wait_time = 0.5
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="atk2_cooldown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 3.0
 
 [node name="atk3_cooldown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 6.0
 autostart = true
+
+[node name="atk_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atk_hitbox"]
+position = Vector2(49, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_4jl4k")
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
@@ -490,3 +503,5 @@ autostart = true
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="atk2_cooldown" to="." method="_on_atk_2_cooldown_timeout"]
 [connection signal="timeout" from="atk3_cooldown" to="." method="_on_atk_3_cooldown_timeout"]
+[connection signal="area_entered" from="atk_hitbox" to="." method="_on_atk_hitbox_area_entered"]
+[connection signal="area_exited" from="atk_hitbox" to="." method="_on_atk_hitbox_area_exited"]
