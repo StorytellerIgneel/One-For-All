@@ -22,13 +22,14 @@ metadata/_edit_group_ = true
 rotation = -4.70805
 shape = SubResource("CapsuleShape2D_lq6ki")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ChestArea" type="Area2D" parent="."]
 position = Vector2(0, 8)
 scale = Vector2(1.63129, 1.08868)
+collision_mask = 17
 script = ExtResource("2_3ywl7")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestArea"]
 position = Vector2(3.05176e-05, 0)
 rotation = -4.70487
 shape = SubResource("RectangleShape2D_oo0js")
