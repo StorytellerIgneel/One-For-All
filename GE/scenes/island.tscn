@@ -26,7 +26,7 @@
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="Script" path="res://UI/HUD/Inventory/CanvasLayer2.gd" id="26_w8st3"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
