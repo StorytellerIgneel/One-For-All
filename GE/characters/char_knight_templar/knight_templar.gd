@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-class_name Knight
-
-signal healthChanged
+class_name Knight_Templar
 
 var enemy_in_atk_range = false
 var enemy_attack_cooldown = true
@@ -17,9 +15,9 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
-@export var knight_atk1dmg = Global.dmg + 5
-@export var knight_atk2dmg = Global.dmg + 10
-@export var knight_atk3dmg = Global.dmg + 15
+@export var knighttemp_atk1dmg = Global.dmg + 10
+@export var knighttemp_atk2dmg = Global.dmg + 15
+@export var knighttemp_atk3dmg = Global.dmg + 20
 
 @export var inventory: Inventory
 
@@ -27,9 +25,6 @@ var damage = 0
 var slime
 var damage_deal
 var atk3_cooldown = false
-
-# No problem
-#@export var inventory: Inventory
 
 # No Problem
 func _on_key_picked_up():
@@ -48,36 +43,16 @@ var accel:int = 10000
 var friction:int = 1000
 var current_dir = "none"
 
-func get_hitbox():
-	return $player_hitbox
-	
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	# No Problem
-	#$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
-	#inventory.use_item.connect(use_item)
-	print("Signals connected")
-	_anim.play("knight_idle")
+	_anim.play("knight.t_idle")
 	slime = get_node("../slimev3")
-	
-	#if inventory != null:
-		#inventory.use_item.connect(use_item)
-		#
-		#print("Signals connected")
-	#else:
-		#print("Inventory is not initialized")
-	
-# No Problem
+
 func use_item(item: InventoryItem) -> void:
 	item.use(self)
 
-	 ## Connect signal only if inventory is valid
-	#if inventory != null:
-		#inventory.use_item.connect(use_item)
-		#print("Signals connected")
-	#else:
-		#print("Inventory is not initialized")
-	#pass
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(Global.disablePlayerInput == false):
 		player_movement(delta)
@@ -92,7 +67,7 @@ func _physics_process(delta):
 		print("player has been killed")
 		self.queue_free()
 	pass
-	
+
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
@@ -101,7 +76,6 @@ func check_interact():
 			actionable.action()
 	return
 
-	
 func player_movement(delta):
 	
 	if Input.is_action_pressed("toRight"):
@@ -130,42 +104,25 @@ func player_movement(delta):
 		velocity.y = 0
 	
 	move_and_slide()
-	
+
 func play_anim(movement):
 	var dir = current_dir
-	var anim = $AnimatedSprite2D
 	
 	if dir == "right":
-		anim.flip_h = false
+		_anim.flip_h = false
 		if movement == 1:
-			anim.play("knight_walk")
+			_anim.play("knight.t_walk")
 		elif movement == 0:
 			if attack_ip == false:
-				anim.play("knight_idle")
+				_anim.play("knight.t_idle")
 	
 	if dir == "left":
-		anim.flip_h = true
+		_anim.flip_h = true
 		if movement == 1:
-			anim.play("knight_walk")
+			_anim.play("knight.t_walk")
 		elif movement == 0:
 			if attack_ip == false:
-				anim.play("knight_idle")
-				
-	#if dir == "down":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
-				#
-	#if dir == "up":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
+				_anim.play("knight.t_idle")
 
 func player():
 	pass
@@ -173,6 +130,7 @@ func player():
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = true
+
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
@@ -217,50 +175,47 @@ func attack():
 	if Input.is_action_just_pressed("atk1"):
 		Global.player_current_attack = true
 		attack_ip = true
-		damage = knight_atk1dmg
+		damage = knighttemp_atk1dmg
 		print("Attack 1 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("knight_atk1")
+			$AnimatedSprite2D.play("knight.t_atk1")
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("knight_atk1")
+			$AnimatedSprite2D.play("knight.t_atk1")
 			$deal_attack_timer.start()
-
-
+	
 	if Input.is_action_just_pressed("atk2"):
 		Global.player_current_attack = true
 		attack_ip = true
-		damage = knight_atk2dmg
-		print("Attack 2 Damage: ", damage)
+		damage = knighttemp_atk1dmg
+		print("Attack 2 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("knight_atk2")
+			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("knight_atk2")
+			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
-
 	
-	if Input.is_action_just_pressed("atk3") and not atk3_cooldown:
+	if Input.is_action_just_pressed("atk3"):
 		Global.player_current_attack = true
 		attack_ip = true
-		damage = knight_atk2dmg
-		print("Attack 3 Damage: ", damage)
+		damage = knighttemp_atk1dmg
+		print("Attack 2 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("knight_atk3")
+			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("knight_atk3")
+			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
 			
 		atk3_cooldown = true
 		$atk3_cooldown.start()
-
 
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()

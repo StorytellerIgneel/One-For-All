@@ -270,7 +270,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"skill",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -317,7 +317,7 @@ script = ExtResource("1_bchss")
 [node name="armored_orc" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_igawu")
 sprite_frames = SubResource("SpriteFrames_ms7nc")
-animation = &"attack"
+animation = &"skill"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -359,8 +359,6 @@ show_percentage = false
 
 [node name="skill_cooldown" type="Timer" parent="."]
 
-[node name="skill_animation_timer" type="Timer" parent="."]
-
 [connection signal="animation_finished" from="armored_orc" to="." method="_on_slime_animation_finished"]
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="body_exited" from="hitbox_area" to="." method="_on_hitbox_area_body_exited"]
@@ -370,4 +368,4 @@ show_percentage = false
 [connection signal="timeout" from="death_time" to="." method="_on_death_time_timeout"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
-[connection signal="timeout" from="skill_cooldown" to="." method="_on_skill_cooldown_timeout"]
+[connection signal="timeout" from="skill_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

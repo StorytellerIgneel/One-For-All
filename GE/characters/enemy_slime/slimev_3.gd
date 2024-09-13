@@ -4,7 +4,7 @@ var current_states = enemy_status.MOVERIGHT
 enum enemy_status {MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN, STOP, DEAD, ATTACK}
 var player = null
 var player_chase = false
-var fspeed = 1.0
+var fspeed = 1.5
 var player_in_attack_zone = false
 var can_take_damage = true
 
@@ -14,23 +14,18 @@ var can_take_damage = true
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
-var attack_counter = 0  # Track the number of consecutive attacks
-var skill_threshold = 5  # Number of attacks before skill is triggered
-
 @onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
 @onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
-@onready var skill_cooldown_timer = $skill_cooldown
 
 func _ready():
 	# Ensure death_time Timer is not running automatically
 	$death_time.autostart = false
 	# Set up move_change Timer
-	$move_change.wait_time = 1.0
+	$move_change.wait_time = 3.0
 	$move_change.one_shot = false
 	$move_change.start()
-	attack_cooldown_timer.wait_time = 1.5  # Cooldown duration
+	attack_cooldown_timer.wait_time = 1.0  # Cooldown duration
 	attack_cooldown_timer.one_shot = true  # Ensure it only fires once per activation
-	
 
 func _physics_process(delta):
 	deal_with_damage()
@@ -39,7 +34,7 @@ func _physics_process(delta):
 		if current_states != enemy_status.DEAD:
 			current_states = enemy_status.DEAD
 			dead()
-	elif player_chase:
+	elif player_chase and player:
 		if current_states != enemy_status.ATTACK:
 			if player.position:
 				# Calculate movement towards the player
@@ -47,8 +42,8 @@ func _physics_process(delta):
 				# Move the character towards the player
 				velocity = custom_velocity
 				move_and_slide()  # Use move_and_slide() without arguments
-				$armored_orc.play("walk")
-				$armored_orc.flip_h = (player.position.x - position.x) < 0
+				$slime.play("walk")
+				$slime.flip_h = (player.position.x - position.x) < 0
 
 			# Stop the move_change timer while chasing
 			if !$move_change.is_stopped():
@@ -90,12 +85,12 @@ func _physics_process(delta):
 		move_and_slide()  # Use move_and_slide() without arguments
 
 	# Check if animation has ended and queue_free() if necessary
-	if $armored_orc.animation == "death" and !$armored_orc.is_playing():
+	if $slime.animation == "death" and !$slime.is_playing():
 		queue_free()
 
 func dead():
 	custom_velocity = Vector2.ZERO
-	$armored_orc.play('death')
+	$slime.play('death')
 	$death_time.start()  # Start Timer when death animation plays
 
 # This function will be called when the move_change timer times out
@@ -124,25 +119,25 @@ func random_direction():
 
 func move_right():
 	custom_velocity = Vector2(speed, 0)
-	$armored_orc.play('walk')
-	$armored_orc.flip_h = false
+	$slime.play('walk')
+	$slime.flip_h = false
 
 func move_left():
 	custom_velocity = Vector2(-speed, 0)
-	$armored_orc.play('walk')
-	$armored_orc.flip_h = true
+	$slime.play('walk')
+	$slime.flip_h = true
 
 func move_up():
 	custom_velocity = Vector2(0, -speed)
-	$armored_orc.play('walk')
+	$slime.play('walk')
 
 func move_down():
 	custom_velocity = Vector2(0, speed)
-	$armored_orc.play('walk')
+	$slime.play('walk')
 
 func stop():
 	custom_velocity = Vector2.ZERO
-	$armored_orc.play('idle')
+	$slime.play('idle')
 
 
 # Handle area detections for player chase
@@ -170,7 +165,7 @@ func _on_hitbox_area_body_exited(body):
 
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
-		$armored_orc.play('hurt')
+		$slime.play('hurt')
 		if can_take_damage:
 			health -= 20
 			$take_damage_cooldown.start()
@@ -191,19 +186,12 @@ func _on_attack_cooldown_timeout():
 
 func attack():
 	if hitbox_area and hitbox_area.overlaps_body(player):
-		custom_velocity = Vector2.ZERO
-		print("this line is done")
-		attack_counter += 1  # Increment attack counter
-
-		if attack_counter >= skill_threshold:
-			$armored_orc.play("skill")  # Play the "skill" animation
-			attack_counter = 0  # Reset attack counter after skill is triggered
-		else:
-			$armored_orc.play("attack")  # Regular attack animation
-			
-
+		custom_velocity = Vector2.ZERO  # Stop movement during the attack
+		#print("Attacking player!")
+		$slime.play("attack")  # Play attack animation
+		# Apply damage or other effects to the player
 		if player and player.has_method("take_damage"):
-			player.take_damage(1)
+			player.take_damage(1)  # Assuming the player has a take_damage method
 
 func updateHealth():
 	var healthbar = $hpBar
@@ -217,7 +205,3 @@ func updateHealth():
 
 func enemy():
 	pass
-
-
-func _on_skill_cooldown_timeout():
-	pass # Replace with function body.
