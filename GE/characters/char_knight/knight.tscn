@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bieorgfstgb81" path="res://resources/characters/Knight/Knight with shadows/Knight-Attack01.png" id="1_b8108"]
 [ext_resource type="Script" path="res://characters/char_knight/knight.gd" id="1_mja8w"]
 [ext_resource type="Texture2D" uid="uid://67j855pnqnr2" path="res://resources/characters/Knight/Knight with shadows/Knight-Attack02.png" id="2_2n0ma"]
-[ext_resource type="Resource" uid="uid://c0oed4w8mwvn5" path="res://UI/HUD/Inventory/PlayerInventory.tres" id="2_ropcx"]
+[ext_resource type="Resource" uid="uid://cnj53oh25x6tw" path="res://UI/HUD/Inventory/PlayerInventory.tres" id="2_ropcx"]
 [ext_resource type="Texture2D" uid="uid://cckpv8qf7eak7" path="res://resources/characters/Knight/Knight with shadows/Knight-Attack03.png" id="3_k7mi3"]
 [ext_resource type="Texture2D" uid="uid://dqofoqn2ip8ev" path="res://resources/characters/Knight/Knight with shadows/Knight-Block.png" id="4_75t4d"]
 [ext_resource type="Texture2D" uid="uid://bkx3otr1800ru" path="res://resources/characters/Knight/Knight with shadows/Knight-Death.png" id="5_reyma"]
