@@ -110,8 +110,6 @@ func _process(delta):
 				player.global_position = $Portal1.global_position
 		State.teleport = false
 	##print(State.teleport)
-	if (Global.GoddessHeal == true):
-		health = 100
 
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_left = 0
