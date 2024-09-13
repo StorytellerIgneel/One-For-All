@@ -20,6 +20,7 @@ var in_fire_region = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.currentTilemap = $WinterfellTileMap
 	$FreezeTimer.connect("timeout", _on_FreezeTimer_timeout)
 	fire_region.clear()
 	for child in get_children():
@@ -45,11 +46,11 @@ func _ready():
 
 	print("TimeManager ready with date_time initialized.")
 
-	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
+	#TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
 
-func _on_time_system_updated(date_time: DateTime) -> void:
-	# Handle time updates (e.g., update UI or trigger events based on time)
-	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
+#func _on_time_system_updated(date_time: DateTime) -> void:
+	## Handle time updates (e.g., update UI or trigger events based on time)
+	#print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -63,6 +64,35 @@ func _unhandled_input(event):
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
+		
+	# Interaction with portal
+	if event.is_action_pressed("Interact"):
+		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
+	# Check if the player is overlapping with any areas
+		if actionables.size() > 1:
+		
+		# Check if the area contains a PortalArea and if the player has 3 keys
+			if Global.findElement(actionables, "PortalArea"):
+			
+				# Check inventory key amount
+				if player.inventory.get_total_keys() < 3:
+					print("You need 3 keys to teleport.")
+					return  # Exit if the player doesn't have 3 keys
+			
+				Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
+
+			# If teleport is triggered, execute teleport logic
+				if State.teleport == true:
+					for area in actionables:
+						if area.get_parent().name == "Portal1":
+							player.global_position = $Portal2.global_position
+						elif area.get_parent().name == "Portal2":
+							player.global_position = $Portal1.global_position
+							print("Teleporting to the next scene...")
+							get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+					State.teleport = false
+					return
 	
 	if event.is_action_pressed("NextMap"):
 		await LoadManager.load_scene("res://scenes/volcano.tscn")
