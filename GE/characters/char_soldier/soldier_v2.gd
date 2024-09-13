@@ -32,10 +32,6 @@ var damage_deal
 
 @export var inventory: Inventory
 
-var bow_equipped = true
-var bow_cooldown = true
-var arrow = preload("res://characters/char_soldier/arrow.tscn")
-
 var maxSpeed: int = 100
 var accel:int = 10000
 var friction:int = 1000
@@ -282,37 +278,6 @@ func attack():
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
 
-	
-	if Input.is_action_just_pressed("atk3") and bow_equipped and bow_cooldown:
-		Global.player_current_attack = true
-		attack_ip = true
-		damage = soldier_atk3dmg
-		bow_cooldown = false
-		
-		# Play attack animation
-		$AnimatedSprite2D.play("soldier_atk3")
-		
-		# Wait for animation to finish
-		await $AnimatedSprite2D.animation_finished
-		
-		# Create and configure arrow instance
-		var arrow_instance = arrow.instantiate()
-		arrow_instance.damage = soldier_atk3dmg # Pass damage to the arrow
-		
-		# Check which direction of soldier is facing and set arrow direction
-		if _anim.flip_h == false:
-			arrow_instance.rotation = 0
-			arrow_instance.position = position + Vector2(10, 0) 
-		else:
-			arrow_instance.rotation = PI  # Facing left
-			arrow_instance.position = position + Vector2(-10, 0)
-		
-		add_child(arrow_instance)
-		
-		# Cooldown for bow attack
-		await get_tree().create_timer(1).timeout
-		bow_cooldown = true
-		$deal_attack_timer.start()
 
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
