@@ -88,9 +88,10 @@ func _physics_process(delta):
 func check_interact():
 	if Input.is_action_just_pressed("Interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
-		if actionables.size() > 0:
+		print(actionables)
+		if actionables.size() > 1: #always more than one since overlap with hitbox
 			print(actionables)
-			var actionable = actionables[0]
+			var actionable = actionables[1]
 			actionable.action()
 	
 	if Input.is_action_just_pressed("createTile"):
