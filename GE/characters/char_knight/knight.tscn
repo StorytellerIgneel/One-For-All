@@ -457,7 +457,7 @@ shape = SubResource("CircleShape2D_a7lwl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oumcq")
 animation = &"knight_atk2"
-frame_progress = 0.684483
+frame_progress = 0.775673
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)

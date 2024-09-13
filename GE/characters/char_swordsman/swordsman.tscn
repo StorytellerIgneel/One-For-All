@@ -468,7 +468,7 @@ shape = SubResource("CircleShape2D_tcica")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mfhm2")
 animation = &"swordsman_atk3"
-frame_progress = 0.210439
+frame_progress = 0.720597
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
