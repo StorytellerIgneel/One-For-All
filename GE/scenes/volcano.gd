@@ -49,33 +49,33 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 		
 		
-	if event.is_action_pressed("Interact"):
-		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
-	
-	# Check if the player is overlapping with any areas
-		if actionables.size() > 1:
-		
-		# Check if the area contains a PortalArea and if the player has 3 keys
-			if Global.findElement(actionables, "PortalArea"):
-			
-				# Check inventory key amount
-				if player.inventory.get_total_keys() < 3:
-					print("You need 3 keys to teleport.")
-					return  # Exit if the player doesn't have 3 keys
-			
-				Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
-
-			# If teleport is triggered, execute teleport logic
-				if State.teleport == true:
-					for area in actionables:
-						if area.get_parent().name == "Portal1":
-							player.global_position = $Portal2.global_position
-						elif area.get_parent().name == "Portal2":
-							player.global_position = $Portal1.global_position
-							print("Teleporting to the next scene...")
-							get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
-					State.teleport = false
-					return
+	#if event.is_action_pressed("Interact"):
+		#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	#
+	## Check if the player is overlapping with any areas
+		#if actionables.size() > 1:
+		#
+		## Check if the area contains a PortalArea and if the player has 3 keys
+			#if Global.findElement(actionables, "PortalArea"):
+			#
+				## Check inventory key amount
+				#if player.inventory.get_total_keys() < 3:
+					#print("You need 3 keys to teleport.")
+					#return  # Exit if the player doesn't have 3 keys
+			#
+				#Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
+#
+			## If teleport is triggered, execute teleport logic
+				#if State.teleport == true:
+					#for area in actionables:
+						#if area.get_parent().name == "Portal1":
+							#player.global_position = $Portal2.global_position
+						#elif area.get_parent().name == "Portal2":
+							#player.global_position = $Portal1.global_position
+							#print("Teleporting to the next scene...")
+							#get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
+					#State.teleport = false
+					#return
 		
 	if event.is_action_pressed(("Interact")):
 		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
@@ -88,8 +88,8 @@ func _unhandled_input(event):
 					var boulder_no = int(last_char)  # Convert the last character to an integer
 					# Move the boulder by 2 units (you may want to specify a direction, e.g., x or y)
 					var direction = "up"  if (boulder_no % 2 == 0) else "down"
-
-					boulder.position += Vector2(16, 0)  # Adjust to move in the desired direction (e.g., right)	
+					var offset =  16 if (player.current_dir == "right") else -16
+					boulder.position += Vector2(offset, 0)  # Adjust to move in the desired direction (e.g., right)	
 					clear_tiles_in_range(boulder.position, direction, 7)
 
 func initialize_camera_limit():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b0if0mcwakx6y"]
+[gd_scene load_steps=33 format=3 uid="uid://b0if0mcwakx6y"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_4e2x3"]
 [ext_resource type="Texture2D" uid="uid://d2hbpe4lvorgs" path="res://resources/tilemap/plain/Texture/infrastructures.png" id="1_57vt1"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1trvhrlv8sh8" path="res://resources/tilemap/plain/Texture/TX Player.png" id="5_lrj6w"]
 [ext_resource type="Texture2D" uid="uid://c4mlkcesrofpv" path="res://resources/tilemap/plain/Texture/grass + stone.png" id="6_ljbgy"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="6_mbne6"]
-[ext_resource type="PackedScene" uid="uid://ldmah3utjqu5" path="res://collectables/building_block.tscn" id="7_tuk3u"]
+[ext_resource type="PackedScene" path="res://collectables/building_block.tscn" id="7_tuk3u"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="8_sd62l"]
 [ext_resource type="PackedScene" uid="uid://cktmruispklh2" path="res://characters/portal.tscn" id="11_qlj3m"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="12_4ldot"]
