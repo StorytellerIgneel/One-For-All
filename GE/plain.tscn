@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cktmruispklh2" path="res://characters/portal.tscn" id="11_qlj3m"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="12_4ldot"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="12_qhkhw"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="15_idnnt"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="16_gsp6b"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="16_lh2ad"]
@@ -5775,7 +5775,7 @@ position = Vector2(548, -61)
 
 [node name="soldierV2" parent="." instance=ExtResource("8_sd62l")]
 z_index = 2
-position = Vector2(104, 574)
+position = Vector2(96, 576)
 collision_layer = 17
 collision_mask = 17
 

@@ -18,7 +18,7 @@ var game_paused = false
 func _ready():
 	player.set_water_region(water_region)
 	
-	Global.trigger_dialogue("res://Dialogues/NewGame.dialogue", "start")
+	#Global.trigger_dialogue("res://Dialogues/NewGame.dialogue", "start")
 	
 	player.InWaterRegion.connect(inWater)
 	player.OutWaterRegion.connect(outWater)

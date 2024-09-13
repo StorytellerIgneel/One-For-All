@@ -8,10 +8,13 @@ var game_paused = false
 var dialogue_resource: DialogueResource
 var balloon: CanvasLayer
 var disablePlayerInput: bool = false
+var GoddessHeal: bool = false
 
 
 var player_current_attack = false
-var slime_current_attack = false
+#var slime_current_attack = false
+var health = 100
+var dmg = 20
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	disablePlayerInput = true
@@ -28,7 +31,6 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 		balloon.start(dialogue_resource, dialogue_start)
 	else:
 		print("Error: 'start' method not found in balloon instance.")
-	disablePlayerInput = false
 
 	
 func nextLevel(nextScene):
@@ -41,4 +43,7 @@ func findElement(areaArray, toFind):
 	for area in areaArray:
 		if (area.name == toFind):
 			return true
-	#return false
+	return false
+
+func allowInput():
+	Global.disablePlayerInput = false

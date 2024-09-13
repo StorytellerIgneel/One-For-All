@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=48 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
 [ext_resource type="PackedScene" uid="uid://c7t6u5kxlat4l" path="res://characters/slime/slime.tscn" id="18_aqvnu"]
 [ext_resource type="PackedScene" uid="uid://dw6clma0uud3y" path="res://characters/enemy_elite_orc/elite_orc.tscn" id="19_fvp73"]
+[ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="21_7ch0l"]
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
@@ -27,7 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
-[ext_resource type="PackedScene" uid="uid://bebb1gkj86wdu" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="31_hbvl1"]
+[ext_resource type="PackedScene" uid="uid://c7yet0r404n7d" path="res://characters/char_slime/slimeV2.tscn" id="32_7od38"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="32_fyh2l"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="32_xj5tp"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="33_2po53"]
@@ -5112,6 +5114,9 @@ position = Vector2(681, 282)
 [node name="elite_orc" parent="." instance=ExtResource("19_fvp73")]
 position = Vector2(692, 414)
 
+[node name="GoddessStatue" parent="." instance=ExtResource("20_hsoah")]
+position = Vector2(377, 263)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(568, 320)
 zoom = Vector2(0.1, 0.1)
@@ -5218,6 +5223,9 @@ offset_right = 1096.0
 offset_bottom = 159.0
 
 [node name="slimev3" parent="." instance=ExtResource("31_hbvl1")]
-position = Vector2(334, 398)
+position = Vector2(358, 359)
+
+[node name="slimeV2" parent="." instance=ExtResource("32_7od38")]
+position = Vector2(355, 433)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer4/TImeGui" method="_on_time_system_updated"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgidrleev5po"]
+
+[ext_resource type="Texture2D" uid="uid://b0bw4gpbfa0qq" path="res://resources/tilemap/plain/Texture/doorOpen.png" id="1_7y7ws"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o85hy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lllbv"]
+radius = 7.99979
+height = 15.9996
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(8, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-8, 56)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_o85hy")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(32, 72)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.05176e-05, 0)
+rotation = -4.70487
+shape = SubResource("CapsuleShape2D_lllbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -1.0842e-19)
+scale = Vector2(0.970588, 0.986188)
+texture = ExtResource("1_7y7ws")

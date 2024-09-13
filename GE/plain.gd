@@ -19,6 +19,7 @@ var game_paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 	
 	initialize_camera_limit()
@@ -29,6 +30,7 @@ func _ready():
 	#print("TimeManager ready with date_time initialized.")
 	
 	TimeManager.connect("updated", Callable(self, "_on_time_system_updated"))
+	initialize_camera_limit()
 	
 #func _on_time_system_updated(date_time: DateTime) -> void:
 	## Handle time updates (e.g., update UI or trigger events based on time)
@@ -98,10 +100,21 @@ func _unhandled_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(State.teleport)
-	pass
+	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	
+	if (State.teleport == true):
+		for area in actionables:
+			if area.get_parent().name == "Portal1":
+				player.global_position = $Portal2.global_position
+			elif area.get_parent().name == "Portal2":
+				player.global_position = $Portal1.global_position
+		State.teleport = false
+	##print(State.teleport)
+	if (Global.GoddessHeal == true):
+		health = 100
 
 func initialize_camera_limit():
-	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
-	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
-	print($soldierV2/PlayerCamera.limit_right)
+	$soldierV2/PlayerCamera.limit_left = 0
+	$soldierV2/PlayerCamera.limit_top = -192
+	$soldierV2/PlayerCamera.limit_right = 1152
+	$soldierV2/PlayerCamera.limit_bottom = 648
