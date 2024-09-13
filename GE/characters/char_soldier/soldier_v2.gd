@@ -226,7 +226,7 @@ func update_health():
 
 func _on_regen_timer_timeout():
 	if health < max_health:
-		health = health + 0
+		health = health + 2
 		if health > max_health:
 			health = max_health
 	if health <= 0:
