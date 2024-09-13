@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwuoekwjnn8h7"]
+[gd_scene load_steps=5 format=3 uid="uid://dwuoekwjnn8h7"]
 
+[ext_resource type="Script" path="res://characters/tree_1.gd" id="1_lmb11"]
 [ext_resource type="Texture2D" uid="uid://dmijudb74dm06" path="res://resources/tilemap/plain/Texture/bigTree.png" id="1_ve3dh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgcpe"]
@@ -9,6 +10,7 @@ radius = 7.99979
 height = 15.9996
 
 [node name="Tree1" type="Node2D"]
+script = ExtResource("1_lmb11")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-8, 56)
