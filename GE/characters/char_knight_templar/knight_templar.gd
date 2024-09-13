@@ -24,6 +24,7 @@ var attack_ip = false
 var damage = 0
 var slime
 var damage_deal
+var atk2_cooldown = false
 var atk3_cooldown = false
 
 # No Problem
@@ -123,6 +124,22 @@ func play_anim(movement):
 		elif movement == 0:
 			if attack_ip == false:
 				_anim.play("knight.t_idle")
+	
+	if dir == "down":
+		#anim.flip_h = true
+		if movement == 1:
+			_anim.play("knight.t_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				_anim.play("knight.t_idle")
+				
+	if dir == "up":
+		#anim.flip_h = true
+		if movement == 1:
+			_anim.play("knight.t_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				_anim.play("knight.t_idle")
 
 func player():
 	pass
@@ -185,8 +202,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk1")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("knight.t_atk1")
+			$deal_attack_timer.start()
 	
-	if Input.is_action_just_pressed("atk2"):
+	if Input.is_action_just_pressed("atk2")and not atk2_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = knighttemp_atk1dmg
@@ -199,18 +219,27 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight.t_atk2")
 			$deal_attack_timer.start()
-	
-	if Input.is_action_just_pressed("atk3"):
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("knight.t_atk2")
+			$deal_attack_timer.start()
+			
+		atk2_cooldown = true
+		$atk2_cooldown.start()
+
+	if Input.is_action_just_pressed("atk3") and not atk3_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = knighttemp_atk1dmg
-		print("Attack 2 Damage: ", damage)  # Debugging: check damage value
+		print("Attack 3 Damage: ", damage)  # Debugging: check damage value
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("knight.t_atk3")
+			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight.t_atk3")
 			$deal_attack_timer.start()
 			
@@ -229,6 +258,12 @@ func _on_player_hitbox_area_entered(area):
 		area.collect(inventory)
 	else:
 		print("No collect meth found for:", area)
-	
+
+func _on_atk_2_cooldown_timeout():
+	atk2_cooldown = false
+
 func _on_atk_3_cooldown_timeout():
 	atk3_cooldown = false
+
+
+

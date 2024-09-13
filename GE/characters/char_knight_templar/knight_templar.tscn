@@ -276,7 +276,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"knight.t_atk2",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,7 +314,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"knight.t_atk3",
-"speed": 5.0
+"speed": 17.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -432,7 +432,7 @@ shape = SubResource("CircleShape2D_hbuek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2tj5")
-animation = &"knight.t_atk1"
+animation = &"knight.t_block"
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 scale = Vector2(1.245, 1.245)
@@ -475,8 +475,11 @@ wait_time = 0.5
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
+[node name="atk2_cooldown" type="Timer" parent="."]
+wait_time = 0.1
+
 [node name="atk3_cooldown" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 0.1
 autostart = true
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
@@ -485,4 +488,5 @@ autostart = true
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="atk2_cooldown" to="." method="_on_atk_2_cooldown_timeout"]
 [connection signal="timeout" from="atk3_cooldown" to="." method="_on_atk_3_cooldown_timeout"]

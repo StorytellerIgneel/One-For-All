@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctsqks6453r08"]
+[gd_scene load_steps=23 format=3 uid="uid://ctsqks6453r08"]
 
 [ext_resource type="Script" path="res://scenes/beach.gd" id="1_g2ddp"]
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_segts"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="10_fs6n4"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="11_cx0xj"]
+[ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="12_bqitr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2774,6 +2775,13 @@ sources/4 = SubResource("TileSetScenesCollectionSource_680fw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya6rn"]
 size = Vector2(174, 76)
 
+[sub_resource type="Resource" id="Resource_xlegm"]
+script = ExtResource("12_bqitr")
+seconds = 0
+minutes = 0
+hours = 0
+days = 0
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_g2ddp")
 
@@ -2798,7 +2806,7 @@ layer_6/tile_data = PackedInt32Array(2293766, 524288, 0, 2359302, 524288, 1, 229
 layer_7/name = "Props3"
 layer_7/tile_data = PackedInt32Array(720902, 65536, 0, 786438, 65536, 1, 851974, 65536, 2, 917510, 65536, 3, 720903, 131072, 0, 786439, 131072, 1, 851975, 131072, 2, 917511, 131072, 3, 983047, 131072, 4, 1048583, 131072, 5, 720904, 196608, 0, 786440, 196608, 1, 851976, 196608, 2, 917512, 196608, 3, 983048, 196608, 4, 1048584, 196608, 5, 720905, 262144, 0, 786441, 262144, 1, 851977, 262144, 2, 917513, 262144, 3, 983049, 262144, 4, 786442, 327680, 1, 851978, 327680, 2, 917514, 327680, 3, 720907, 65536, 0, 786443, 65536, 1, 851979, 65536, 2, 917515, 65536, 3, 720908, 131072, 0, 786444, 131072, 1, 851980, 131072, 2, 917516, 131072, 3, 983052, 131072, 4, 1048588, 131072, 5, 720909, 196608, 0, 786445, 196608, 1, 851981, 196608, 2, 917517, 196608, 3, 983053, 196608, 4, 1048589, 196608, 5, 720910, 262144, 0, 786446, 262144, 1, 851982, 262144, 2, 917518, 262144, 3, 983054, 262144, 4, 786447, 327680, 1, 851983, 327680, 2, 917519, 327680, 3)
 layer_8/name = "collectables"
-layer_8/tile_data = PackedInt32Array(1769506, 4, 65536, 1769504, 4, 65536, 2424851, 4, 65536, 2031632, 4, 65536, 1769488, 4, 65536, 2359308, 4, 131072, 2097166, 4, 131072, 2228242, 4, 131072, 1900557, 4, 131072, 1703946, 4, 131072)
+layer_8/tile_data = PackedInt32Array()
 
 [node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
 
@@ -2817,6 +2825,7 @@ script = ExtResource("7_skhcw")
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("9_segts")
+date_time = SubResource("Resource_xlegm")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
