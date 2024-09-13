@@ -133,7 +133,6 @@ func _on_outWaterTimer_timeout():
 func _on_fireTimer_timeout():
 	fire_cooldown = false
 	
-	
 func player_movement(delta):
 	if (Global.disablePlayerInput == false):
 		if Input.is_action_pressed("toRight"):
@@ -298,6 +297,18 @@ func check_key_count():
 		print("You have exactly 3 keys!")
 	else:
 		print("You have", key_count, "keys.")
+		
+func _on_building_picked_up():
+	check_building_count()
+	
+func check_building_count():
+	#var building_count = inventory.get_total_building()
+	var building_count = inventory.get_total_building()
+	
+	if building_count == 1:
+		print("U can start building blocks")
+	else:
+		print("U have", building_count, "building_item")
 
 # For using Health_Item
 func _on_player_hitbox_area_entered(area):
@@ -308,9 +319,50 @@ func _on_player_hitbox_area_entered(area):
 	else:
 		print("No collect meth found for:", area)
 
-#func for placing tiles
+# func for placing tiles
+#func place_tile_in_front():
+	## Get the player's facing direction (assuming you have a velocity-based movement)
+	#var facing_direction = current_dir
+	#var position_in_front
+	#
+	## Calculate the world position in front of the player
+	#if (current_dir == "right"):
+		#position_in_front = self.global_position + Vector2(16, 0)
+	#elif (current_dir == "left"):
+		#position_in_front = self.global_position + Vector2(-16, 0)
+	#elif (current_dir == "down"):
+		#position_in_front = self.global_position + Vector2(0, 16)
+	#elif (current_dir == "up"):
+		#position_in_front = self.global_position + Vector2(0, -16)
+	#
+	#var tilemap = Global.currentTilemap
+	#var source_id
+	## Convert world position to tilemap coordinates
+#
+	#var tile_position = Global.currentTilemap.local_to_map(position_in_front)
+	#if (tilemap.name == "IslandTileMap"):
+		#source_id = 7
+	#elif (tilemap.name == "PlainTileMap"):
+		#source_id = 0
+	##print("tile_position: " ,tile_position)
+	##print(Global.currentTilemap.get_cell_tile_data(0, Vector2i(0,0)))
+	##print(Global.currentTilemap.local_to_map(self.global_position))
+	## Check if the tile is empty (if it returns -1, the tile is empty)
+	##if Global.currentTilemap.get_cell_tile_data(0, tile_position, -1) != null:
+		## Place the tile in front of the player
+	#tilemap.set_cell(4, tile_position, source_id, Vector2(0,0))
+	##print(Global.currentTilemap.get_cell_tile_data(0, tile_position))
+	##print("Tile placed at: ", tile_position)
+	##else:
+		##print("Tile already exists at: ", tile_position)
+
 func place_tile_in_front():
-	# Get the player's facing direction (assuming you have a velocity-based movement)
+	# Check if the player has at least one BuildingItem in the inventory
+	if inventory.get_total_building() == 0:
+		print("You need at least one BuildingItem to place a tile!")
+		return
+	
+	# Get the player's facing direction
 	var facing_direction = current_dir
 	var position_in_front
 	
@@ -326,21 +378,25 @@ func place_tile_in_front():
 	
 	var tilemap = Global.currentTilemap
 	var source_id
+	
 	# Convert world position to tilemap coordinates
-
 	var tile_position = Global.currentTilemap.local_to_map(position_in_front)
+	
+	# Determine the source tile based on the tilemap's name
 	if (tilemap.name == "IslandTileMap"):
 		source_id = 7
 	elif (tilemap.name == "PlainTileMap"):
 		source_id = 0
-	#print("tile_position: " ,tile_position)
-	#print(Global.currentTilemap.get_cell_tile_data(0, Vector2i(0,0)))
-	#print(Global.currentTilemap.local_to_map(self.global_position))
-	# Check if the tile is empty (if it returns -1, the tile is empty)
-	#if Global.currentTilemap.get_cell_tile_data(0, tile_position, -1) != null:
-		# Place the tile in front of the player
-	tilemap.set_cell(4, tile_position, source_id, Vector2(0,0))
-	#print(Global.currentTilemap.get_cell_tile_data(0, tile_position))
-	#print("Tile placed at: ", tile_position)
-	#else:
-		#print("Tile already exists at: ", tile_position)
+	
+	# Place the tile in front of the player
+	tilemap.set_cell(4, tile_position, source_id, Vector2(0, 0))
+	print("Tile placed at: ", tile_position)
+	
+	# Reduce the number of BuildingItems in the inventory after placing a block
+	var item_slots = inventory.slots.filter(func(slot): return slot.item is BuildingItem and slot.amount > 0)
+	if !item_slots.is_empty():
+		item_slots[0].amount -= 1
+		if item_slots[0].amount == 0:
+			inventory.removeSlot(item_slots[0])
+
+	inventory.updated.emit()  # Emit the updated signal after placing a block

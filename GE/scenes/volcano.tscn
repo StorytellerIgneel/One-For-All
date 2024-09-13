@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=32 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -18,6 +18,9 @@
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="14_bktnv"]
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
+[ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="19_eut5x"]
+[ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="20_1cxct"]
+[ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="21_8n4xj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uksdp"]
 texture = ExtResource("1_i7sws")
@@ -1762,6 +1765,13 @@ texture = ExtResource("7_rrcy0")
 [sub_resource type="TileSet" id="TileSet_tw0i5"]
 sources/0 = SubResource("TileSetAtlasSource_vwcd1")
 
+[sub_resource type="Resource" id="Resource_nmovl"]
+script = ExtResource("20_1cxct")
+seconds = 0
+minutes = 0
+hours = 0
+days = 0
+
 [node name="Volcano" type="Node2D"]
 script = ExtResource("1_ej23f")
 
@@ -1789,7 +1799,7 @@ layer_5/tile_data = PackedInt32Array(1, 1, 4, 65537, 65537, 1, 2, 65537, 4, 6553
 layer_6/name = "first floor lava"
 layer_6/tile_data = PackedInt32Array(-1245186, 1048576, 1, -1179650, 1048576, 1, -1114114, 1048576, 1, -1048578, 1048576, 1, -983042, 1048576, 1, -917506, 1048576, 1, -851970, 1048576, 1, -786434, 1048576, 1, -720898, 1048576, 1, -655362, 1048576, 1, -589826, 1048576, 1, -524290, 1048576, 1, -458754, 1048576, 1, -1245185, 1048576, 1, -458753, 1048576, 1, -1310720, 1048576, 1, -524288, 1048576, 1, -1310719, 1048576, 1, -524287, 1048576, 1, -1310718, 1048576, 1, -524286, 1048576, 1, -1310717, 1048576, 1, -524285, 1048576, 1, -1310716, 1048576, 1, -524284, 1048576, 1, -1310715, 1048576, 1, -524283, 1048576, 1, -1310714, 1048576, 1, -524282, 1048576, 1, -1310713, 1048576, 1, -524281, 1048576, 1, -1310712, 1048576, 1, -1310711, 1048576, 1, -1310710, 1048576, 1, -1310709, 1048576, 1, -524277, 1048576, 1, -1310708, 1048576, 1, -524276, 1048576, 1, -1310707, 1048576, 1, -524275, 1048576, 1, -1310706, 1048576, 1, -524274, 1048576, 1, -1310705, 1048576, 1, -720881, 1048576, 1, -524273, 1048576, 1, -1310704, 1048576, 1, -524272, 1048576, 1, -1310703, 1048576, 1, -524271, 1048576, 1, -1310702, 1048576, 1, -524270, 1048576, 1, -1310701, 1048576, 1, -524269, 1048576, 1, -1310700, 1048576, 1, -524268, 1048576, 1, -1310699, 1048576, 1, -524267, 1048576, 1, -1310698, 1048576, 1, -1245162, 1048576, 1, -1179626, 1048576, 1, -1114090, 1048576, 1, -1048554, 1048576, 1, -983018, 1048576, 1, -917482, 1048576, 1, -851946, 1048576, 1, -786410, 1048576, 1, -720874, 1048576, 1, -655338, 1048576, 1, -589802, 1048576, 1, -524266, 1048576, 1, -1245187, 1048576, 1, -1179651, 1048576, 1, -1114115, 1048576, 1, -1048579, 1048576, 1, -983043, 1048576, 1, -917507, 1048576, 1, -851971, 1048576, 1, -786435, 1048576, 1, -720899, 1048576, 1, -655363, 1048576, 1, -589827, 1048576, 1, -524291, 1048576, 1, -458755, 1048576, 1, -917501, 1048576, 1, -720891, 1048576, 1, -1048564, 1048576, 1, -720882, 1048576, 1, -1114095, 1048576, 1, -1245163, 1048576, 1, -1179627, 1048576, 1, -1114091, 1048576, 1, -1048555, 1048576, 1, -983019, 1048576, 1, -917483, 1048576, 1, -851947, 1048576, 1, -786411, 1048576, 1, -720875, 1048576, 1, -655339, 1048576, 1, -589803, 1048576, 1, -524280, 1048576, 1, -458744, 1048576, 1, -458741, 1048576, 1, -196597, 1048576, 1, -196595, 1048576, 1, -196596, 1048576, 1, -196593, 1048576, 1, -196594, 1048576, 1, -393219, 1048576, 1, -393218, 1048576, 1, -393217, 1048576, 1, -458751, 1048576, 1, -458752, 1048576, 1, -458750, 1048576, 1, -458749, 1048576, 1, -458748, 1048576, 1, -458747, 1048576, 1, -458746, 1048576, 1, -458745, 1048576, 1, -458740, 1048576, 1, -458739, 1048576, 1, -458738, 1048576, 1, -458737, 1048576, 1, -458736, 1048576, 1, -458735, 1048576, 1, -458734, 1048576, 1, -458733, 1048576, 1, -458732, 1048576, 1, -458731, 1048576, 1, -458730, 1048576, 1, 458764, 1048576, 1, 458766, 1048576, 1, 458765, 1048576, 1, 458763, 1048576, 1)
 layer_7/name = "collectables"
-layer_7/tile_data = PackedInt32Array(262169, 3, 65536, 262170, 3, 65536, 262171, 3, 65536, 262172, 3, 65536, 262173, 3, 65536, 393241, 3, 131072, 393242, 3, 131072, 393243, 3, 131072, 393244, 3, 131072, 393245, 3, 131072)
+layer_7/tile_data = PackedInt32Array()
 
 [node name="OverlappingLava" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tw0i5")
@@ -1874,3 +1884,20 @@ offset_right = 308.5
 offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("19_eut5x")
+date_time = SubResource("Resource_nmovl")
+ticks_pr_second = 60
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="TImeGui" parent="CanvasLayer3" instance=ExtResource("21_8n4xj")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[connection signal="updated" from="TimeSystem" to="CanvasLayer3/TImeGui" method="_on_time_system_updated"]
