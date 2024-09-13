@@ -333,6 +333,7 @@ radius = 13.1529
 radius = 46.0109
 
 [node name="armored_axe" type="CharacterBody2D"]
+scale = Vector2(1.15702, 1.17091)
 script = ExtResource("1_bnadu")
 
 [node name="armored_axe" type="AnimatedSprite2D" parent="."]

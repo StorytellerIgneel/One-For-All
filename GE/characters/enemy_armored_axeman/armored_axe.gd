@@ -203,7 +203,7 @@ func attack():
 			
 
 		if player and player.has_method("take_damage"):
-			player.take_damage(1)
+			player.take_damage(slime_atk1dmg)
 
 func updateHealth():
 	var healthbar = $hpBar
