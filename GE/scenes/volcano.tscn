@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bcj7upjj3uhq5" path="res://resources/tilemap/volcanoe_tileset_and_assets/volcanoe_tiles.png" id="7_rrcy0"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="10_rj0ss"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="11_sgtht"]
-[ext_resource type="PackedScene" path="res://characters/boulder.tscn" id="11_u2jqx"]
+[ext_resource type="PackedScene" uid="uid://b7wf7p32va5sm" path="res://characters/boulder.tscn" id="11_u2jqx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uksdp"]
 texture = ExtResource("1_i7sws")
