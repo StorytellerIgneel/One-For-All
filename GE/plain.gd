@@ -110,6 +110,7 @@ func _process(delta):
 			elif area.get_parent().name == "Portal2":
 				player.global_position = $Portal1.global_position
 		State.teleport = false
+		return
 	##print(State.teleport)
 
 func initialize_camera_limit():
