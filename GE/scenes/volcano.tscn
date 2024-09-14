@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=35 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -681,6 +681,10 @@ scenes/2/scene = ExtResource("6_phn6r")
 texture = ExtResource("4_t6nqw")
 texture_region_size = Vector2i(32, 32)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6v3g"]
+texture = ExtResource("4_t6nqw")
+texture_region_size = Vector2i(32, 32)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6itpn"]
 texture = ExtResource("5_0oxv7")
 texture_region_size = Vector2i(32, 32)
@@ -1151,6 +1155,7 @@ sources/0 = SubResource("TileSetAtlasSource_uksdp")
 sources/4 = SubResource("TileSetAtlasSource_5e5er")
 sources/6 = SubResource("TileSetAtlasSource_6itpn")
 sources/3 = SubResource("TileSetScenesCollectionSource_rm21g")
+sources/5 = SubResource("TileSetAtlasSource_v6v3g")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwcd1"]
 texture = ExtResource("7_rrcy0")
@@ -1862,7 +1867,7 @@ position = Vector2(1112, 40)
 position = Vector2(1048, 144)
 
 [node name="Boulder1" parent="." instance=ExtResource("11_u2jqx")]
-position = Vector2(928, 0)
+position = Vector2(960, 40)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
