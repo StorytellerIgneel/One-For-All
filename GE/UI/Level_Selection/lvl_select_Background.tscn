@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3yp361ebhcc3"]
+[gd_scene load_steps=7 format=3 uid="uid://d3yp361ebhcc3"]
 
 [ext_resource type="Script" path="res://UI/Level_Selection/lvl_select_Background.gd" id="1_l36tg"]
-[ext_resource type="Texture2D" uid="uid://2rs0oh4k6nvg" path="res://UI/Level_Selection/assets/BG.png" id="1_vcpwy"]
 [ext_resource type="Texture2D" uid="uid://cdijtyaf6f880" path="res://UI/Level_Selection/assets/Window.png" id="2_hfvsi"]
 [ext_resource type="PackedScene" uid="uid://daqeo1g2k0pot" path="res://UI/Level_Selection/grid_container.tscn" id="4_ps6ou"]
 [ext_resource type="Texture2D" uid="uid://blofme1il303v" path="res://UI/Menu/asset/PNG/buttonSquare_blue.png" id="5_03eem"]
@@ -30,7 +29,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_vcpwy")
 expand_mode = 1
 
 [node name="LvlMenu" type="TextureRect" parent="."]

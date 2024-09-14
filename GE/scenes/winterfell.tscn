@@ -1656,10 +1656,10 @@ wait_time = 2.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -207.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 148.0
+offset_left = -225.0
+offset_top = 35.0
+offset_right = -41.0
+offset_bottom = 159.0
 grow_horizontal = 0
 
 [node name="TimeSystem" type="Node" parent="."]
