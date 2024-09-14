@@ -1,5 +1,15 @@
 extends CharacterBody2D
 
+# Define constants for platform behavior
+enum PlatformLeaveMode {
+	ADD_UPWARD_VELOCITY,
+	IGNORE_DOWNWARD_VELOCITY,
+	DO_NOTHING
+}
+
+# Use enum values for the mode
+var platform_leave_mode : PlatformLeaveMode = PlatformLeaveMode.ADD_UPWARD_VELOCITY
+
 var current_states = enemy_status.MOVERIGHT
 enum enemy_status {MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN, STOP, DEAD, ATTACK}
 var player = null
@@ -7,6 +17,7 @@ var player_chase = false
 var fspeed = 1.5
 var player_in_attack_zone = false
 var can_take_damage = true
+var last_platform_velocity = Vector2.ZERO  # Track last platform velocity
 
 @export var slime_atk1dmg = 5
 @export var speed = 30
@@ -14,13 +25,12 @@ var can_take_damage = true
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
-@onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
-@onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
+@onready var hitbox_area : Area2D = $hitbox_area  # Ensure hitbox_area is correctly initialized
+@onready var attack_cooldown_timer : Timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
 
 func _ready():
-	# Ensure death_time Timer is not running automatically
+	# Initialization code
 	$death_time.autostart = false
-	# Set up move_change Timer
 	$move_change.wait_time = 3.0
 	$move_change.one_shot = false
 	$move_change.start()
@@ -30,6 +40,7 @@ func _ready():
 func _physics_process(delta):
 	deal_with_damage()
 	updateHealth()
+
 	if health <= 0:
 		if current_states != enemy_status.DEAD:
 			current_states = enemy_status.DEAD
@@ -57,7 +68,7 @@ func _physics_process(delta):
 		else:
 			# If in ATTACK state, do not move
 			velocity = Vector2.ZERO
-			move_and_slide()
+			move_and_slide()  # Use move_and_slide() without arguments
 	else:
 		# Handle random movement if not chasing the player
 		if $move_change.is_stopped():
@@ -93,15 +104,11 @@ func dead():
 	$slime.play('death')
 	$death_time.start()  # Start Timer when death animation plays
 
-# This function will be called when the move_change timer times out
 func _on_move_change_timeout():
-	#print("Timer triggered: Changing direction randomly")
 	random_generation()
 
-# Random movement generation
 func random_generation():
 	dir = randi() % 5
-	#print("Generated direction:", dir)
 	random_direction()
 
 func random_direction():
@@ -139,10 +146,10 @@ func stop():
 	custom_velocity = Vector2.ZERO
 	$slime.play('idle')
 
-
 # Handle area detections for player chase
 func _on_area_detection_body_entered(body):
 	if body.has_method("player"):
+		print("hallo")
 		player = body as CharacterBody2D  # Ensure correct type casting
 		player_chase = true
 		if !$move_change.is_stopped():
@@ -175,33 +182,27 @@ func deal_with_damage():
 				dead()
 
 func _on_take_damage_cooldown_timeout():
-	can_take_damage=true
+	can_take_damage = true
 
 func _on_death_time_timeout():
 	queue_free()
 
 func _on_attack_cooldown_timeout():
-	#print("Attack cooldown finished. Ready to attack again.")
 	current_states = enemy_status.MOVERIGHT  # Resume movement after attack
 
 func attack():
 	if hitbox_area and hitbox_area.overlaps_body(player):
-		custom_velocity = Vector2.ZERO  # Stop movement during the attack
-		#print("Attacking player!")
-		$slime.play("attack")  # Play attack animation
-		# Apply damage or other effects to the player
+		print("Player in hitbox, attacking...")
+		custom_velocity = Vector2.ZERO
+		$slime.play("attack")
 		if player and player.has_method("take_damage"):
-			player.take_damage(1)  # Assuming the player has a take_damage method
+			print("Calling take_damage on player")
+			player.take_damage(slime_atk1dmg)
+		else:
+			print("Player does not have take_damage method")
+
 
 func updateHealth():
 	var healthbar = $hpBar
-	
 	healthbar.value = health
-	
-	if health >= 100:
-		healthbar.visible = false
-	else:
-		healthbar.visible = true
-
-func enemy():
-	pass
+	healthbar.visible = health < 100
