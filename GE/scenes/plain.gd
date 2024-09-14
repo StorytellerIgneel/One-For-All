@@ -109,6 +109,7 @@ func _process(delta):
 				player.global_position = $Portal2.global_position
 			elif area.get_parent().name == "Portal2":
 				player.global_position = $Portal1.global_position
+				get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 		State.teleport = false
 		return
 	
