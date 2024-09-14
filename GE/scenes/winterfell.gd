@@ -119,6 +119,10 @@ func _physics_process(delta):
 				player.health = 0
 	else:
 		player.friction = 1000
+	
+	if (Global.nextLevelBool == true):
+		await LoadManager.load_scene("res://scenes/volcanow.tscn")
+		Global.nextLevelBool = false
 
 func _on_FreezeTimer_timeout():
 	freeze_cooldown = false

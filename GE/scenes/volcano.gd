@@ -1,7 +1,5 @@
 extends Node
 
-var NextLevel: bool = false
-
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var fireball = load("res://characters/fireball.tscn")
@@ -29,11 +27,8 @@ func _ready():
 		overlappingLava.append(child)
 				
 	boulders = boulders.slice(0, 4)
-	print(overlappingLava)
-	#print(boulders)
 	
-	#Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
-	# Load the dialogue resource directly from the pat
+	Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 
 	shooters.playerHit2.connect(player_hit_by_fireball)
 	shooters.target = player
@@ -51,35 +46,6 @@ func _unhandled_input(event):
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
-		
-		
-	#if event.is_action_pressed("Interact"):
-		#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
-	#
-	## Check if the player is overlapping with any areas
-		#if actionables.size() > 1:
-		#
-		## Check if the area contains a PortalArea and if the player has 3 keys
-			#if Global.findElement(actionables, "PortalArea"):
-			#
-				## Check inventory key amount
-				#if player.inventory.get_total_keys() < 3:
-					#print("You need 3 keys to teleport.")
-					#return  # Exit if the player doesn't have 3 keys
-			#
-				#Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
-#
-			## If teleport is triggered, execute teleport logic
-				#if State.teleport == true:
-					#for area in actionables:
-						#if area.get_parent().name == "Portal1":
-							#player.global_position = $Portal2.global_position
-						#elif area.get_parent().name == "Portal2":
-							#player.global_position = $Portal1.global_position
-							#print("Teleporting to the next scene...")
-							#get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
-					#State.teleport = false
-					#return
 		
 	if event.is_action_pressed(("Interact")):
 		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
@@ -161,3 +127,4 @@ func _physics_process(delta):
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):
 			player.health = 0
+

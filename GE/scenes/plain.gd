@@ -23,9 +23,7 @@ func _ready():
 	Global.currentTilemap = $PlainTileMap
 	$Tree3_key.hasKey = true
 	$Chest2.hasKey = true
-	#Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
-	
-	initialize_camera_limit()
+	Global.trigger_dialogue("res://Dialogues/plain.dialogue", "start")
 	
 	if date_time == null:
 		date_time = DateTime.new()  # Ensure it's not null
@@ -111,8 +109,13 @@ func _process(delta):
 				player.global_position = $Portal2.global_position
 			elif area.get_parent().name == "Portal2":
 				player.global_position = $Portal1.global_position
+				get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
 		State.teleport = false
 		return
+	
+	if (Global.nextLevelBool == true):
+		await LoadManager.load_scene("res://scenes/winterfell.tscn")
+		Global.nextLevelBool = false
 	##print(State.teleport)
 
 func initialize_camera_limit():

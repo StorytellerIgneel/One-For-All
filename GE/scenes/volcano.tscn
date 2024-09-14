@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=34 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
-[ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
+[ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="23_yywqx"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 
@@ -678,14 +678,6 @@ resource_name = "Collectables"
 scenes/1/scene = ExtResource("5_vaxua")
 scenes/2/scene = ExtResource("6_phn6r")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5e5er"]
-texture = ExtResource("4_t6nqw")
-texture_region_size = Vector2i(32, 32)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6v3g"]
-texture = ExtResource("4_t6nqw")
-texture_region_size = Vector2i(32, 32)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6itpn"]
 texture = ExtResource("5_0oxv7")
 texture_region_size = Vector2i(32, 32)
@@ -1146,6 +1138,10 @@ texture_region_size = Vector2i(32, 32)
 17:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:7/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgfd7"]
+texture = ExtResource("4_t6nqw")
+texture_region_size = Vector2i(32, 32)
+
 [sub_resource type="TileSet" id="TileSet_bqy1a"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -1153,10 +1149,9 @@ physics_layer_0/collision_mask = 17
 sources/1 = SubResource("TileSetAtlasSource_3ycwr")
 sources/2 = SubResource("TileSetAtlasSource_6v8xo")
 sources/0 = SubResource("TileSetAtlasSource_uksdp")
-sources/4 = SubResource("TileSetAtlasSource_5e5er")
 sources/6 = SubResource("TileSetAtlasSource_6itpn")
 sources/3 = SubResource("TileSetScenesCollectionSource_rm21g")
-sources/5 = SubResource("TileSetAtlasSource_v6v3g")
+sources/7 = SubResource("TileSetAtlasSource_mgfd7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwcd1"]
 texture = ExtResource("7_rrcy0")
@@ -1907,7 +1902,7 @@ scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf5" parent="." instance=ExtResource("24_x7frq")]
-position = Vector2(760, 216)
+position = Vector2(64.0001, -480)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 

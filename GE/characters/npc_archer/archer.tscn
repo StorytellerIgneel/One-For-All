@@ -125,6 +125,8 @@ script = ExtResource("1_0qjmn")
 shape = SubResource("CircleShape2D_met4s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(1.38, 1.3)
 sprite_frames = SubResource("SpriteFrames_kcenv")
 animation = &"archer_walk"
 
