@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=35 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -20,10 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
-[ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="19_eut5x"]
-[ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="20_1cxct"]
-[ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="21_8n4xj"]
-[ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
+[ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="23_yywqx"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 

@@ -399,6 +399,10 @@ func place_tile_in_front():
 		source_id = 0
 	elif (tilemap.name == "BeachTileMap"):
 		source_id = 3
+	elif (tilemap.name == "WinterfellTileMap"):
+		source_id = 0
+	elif (tilemap.name == "VolcanoTileMap"):
+		source_id = 4
 	
 	# Place the tile in front of the player
 	tilemap.set_cell(4, tile_position, source_id, Vector2(0, 0))
