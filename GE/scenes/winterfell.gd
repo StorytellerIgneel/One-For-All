@@ -95,9 +95,9 @@ func _unhandled_input(event):
 					return
 	
 	if event.is_action_pressed("NextMap"):
-		await LoadManager.load_scene("res://scenes/volcano.tscn")
+		#await LoadManager.load_scene("res://scenes/volcano.tscn")
 		
-		#get_tree().change_scene_to_file("res://scenes/volcano.tscn")
+		get_tree().change_scene_to_file("res://scenes/volcano.tscn")
 		  
 func _physics_process(delta):
 	if (freeze_cooldown == false && !in_fire_region):
