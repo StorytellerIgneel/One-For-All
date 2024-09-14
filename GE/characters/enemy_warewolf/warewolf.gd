@@ -8,8 +8,8 @@ var fspeed = 1.0
 var player_in_attack_zone = false
 var can_take_damage = true
 
-@export var slime_atk1dmg = 5
-@export var speed = 30
+@export var slime_atk1dmg = 8
+@export var speed = 50
 @export var health = 100
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
@@ -28,7 +28,7 @@ func _ready():
 	$move_change.wait_time = 1.0
 	$move_change.one_shot = false
 	$move_change.start()
-	attack_cooldown_timer.wait_time = 1.5  # Cooldown duration
+	attack_cooldown_timer.wait_time = 1.0  # Cooldown duration
 	attack_cooldown_timer.one_shot = true  # Ensure it only fires once per activation
 	
 
@@ -203,7 +203,7 @@ func attack():
 			
 
 		if player and player.has_method("take_damage"):
-			player.take_damage(1)
+			player.take_damage(slime_atk1dmg)
 
 func updateHealth():
 	var healthbar = $hpBar

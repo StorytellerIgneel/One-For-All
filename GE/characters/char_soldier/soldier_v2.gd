@@ -29,6 +29,7 @@ var attack_ip = false
 var damage = 0
 var slime
 var damage_deal
+var atk2_cooldown = false
 
 @export var inventory: Inventory
 
@@ -60,7 +61,7 @@ func _ready():
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
 	inventory.use_item.connect(use_item)
-	print("Signals connected")
+	#print("Signals connected")
 	_anim.play("soldier_idle")
 	slime = get_node("../slimev3")
 	pass
@@ -96,6 +97,10 @@ func check_interact():
 	
 	if Input.is_action_just_pressed("createTile"):
 		place_tile_in_front()
+	
+	if Input.is_action_just_pressed("createWoodenBlock"):
+		place_wooden_blocks()
+		
 	return
 
 func check_environment():
@@ -182,21 +187,21 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("soldier_idle")
 				
-	#if dir == "down":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
-				#
-	#if dir == "up":
-		##anim.flip_h = true
-		#if movement == 1:
-			#anim.play("soldier_walk")
-		#elif movement == 0:
-			#if attack_ip == false:
-				#anim.play("soldier_idle")
+	if dir == "down":
+		#anim.flip_h = true
+		if movement == 1:
+			anim.play("soldier_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				anim.play("soldier_idle")
+				
+	if dir == "up":
+		#anim.flip_h = true
+		if movement == 1:
+			anim.play("soldier_walk")
+		elif movement == 0:
+			if attack_ip == false:
+				anim.play("soldier_idle")
 
 func player():
 	pass
@@ -262,9 +267,12 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk1")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("soldier_atk1")
+			$deal_attack_timer.start()
 
 	
-	if Input.is_action_just_pressed("atk2"):
+	if Input.is_action_just_pressed("atk2") and not atk2_cooldown:
 		Global.player_current_attack = true
 		attack_ip = true
 		damage = soldier_atk2dmg
@@ -277,6 +285,11 @@ func attack():
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("soldier_atk2")
 			$deal_attack_timer.start()
+		elif dir == "down" || dir == "up":
+			$AnimatedSprite2D.play("soldier_atk2")
+			$deal_attack_timer.start()
+		atk2_cooldown = true
+		$atk2_cooldown.start()
 
 
 func _on_deal_attack_timer_timeout():
@@ -384,6 +397,8 @@ func place_tile_in_front():
 		source_id = 7
 	elif (tilemap.name == "PlainTileMap"):
 		source_id = 0
+	elif (tilemap.name == "BeachTileMap"):
+		source_id = 3
 	
 	# Place the tile in front of the player
 	tilemap.set_cell(4, tile_position, source_id, Vector2(0, 0))
@@ -397,3 +412,71 @@ func place_tile_in_front():
 			inventory.removeSlot(item_slots[0])
 
 	inventory.updated.emit()  # Emit the updated signal after placing a block
+
+
+func _on_atk_2_cooldown_timeout():
+	atk2_cooldown = false
+
+func place_wooden_blocks():
+	var facing_direction = current_dir
+	var position_in_front
+	
+	# Calculate the world position in front of the player
+	if (current_dir == "right"):
+		position_in_front = self.global_position + Vector2(16, 0)
+	elif (current_dir == "left"):
+		position_in_front = self.global_position + Vector2(-16, 0)
+	elif (current_dir == "down"):
+		position_in_front = self.global_position + Vector2(0, 16)
+	elif (current_dir == "up"):
+		position_in_front = self.global_position + Vector2(0, -16)
+	
+	var tilemap = Global.currentTilemap
+	var source_id
+	# Convert world position to tilemap coordinates
+
+	var tile_position = Global.currentTilemap.local_to_map(position_in_front)
+	
+	if (tilemap.name == "IslandTileMap"):
+		source_id = 7
+	elif (tilemap.name == "PlainTileMap"):
+		source_id = 0
+	elif (tilemap.name == "BeachTileMap"):
+		source_id = 3
+		
+	var sourceId = 0
+	var base_atlas_coord = Vector2(8, 10)
+	
+	 # Coordinates for each of the 2x2 tiles (relative to the base position)
+	var tile_offsets = [
+		Vector2i(-1, 1),  # Top-left
+		Vector2i(0, 1),  # Top-right
+		Vector2i(-1, 2),  # Bottom-left
+		Vector2i(0, 2)   # Bottom-right
+		#all y axis are + 1 to create at the feet so can directly walk thru
+	]
+	
+	var atlas_offsets = [
+		Vector2(0, 0),  # Top-left
+		Vector2(1, 0),  # Top-right
+		Vector2(0, 1),  # Bottom-left
+		Vector2(1, 1)   # Bottom-right
+	]
+	
+	print(tile_position)
+	for i in range (4):
+		var currentTilePosition = tile_position + tile_offsets[i]
+		var currentAtlasCoord = base_atlas_coord + atlas_offsets[i]
+		var deleteCollisionPosition = currentTilePosition + Vector2i(0, -1) #let the player walk pass
+		Global.removeCollision((deleteCollisionPosition))
+		tilemap.set_cell(4, currentTilePosition, sourceId, currentAtlasCoord)
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("Player took damage! Current health:", health)
+	if health <= 0:
+		die()
+
+func die():
+	# Handle player death
+	queue_free()  # Or any other death logic

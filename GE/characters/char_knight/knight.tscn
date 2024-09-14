@@ -494,8 +494,11 @@ wait_time = 0.5
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
+[node name="atk2_cooldown" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="atk3_cooldown" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 autostart = true
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
@@ -504,4 +507,5 @@ autostart = true
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="atk2_cooldown" to="." method="_on_atk_2_cooldown_timeout"]
 [connection signal="timeout" from="atk3_cooldown" to="." method="_on_atk_3_cooldown_timeout"]

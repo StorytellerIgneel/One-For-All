@@ -2,13 +2,9 @@ extends Node
 
 var NextLevel: bool = false
 
-const balloon_scene = preload("res://Dialogues/balloon.tscn")
-@onready var dialogue_resource_path: String = "res://Dialogues/beach.dialogue"
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
-var dialogue_resource: DialogueResource
-var balloon: CanvasLayer
 
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var tilemap = $TileMap
@@ -17,12 +13,11 @@ var balloon: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.currentTilemap = $TileMap
+	Global.currentTilemap = $BeachTileMap
 	# Load the dialogue resource directly from the path
-	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	player.set_muddy_region(muddyRegion)
 	
-	Global.trigger_dialogue(dialogue_resource, "beach_start")
+	#Global.trigger_dialogue("res://Dialogues/beach.dialogue", "beach_start")
 
 	initialize_camera_limit()
 	
@@ -32,7 +27,8 @@ func _ready():
 
 
 func _on_time_system_updated(date_time: DateTime) -> void:
-	print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
+	pass
+	#print("Time updated: ", date_time.days, " days, ", date_time.hours, " hours, ", date_time.minutes, " minutes")
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -53,6 +49,6 @@ func _unhandled_input(event):
 		# get_tree().change_scene_to_file("res://plain.tscn")
 		
 func initialize_camera_limit():
-	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 16
-	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 16
+	$soldierV2/PlayerCamera.limit_right = $BeachTileMap.get_used_rect().size.x * 16
+	$soldierV2/PlayerCamera.limit_bottom = $BeachTileMap.get_used_rect().size.y * 16
 	print($soldierV2/PlayerCamera.limit_right)

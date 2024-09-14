@@ -358,7 +358,7 @@ radius = 11.0
 radius = 13.1529
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0p5ve"]
-radius = 46.0109
+radius = 130.548
 
 [node name="warewolf" type="CharacterBody2D"]
 scale = Vector2(1.37935, 1.29449)

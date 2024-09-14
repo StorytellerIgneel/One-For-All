@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://bds83ulyfqxy1"]
 
-[ext_resource type="Script" path="res://characters/enemy_warewolf/warewolf.gd" id="1_bhhd3"]
+[ext_resource type="Script" path="res://characters/enemy_orc/orc.gd" id="1_llpjj"]
 [ext_resource type="Texture2D" uid="uid://bs4bcm72xgndr" path="res://resources/characters/Orc/Orc with shadows/Orc-Attack01.png" id="2_2e03n"]
 [ext_resource type="Texture2D" uid="uid://c38vuajs5kh1" path="res://resources/characters/Orc/Orc with shadows/Orc-Death.png" id="3_qomag"]
 [ext_resource type="Texture2D" uid="uid://5ewhkspeajlo" path="res://resources/characters/Orc/Orc with shadows/Orc-Hurt.png" id="4_70mfp"]
@@ -291,7 +291,7 @@ radius = 13.1529
 radius = 46.0109
 
 [node name="orc" type="CharacterBody2D"]
-script = ExtResource("1_bhhd3")
+script = ExtResource("1_llpjj")
 
 [node name="orc" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_igawu")

@@ -312,12 +312,13 @@ radius = 13.1529
 radius = 46.0109
 
 [node name="armored_orc" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_bchss")
 
 [node name="armored_orc" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_igawu")
 sprite_frames = SubResource("SpriteFrames_ms7nc")
-animation = &"attack"
+animation = &"walk"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1faggqdkyf4f"]
+
+[ext_resource type="Script" path="res://cross.gd" id="1_d2lbn"]
+[ext_resource type="Script" path="res://ChestArea.gd" id="2_i87ru"]
+[ext_resource type="Texture2D" uid="uid://byukhxwoejav8" path="res://resources/tilemap/beach_expansion_v1.1/cross.png" id="3_05lgk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtlaj"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7dh"]
+
+[node name="cross" type="Node2D"]
+script = ExtResource("1_d2lbn")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(1.11837, -1.96355)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = -4.70805
+shape = SubResource("CapsuleShape2D_jtlaj")
+
+[node name="CrossArea" type="Area2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(1.63129, 1.08868)
+collision_mask = 17
+script = ExtResource("2_i87ru")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrossArea"]
+position = Vector2(3.05176e-05, 0)
+rotation = -4.70487
+shape = SubResource("RectangleShape2D_fu7dh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -1.0842e-19)
+scale = Vector2(0.970588, 0.986188)
+texture = ExtResource("3_05lgk")
