@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="16_haa6r"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="17_a27f7"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="18_30pyt"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="19_rkem3"]
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="20_6tvd7"]
 
