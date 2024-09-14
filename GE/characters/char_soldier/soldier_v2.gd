@@ -342,17 +342,26 @@ func place_tile_in_front():
 		source_id = 7
 	elif (tilemap.name == "PlainTileMap"):
 		source_id = 0
-	#print("tile_position: " ,tile_position)
-	#print(Global.currentTilemap.get_cell_tile_data(0, Vector2i(0,0)))
-	#print(Global.currentTilemap.local_to_map(self.global_position))
-	# Check if the tile is empty (if it returns -1, the tile is empty)
-	#if Global.currentTilemap.get_cell_tile_data(0, tile_position, -1) != null:
-		# Place the tile in front of the player
-	tilemap.set_cell(4, tile_position, source_id, Vector2(0,0))
-	#print(Global.currentTilemap.get_cell_tile_data(0, tile_position))
-	#print("Tile placed at: ", tile_position)
-	#else:
-		#print("Tile already exists at: ", tile_position)
+	elif (tilemap.name == "BeachTileMap"):
+		source_id = 3
+	elif (tilemap.name == "WinterfellTileMap"):
+		source_id = 0
+	elif (tilemap.name == "VolcanoTileMap"):
+		source_id = 4
+	
+	# Place the tile in front of the player
+	tilemap.set_cell(4, tile_position, source_id, Vector2(0, 0))
+	print("Tile placed at: ", tile_position)
+	
+	# Reduce the number of BuildingItems in the inventory after placing a block
+	var item_slots = inventory.slots.filter(func(slot): return slot.item is BuildingItem and slot.amount > 0)
+	if !item_slots.is_empty():
+		item_slots[0].amount -= 1
+		if item_slots[0].amount == 0:
+			inventory.removeSlot(item_slots[0])
+
+	inventory.updated.emit()  # Emit the updated signal after placing a block
+
 
 func _on_atk_2_cooldown_timeout():
 	atk2_cooldown = false
