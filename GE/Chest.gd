@@ -1,6 +1,6 @@
 extends Node2D
 
-var has_Key = false
+var hasKey = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

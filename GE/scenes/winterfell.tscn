@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=33 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -15,11 +15,14 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="18_arfcs"]
-[ext_resource type="PackedScene" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="20_hvioc"]
+[ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
+[ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
+[ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="22_xhyk3"]
+[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="23_sfw3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -27,9 +30,6 @@ texture = ExtResource("1_qkvpo")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hsdxt"]
-resource_name = "Collectables"
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_00aiv"]
 resource_name = "Collectables"
@@ -1532,7 +1532,6 @@ sources/88 = SubResource("TileSetAtlasSource_8eprv")
 sources/93 = SubResource("TileSetAtlasSource_xe1k6")
 sources/94 = SubResource("TileSetAtlasSource_fa8j5")
 sources/0 = SubResource("TileSetAtlasSource_rg06i")
-sources/1 = SubResource("TileSetScenesCollectionSource_hsdxt")
 sources/2 = SubResource("TileSetScenesCollectionSource_00aiv")
 tile_proxies/coords_level = [[91, Vector2i(0, 0)], [93, Vector2i(0, 0)], [92, Vector2i(0, 0)], [93, Vector2i(1, 0)]]
 
@@ -1568,7 +1567,7 @@ layer_4/tile_data = PackedInt32Array(1507335, 88, 19, 1572871, 88, 20, 1638407, 
 layer_5/name = "props2"
 layer_5/tile_data = PackedInt32Array(196611, 1572952, 8, 262147, 1572952, 9, 327683, 1572952, 10, 393219, 1572952, 11, 196612, 1638488, 8, 262148, 1638488, 9, 327684, 1638488, 10, 393220, 1638488, 11, 196615, 1572952, 8, 262151, 1572952, 9, 327687, 1572952, 10, 393223, 1572952, 11, 196616, 1638488, 8, 262152, 1638488, 9, 327688, 1638488, 10, 393224, 1638488, 11, 196618, 1572952, 8, 262154, 1572952, 9, 327690, 1572952, 10, 393226, 1572952, 11, 196619, 1638488, 8, 262155, 1638488, 9, 327691, 1638488, 10, 393227, 1638488, 11, 262149, 1572952, 8, 327685, 1572952, 9, 393221, 1572952, 10, 458757, 1572952, 11, 262150, 1638488, 8, 327686, 1638488, 9, 393222, 1638488, 10, 458758, 1638488, 11, 196621, 1572952, 11, 262157, 1572952, 9, 327693, 1572952, 10, 393229, 1572952, 11, 196622, 1638488, 11, 262158, 1638488, 9, 327694, 1638488, 10, 393230, 1638488, 11, 13, 1572952, 8, 65549, 1572952, 9, 131085, 1572952, 10, 14, 1638488, 8, 65550, 1638488, 9, 131086, 1638488, 10, 262159, 1572952, 8, 327695, 1572952, 9, 393231, 1572952, 10, 458767, 1572952, 11, 262160, 1638488, 8, 327696, 1638488, 9, 393232, 1638488, 10, 458768, 1638488, 11, 786438, 1572952, 8, 851974, 1572952, 9, 917510, 1572952, 10, 983046, 1572952, 11, 786439, 1638488, 8, 851975, 1638488, 9, 917511, 1638488, 10, 983047, 1638488, 11, 786444, 1572952, 8, 851980, 1572952, 9, 917516, 1572952, 10, 983052, 1572952, 11, 786445, 1638488, 8, 851981, 1638488, 9, 917517, 1638488, 10, 983053, 1638488, 11, 524294, 1572952, 8, 589830, 1572952, 9, 655366, 1572952, 10, 720902, 1572952, 11, 524295, 1638488, 8, 589831, 1638488, 9, 655367, 1638488, 10, 720903, 1638488, 11, 524300, 1572952, 8, 589836, 1572952, 9, 655372, 1572952, 10, 720908, 1572952, 11, 524301, 1638488, 8, 589837, 1638488, 9, 655373, 1638488, 10, 720909, 1638488, 11)
 layer_6/name = "collectables"
-layer_6/tile_data = PackedInt32Array(1179657, 2, 131072, 917507, 2, 131072, 1179658, 2, 131072, 983047, 2, 131072, 1048581, 2, 131072)
+layer_6/tile_data = PackedInt32Array(983047, 2, 131072, 1048587, 2, 65536, 983051, 2, 65536, 1310737, 2, 65536, 1441819, 2, 65536, 1179690, 2, 65536, 327725, 2, 65536, 393270, 2, 65536, 852027, 2, 65536, 2097214, 2, 65536, 2228241, 2, 65536, 2490377, 2, 65536, 2162696, 2, 65536, 2752542, 2, 65536, 2228257, 2, 65536, 2031649, 2, 65536, 1441836, 2, 65536, 1441824, 2, 65536, 458761, 2, 131072)
 
 [node name="Ice" type="Area2D" parent="WinterfellTileMap"]
 position = Vector2(896, 520)
@@ -1658,46 +1657,16 @@ wait_time = 2.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -207.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 148.0
+offset_left = -225.0
+offset_top = 35.0
+offset_right = -41.0
+offset_bottom = 159.0
 grow_horizontal = 0
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("9_q5s5u")
 date_time = SubResource("Resource_vh080")
 ticks_pr_second = 60
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-script = ExtResource("14_mlh1n")
-
-[node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("15_i87my")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.5
-offset_top = -197.0
-offset_right = 308.5
-offset_bottom = 197.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Hotbar" parent="CanvasLayer3" instance=ExtResource("16_0s0rt")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -125.5
-offset_top = -106.0
-offset_right = 125.5
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="armored_axe" parent="." instance=ExtResource("18_dswgp")]
 position = Vector2(871, 185)
@@ -1732,5 +1701,45 @@ motion_mode = 1
 
 [node name="slimev6" parent="." instance=ExtResource("20_hvioc")]
 position = Vector2(1065, 290)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("14_mlh1n")
+
+[node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("15_i87my")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.5
+offset_top = -197.0
+offset_right = 308.5
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hotbar" parent="CanvasLayer3" instance=ExtResource("16_0s0rt")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.5
+offset_top = -106.0
+offset_right = 125.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("21_8foe5")
+
+[node name="SettingMenu" parent="CanvasLayer4" instance=ExtResource("22_xhyk3")]
+
+[node name="NextLevel" parent="." instance=ExtResource("23_sfw3l")]
+position = Vector2(808, 64)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

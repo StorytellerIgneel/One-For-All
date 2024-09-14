@@ -1,18 +1,16 @@
 extends Area2D
 
-@export var inventory: Inventory
 
-@onready var player = $soldierV2
 
 func _physics_process(delta):
 	pass
 	
 func action():
-	if get_parent().hasKey == true and Global.findingKey == 2:
-		Global.trigger_dialogue("res://Dialogues/Key2.dialogue", "start")
-	elif get_parent().has_Key == true and Global.findingKey != 3:
+	var chestOpen = Image.load_from_file("res://resources/tilemap/plain/Texture/openedChest.png")
+	self.get_parent().get_node("Sprite2D").texture = ImageTexture.create_from_image(chestOpen)
+	if get_parent().hasKey == true and Global.findingKey == 3:
+		Global.trigger_dialogue("res://Dialogues/Key3.dialogue", "start")
+	elif get_parent().hasKey == true and Global.findingKey != 3:
 		Global.trigger_dialogue("res://Dialogues/wrongKey.dialogue", "start")
-	
-	# Player has no key
-	else:
+	else: #no key
 		Global.trigger_dialogue("res://Dialogues/PlainItemsNoKey.dialogue", "start")

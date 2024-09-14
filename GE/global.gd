@@ -10,7 +10,8 @@ var balloon: CanvasLayer
 var disablePlayerInput: bool = false
 var GoddessHeal: bool = false
 var currentTilemap
-var findingKey = 1
+var findingKey = 3
+var nextLevelBool = false
 
 var player_current_attack = false
 #var slime_current_attack = false
@@ -35,7 +36,7 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 
 	
 func nextLevel(nextScene):
-	trigger_dialogue ("res://Dialogues/teleport.dialogue", "start")
+	trigger_dialogue ("res://Dialogues/NextLevel.dialogue", "start")
 	if (State.NextLevel == true):
 		get_tree().change_scene_to_file(nextScene)
 		State.NextLevel = false

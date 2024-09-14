@@ -27,7 +27,11 @@ func _ready():
 	
 	initialize_camera_limit()
 
-
+func _physics_process(delta):
+	if (Global.nextLevelBool == true):
+		await LoadManager.load_scene("res://scenes/beach.tscn")
+		Global.nextLevelBool = false
+		
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		game_paused = !game_paused
