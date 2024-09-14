@@ -5191,7 +5191,7 @@ position = Vector2(603, 399)
 position = Vector2(759, 248)
 
 [node name="slimev6" parent="." instance=ExtResource("37_20pte")]
-position = Vector2(589, 235)
+position = Vector2(611, 213)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 script = ExtResource("31_iskdv")
