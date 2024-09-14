@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b0if0mcwakx6y"]
+[gd_scene load_steps=33 format=3 uid="uid://b0if0mcwakx6y"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_4e2x3"]
 [ext_resource type="Texture2D" uid="uid://d2hbpe4lvorgs" path="res://resources/tilemap/plain/Texture/infrastructures.png" id="1_57vt1"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="12_4ldot"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="12_qhkhw"]
 [ext_resource type="PackedScene" uid="uid://dk0d6ganecei7" path="res://characters/tree_2.tscn" id="13_5v4et"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="13_btgib"]
 [ext_resource type="PackedScene" uid="uid://dwuoekwjnn8h7" path="res://characters/tree_1.tscn" id="14_4mlim"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="15_idnnt"]
 [ext_resource type="PackedScene" uid="uid://ciidn6dx8qo5v" path="res://characters/chest.tscn" id="15_yuos2"]
@@ -5798,16 +5798,6 @@ position = Vector2(160, 160)
 
 [node name="Chest" parent="." instance=ExtResource("15_yuos2")]
 position = Vector2(256, 384)
-
-[node name="TImeGui" parent="." instance=ExtResource("16_gsp6b")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 960.0
-offset_top = 30.0
-offset_right = 1144.0
-offset_bottom = 154.0
-grow_horizontal = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_qhkhw")

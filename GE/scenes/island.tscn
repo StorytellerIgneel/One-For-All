@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=51 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
-[ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="29_ye47x"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="32_fyh2l"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="32_isc5y"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="32_xj5tp"]
@@ -35,9 +34,8 @@
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="35_2fikg"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer5.gd" id="35_au7sd"]
 [ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="35_xoxt8"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="36_ejjpy"]
 [ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="36_s8c1h"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="37_20pte"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="37_20pte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
 texture = ExtResource("1_b2npa")
@@ -5230,7 +5228,7 @@ position = Vector2(581, 286)
 position = Vector2(777, 344)
 script = ExtResource("36_s8c1h")
 
-[node name="slimev3" parent="." instance=ExtResource("36_ejjpy")]
+[node name="slimev3" parent="." instance=ExtResource("37_20pte")]
 position = Vector2(736, 279)
 
 [node name="armored_orc" parent="." instance=ExtResource("37_20pte")]

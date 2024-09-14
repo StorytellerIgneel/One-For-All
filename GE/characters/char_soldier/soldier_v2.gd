@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Player
+class_name player
 
 signal InWaterRegion
 signal OutWaterRegion
