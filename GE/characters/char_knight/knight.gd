@@ -59,6 +59,8 @@ func _ready():
 	print("Signals connected")
 	_anim.play("knight_idle")
 	slime = get_node("../slimev3")
+	$atk2_hitbox.set_deferred("monitoring", false)
+	$atk3_hitbox.set_deferred("monitoring", false)
 	
 	#if inventory != null:
 		#inventory.use_item.connect(use_item)
@@ -231,7 +233,7 @@ func attack():
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight_atk2")
 			$deal_attack_timer.start()
-
+		
 
 	if Input.is_action_just_pressed("atk2") and not atk2_cooldown:
 		Global.player_current_attack = true
@@ -241,14 +243,21 @@ func attack():
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight_atk2")
+			$atk2_hitbox.scale.x = 1
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight_atk2")
+			$atk2_hitbox.scale.x = -1
 			$deal_attack_timer.start()
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight_atk2")
 			$deal_attack_timer.start()
+			
+		$atk2_hitbox.set_deferred("monitoring", true)
+		
+		await get_tree().create_timer(0.2).timeout
+		$atk2_hitbox.set_deferred("monitoring", false)
 		atk2_cooldown = true
 		$atk2_cooldown.start()
 	
@@ -260,15 +269,21 @@ func attack():
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("knight_atk3")
+			$atk3_hitbox.scale.x = 1
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("knight_atk3")
+			$atk3_hitbox.scale.x = -1
 			$deal_attack_timer.start()
 		elif dir == "down" || dir == "up":
 			$AnimatedSprite2D.play("knight_atk3")
 			$deal_attack_timer.start()
-			
+		
+		$atk3_hitbox.set_deferred("monitoring", true)
+		
+		await get_tree().create_timer(0.2).timeout
+		$atk3_hitbox.set_deferred("monitoring", false)
 		atk3_cooldown = true
 		$atk3_cooldown.start()
 
@@ -292,3 +307,28 @@ func _on_atk_2_cooldown_timeout():
 func _on_atk_3_cooldown_timeout():
 	atk3_cooldown = false
 
+
+func _on_atk_2_hitbox_area_entered(area):
+	if area.name == "hitbox_area":
+		print("Can detect")
+		var enemy = get_node("../slimev3")
+		enemy.health = enemy.health - damage
+		print("ENEMY HEALTH AFTER ATK2 MODULE is ", enemy.health)
+
+
+func _on_atk_2_hitbox_area_exited(area):
+	if area.name == "hitbox_area":
+		print("Exit detect")
+
+
+func _on_atk_3_hitbox_area_entered(area):
+	if area.name == "hitbox_area":
+		print("Can detect")
+		var enemy = get_node("../slimev3")
+		enemy.health = enemy.health - damage
+		print("ENEMY HEALTH AFTER ATK3 MODULE is ", enemy.health)
+
+
+func _on_atk_3_hitbox_area_exited(area):
+	if area.name == "hitbox_area":
+		print("Exit detect")

@@ -100,6 +100,11 @@ func _unhandled_input(event):
 						clear_tiles_in_range(boulder.position, direction, 7)
 
 func initialize_camera_limit():
+	$soldierV2/PlayerCamera.limit_left = -320
+	$soldierV2/PlayerCamera.limit_top = -736
+	$soldierV2/PlayerCamera.limit_right = 1408
+	$soldierV2/PlayerCamera.limit_bottom = 616
+	
 	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 32
 	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 32
 
