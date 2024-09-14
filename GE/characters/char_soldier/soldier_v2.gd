@@ -166,7 +166,37 @@ func player_movement(delta):
 			velocity.y = 0
 		
 		move_and_slide()
-	
+
+#func player_movement(delta):
+	#if Global.disablePlayerInput == false:
+		#if Input.is_action_pressed("toRight"):
+			#current_dir = "right"
+			#play_anim(1)
+			#velocity.x = min(velocity.x + accel * delta, maxSpeed)
+			#velocity.y = 0  
+		#elif Input.is_action_pressed("toLeft"):
+			#current_dir = "left"
+			#play_anim(1)
+			#velocity.x = max(velocity.x - accel * delta, -maxSpeed)  
+			#velocity.y = 0
+		#elif Input.is_action_pressed("toDown"):
+			#current_dir = "down"
+			#play_anim(1)
+			#velocity.y = min(velocity.y + accel * delta, maxSpeed)  
+			#velocity.x = 0  
+		#elif Input.is_action_pressed("toUp"):
+			#current_dir = "up"
+			#play_anim(1)
+			#velocity.y = max(velocity.y - accel * delta, -maxSpeed)  
+			#velocity.x = 0
+		#
+		#else:
+			#play_anim(0)
+			#velocity.x = move_toward(velocity.x, 0, friction * delta)
+			#velocity.y = move_toward(velocity.y, 0, friction * delta)
+			
+		#move_and_slide()
+
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D

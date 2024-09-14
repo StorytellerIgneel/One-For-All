@@ -459,6 +459,7 @@ radius = 12.0416
 height = 44.0
 
 [node name="swordsman" type="CharacterBody2D"]
+position = Vector2(144, 81)
 script = ExtResource("1_rvko4")
 inventory = ExtResource("2_nxvg1")
 
@@ -501,6 +502,7 @@ offset_right = 124.0
 offset_bottom = 11.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="regen_timer" type="Timer" parent="."]
 wait_time = 10.0
