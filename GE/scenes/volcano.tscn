@@ -1902,12 +1902,12 @@ scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf2" parent="." instance=ExtResource("24_x7frq")]
-position = Vector2(-156, -191)
+position = Vector2(-232, -80)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf5" parent="." instance=ExtResource("24_x7frq")]
-position = Vector2(782, 251)
+position = Vector2(760, 216)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
@@ -1922,6 +1922,7 @@ scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("14_bktnv")
 
 [node name="Hotbar" parent="CanvasLayer2" instance=ExtResource("15_72ll3")]
@@ -1952,8 +1953,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("22_njpc2")
 
 [node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("23_yywqx")]
-offset_top = -2.0
-offset_bottom = -4.0
+offset_left = -600.0
+offset_top = 40.0
+offset_right = -599.0
+offset_bottom = 38.0
