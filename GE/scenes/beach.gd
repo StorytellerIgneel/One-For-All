@@ -52,3 +52,8 @@ func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $BeachTileMap.get_used_rect().size.x * 16
 	$soldierV2/PlayerCamera.limit_bottom = $BeachTileMap.get_used_rect().size.y * 16
 	print($soldierV2/PlayerCamera.limit_right)
+
+func _physics_process(delta):
+	if (Global.nextLevelBool == true):
+		await LoadManager.load_scene("res://scenes/plain.tscn")
+		Global.nextLevelBool = false
