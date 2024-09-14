@@ -11,11 +11,11 @@ config_version=5
 [application]
 
 config/name="GE"
-run/main_scene="res://scenes/volcano.tscn"
+run/main_scene="res://scenes/island.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/island.tscn"
-<<<<<<<HEADrun/main_scene="res://scenes/yap_testing_scene.tscn"
+<<<<<<<HEADrun/main_scene="res://scenes/island.tscn"
 
 [autoload]
 

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="10_2qu8q"]
 [ext_resource type="Script" path="res://scenes/islandMap.gd" id="10_n6xb0"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="11_4wsnw"]
-[ext_resource type="PackedScene" path="res://collectables/building_block.tscn" id="12_5iwqa"]
+[ext_resource type="PackedScene" uid="uid://ldmah3utjqu5" path="res://collectables/building_block.tscn" id="12_5iwqa"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
 [ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="18_54ev4"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
