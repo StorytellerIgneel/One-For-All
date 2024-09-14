@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf3dv0v4kfd4x"]
 
 [ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="2_72m25"]
-[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="2_rqgjs"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/char_slime/slimev_3.tscn" id="2_rqgjs"]
 
 [node name="Node2D" type="Node2D"]
 
