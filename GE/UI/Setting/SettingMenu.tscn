@@ -204,5 +204,5 @@ text = "Back"
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/BrightnessBtn" to="." method="_on_brightness_btn_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Key Binds" to="." method="_on_key_binds_pressed"]
 [connection signal="pressed" from="BluePanel/WhitePanel/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
