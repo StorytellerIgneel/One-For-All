@@ -3,7 +3,8 @@
 set Global.disablePlayerInput = true
 Mysterious Voice: Go to Next Level?
 - Continue the adventure
-	set Global.disablePlayerInput = true
+	set Global.nextLevelBool = true
+	set Global.disablePlayerInput = false
 - Stay in this level for some more time.
 set Global.disablePlayerInput = false
 
