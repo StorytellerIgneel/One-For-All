@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=33 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -17,11 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
 [ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="18_arfcs"]
-[ext_resource type="PackedScene" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
+[ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="22_xhyk3"]
+[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="23_sfw3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1702,6 +1703,7 @@ motion_mode = 1
 position = Vector2(1065, 290)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("14_mlh1n")
 
 [node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("15_i87my")]
@@ -1732,8 +1734,12 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("21_8foe5")
 
 [node name="SettingMenu" parent="CanvasLayer4" instance=ExtResource("22_xhyk3")]
+
+[node name="NextLevel" parent="." instance=ExtResource("23_sfw3l")]
+position = Vector2(808, 64)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]
