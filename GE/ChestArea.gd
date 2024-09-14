@@ -1,18 +1,23 @@
 extends Area2D
 
-@export var inventory: Inventory
+var currentMap = Global.currentTilemap.name
+var nextMap
 
-@onready var player = $soldierV2
+func _ready():
+	if (currentMap == "IslandTileMap"):
+		nextMap = "res://scenes/beach.tscn"
+	elif (currentMap == "BeachTileMap"):
+		nextMap = "res://scenes/plain.tscn"
+	elif (currentMap == "PlainTileMap"):
+		nextMap = "res://scenes/winterfell.tscn"
+	elif (currentMap == "WinterfellTileMap"):
+		nextMap = "res://scenes/volcano.tscn"
+		
 
 func _physics_process(delta):
-	pass
+	if (State.NextLevel == true):
+		get_tree().change_scene_to_file(nextMap)
+		State.NextLevel = false
 	
 func action():
-	if get_parent().hasKey == true and Global.findingKey == 2:
-		Global.trigger_dialogue("res://Dialogues/Key2.dialogue", "start")
-	elif get_parent().has_Key == true and Global.findingKey != 3:
-		Global.trigger_dialogue("res://Dialogues/wrongKey.dialogue", "start")
-	
-	# Player has no key
-	else:
-		Global.trigger_dialogue("res://Dialogues/PlainItemsNoKey.dialogue", "start")
+	Global.trigger_dialogue("res://Dialogues/NextLevel.dialogue", "start")
