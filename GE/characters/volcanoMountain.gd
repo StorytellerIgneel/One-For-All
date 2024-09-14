@@ -10,7 +10,7 @@ var fireCooldown = false
 @onready var volvano = $volcanoMountain
 @onready var rayCast = $RayCast2D
 @onready var reloadTimer = $RayCast2D/ReloadTimer
-@onready var playerHitbox = get_parent().get_node("./soldierV2").get_hitbox()
+@onready var playerHitbox = get_parent().get_node("./swordsman").get_hitbox()
 
 func _ready():
 	await(get_tree().process_frame)

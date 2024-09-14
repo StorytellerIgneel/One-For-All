@@ -221,3 +221,7 @@ func enemy():
 
 func _on_skill_cooldown_timeout():
 	pass # Replace with function body.
+
+func deduct_hp(damage: int):
+	health -= damage
+	

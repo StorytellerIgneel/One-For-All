@@ -232,7 +232,7 @@ shape = SubResource("CircleShape2D_v83k4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.85437, 1.71)
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_es4cr")
 animation = &"soldier_atk3"
 

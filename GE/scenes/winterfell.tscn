@@ -9,20 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://dw6gfhe4b8hsb" path="res://characters/fire.tscn" id="4_6lesy"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="4_yplbi"]
 [ext_resource type="PackedScene" uid="uid://c021r6ybkgh55" path="res://scenes/ice_hole.tscn" id="6_1rqyb"]
-[ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="6_i6rfr"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="8_4aage"]
+[ext_resource type="PackedScene" uid="uid://cyteuulb2ml41" path="res://characters/char_knight_templar/knight_templar.tscn" id="9_gp5v7"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_q5s5u"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="18_arfcs"]
 [ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="22_xhyk3"]
-[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="23_sfw3l"]
+[ext_resource type="PackedScene" path="res://characters/next_level.tscn" id="23_sfw3l"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="24_8ne5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
@@ -1610,11 +1610,6 @@ position = Vector2(144, 256)
 [node name="IceHole2" parent="." instance=ExtResource("6_1rqyb")]
 position = Vector2(144, 224)
 
-[node name="soldierV2" parent="." instance=ExtResource("6_i6rfr")]
-light_mask = 17
-visibility_layer = 17
-position = Vector2(74, 294)
-
 [node name="Fire1" parent="." instance=ExtResource("4_6lesy")]
 position = Vector2(224, 576)
 
@@ -1745,5 +1740,8 @@ position = Vector2(808, 64)
 
 [node name="GoddessStatue" parent="." instance=ExtResource("24_8ne5p")]
 position = Vector2(576, 208)
+
+[node name="knight_templar" parent="." instance=ExtResource("9_gp5v7")]
+position = Vector2(43, 296)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

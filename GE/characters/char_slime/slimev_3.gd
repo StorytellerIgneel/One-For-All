@@ -201,3 +201,6 @@ func updateHealth():
 
 func enemy():
 	pass
+
+func deduct_hp(damage: int):
+	health -= damage

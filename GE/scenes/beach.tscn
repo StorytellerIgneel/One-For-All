@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
 [ext_resource type="Texture2D" uid="uid://kyrbxnum5q1t" path="res://resources/tilemap/beach_expansion_v1.1/beach_tiles.png" id="2_2cbyo"]
 [ext_resource type="Texture2D" uid="uid://crt4wef3bqe32" path="res://resources/tilemap/beach_expansion_v1.1/rope_fence_tiles.png" id="3_de7uj"]
-[ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="5_rwvpw"]
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="5_x5yg2"]
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="6_53fay"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="7_d7u5c"]
@@ -17,9 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="16_haa6r"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="17_a27f7"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="18_30pyt"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="19_rkem3"]
-[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="20_6tvd7"]
+[ext_resource type="PackedScene" path="res://characters/next_level.tscn" id="20_6tvd7"]
+[ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="21_x4yki"]
 [ext_resource type="PackedScene" uid="uid://bjr0ac1slekh" path="res://characters/npc_wizard/wizard.tscn" id="21_xd8kc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
@@ -2821,9 +2821,6 @@ layer_8/tile_data = PackedInt32Array(2228239, 4, 65536, 1966093, 4, 65536, 18350
 position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 
-[node name="soldierV2" parent="." instance=ExtResource("5_rwvpw")]
-position = Vector2(584, 408)
-
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("9_segts")
 date_time = SubResource("Resource_xlegm")
@@ -2918,5 +2915,8 @@ position = Vector2(256, 24)
 
 [node name="wizard" parent="." instance=ExtResource("21_xd8kc")]
 position = Vector2(520, 368)
+
+[node name="knight" parent="." instance=ExtResource("21_x4yki")]
+position = Vector2(584, 408)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

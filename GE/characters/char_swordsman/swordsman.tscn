@@ -467,6 +467,7 @@ inventory = ExtResource("2_nxvg1")
 shape = SubResource("CircleShape2D_tcica")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_mfhm2")
 animation = &"swordsman_atk3"
 frame_progress = 0.720597
@@ -526,6 +527,13 @@ autostart = true
 position = Vector2(12, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_o8uag")
+
+[node name="inWaterTimer" type="Timer" parent="."]
+
+[node name="outWaterTimer" type="Timer" parent="."]
+
+[node name="fireTimer" type="Timer" parent="."]
+wait_time = 0.75
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
