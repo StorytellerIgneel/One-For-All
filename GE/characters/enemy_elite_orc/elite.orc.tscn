@@ -353,6 +353,7 @@ position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_o7pn4")
 
 [node name="area_detection" type="Area2D" parent="."]
+scale = Vector2(0.72, 0.72)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_detection"]
 position = Vector2(1, 2)

@@ -229,6 +229,7 @@ radius = 13.1529
 radius = 46.0109
 
 [node name="slimev3" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_7m7ny")
 
 [node name="slime" type="AnimatedSprite2D" parent="."]

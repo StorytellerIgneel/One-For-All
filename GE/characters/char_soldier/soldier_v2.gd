@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Player
+class_name player
 
 signal InWaterRegion
 signal OutWaterRegion
@@ -470,3 +470,13 @@ func place_wooden_blocks():
 		var deleteCollisionPosition = currentTilePosition + Vector2i(0, -1) #let the player walk pass
 		Global.removeCollision((deleteCollisionPosition))
 		tilemap.set_cell(4, currentTilePosition, sourceId, currentAtlasCoord)
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("Player took damage! Current health:", health)
+	if health <= 0:
+		die()
+
+func die():
+	# Handle player death
+	queue_free()  # Or any other death logic

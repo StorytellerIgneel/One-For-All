@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctsqks6453r08"]
+[gd_scene load_steps=25 format=3 uid="uid://ctsqks6453r08"]
 
 [ext_resource type="Script" path="res://scenes/beach.gd" id="1_g2ddp"]
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="10_fs6n4"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="11_cx0xj"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="12_bqitr"]
+[ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="15_wpkfl"]
+[ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="16_haa6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2815,7 +2817,7 @@ position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 
 [node name="soldierV2" parent="." instance=ExtResource("5_rwvpw")]
-position = Vector2(880, 504)
+position = Vector2(246, 566)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -2839,5 +2841,37 @@ grow_horizontal = 0
 
 [node name="Node2D" parent="." instance=ExtResource("11_cx0xj")]
 position = Vector2(877, 358)
+
+[node name="orc" parent="." instance=ExtResource("15_wpkfl")]
+position = Vector2(347, 249)
+motion_mode = 1
+
+[node name="orc2" parent="." instance=ExtResource("15_wpkfl")]
+position = Vector2(472, 243)
+motion_mode = 1
+
+[node name="orc3" parent="." instance=ExtResource("15_wpkfl")]
+position = Vector2(551, 182)
+motion_mode = 1
+
+[node name="orc4" parent="." instance=ExtResource("15_wpkfl")]
+position = Vector2(433, 106)
+motion_mode = 1
+
+[node name="orc5" parent="." instance=ExtResource("15_wpkfl")]
+position = Vector2(309, 118)
+motion_mode = 1
+
+[node name="slimev3" parent="." instance=ExtResource("16_haa6r")]
+position = Vector2(981, 467)
+
+[node name="slimev4" parent="." instance=ExtResource("16_haa6r")]
+position = Vector2(1066, 270)
+
+[node name="slimev5" parent="." instance=ExtResource("16_haa6r")]
+position = Vector2(796, 377)
+
+[node name="slimev6" parent="." instance=ExtResource("16_haa6r")]
+position = Vector2(780, 260)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

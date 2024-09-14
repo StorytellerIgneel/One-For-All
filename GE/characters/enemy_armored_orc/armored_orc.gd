@@ -8,7 +8,7 @@ var fspeed = 1.0
 var player_in_attack_zone = false
 var can_take_damage = true
 
-@export var slime_atk1dmg = 5
+@export var slime_atk1dmg = 15
 @export var speed = 30
 @export var health = 100
 var dir
@@ -203,7 +203,7 @@ func attack():
 			
 
 		if player and player.has_method("take_damage"):
-			player.take_damage(1)
+			player.take_damage(slime_atk1dmg)
 
 func updateHealth():
 	var healthbar = $hpBar
