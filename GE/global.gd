@@ -35,7 +35,7 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 
 	
 func nextLevel(nextScene):
-	trigger_dialogue ("res://Dialogues/teleport.dialogue", "start")
+	trigger_dialogue ("res://Dialogues/NextLevel.dialogue", "start")
 	if (State.NextLevel == true):
 		get_tree().change_scene_to_file(nextScene)
 		State.NextLevel = false

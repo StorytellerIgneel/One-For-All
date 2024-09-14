@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=37 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -17,12 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="11_sgtht"]
 [ext_resource type="PackedScene" uid="uid://b7wf7p32va5sm" path="res://characters/boulder.tscn" id="11_u2jqx"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="14_bktnv"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="19_eut5x"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="20_1cxct"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="21_8n4xj"]
-[ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
+[ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uksdp"]
