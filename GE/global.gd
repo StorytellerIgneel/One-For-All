@@ -10,7 +10,7 @@ var balloon: CanvasLayer
 var disablePlayerInput: bool = false
 var GoddessHeal: bool = false
 var currentTilemap
-var findingKey = 3
+var findingKey = 1
 var nextLevelBool = false
 
 var player_current_attack = false

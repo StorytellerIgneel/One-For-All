@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="11_sgtht"]
 [ext_resource type="PackedScene" uid="uid://b7wf7p32va5sm" path="res://characters/boulder.tscn" id="11_u2jqx"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="14_bktnv"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
 [ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
@@ -1907,7 +1907,7 @@ scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf5" parent="." instance=ExtResource("24_x7frq")]
-position = Vector2(760, 216)
+position = Vector2(64.0001, -480)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 

@@ -161,8 +161,4 @@ func _physics_process(delta):
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):
 			player.health = 0
-	
-	func _physics_process(delta):
-	if (Global.nextLevelBool == true):
-		await LoadManager.load_scene("res://scenes/plain.tscn")
-		Global.nextLevelBool = false
+
