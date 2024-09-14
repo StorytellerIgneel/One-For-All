@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dly6tfatdpyr"]
+[gd_scene load_steps=44 format=3 uid="uid://dly6tfatdpyr"]
 
 [ext_resource type="Texture2D" uid="uid://dnnajayo25kiv" path="res://resources/tilemap/island/terrain_tiles_v2.png" id="1_b2npa"]
 [ext_resource type="Script" path="res://scenes/island.gd" id="1_who21"]
@@ -9,10 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://1o5cbfig1ton" path="res://resources/tilemap/island/assets_spritesheet_v2_free.png" id="6_xve1g"]
 [ext_resource type="Texture2D" uid="uid://b6rwcpf2t6gcf" path="res://resources/tilemap/island/water_and_island_tiles_v2.png" id="7_isdd1"]
 [ext_resource type="Script" path="res://scenes/houseInteract.gd" id="8_ov2wj"]
-[ext_resource type="Resource" uid="uid://dc843ggjkm6nk" path="res://Dialogues/house.dialogue" id="9_8o4qf"]
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="9_tehue"]
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="10_2qu8q"]
-[ext_resource type="Script" path="res://scenes/islandMap.gd" id="10_n6xb0"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="11_4wsnw"]
 [ext_resource type="PackedScene" path="res://collectables/building_block.tscn" id="12_5iwqa"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
@@ -5045,7 +5043,6 @@ layer_4/name = "Dirtpath"
 layer_4/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 1441806, 65539, 4, 1507342, 65539, 5, 1441804, 3, 6, 1507340, 3, 7, 1441805, 65539, 6, 1507341, 65539, 7, 1441808, 65539, 6, 1507344, 65539, 7, 1441809, 131075, 6, 1507345, 131075, 7, 1441810, 65539, 6, 1507346, 65539, 7, 1441811, 131075, 6, 1507347, 131075, 7, 1441812, 131075, 4, 1507348, 131075, 5, 1245204, 3, 0, 1310740, 3, 1, 1376276, 196611, 4, 1245205, 65539, 6, 1310741, 65539, 7, 1245206, 65539, 6, 1310742, 65539, 7, 1245207, 65539, 6, 1310743, 65539, 7, 1245209, 65539, 6, 1310745, 65539, 7)
 layer_5/name = "collectables"
 layer_5/tile_data = PackedInt32Array(2228238, 8, 65536, 2228237, 8, 65536, 1245210, 8, 65536, 1310746, 8, 65536, 1310763, 8, 65536, 786476, 8, 65536, 786480, 8, 65536, 786473, 8, 65536, 852001, 8, 65536, 1835056, 8, 65536, 1769505, 8, 65536, 1441825, 8, 65536, 1835048, 8, 65536, 786474, 8, 131072)
-script = ExtResource("10_n6xb0")
 
 [node name="WaterRegion" type="Area2D" parent="IslandTileMap"]
 position = Vector2(200, 500)
@@ -5061,7 +5058,6 @@ position = Vector2(224, 338)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("8_ov2wj")
-dialogue_resource = ExtResource("9_8o4qf")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IslandTileMap/House"]
@@ -5069,15 +5065,17 @@ light_mask = 17
 visibility_layer = 17
 shape = SubResource("CapsuleShape2D_lgyuw")
 
+[node name="GoddessStatue" parent="." instance=ExtResource("20_hsoah")]
+y_sort_enabled = true
+position = Vector2(377, 263)
+
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
+y_sort_enabled = true
 position = Vector2(355, 333)
 
 [node name="knight" parent="." instance=ExtResource("18_54ev4")]
 position = Vector2(-155, 393)
-
-[node name="GoddessStatue" parent="." instance=ExtResource("20_hsoah")]
-position = Vector2(377, 263)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(568, 320)

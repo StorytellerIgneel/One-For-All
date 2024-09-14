@@ -1,7 +1,5 @@
 extends Node
 
-var NextLevel: bool = false
-
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
@@ -17,7 +15,7 @@ func _ready():
 	# Load the dialogue resource directly from the path
 	player.set_muddy_region(muddyRegion)
 	
-	#Global.trigger_dialogue("res://Dialogues/beach.dialogue", "beach_start")
+	Global.trigger_dialogue("res://Dialogues/beach.dialogue", "beach_start")
 
 	initialize_camera_limit()
 	
@@ -42,11 +40,6 @@ func _unhandled_input(event):
 			pause_menu.visible = false
 			
 		get_tree().root.get_viewport().set_input_as_handled()
-	
-	if event.is_action_pressed("NextMap"):
-		await LoadManager.load_scene("NextMap")
-		
-		get_tree().change_scene_to_file("res://plain.tscn")
 		
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $BeachTileMap.get_used_rect().size.x * 16
