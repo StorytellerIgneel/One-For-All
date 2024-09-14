@@ -37,7 +37,7 @@ func _ready():
 
 	shooters.playerHit2.connect(player_hit_by_fireball)
 	shooters.target = player
-	#initialize_camera_limit()
+	initialize_camera_limit()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -104,9 +104,7 @@ func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_top = -736
 	$soldierV2/PlayerCamera.limit_right = 1408
 	$soldierV2/PlayerCamera.limit_bottom = 616
-	
-	$soldierV2/PlayerCamera.limit_right = $TileMap.get_used_rect().size.x * 32
-	$soldierV2/PlayerCamera.limit_bottom = $TileMap.get_used_rect().size.y * 32
+
 
 # Function to clear tiles either up or down along the Y axis
 func clear_tiles_in_range(start_pos: Vector2, direction: String, num_tiles: int):
