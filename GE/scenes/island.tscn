@@ -26,11 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
 [ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
+[ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="31_iskdv"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="32_fyh2l"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="32_xj5tp"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="33_2po53"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="35_2fikg"]
-[ext_resource type="Script" path="res://scenes/CanvasLayer5.gd" id="35_au7sd"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="37_20pte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp55u"]
@@ -5065,7 +5065,7 @@ layer_3/tile_data = PackedInt32Array(1310734, 196611, 0, 1376270, 196611, 1, 144
 layer_4/name = "Collisions"
 layer_4/tile_data = PackedInt32Array(917509, 7, 0, 983045, 7, 0, 1048581, 7, 0, 1114117, 7, 0, 1179653, 7, 0, 1245189, 7, 0, 1310725, 7, 0, 1376261, 7, 0, 1441797, 7, 0, 1507333, 7, 0, 1572869, 7, 0, 1638405, 7, 0, 1703941, 7, 0, 1769478, 7, 0, 1769479, 7, 0, 1769480, 7, 0)
 layer_5/name = "collectables"
-layer_5/tile_data = PackedInt32Array(1572880, 8, 65536, 1572881, 8, 65536, 1572882, 8, 65536, 1638416, 8, 131072, 1638417, 8, 131072, 1638418, 8, 131072, 1703952, 8, 196608, 1703953, 8, 196608, 1703954, 8, 196608)
+layer_5/tile_data = PackedInt32Array(2228238, 8, 65536, 2228237, 8, 65536, 1245210, 8, 65536, 1310746, 8, 65536, 1310763, 8, 65536, 786476, 8, 65536, 786480, 8, 65536, 786473, 8, 65536, 852001, 8, 65536, 1835056, 8, 65536, 1769505, 8, 65536, 1441825, 8, 65536, 1835048, 8, 65536)
 script = ExtResource("10_n6xb0")
 
 [node name="WaterRegion" type="Area2D" parent="IslandTileMap"]
@@ -5198,23 +5198,6 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="CanvasLayer5" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("35_au7sd")
-
-[node name="SettingMenu" parent="CanvasLayer5" instance=ExtResource("29_dbkf0")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = 0.0
-offset_right = 0.5
-offset_bottom = 0.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
 [node name="slimev3" parent="." instance=ExtResource("37_20pte")]
 position = Vector2(747, 381)
 
@@ -5226,5 +5209,11 @@ position = Vector2(759, 248)
 
 [node name="slimev6" parent="." instance=ExtResource("37_20pte")]
 position = Vector2(589, 235)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+script = ExtResource("31_iskdv")
+
+[node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("29_dbkf0")]
+visible = false
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer4/TImeGui" method="_on_time_system_updated"]

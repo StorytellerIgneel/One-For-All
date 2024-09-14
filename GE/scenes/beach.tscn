@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctsqks6453r08"]
+[gd_scene load_steps=28 format=3 uid="uid://ctsqks6453r08"]
 
 [ext_resource type="Script" path="res://scenes/beach.gd" id="1_g2ddp"]
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="5_x5yg2"]
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="6_53fay"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="7_d7u5c"]
-[ext_resource type="Script" path="res://scenes/CanvasLayer.gd" id="7_skhcw"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="8_twbmo"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_segts"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="10_fs6n4"]
@@ -16,6 +15,10 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="12_bqitr"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="15_wpkfl"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="16_haa6r"]
+[ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="17_a27f7"]
+[ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="18_30pyt"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
+[ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="19_rkem3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2808,7 +2811,7 @@ layer_6/tile_data = PackedInt32Array(2293766, 524288, 0, 2359302, 524288, 1, 229
 layer_7/name = "Props3"
 layer_7/tile_data = PackedInt32Array(720902, 65536, 0, 786438, 65536, 1, 851974, 65536, 2, 917510, 65536, 3, 720903, 131072, 0, 786439, 131072, 1, 851975, 131072, 2, 917511, 131072, 3, 983047, 131072, 4, 1048583, 131072, 5, 720904, 196608, 0, 786440, 196608, 1, 851976, 196608, 2, 917512, 196608, 3, 983048, 196608, 4, 1048584, 196608, 5, 720905, 262144, 0, 786441, 262144, 1, 851977, 262144, 2, 917513, 262144, 3, 983049, 262144, 4, 786442, 327680, 1, 851978, 327680, 2, 917514, 327680, 3, 720907, 65536, 0, 786443, 65536, 1, 851979, 65536, 2, 917515, 65536, 3, 720908, 131072, 0, 786444, 131072, 1, 851980, 131072, 2, 917516, 131072, 3, 983052, 131072, 4, 1048588, 131072, 5, 720909, 196608, 0, 786445, 196608, 1, 851981, 196608, 2, 917517, 196608, 3, 983053, 196608, 4, 1048589, 196608, 5, 720910, 262144, 0, 786446, 262144, 1, 851982, 262144, 2, 917518, 262144, 3, 983054, 262144, 4, 786447, 327680, 1, 851983, 327680, 2, 917519, 327680, 3)
 layer_8/name = "collectables"
-layer_8/tile_data = PackedInt32Array()
+layer_8/tile_data = PackedInt32Array(2228239, 4, 65536, 1966093, 4, 65536, 1835023, 4, 65536, 1638438, 4, 65536, 1703974, 4, 65536, 2031667, 4, 65536, 1441854, 4, 65536, 1704003, 4, 65536, 1966147, 4, 65536, 1703990, 4, 65536, 1048636, 4, 65536, 983093, 4, 65536, 786484, 4, 65536, 1179694, 4, 65536, 196643, 4, 65536, 983074, 4, 65536, 589855, 4, 65536, 917526, 4, 65536, 196629, 4, 65536, 262152, 4, 65536, 65541, 4, 65536, 2687012, 4, 131072)
 
 [node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
 
@@ -2819,15 +2822,10 @@ shape = SubResource("RectangleShape2D_ya6rn")
 [node name="soldierV2" parent="." instance=ExtResource("5_rwvpw")]
 position = Vector2(246, 566)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("7_skhcw")
-
-[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("8_twbmo")]
-
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("9_segts")
 date_time = SubResource("Resource_xlegm")
+ticks_pr_second = 60
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -2873,5 +2871,40 @@ position = Vector2(796, 377)
 
 [node name="slimev6" parent="." instance=ExtResource("16_haa6r")]
 position = Vector2(780, 260)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+script = ExtResource("17_a27f7")
+
+[node name="Hotbar" parent="CanvasLayer3" instance=ExtResource("18_mdohb")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.5
+offset_top = -106.0
+offset_right = 125.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("19_rkem3")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.5
+offset_top = -197.0
+offset_right = 308.5
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("18_30pyt")
+
+[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("8_twbmo")]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]
