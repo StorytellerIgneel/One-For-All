@@ -156,10 +156,13 @@ func _on_area_detection_body_exited(body):
 func _on_hitbox_area_body_entered(body):
 	if body.has_method("player"):
 		player_in_attack_zone = true
+		
+
  
 func _on_hitbox_area_body_exited(body):
 	if body.has_method("player"):
 		player_in_attack_zone = false
+
  
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
@@ -195,3 +198,6 @@ func updateHealth():
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
+
+func enemy():
+	pass
