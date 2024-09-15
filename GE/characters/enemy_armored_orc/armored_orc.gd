@@ -9,13 +9,14 @@ var player_in_attack_zone = false
 var can_take_damage = true
 
 @export var slime_atk1dmg = 15
+@export var slime_skill_dmg = 20  # Skill attack damage
 @export var speed = 30
 @export var health = 100
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
 var attack_counter = 0  # Track the number of consecutive attacks
-var skill_threshold = 3  # Number of attacks before skill is triggered
+var skill_threshold = 5  # Number of attacks before skill is triggered
 
 @onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
 @onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
@@ -192,19 +193,22 @@ func _on_attack_cooldown_timeout():
 func attack():
 	if hitbox_area and hitbox_area.overlaps_body(player):
 		custom_velocity = Vector2.ZERO
-		print("this line is done")
 		attack_counter += 1  # Increment attack counter
-
+		
+		# Check if skill threshold has been reached
 		if attack_counter >= skill_threshold:
 			$armored_orc.play("skill")  # Play the "skill" animation
+			apply_damage(slime_skill_dmg)  # Apply skill damage
 			attack_counter = 0  # Reset attack counter after skill is triggered
+			print("skill")
 		else:
 			$armored_orc.play("attack")  # Regular attack animation
-			
+			apply_damage(slime_atk1dmg)  # Apply normal attack damage
 
-		if player and player.has_method("take_damage"):
-			player.take_damage(slime_atk1dmg)
-
+func apply_damage(damage: int):
+	if player and player.has_method("take_damage"):
+		player.take_damage(damage)  # Apply damage to the player
+		
 func updateHealth():
 	var healthbar = $hpBar
 	
