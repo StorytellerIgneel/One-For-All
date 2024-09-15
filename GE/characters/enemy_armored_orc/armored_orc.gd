@@ -15,7 +15,7 @@ var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
 var attack_counter = 0  # Track the number of consecutive attacks
-var skill_threshold = 5  # Number of attacks before skill is triggered
+var skill_threshold = 3  # Number of attacks before skill is triggered
 
 @onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
 @onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
@@ -221,6 +221,6 @@ func enemy():
 
 func _on_skill_cooldown_timeout():
 	pass # Replace with function body.
-
+	
 func deduct_hp(damage: int):
 	health -= damage

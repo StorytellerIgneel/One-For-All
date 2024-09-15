@@ -1,15 +1,5 @@
 extends CharacterBody2D
 
-# Define constants for platform behavior
-enum PlatformLeaveMode {
-	ADD_UPWARD_VELOCITY,
-	IGNORE_DOWNWARD_VELOCITY,
-	DO_NOTHING
-}
-
-# Use enum values for the mode
-var platform_leave_mode : PlatformLeaveMode = PlatformLeaveMode.ADD_UPWARD_VELOCITY
-
 var current_states = enemy_status.MOVERIGHT
 enum enemy_status {MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN, STOP, DEAD, ATTACK}
 var player = null
@@ -206,6 +196,3 @@ func updateHealth():
 	var healthbar = $hpBar
 	healthbar.value = health
 	healthbar.visible = health < 100
-
-func deduct_hp(damage: int):
-	health -= damage

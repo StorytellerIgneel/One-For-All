@@ -16,14 +16,14 @@
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
 [ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
-[ext_resource type="Script" path="res://characters/enemy_armored_axeman/armored_axe.gd" id="18_arfcs"]
-[ext_resource type="PackedScene" uid="uid://csec5xv8t54yy" path="res://characters/enemy_armored_axeman/armored_axe.tscn" id="18_dswgp"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="22_xhyk3"]
-[ext_resource type="PackedScene" path="res://characters/next_level.tscn" id="23_sfw3l"]
+[ext_resource type="PackedScene" uid="uid://cjchlswrlk8iy" path="res://characters/enemy_armored_axeman/armored_axeman.tscn" id="23_lv6ba"]
+[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="23_sfw3l"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="24_8ne5p"]
+[ext_resource type="PackedScene" uid="uid://ct3y7kf42else" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="25_kxbsj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1664,16 +1664,6 @@ script = ExtResource("9_q5s5u")
 date_time = SubResource("Resource_vh080")
 ticks_pr_second = 60
 
-[node name="armored_axe" parent="." instance=ExtResource("18_dswgp")]
-position = Vector2(871, 185)
-scale = Vector2(1.65623, 1.78279)
-motion_mode = 1
-script = ExtResource("18_arfcs")
-
-[node name="armored_orc" parent="." instance=ExtResource("20_hvioc")]
-position = Vector2(756, 168)
-scale = Vector2(1.69268, 1.69268)
-
 [node name="slimev3" parent="." instance=ExtResource("20_hvioc")]
 position = Vector2(471, 428)
 
@@ -1684,11 +1674,12 @@ position = Vector2(464, 235)
 position = Vector2(352, 150)
 
 [node name="orc" parent="." instance=ExtResource("21_rxoen")]
-position = Vector2(300, 339)
+position = Vector2(618, 319)
+scale = Vector2(1.06293, 0.989977)
 motion_mode = 1
 
 [node name="orc2" parent="." instance=ExtResource("21_rxoen")]
-position = Vector2(619, 319)
+position = Vector2(263, 225)
 motion_mode = 1
 
 [node name="orc3" parent="." instance=ExtResource("21_rxoen")]
@@ -1742,6 +1733,16 @@ position = Vector2(808, 64)
 position = Vector2(576, 208)
 
 [node name="knight_templar" parent="." instance=ExtResource("9_gp5v7")]
-position = Vector2(43, 296)
+position = Vector2(838, 102)
+
+[node name="armored_axeman" parent="." instance=ExtResource("23_lv6ba")]
+position = Vector2(768, 119)
+scale = Vector2(2.01743, 2.04165)
+motion_mode = 1
+
+[node name="armored_orc" parent="." instance=ExtResource("25_kxbsj")]
+position = Vector2(877, 207)
+scale = Vector2(1.93931, 1.96259)
+motion_mode = 1
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]
