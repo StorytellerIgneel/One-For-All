@@ -10,12 +10,12 @@ var balloon: CanvasLayer
 var disablePlayerInput: bool = false
 var GoddessHeal: bool = false
 var currentTilemap
-var findingKey = 3
+var findingKey = 1
 var nextLevelBool = false
 
 var player_current_attack = false
 #var slime_current_attack = false
-var health = 100
+var health = 1000
 var dmg = 20
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):

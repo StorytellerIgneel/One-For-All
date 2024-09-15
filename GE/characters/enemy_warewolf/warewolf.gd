@@ -9,6 +9,7 @@ var player_in_attack_zone = false
 var can_take_damage = true
 
 @export var slime_atk1dmg = 8
+@export var slime_skill_dmg = 12  # Skill attack damage
 @export var speed = 50
 @export var health = 100
 var dir
@@ -192,18 +193,21 @@ func _on_attack_cooldown_timeout():
 func attack():
 	if hitbox_area and hitbox_area.overlaps_body(player):
 		custom_velocity = Vector2.ZERO
-		print("this line is done")
 		attack_counter += 1  # Increment attack counter
-
+		
+		# Check if skill threshold has been reached
 		if attack_counter >= skill_threshold:
 			$warewolf.play("skill")  # Play the "skill" animation
+			apply_damage(slime_skill_dmg)  # Apply skill damage
 			attack_counter = 0  # Reset attack counter after skill is triggered
+			print("skill")
 		else:
 			$warewolf.play("attack")  # Regular attack animation
-			
+			apply_damage(slime_atk1dmg)  # Apply normal attack damage
 
-		if player and player.has_method("take_damage"):
-			player.take_damage(slime_atk1dmg)
+func apply_damage(damage: int):
+	if player and player.has_method("take_damage"):
+		player.take_damage(damage)  # Apply damage to the player
 
 func updateHealth():
 	var healthbar = $hpBar
@@ -221,3 +225,6 @@ func enemy():
 
 func _on_skill_cooldown_timeout():
 	pass # Replace with function body.
+
+func deduct_hp(damage: int):
+	health -= damage

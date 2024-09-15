@@ -16,7 +16,7 @@ var in_fire_region = false
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
-@onready var player = $soldierV2
+@onready var player = $knight_templar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,7 +67,7 @@ func _unhandled_input(event):
 		
 	# Interaction with portal
 	if event.is_action_pressed("Interact"):
-		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+		var actionables = $knight_templar/player_hitbox.get_overlapping_areas()
 	
 	# Check if the player is overlapping with any areas
 		if actionables.size() > 1:
@@ -108,7 +108,7 @@ func _physics_process(delta):
 		$FreezeTimer.start()
 	
 	# the below code is having error when trying to use load_screen from winter scene to volcano scene
-	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	var actionables = $knight_templar/player_hitbox.get_overlapping_areas()
 	#print(actionables)
 	if actionables.size() > 1:
 		if (actionables[1] == $WinterfellTileMap/Ice):

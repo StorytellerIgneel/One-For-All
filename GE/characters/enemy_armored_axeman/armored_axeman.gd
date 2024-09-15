@@ -8,14 +8,15 @@ var fspeed = 1.0
 var player_in_attack_zone = false
 var can_take_damage = true
 
-@export var slime_atk1dmg = 5
+@export var slime_atk1dmg = 13
+@export var slime_skill_dmg = 16  # Skill attack damage
 @export var speed = 30
-@export var health = 100
+@export var health = 120
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
 var attack_counter = 0  # Track the number of consecutive attacks
-var skill_threshold = 3  # Number of attacks before skill is triggered
+var skill_threshold = 5  # Number of attacks before skill is triggered
 
 @onready var hitbox_area = $hitbox_area  # Ensure hitbox_area is correctly initialized
 @onready var attack_cooldown_timer = $attack_cooldown  # Ensure attack_cooldown Timer is correctly initialized
@@ -47,8 +48,8 @@ func _physics_process(delta):
 				# Move the character towards the player
 				velocity = custom_velocity
 				move_and_slide()  # Use move_and_slide() without arguments
-				$armored_axe.play("walk")
-				$armored_axe.flip_h = (player.position.x - position.x) < 0
+				$armored_axeman.play("walk")
+				$armored_axeman.flip_h = (player.position.x - position.x) < 0
 
 			# Stop the move_change timer while chasing
 			if !$move_change.is_stopped():
@@ -90,12 +91,12 @@ func _physics_process(delta):
 		move_and_slide()  # Use move_and_slide() without arguments
 
 	# Check if animation has ended and queue_free() if necessary
-	if $armored_axe.animation == "death" and !$armored_axe.is_playing():
+	if $armored_axeman.animation == "death" and !$armored_axeman.is_playing():
 		queue_free()
 
 func dead():
 	custom_velocity = Vector2.ZERO
-	$armored_axe.play('death')
+	$armored_axeman.play('death')
 	$death_time.start()  # Start Timer when death animation plays
 
 # This function will be called when the move_change timer times out
@@ -124,25 +125,25 @@ func random_direction():
 
 func move_right():
 	custom_velocity = Vector2(speed, 0)
-	$armored_axe.play('walk')
-	$armored_axe.flip_h = false
+	$armored_axeman.play('walk')
+	$armored_axeman.flip_h = false
 
 func move_left():
 	custom_velocity = Vector2(-speed, 0)
-	$armored_axe.play('walk')
-	$armored_axe.flip_h = true
+	$armored_axeman.play('walk')
+	$armored_axeman.flip_h = true
 
 func move_up():
 	custom_velocity = Vector2(0, -speed)
-	$armored_axe.play('walk')
+	$armored_axeman.play('walk')
 
 func move_down():
 	custom_velocity = Vector2(0, speed)
-	$armored_axe.play('walk')
+	$armored_axeman.play('walk')
 
 func stop():
 	custom_velocity = Vector2.ZERO
-	$armored_axe.play('idle')
+	$armored_axeman.play('idle')
 
 
 # Handle area detections for player chase
@@ -170,7 +171,7 @@ func _on_hitbox_area_body_exited(body):
 
 func deal_with_damage():
 	if player_in_attack_zone and Global.player_current_attack == true:
-		$armored_axe.play('hurt')
+		$armored_axeman.play('hurt')
 		if can_take_damage:
 			health -= 20
 			$take_damage_cooldown.start()
@@ -192,19 +193,23 @@ func _on_attack_cooldown_timeout():
 func attack():
 	if hitbox_area and hitbox_area.overlaps_body(player):
 		custom_velocity = Vector2.ZERO
-		print("this line is done")
 		attack_counter += 1  # Increment attack counter
-
+		
+		# Check if skill threshold has been reached
 		if attack_counter >= skill_threshold:
-			$armored_axe.play("skill")  # Play the "skill" animation
+			$armored_axeman.play("skill")  # Play the "skill" animation
+			apply_damage(slime_skill_dmg)  # Apply skill damage
 			attack_counter = 0  # Reset attack counter after skill is triggered
+
 		else:
-			$armored_axe.play("attack")  # Regular attack animation
+			$armored_axeman.play("attack")  # Regular attack animation
+			apply_damage(slime_atk1dmg)  # Apply normal attack damage
 			
 
-		if player and player.has_method("take_damage"):
-			player.take_damage(slime_atk1dmg)
-
+func apply_damage(damage: int):
+	if player and player.has_method("take_damage"):
+		player.take_damage(damage)  # Apply damage to the player
+		
 func updateHealth():
 	var healthbar = $hpBar
 	
@@ -221,3 +226,6 @@ func enemy():
 
 func _on_skill_cooldown_timeout():
 	pass # Replace with function body.
+	
+func deduct_hp(damage: int):
+	health -= damage

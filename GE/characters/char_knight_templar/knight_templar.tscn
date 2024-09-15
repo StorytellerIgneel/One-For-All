@@ -429,6 +429,7 @@ animations = [{
 height = 46.0
 
 [node name="knight_templar" type="CharacterBody2D"]
+position = Vector2(144, 81)
 script = ExtResource("1_vvrgc")
 inventory = ExtResource("2_p4e5a")
 
@@ -436,6 +437,7 @@ inventory = ExtResource("2_p4e5a")
 shape = SubResource("CircleShape2D_hbuek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_h2tj5")
 animation = &"knight.t_atk2"
 frame_progress = 0.604303
@@ -471,6 +473,7 @@ offset_right = 124.0
 offset_bottom = 11.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="regen_timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -494,6 +497,13 @@ autostart = true
 position = Vector2(14, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_4jl4k")
+
+[node name="inWaterTimer" type="Timer" parent="."]
+
+[node name="outWaterTimer" type="Timer" parent="."]
+
+[node name="fireTimer" type="Timer" parent="."]
+wait_time = 0.75
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]

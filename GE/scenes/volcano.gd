@@ -1,7 +1,5 @@
 extends Node
 
-var NextLevel: bool = false
-
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var fireball = load("res://characters/fireball.tscn")
@@ -12,7 +10,7 @@ var overlappingLava: Array[Area2D]
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $TileMap
-@onready var player = $soldierV2
+@onready var player = $swordsman
 @onready var shooters = $volcanoShooters
 
 # Called when the node enters the scene tree for the first time.
@@ -29,11 +27,8 @@ func _ready():
 		overlappingLava.append(child)
 				
 	boulders = boulders.slice(0, 4)
-	print(overlappingLava)
-	#print(boulders)
 	
-	#Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
-	# Load the dialogue resource directly from the pat
+	Global.trigger_dialogue("res://Dialogues/volcano.dialogue", "volcano_start")
 
 	shooters.playerHit2.connect(player_hit_by_fireball)
 	shooters.target = player
@@ -52,37 +47,8 @@ func _unhandled_input(event):
 			
 		get_tree().root.get_viewport().set_input_as_handled()
 		
-		
-	#if event.is_action_pressed("Interact"):
-		#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
-	#
-	## Check if the player is overlapping with any areas
-		#if actionables.size() > 1:
-		#
-		## Check if the area contains a PortalArea and if the player has 3 keys
-			#if Global.findElement(actionables, "PortalArea"):
-			#
-				## Check inventory key amount
-				#if player.inventory.get_total_keys() < 3:
-					#print("You need 3 keys to teleport.")
-					#return  # Exit if the player doesn't have 3 keys
-			#
-				#Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")
-#
-			## If teleport is triggered, execute teleport logic
-				#if State.teleport == true:
-					#for area in actionables:
-						#if area.get_parent().name == "Portal1":
-							#player.global_position = $Portal2.global_position
-						#elif area.get_parent().name == "Portal2":
-							#player.global_position = $Portal1.global_position
-							#print("Teleporting to the next scene...")
-							#get_tree().change_scene_to_file("res://scenes/winterfell.tscn")
-					#State.teleport = false
-					#return
-		
 	if event.is_action_pressed(("Interact")):
-		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+		var actionables = $swordsman/player_hitbox.get_overlapping_areas()
 		if actionables.size() > 1:
 			for boulder in boulders:
 				# Check if the second element in the 'actionables' array matches the boulder's Area2D node
@@ -100,10 +66,10 @@ func _unhandled_input(event):
 						clear_tiles_in_range(boulder.position, direction, 7)
 
 func initialize_camera_limit():
-	$soldierV2/PlayerCamera.limit_left = -320
-	$soldierV2/PlayerCamera.limit_top = -736
-	$soldierV2/PlayerCamera.limit_right = 1408
-	$soldierV2/PlayerCamera.limit_bottom = 616
+	$swordsman/PlayerCamera.limit_left = -320
+	$swordsman/PlayerCamera.limit_top = -736
+	$swordsman/PlayerCamera.limit_right = 1408
+	$swordsman/PlayerCamera.limit_bottom = 616
 
 
 # Function to clear tiles either up or down along the Y axis
@@ -156,13 +122,9 @@ func player_hit_by_fireball():
 	player.health -= 10	
 
 func _physics_process(delta):
-	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	var actionables = $swordsman/player_hitbox.get_overlapping_areas()
 	
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):
 			player.health = 0
-	
-	func _physics_process(delta):
-	if (Global.nextLevelBool == true):
-		await LoadManager.load_scene("res://scenes/plain.tscn")
-		Global.nextLevelBool = false
+

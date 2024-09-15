@@ -43,6 +43,7 @@ var water_region: Area2D
 var muddy_region: Area2D
 var fire_region: Array[Area2D]
 
+
 func set_water_region(region: Area2D):
 	water_region = region
 
@@ -61,7 +62,7 @@ func _ready():
 	$fireTimer.connect("timeout", _on_fireTimer_timeout)
 	$player_hitbox.connect("area_entered", Callable(self, "_on_player_hitbox_body_entered"))
 	inventory.use_item.connect(use_item)
-	#print("Signals connected")
+	print("Signals connected")
 	_anim.play("soldier_idle")
 	slime = get_node("../slimev3")
 	pass
@@ -93,7 +94,8 @@ func check_interact():
 		if actionables.size() > 1: #always more than one since overlap with hitbox
 			print(actionables)
 			var actionable = actionables[1]
-			#actionable.action()
+			if (actionable.has_method("action")):
+				actionable.action()
 	
 	if Input.is_action_just_pressed("createTile"):
 		place_tile_in_front()
@@ -137,36 +139,68 @@ func _on_outWaterTimer_timeout():
 
 func _on_fireTimer_timeout():
 	fire_cooldown = false
-	
+
+#old movement
+#func player_movement(delta):
+	#if (Global.disablePlayerInput == false):
+		#if Input.is_action_pressed("toRight"):
+			#current_dir = "right"
+			#play_anim(1)
+			#velocity.x = maxSpeed
+			#velocity.y = 0
+		#elif Input.is_action_pressed("toLeft"):
+			#current_dir = "left"
+			#play_anim(1)
+			#velocity.x = -maxSpeed
+			#velocity.y = 0
+		#elif Input.is_action_pressed("toDown"):
+			#current_dir = "down"
+			#play_anim(1)
+			#velocity.y = maxSpeed
+			#velocity.x = 0
+		#elif Input.is_action_pressed("toUp"):
+			#current_dir = "up"
+			#play_anim(1)
+			#velocity.y = -maxSpeed
+			#velocity.x = 0
+		#else:
+			#play_anim(0)
+			#velocity.x = 0
+			#velocity.y = 0
+		#
+		#move_and_slide()
+
+#new movement
 func player_movement(delta):
-	if (Global.disablePlayerInput == false):
+	if Global.disablePlayerInput == false:
 		if Input.is_action_pressed("toRight"):
 			current_dir = "right"
 			play_anim(1)
-			velocity.x = maxSpeed
-			velocity.y = 0
+			velocity.x = min(velocity.x + accel * delta, maxSpeed)
+			velocity.y = 0  
 		elif Input.is_action_pressed("toLeft"):
 			current_dir = "left"
 			play_anim(1)
-			velocity.x = -maxSpeed
+			velocity.x = max(velocity.x - accel * delta, -maxSpeed)  
 			velocity.y = 0
 		elif Input.is_action_pressed("toDown"):
 			current_dir = "down"
 			play_anim(1)
-			velocity.y = maxSpeed
-			velocity.x = 0
+			velocity.y = min(velocity.y + accel * delta, maxSpeed)  
+			velocity.x = 0  
 		elif Input.is_action_pressed("toUp"):
 			current_dir = "up"
 			play_anim(1)
-			velocity.y = -maxSpeed
+			velocity.y = max(velocity.y - accel * delta, -maxSpeed)  
 			velocity.x = 0
+		
 		else:
 			play_anim(0)
-			velocity.x = 0
-			velocity.y = 0
-		
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
+			velocity.y = move_toward(velocity.y, 0, friction * delta)
+			
 		move_and_slide()
-	
+
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
@@ -214,7 +248,6 @@ func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_atk_range = false
 
-# receive damage
 func enemy_attack():
 	if enemy_in_atk_range and enemy_attack_cooldown == true:
 		
@@ -291,7 +324,6 @@ func attack():
 		atk2_cooldown = true
 		$atk2_cooldown.start()
 
-
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
@@ -362,10 +394,6 @@ func place_tile_in_front():
 
 	inventory.updated.emit()  # Emit the updated signal after placing a block
 
-
-func _on_atk_2_cooldown_timeout():
-	atk2_cooldown = false
-
 func place_wooden_blocks():
 	var facing_direction = current_dir
 	var position_in_front
@@ -419,6 +447,9 @@ func place_wooden_blocks():
 		var deleteCollisionPosition = currentTilePosition + Vector2i(0, -1) #let the player walk pass
 		Global.removeCollision((deleteCollisionPosition))
 		tilemap.set_cell(4, currentTilePosition, sourceId, currentAtlasCoord)
+
+func _on_atk_2_cooldown_timeout():
+	atk2_cooldown = false
 
 func take_damage(amount: int) -> void:
 	health -= amount
