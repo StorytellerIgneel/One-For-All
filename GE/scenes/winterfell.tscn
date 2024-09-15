@@ -1733,7 +1733,7 @@ position = Vector2(808, 64)
 position = Vector2(576, 208)
 
 [node name="knight_templar" parent="." instance=ExtResource("9_gp5v7")]
-position = Vector2(838, 102)
+position = Vector2(75, 303)
 
 [node name="armored_axeman" parent="." instance=ExtResource("23_lv6ba")]
 position = Vector2(768, 119)

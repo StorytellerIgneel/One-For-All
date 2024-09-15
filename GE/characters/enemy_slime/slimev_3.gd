@@ -196,3 +196,6 @@ func updateHealth():
 	var healthbar = $hpBar
 	healthbar.value = health
 	healthbar.visible = health < 100
+	
+func deduct_hp(damage: int):
+	health -= damage
