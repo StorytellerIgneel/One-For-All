@@ -93,7 +93,7 @@ func check_interact():
 		if actionables.size() > 1: #always more than one since overlap with hitbox
 			print(actionables)
 			var actionable = actionables[1]
-			actionable.action()
+			#actionable.action()
 	
 	if Input.is_action_just_pressed("createTile"):
 		place_tile_in_front()

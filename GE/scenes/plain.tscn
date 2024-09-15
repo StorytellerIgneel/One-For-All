@@ -5860,10 +5860,10 @@ ticks_pr_second = 60
 position = Vector2(96, -32)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("23_b6yhv")
 
 [node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("24_8k410")]
+visible = false
 
 [node name="NextLevel" parent="." instance=ExtResource("26_aqepa")]
 position = Vector2(544, -152)
