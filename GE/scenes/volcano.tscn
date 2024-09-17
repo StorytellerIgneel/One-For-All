@@ -1838,7 +1838,7 @@ position = Vector2(0, 47)
 shape = SubResource("RectangleShape2D_3xruo")
 
 [node name="swordsman" parent="." instance=ExtResource("11_ga1y8")]
-position = Vector2(862, 86)
+position = Vector2(559, 588)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("7_jnf52")]
 visible = false
@@ -1888,7 +1888,7 @@ centered = false
 
 [node name="elite_orc" parent="." instance=ExtResource("23_oq3pe")]
 position = Vector2(289, -447)
-scale = Vector2(4.59809, 4.59809)
+scale = Vector2(5.23671, 5.23671)
 motion_mode = 1
 
 [node name="warewolf" parent="." instance=ExtResource("24_x7frq")]
@@ -1902,7 +1902,7 @@ scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf5" parent="." instance=ExtResource("24_x7frq")]
-position = Vector2(64.0001, -480)
+position = Vector2(878, 35)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 

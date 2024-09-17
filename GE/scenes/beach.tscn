@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="18_30pyt"]
 [ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="18_mdohb"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="19_rkem3"]
-[ext_resource type="PackedScene" path="res://characters/next_level.tscn" id="20_6tvd7"]
+[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="20_6tvd7"]
 [ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="21_x4yki"]
 [ext_resource type="PackedScene" uid="uid://bjr0ac1slekh" path="res://characters/npc_wizard/wizard.tscn" id="21_xd8kc"]
 
@@ -2917,6 +2917,6 @@ position = Vector2(256, 24)
 position = Vector2(520, 368)
 
 [node name="knight" parent="." instance=ExtResource("21_x4yki")]
-position = Vector2(584, 408)
+position = Vector2(247, 586)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

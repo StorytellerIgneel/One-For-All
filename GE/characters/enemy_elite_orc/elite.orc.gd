@@ -11,7 +11,7 @@ var can_take_damage = true
 @export var slime_atk1dmg = 20
 @export var slime_skill_dmg = 25  # Skill attack damage
 @export var speed = 30
-@export var health = 100
+@export var health = 200
 var dir
 var custom_velocity = Vector2.ZERO  # Renamed variable to avoid conflict with CharacterBody2D's velocity
 
