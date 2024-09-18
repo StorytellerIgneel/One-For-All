@@ -46,7 +46,7 @@ func initialize_camera_limit():
 	$knight/PlayerCamera.limit_bottom = $BeachTileMap.get_used_rect().size.y * 16
 	print($knight/PlayerCamera.limit_right)
 
-func _physics_process(delta):
+	func _physics_process(delta):
 	if (Global.nextLevelBool == true):
 		await LoadManager.load_scene("res://scenes/plain.tscn")
 		Global.nextLevelBool = false

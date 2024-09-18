@@ -17,7 +17,6 @@ func insert(item: InventoryItem):
 			print("You already have 3 keys. Can't collect more!")
 			return
 
-	
 	var itemSlots = slots.filter(func(slot): return slot.item == item )
 	
 	if !itemSlots.is_empty():

@@ -66,6 +66,7 @@ func _ready():
 	_anim.play("soldier_idle")
 	slime = get_node("../slimev3")
 	pass
+	add_to_group("Player")
 	
 func _physics_process(delta):
 	player_movement(delta)
@@ -459,4 +460,12 @@ func take_damage(amount: int) -> void:
 
 func die():
 	# Handle player death
-	queue_free()  # Or any other death logic
+	queue_free()  # Or any other death logic	
+	
+func add_key_to_inventory():
+	if inventory and inventory.has_method("insert"):
+		var key = Key.new()
+		inventory.insert(key)
+		print("Key added to inventory")
+		print("Current inventory: ", inventory)
+
