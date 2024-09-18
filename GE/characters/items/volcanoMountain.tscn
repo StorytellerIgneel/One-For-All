@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj5vdvoeyf0j1"]
+[gd_scene load_steps=5 format=3 uid="uid://bj5vdvoeyf0j1"]
 
+[ext_resource type="Script" path="res://characters/items/volcanoMountain.gd" id="1_bu1v2"]
 [ext_resource type="Texture2D" uid="uid://pgxxu7kipmch" path="res://resources/tilemap/volcanoe_tileset_and_assets/volcanoeMountain.png" id="2_mko5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsnec"]
@@ -10,6 +11,7 @@ radius = 208.614
 
 [node name="volcanoShooters" type="Node2D"]
 position = Vector2(448, 272)
+script = ExtResource("1_bu1v2")
 
 [node name="volcanoMountain" type="CharacterBody2D" parent="."]
 

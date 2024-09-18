@@ -53,7 +53,7 @@ func _unhandled_input(event):
 		if actionables.size() > 1:
 			for boulder in boulders:
 				# Check if the second element in the 'actionables' array matches the boulder's Area2D node
-				if actionables[1] == boulder.get_node("boulderArea"):
+				if actionables.has(boulder.get_node("boulderArea")):
 					var boulder_name = boulder.name  # Get the name of the boulder
 					var last_char = boulder_name.substr(boulder_name.length() - 1, 1)  # Extract the last character
 					var boulder_no = int(last_char)  # Convert the last character to an integer
@@ -95,7 +95,6 @@ func lavaOverflow(start_pos: Vector2, direction: String, num_tiles: int):
 	
 	var step_size = 16  # Each tile is spaced 16 pixels apart
 	var tilemap_pos = $OverlappingLava.local_to_map(start_pos)  # Convert world position to tilemap coordinates
-	print(tilemap_pos)
 	var tile_pos
 	# Loop to clear the tiles in the range
 	for i in range(num_tiles):
@@ -124,8 +123,8 @@ func player_hit_by_fireball():
 
 func _physics_process(delta):
 	var actionables = $swordsman/player_hitbox.get_overlapping_areas()
+	print(actionables)
 	
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):
 			player.health = 0
-

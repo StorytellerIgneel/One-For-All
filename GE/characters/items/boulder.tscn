@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7wf7p32va5sm"]
+[gd_scene load_steps=4 format=3 uid="uid://b7wf7p32va5sm"]
 
 [ext_resource type="Texture2D" uid="uid://bjw1vcaud7wxr" path="res://resources/tilemap/volcanoe_tileset_and_assets/boulder.png" id="1_bl0yu"]
-[ext_resource type="Script" path="res://characters/boulderArea.gd" id="2_vq1jh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3afe"]
 radius = 16.0
@@ -23,7 +22,6 @@ texture = ExtResource("1_bl0yu")
 shape = SubResource("CircleShape2D_l3afe")
 
 [node name="boulderArea" type="Area2D" parent="."]
-script = ExtResource("2_vq1jh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boulderArea"]
 shape = SubResource("CircleShape2D_yvk0j")

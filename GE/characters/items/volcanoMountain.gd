@@ -51,5 +51,5 @@ func player_hit_by_fireball():
 
 func playerDetected():
 	var playerDetected = $IntruderDetector.get_overlapping_areas()
-	if (playerDetected.size() > 0):
+	if (Global.findElement(playerDetected, "player_hitbox")):
 		return true

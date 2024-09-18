@@ -24,3 +24,6 @@ shape = SubResource("CircleShape2D_t7exb")
 scale = Vector2(0.922857, 1)
 texture = ExtResource("1_u4ed2")
 hframes = 7
+
+[node name="selfDeleteTimer" type="Timer" parent="."]
+wait_time = 5.0

@@ -12,7 +12,7 @@ func set_player_hitbox(hitbox: Area2D):
 	playerHitbox = hitbox
 	
 func _ready():
-	#print(velocity)
+	$selfDeleteTimer.start()
 	global_position = spawnPosition
 	global_rotation = spawnRotation
 	
@@ -22,6 +22,8 @@ func _physics_process(delta):
 
 	var actionables = $actionable_finder.get_overlapping_areas()
 	if actionables.size() > 1:
-		if (actionables[1] == playerHitbox):
+		if (Global.findElement(actionables, "player_hitbox")):
 			playerHit.emit()
 			queue_free()
+
+	
