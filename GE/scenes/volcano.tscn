@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=36 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="6_phn6r"]
 [ext_resource type="PackedScene" uid="uid://b5uhsms8uy34u" path="res://characters/fireball.tscn" id="7_jnf52"]
 [ext_resource type="Texture2D" uid="uid://bcj7upjj3uhq5" path="res://resources/tilemap/volcanoe_tileset_and_assets/volcanoe_tiles.png" id="7_rrcy0"]
+[ext_resource type="Texture2D" uid="uid://igxoknrv6wo7" path="res://resources/tilemap/collision.png" id="9_dwgqn"]
 [ext_resource type="Script" path="res://scenes/dummy.gd" id="10_pp6h1"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="10_rj0ss"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="11_sgtht"]
@@ -1142,6 +1143,10 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("4_t6nqw")
 texture_region_size = Vector2i(32, 32)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y242r"]
+texture = ExtResource("9_dwgqn")
+texture_region_size = Vector2i(32, 32)
+
 [sub_resource type="TileSet" id="TileSet_bqy1a"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -1152,6 +1157,7 @@ sources/0 = SubResource("TileSetAtlasSource_uksdp")
 sources/6 = SubResource("TileSetAtlasSource_6itpn")
 sources/3 = SubResource("TileSetScenesCollectionSource_rm21g")
 sources/7 = SubResource("TileSetAtlasSource_mgfd7")
+sources/8 = SubResource("TileSetAtlasSource_y242r")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwcd1"]
 texture = ExtResource("7_rrcy0")
