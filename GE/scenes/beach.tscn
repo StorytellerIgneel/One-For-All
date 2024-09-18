@@ -2847,6 +2847,7 @@ offset_bottom = 159.0
 grow_horizontal = 0
 
 [node name="Node2D" parent="." instance=ExtResource("11_cx0xj")]
+z_index = 2
 position = Vector2(877, 358)
 
 [node name="orc" parent="." instance=ExtResource("15_wpkfl")]
@@ -2932,6 +2933,7 @@ script = ExtResource("18_30pyt")
 position = Vector2(256, 24)
 
 [node name="wizard" parent="." instance=ExtResource("21_xd8kc")]
+z_index = 1
 position = Vector2(520, 368)
 
 [node name="knight" parent="." instance=ExtResource("21_x4yki")]
