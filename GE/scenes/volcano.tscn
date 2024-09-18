@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
 [ext_resource type="PackedScene" uid="uid://cjo01s4e0v4j" path="res://characters/items/puzzle_instructions.tscn" id="22_osslh"]
+[ext_resource type="PackedScene" uid="uid://8qubgp1k533q" path="res://characters/char_swordsman/soldier_v2.tscn" id="23_i1kqn"]
 [ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
 [ext_resource type="Texture2D" uid="uid://cuom178b71rsu" path="res://resources/screenshots/volcanoMap.png" id="23_otj7w"]
-[ext_resource type="PackedScene" uid="uid://8qubgp1k533q" path="res://characters/char_swordsman/soldier_v2.tscn" id="23_r7h00"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="23_yywqx"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 
@@ -1830,26 +1830,6 @@ script = ExtResource("10_pp6h1")
 position = Vector2(0, 47)
 shape = SubResource("RectangleShape2D_3xruo")
 
-[node name="LavaArea5" type="Area2D" parent="OverlappingLava"]
-position = Vector2(416, 240)
-rotation = -1.57148
-scale = Vector2(1.43512, 1.20121)
-collision_layer = 513
-script = ExtResource("10_pp6h1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlappingLava/LavaArea5"]
-position = Vector2(-3.8147e-06, -1.90735e-05)
-shape = SubResource("RectangleShape2D_3xruo")
-
-[node name="LavaArea6" type="Area2D" parent="OverlappingLava"]
-position = Vector2(96, -224)
-scale = Vector2(2.5247, -1.87436)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlappingLava/LavaArea6"]
-scale = Vector2(1.00963, 1.02416)
-shape = SubResource("RectangleShape2D_smfkb")
-
 [node name="volcanoShooters" parent="." instance=ExtResource("2_pbncq")]
 position = Vector2(581, 79)
 
@@ -1990,5 +1970,5 @@ centered = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
 
-[node name="soldierV2" parent="." instance=ExtResource("23_r7h00")]
-position = Vector2(560, 590)
+[node name="soldierV2" parent="." instance=ExtResource("23_i1kqn")]
+position = Vector2(577, 561)

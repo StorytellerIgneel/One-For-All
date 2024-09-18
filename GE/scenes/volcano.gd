@@ -49,7 +49,7 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 		
 	if event.is_action_pressed(("Interact")):
-		var actionables = $soldierV2d/player_hitbox.get_overlapping_areas()
+		var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
 		if actionables.size() > 1:
 			for boulder in boulders:
 				# Check if the second element in the 'actionables' array matches the boulder's Area2D node

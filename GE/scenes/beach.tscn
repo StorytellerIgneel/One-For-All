@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bjr0ac1slekh" path="res://characters/npc_wizard/wizard.tscn" id="21_xd8kc"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_f8hem"]
 [ext_resource type="Texture2D" uid="uid://b2fegb30dhb3y" path="res://resources/screenshots/beachMap.png" id="24_jnd6b"]
-[ext_resource type="PackedScene" uid="uid://u3005iacp51b" path="res://characters/char_knight/soldier_v2.tscn" id="24_xt1ul"]
+[ext_resource type="PackedScene" uid="uid://u3005iacp51b" path="res://characters/char_knight/soldier_v2.tscn" id="24_x57kf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2822,12 +2822,14 @@ layer_8/name = "collectables"
 layer_8/tile_data = PackedInt32Array(2228239, 4, 65536, 1966093, 4, 65536, 1835023, 4, 65536, 1638438, 4, 65536, 1703974, 4, 65536, 2031667, 4, 65536, 1441854, 4, 65536, 1704003, 4, 65536, 1966147, 4, 65536, 1703990, 4, 65536, 1048636, 4, 65536, 983093, 4, 65536, 786484, 4, 65536, 1179694, 4, 65536, 196643, 4, 65536, 983074, 4, 65536, 589855, 4, 65536, 917526, 4, 65536, 196629, 4, 65536, 262152, 4, 65536, 65541, 4, 65536, 2687012, 4, 131072)
 
 [node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/muddyRegion"]
 position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 
 [node name="waterRegion" type="Area2D" parent="BeachTileMap"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/waterRegion"]
 position = Vector2(928.5, 96)
@@ -2941,14 +2943,11 @@ position = Vector2(256, 24)
 z_index = 1
 position = Vector2(520, 368)
 
-[node name="soldierV2" parent="." instance=ExtResource("22_oh6e2")]
-
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer4"]
-visible = false
 anchors_preset = -1
 anchor_left = -0.13
 anchor_top = -0.448
@@ -2962,7 +2961,7 @@ offset_bottom = 198.304
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer4/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(200, 200)
-render_target_update_mode = 0
+render_target_update_mode = 4
 script = ExtResource("23_f8hem")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
@@ -2971,7 +2970,7 @@ centered = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
 
-[node name="soldierV2" parent="." instance=ExtResource("24_xt1ul")]
-position = Vector2(245, 570)
+[node name="soldierV2" parent="." instance=ExtResource("24_x57kf")]
+position = Vector2(254, 591)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

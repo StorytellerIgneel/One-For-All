@@ -24,9 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/items/next_level.tscn" id="23_sfw3l"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/items/GoddessStatue.tscn" id="24_8ne5p"]
 [ext_resource type="PackedScene" uid="uid://ct3y7kf42else" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="25_kxbsj"]
-[ext_resource type="PackedScene" uid="uid://c1cxnphvkbuo3" path="res://characters/char_knight_templar/soldier_v2.tscn" id="25_qmctf"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="26_snysl"]
 [ext_resource type="Texture2D" uid="uid://vhtehkiocp17" path="res://resources/screenshots/winterfellMap.png" id="27_35xfc"]
+[ext_resource type="PackedScene" uid="uid://c1cxnphvkbuo3" path="res://characters/char_knight_templar/soldier_v2.tscn" id="27_a4jv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1744,9 +1744,6 @@ position = Vector2(867, 118)
 scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
 
-[node name="soldierV2" parent="." instance=ExtResource("26_6vqn3")]
-position = Vector2(320, 576)
-
 [node name="CanvasLayer5" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)
@@ -1773,5 +1770,8 @@ texture = ExtResource("27_35xfc")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer5/SubViewportContainer/SubViewport"]
+
+[node name="soldierV2" parent="." instance=ExtResource("27_a4jv0")]
+position = Vector2(236, 601)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]
