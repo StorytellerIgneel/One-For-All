@@ -10,7 +10,7 @@ var balloon: CanvasLayer
 var disablePlayerInput: bool = false
 var GoddessHeal: bool = false
 var currentTilemap
-var findingKey = 3
+var findingKey = 1
 var nextLevelBool = false
 
 var player_current_attack = false
@@ -27,7 +27,7 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	
 	balloon = balloon_scene.instantiate()
 	get_tree().current_scene.add_child(balloon)
-	# Check if the balloon instance has the expected method
+
 	if balloon.has_method("start"):
 		balloon.start(dialogue_resource, dialogue_start)
 	else:

@@ -5042,7 +5042,6 @@ layer_5/name = "collectables"
 layer_5/tile_data = PackedInt32Array(2228238, 8, 65536, 2228237, 8, 65536, 1245210, 8, 65536, 1310746, 8, 65536, 1310763, 8, 65536, 786476, 8, 65536, 786480, 8, 65536, 786473, 8, 65536, 852001, 8, 65536, 1835056, 8, 65536, 1769505, 8, 65536, 1441825, 8, 65536, 1835048, 8, 65536, 786474, 8, 131072)
 
 [node name="WaterRegion" type="Area2D" parent="IslandTileMap"]
-visible = false
 position = Vector2(200, 500)
 collision_layer = 17
 collision_mask = 17
@@ -5052,7 +5051,6 @@ position = Vector2(175, 1)
 shape = SubResource("RectangleShape2D_f1egr")
 
 [node name="House" type="Area2D" parent="IslandTileMap"]
-visible = false
 position = Vector2(224, 338)
 collision_layer = 17
 collision_mask = 17
@@ -5071,18 +5069,15 @@ y_sort_enabled = true
 position = Vector2(253, 563)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 offset = Vector2(568, 320)
 zoom = Vector2(0.1, 0.1)
 script = ExtResource("22_qtekk")
 
 [node name="GoddessStatue" parent="." instance=ExtResource("20_hsoah")]
-visible = false
 y_sort_enabled = true
 position = Vector2(377, 263)
 
 [node name="OxygenLevel" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="OxygenLevel"]
 anchors_preset = 1
@@ -5125,7 +5120,6 @@ date_time = SubResource("Resource_myi7o")
 ticks_pr_second = 60
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="TImeGui" parent="CanvasLayer4" instance=ExtResource("32_xj5tp")]
 offset_left = 927.0
@@ -5134,11 +5128,9 @@ offset_right = 1096.0
 offset_bottom = 159.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("35_2fikg")
 
 [node name="InventoryGUI" parent="CanvasLayer2" instance=ExtResource("21_7ch0l")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -5165,33 +5157,26 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="slimev3" parent="." instance=ExtResource("37_20pte")]
-visible = false
 position = Vector2(747, 381)
 
 [node name="slimev4" parent="." instance=ExtResource("37_20pte")]
-visible = false
 position = Vector2(603, 399)
 
 [node name="slimev5" parent="." instance=ExtResource("37_20pte")]
-visible = false
 position = Vector2(759, 248)
 
 [node name="slimev6" parent="." instance=ExtResource("37_20pte")]
-visible = false
 position = Vector2(587, 277)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("31_iskdv")
 
 [node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("29_dbkf0")]
-visible = false
 
 [node name="NextLevel" parent="." instance=ExtResource("31_o4yki")]
 position = Vector2(667, 13)
 
 [node name="archer" parent="." instance=ExtResource("32_v18vw")]
-visible = false
 position = Vector2(323, 277)
 
 [node name="inWaterTimer" type="Timer" parent="."]

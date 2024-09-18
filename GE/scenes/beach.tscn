@@ -2841,7 +2841,6 @@ date_time = SubResource("Resource_xlegm")
 ticks_pr_second = 60
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="TImeGui" parent="CanvasLayer2" instance=ExtResource("10_fs6n4")]
 anchors_preset = 1
@@ -2858,53 +2857,42 @@ light_mask = 3
 position = Vector2(848, 480)
 
 [node name="Node2D" parent="." instance=ExtResource("11_cx0xj")]
-visible = false
 z_index = 2
 position = Vector2(877, 358)
 
 [node name="orc" parent="." instance=ExtResource("15_wpkfl")]
-visible = false
 position = Vector2(347, 249)
 motion_mode = 1
 
 [node name="orc2" parent="." instance=ExtResource("15_wpkfl")]
-visible = false
 position = Vector2(472, 243)
 motion_mode = 1
 
 [node name="orc3" parent="." instance=ExtResource("15_wpkfl")]
-visible = false
 position = Vector2(551, 182)
 motion_mode = 1
 
 [node name="orc4" parent="." instance=ExtResource("15_wpkfl")]
-visible = false
 position = Vector2(433, 106)
 motion_mode = 1
 
 [node name="orc5" parent="." instance=ExtResource("15_wpkfl")]
-visible = false
 position = Vector2(309, 118)
 motion_mode = 1
 
 [node name="slimev3" parent="." instance=ExtResource("16_haa6r")]
-visible = false
 position = Vector2(981, 467)
 
 [node name="slimev4" parent="." instance=ExtResource("16_haa6r")]
-visible = false
 position = Vector2(1066, 270)
 
 [node name="slimev5" parent="." instance=ExtResource("16_haa6r")]
-visible = false
 position = Vector2(796, 377)
 
 [node name="slimev6" parent="." instance=ExtResource("16_haa6r")]
-visible = false
 position = Vector2(780, 260)
 
 [node name="OxygenLevel" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="OxygenLevel"]
 anchors_preset = 1
@@ -2915,7 +2903,6 @@ offset_bottom = 27.0
 grow_horizontal = 0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("17_a27f7")
 
 [node name="Hotbar" parent="CanvasLayer3" instance=ExtResource("18_mdohb")]
@@ -2932,7 +2919,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("19_rkem3")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2946,22 +2932,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("18_30pyt")
 
 [node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("8_twbmo")]
 
 [node name="NextLevel" parent="." instance=ExtResource("20_6tvd7")]
-visible = false
 position = Vector2(256, 24)
 
 [node name="wizard" parent="." instance=ExtResource("21_xd8kc")]
-visible = false
 z_index = 1
 position = Vector2(520, 368)
 
 [node name="soldierV2" parent="." instance=ExtResource("22_oh6e2")]
-visible = false
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)
