@@ -1,21 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj5vdvoeyf0j1"]
+[gd_scene load_steps=4 format=3 uid="uid://bj5vdvoeyf0j1"]
 
-[ext_resource type="Script" path="res://characters/volcanoMountain.gd" id="1_gyccb"]
 [ext_resource type="Texture2D" uid="uid://pgxxu7kipmch" path="res://resources/tilemap/volcanoe_tileset_and_assets/volcanoeMountain.png" id="2_mko5u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7v4j"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsnec"]
+size = Vector2(6, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bc73"]
 radius = 208.614
 
 [node name="volcanoShooters" type="Node2D"]
 position = Vector2(448, 272)
-script = ExtResource("1_gyccb")
 
 [node name="volcanoMountain" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="volcanoMountain"]
-shape = SubResource("RectangleShape2D_j7v4j")
 
 [node name="Shooter" type="Node2D" parent="volcanoMountain"]
 
@@ -23,6 +19,9 @@ shape = SubResource("RectangleShape2D_j7v4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="volcanoMountain"]
 texture = ExtResource("2_mko5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="volcanoMountain"]
+shape = SubResource("RectangleShape2D_xsnec")
 
 [node name="Collision" type="Sprite2D" parent="."]
 

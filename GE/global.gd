@@ -18,7 +18,7 @@ var health = 100
 var dmg = 20
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
-	#disablePlayerInput = true
+	disablePlayerInput = true
 	dialogue_resource = load(dialogue_resource_path) as DialogueResource
 	
 	if dialogue_resource == null:

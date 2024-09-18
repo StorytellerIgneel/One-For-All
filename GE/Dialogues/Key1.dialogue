@@ -8,5 +8,6 @@ Mysterious Note: And nothing remains of them but only the bones.
 Mysterious Note: They shall rest in eternity by the Goddess side.
 
 Mysterious Voice: There is a graveyard at the NorthWest direction of this plain... Take a look there?
+set Global.disablePlayerInput = false
 
 => END

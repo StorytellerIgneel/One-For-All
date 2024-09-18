@@ -1,6 +1,5 @@
 ~ start
 
-set Global.disablePlayerInput = true
 Player: This is my house
 - Go inside
 	Player: Its still early..

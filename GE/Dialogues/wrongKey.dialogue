@@ -1,5 +1,6 @@
 ~ start
 
 Mysterious Voice: Please find the other keys first.
+set Global.disablePlayerInput = false
 
 => END

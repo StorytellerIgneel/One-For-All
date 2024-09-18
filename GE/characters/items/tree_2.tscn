@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ppwnxhedpc8"]
+[gd_scene load_steps=6 format=3 uid="uid://dk0d6ganecei7"]
 
+[ext_resource type="Script" path="res://characters/items/tree_2.gd" id="1_g7neo"]
 [ext_resource type="Texture2D" uid="uid://8adjtsfvcu44" path="res://resources/tilemap/plain/Texture/bigTree2.png" id="1_j2fdd"]
+[ext_resource type="Script" path="res://characters/items/Tree2Area.gd" id="2_oijjl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o85hy"]
 
@@ -9,6 +11,7 @@ radius = 7.99979
 height = 15.9996
 
 [node name="Tree2" type="Node2D"]
+script = ExtResource("1_g7neo")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, 56)
@@ -19,6 +22,7 @@ shape = SubResource("CircleShape2D_o85hy")
 
 [node name="Tree2Area" type="Area2D" parent="."]
 position = Vector2(0, 56)
+script = ExtResource("2_oijjl")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree2Area"]

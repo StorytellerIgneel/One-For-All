@@ -21,7 +21,7 @@ var health = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.currentTilemap = $PlainTileMap
-	$Tree3_key.hasKey = true
+	$Tree10.hasKey = true
 	$Chest2.hasKey = true
 	Global.trigger_dialogue("res://Dialogues/plain.dialogue", "start")
 	

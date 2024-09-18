@@ -9,9 +9,10 @@ var overlappingLava: Array[Area2D]
 
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
-@onready var tilemap = $TileMap
+@onready var tilemap = $VolcanoTileMap
 @onready var player = $swordsman
 @onready var shooters = $volcanoShooters
+@onready var oxygenLevel = $OxygenLevel/ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

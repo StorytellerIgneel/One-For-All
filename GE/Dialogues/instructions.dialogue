@@ -1,0 +1,36 @@
+~ beach
+
+Signboard: BEACH PUZZLE:
+Signboard: Create wooden blocks by pressing the o key and build your way to get the key to advance!
+Signboard: You can walk on the wooden blocks created as a bridge to cross the water regions
+set Global.disablePlayerInput = false
+
+=> END
+
+~ plain
+
+Signboard: PLAIN PUZZLE:
+Signboard: FInd the 3 keys across the map and activate the portal!
+set Global.disablePlayerInput = false
+
+=> END
+
+~ winterfell
+
+Signboard: WINTERFELL PUZZLE:
+Signboard: You have to walk across this frozen pool to get the key.
+Signboard: Beware！ The frozen surface is very weak. It will break after you step on it.
+Signboard: Once you fall into the pool, you will die. Its very cold in there!
+Signboard: Plan your route so that u dont step on repeated pathway. 
+set Global.disablePlayerInput = false
+
+=> END
+
+~ volcano
+
+Signboard: VOLCANO PUZZLE:
+Signboard: Push the boulders and block the overflowing lava.
+Signboard: Once you step on the overflowing lava, you will die immediately. 
+set Global.disablePlayerInput = false
+
+=> END

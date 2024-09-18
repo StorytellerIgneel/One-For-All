@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwuoekwjnn8h7"]
 
-[ext_resource type="Script" path="res://characters/tree_1.gd" id="1_lmb11"]
+[ext_resource type="Script" path="res://characters/items/tree_1.gd" id="1_lmb11"]
 [ext_resource type="Texture2D" uid="uid://dmijudb74dm06" path="res://resources/tilemap/plain/Texture/bigTree.png" id="1_ve3dh"]
-[ext_resource type="Script" path="res://characters/tree1Area.gd" id="2_suuie"]
+[ext_resource type="Script" path="res://characters/items/tree1Area.gd" id="2_suuie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgcpe"]
 

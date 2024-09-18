@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds4i37vfpu204"]
+[gd_scene load_steps=5 format=3 uid="uid://cjo01s4e0v4j"]
 
-[ext_resource type="Script" path="res://characters/NextLevelArea.gd" id="1_ra4e2"]
-[ext_resource type="Texture2D" uid="uid://d2ccmta5cp8bp" path="res://resources/tilemap/plain/Texture/nextLevelFlag.png" id="2_51ycx"]
+[ext_resource type="Script" path="res://PuzzleInstruction.gd" id="1_nq1o8"]
+[ext_resource type="Texture2D" uid="uid://bfom5cn8gb8w8" path="res://resources/tilemap/plain/Texture/instructionFlag.png" id="2_f7y5w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okn4u"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yskw3"]
 radius = 8.0
 height = 32.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7ek0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulhll"]
 
-[node name="NextLevel" type="Node2D"]
+[node name="PuzzleInstructions" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, 3.8147e-06)
@@ -18,21 +18,20 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 rotation = -4.70805
-shape = SubResource("CapsuleShape2D_okn4u")
+shape = SubResource("CapsuleShape2D_yskw3")
 
 [node name="NextLevelArea" type="Area2D" parent="."]
 position = Vector2(0, 8)
 scale = Vector2(1.63129, 1.08868)
 collision_mask = 17
-script = ExtResource("1_ra4e2")
-metadata/_edit_group_ = true
+script = ExtResource("1_nq1o8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelArea"]
 position = Vector2(3.05176e-05, 0)
 rotation = -4.70487
-shape = SubResource("RectangleShape2D_y7ek0")
+shape = SubResource("RectangleShape2D_ulhll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8147e-06, -1.0842e-19)
 scale = Vector2(0.970588, 0.986188)
-texture = ExtResource("2_51ycx")
+texture = ExtResource("2_f7y5w")

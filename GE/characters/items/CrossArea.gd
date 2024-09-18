@@ -7,6 +7,7 @@ func _physics_process(delta):
 	
 func action():
 	if get_parent().hasKey == true and Global.findingKey == 2:
+		Global.findingKey = 3
 		Global.trigger_dialogue("res://Dialogues/Key2.dialogue", "start")
 	elif get_parent().has_Key == true and Global.findingKey != 3:
 		Global.trigger_dialogue("res://Dialogues/wrongKey.dialogue", "start")

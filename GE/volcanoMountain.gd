@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const fireBallPath = preload("res://characters/fireball.tscn")
+const fireBallPath = preload("res://characters/items/fireball.tscn")
 
 var target: Node2D = null
 @onready var volvano = $volcanoMountain

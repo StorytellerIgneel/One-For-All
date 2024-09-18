@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=35 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -6,24 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://tkyjn032bnts" path="res://resources/tilemap/christmas-village-asset-pack/test.png" id="2_ogj3h"]
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="3_7cm2s"]
 [ext_resource type="Texture2D" uid="uid://cwexvsvbk12bg" path="res://resources/tilemap/christmas-village-asset-pack/fireplace.png" id="3_hy3ar"]
-[ext_resource type="PackedScene" uid="uid://dw6gfhe4b8hsb" path="res://characters/fire.tscn" id="4_6lesy"]
+[ext_resource type="PackedScene" uid="uid://dw6gfhe4b8hsb" path="res://characters/items/fire.tscn" id="4_6lesy"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="4_yplbi"]
 [ext_resource type="PackedScene" uid="uid://c021r6ybkgh55" path="res://scenes/ice_hole.tscn" id="6_1rqyb"]
 [ext_resource type="PackedScene" uid="uid://ceukadlwicamv" path="res://UI/Setting/Time/time_ui.tscn" id="8_4aage"]
-[ext_resource type="PackedScene" uid="uid://cyteuulb2ml41" path="res://characters/char_knight_templar/knight_templar.tscn" id="9_gp5v7"]
 [ext_resource type="Script" path="res://UI/Setting/Time/time_system.gd" id="9_q5s5u"]
+[ext_resource type="PackedScene" uid="uid://cjo01s4e0v4j" path="res://characters/items/puzzle_instructions.tscn" id="9_si86v"]
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
-[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
+[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="22_xhyk3"]
 [ext_resource type="PackedScene" uid="uid://cjchlswrlk8iy" path="res://characters/enemy_armored_axeman/armored_axeman.tscn" id="23_lv6ba"]
-[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="23_sfw3l"]
-[ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="24_8ne5p"]
+[ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/items/next_level.tscn" id="23_sfw3l"]
+[ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/items/GoddessStatue.tscn" id="24_8ne5p"]
 [ext_resource type="PackedScene" uid="uid://ct3y7kf42else" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="25_kxbsj"]
+[ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="26_6vqn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1610,6 +1611,10 @@ position = Vector2(144, 256)
 [node name="IceHole2" parent="." instance=ExtResource("6_1rqyb")]
 position = Vector2(144, 224)
 
+[node name="PuzzleInstructions" parent="." instance=ExtResource("9_si86v")]
+z_index = 2
+position = Vector2(104, 256)
+
 [node name="Fire1" parent="." instance=ExtResource("4_6lesy")]
 position = Vector2(224, 576)
 
@@ -1732,9 +1737,6 @@ position = Vector2(808, 64)
 [node name="GoddessStatue" parent="." instance=ExtResource("24_8ne5p")]
 position = Vector2(576, 208)
 
-[node name="knight_templar" parent="." instance=ExtResource("9_gp5v7")]
-position = Vector2(73, 294)
-
 [node name="armored_axeman" parent="." instance=ExtResource("23_lv6ba")]
 position = Vector2(787, 167)
 scale = Vector2(2.01743, 2.04165)
@@ -1744,5 +1746,8 @@ motion_mode = 1
 position = Vector2(867, 118)
 scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
+
+[node name="soldierV2" parent="." instance=ExtResource("26_6vqn3")]
+position = Vector2(40, 256)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

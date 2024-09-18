@@ -1,6 +1,5 @@
 ~ start
 
-set Global.disablePlayerInput = true
 Goddess Statue: Do you want to heal your hp?
 - Yes, please.
 	set Global.GoddessHeal = true
