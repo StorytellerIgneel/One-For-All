@@ -1748,6 +1748,6 @@ scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
 
 [node name="soldierV2" parent="." instance=ExtResource("26_6vqn3")]
-position = Vector2(40, 256)
+position = Vector2(520, 304)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

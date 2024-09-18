@@ -76,7 +76,6 @@ func _physics_process(delta):
 		freeze_cooldown = true
 		freeze_level.value += 10
 		if (freeze_level.value == 100):
-			print("died of freeze")
 			player.health = 0
 		$FreezeTimer.start()
 	
@@ -85,7 +84,6 @@ func _physics_process(delta):
 	#print(actionables)
 	if actionables.size() > 1:
 		if (actionables.has($WinterfellTileMap/Ice)):
-			print("true")
 			player.friction = 10
 		if (Global.findElement(actionables, "IcePuzzleArea")):
 			if (!Global.findElement(actionables, "IceHoleArea")):
