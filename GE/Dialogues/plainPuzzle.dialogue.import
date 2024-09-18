@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dcslilunkurlg"
+path="res://.godot/imported/plainPuzzle.dialogue-58dad3e3dc7200ed55e7d01220d6ebe2.tres"
+
+[deps]
+
+source_file="res://Dialogues/plainPuzzle.dialogue"
+dest_files=["res://.godot/imported/plainPuzzle.dialogue-58dad3e3dc7200ed55e7d01220d6ebe2.tres"]
+
+[params]
+
+defaults=true

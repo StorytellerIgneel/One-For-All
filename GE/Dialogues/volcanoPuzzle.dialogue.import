@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://ddfjywljrs8no"
+path="res://.godot/imported/volcanoPuzzle.dialogue-c9143b8c360f3dbd797c3fb345f1a0cd.tres"
+
+[deps]
+
+source_file="res://Dialogues/volcanoPuzzle.dialogue"
+dest_files=["res://.godot/imported/volcanoPuzzle.dialogue-c9143b8c360f3dbd797c3fb345f1a0cd.tres"]
+
+[params]
+
+defaults=true

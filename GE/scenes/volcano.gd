@@ -72,13 +72,10 @@ func initialize_camera_limit():
 	$swordsman/PlayerCamera.limit_right = 1408
 	$swordsman/PlayerCamera.limit_bottom = 616
 
-
 # Function to clear tiles either up or down along the Y axis
 func clear_tiles_in_range(start_pos: Vector2, direction: String, num_tiles: int):
-	
 	var step_size = 16  # Each tile is spaced 16 pixels apart
 	var tilemap_pos = $OverlappingLava.local_to_map(start_pos)  # Convert world position to tilemap coordinates
-	print(tilemap_pos)
 	var tile_pos
 	# Loop to clear the tiles in the range
 	for i in range(num_tiles):
@@ -92,7 +89,6 @@ func clear_tiles_in_range(start_pos: Vector2, direction: String, num_tiles: int)
 		remove_tile(tile_pos)
 
 func lavaOverflow(start_pos: Vector2, direction: String, num_tiles: int):
-	
 	var step_size = 16  # Each tile is spaced 16 pixels apart
 	var tilemap_pos = $OverlappingLava.local_to_map(start_pos)  # Convert world position to tilemap coordinates
 	var tile_pos
@@ -123,7 +119,6 @@ func player_hit_by_fireball():
 
 func _physics_process(delta):
 	var actionables = $swordsman/player_hitbox.get_overlapping_areas()
-	print(actionables)
 	
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):

@@ -93,10 +93,9 @@ func check_interact():
 		var actionables = actionable_finder.get_overlapping_areas()
 		print(actionables)
 		if actionables.size() > 1: #always more than one since overlap with hitbox
-			print(actionables)
-			var actionable = actionables[1]
-			if (actionable.has_method("action")):
-				actionable.action()
+			for actionable in actionables:
+				if (actionable.has_method("action")):
+					actionable.action()
 	
 	if Input.is_action_just_pressed("createTile"):
 		place_tile_in_front()

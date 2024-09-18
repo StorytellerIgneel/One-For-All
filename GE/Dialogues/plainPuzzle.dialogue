@@ -1,0 +1,7 @@
+~ plain
+
+Signboard: PLAIN PUZZLE:
+Signboard: FInd the 3 keys across the map and activate the portal!
+set Global.disablePlayerInput = false
+
+=> END

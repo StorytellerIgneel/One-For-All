@@ -1,0 +1,10 @@
+~ winterfell
+
+Signboard: WINTERFELL PUZZLE:
+Signboard: You have to walk across this frozen pool to get the key.
+Signboard: Beware！ The frozen surface is very weak. It will break after you step on it.
+Signboard: Once you fall into the pool, you will die. Its very cold in there!
+Signboard: Plan your route so that u dont step on repeated pathway. 
+set Global.disablePlayerInput = false
+
+=> END

@@ -15,5 +15,5 @@ func _ready():
 	
 func action():
 	currentMap = Global.currentTilemap.name
-	print(currentMap)
+	
 	Global.trigger_dialogue("res://instructions.dialogue", triggerDialogue)

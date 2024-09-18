@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bswg264w4nta2"
+path="res://.godot/imported/beachPuzzle.dialogue-01383264204bf4de8d2b2d30fd9c8f2c.tres"
+
+[deps]
+
+source_file="res://Dialogues/beachPuzzle.dialogue"
+dest_files=["res://.godot/imported/beachPuzzle.dialogue-01383264204bf4de8d2b2d30fd9c8f2c.tres"]
+
+[params]
+
+defaults=true

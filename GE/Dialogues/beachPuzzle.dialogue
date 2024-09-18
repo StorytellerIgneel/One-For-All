@@ -1,0 +1,8 @@
+~ beach
+
+Signboard: BEACH PUZZLE:
+Signboard: Create wooden blocks by pressing the o key and build your way to get the key to advance!
+Signboard: You can walk on the wooden blocks created as a bridge to cross the water regions
+set Global.disablePlayerInput = false
+
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bwsnanqqyxe6n"
+path="res://.godot/imported/winterfellPuzzle.dialogue-d4641319c3cd964d2c71541f7d7cf24e.tres"
+
+[deps]
+
+source_file="res://Dialogues/winterfellPuzzle.dialogue"
+dest_files=["res://.godot/imported/winterfellPuzzle.dialogue-d4641319c3cd964d2c71541f7d7cf24e.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,8 @@
+~ volcano
+
+Signboard: VOLCANO PUZZLE:
+Signboard: Push the boulders and block the overflowing lava.
+Signboard: Once you step on the overflowing lava, you will die immediately. 
+set Global.disablePlayerInput = false
+
+=> END
