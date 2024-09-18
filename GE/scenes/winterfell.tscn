@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/items/next_level.tscn" id="23_sfw3l"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/items/GoddessStatue.tscn" id="24_8ne5p"]
 [ext_resource type="PackedScene" uid="uid://ct3y7kf42else" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="25_kxbsj"]
-[ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="26_6vqn3"]
+[ext_resource type="PackedScene" uid="uid://c1cxnphvkbuo3" path="res://characters/char_knight_templar/soldier_v2.tscn" id="25_qmctf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1747,7 +1747,7 @@ position = Vector2(867, 118)
 scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
 
-[node name="soldierV2" parent="." instance=ExtResource("26_6vqn3")]
-position = Vector2(520, 304)
+[node name="soldierV2" parent="." instance=ExtResource("25_qmctf")]
+position = Vector2(122, 355)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

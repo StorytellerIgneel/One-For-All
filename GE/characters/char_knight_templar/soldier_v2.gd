@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name playeroriginal
+class_name playerwinter
 
 signal InWaterRegion
 signal OutWaterRegion
@@ -23,8 +23,8 @@ var attack_ip = false
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var body_interactor = $player_hitbox
 
-@export var soldier_atk1dmg = Global.dmg
-@export var soldier_atk2dmg = Global.dmg + 5
+@export var soldier_atk1dmg = Global.dmg + 10
+@export var soldier_atk2dmg = Global.dmg + 15
 
 var damage = 0
 var slime

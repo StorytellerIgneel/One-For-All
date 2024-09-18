@@ -10,7 +10,7 @@ var overlappingLava: Array[Area2D]
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
 @onready var tilemap = $VolcanoTileMap
-@onready var player = $swordsman
+@onready var player = $soldierV2
 @onready var shooters = $volcanoShooters
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
@@ -49,7 +49,7 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 		
 	if event.is_action_pressed(("Interact")):
-		var actionables = $swordsman/player_hitbox.get_overlapping_areas()
+		var actionables = $soldierV2d/player_hitbox.get_overlapping_areas()
 		if actionables.size() > 1:
 			for boulder in boulders:
 				# Check if the second element in the 'actionables' array matches the boulder's Area2D node
@@ -67,10 +67,10 @@ func _unhandled_input(event):
 						clear_tiles_in_range(boulder.position, direction, 7)
 
 func initialize_camera_limit():
-	$swordsman/PlayerCamera.limit_left = -320
-	$swordsman/PlayerCamera.limit_top = -736
-	$swordsman/PlayerCamera.limit_right = 1408
-	$swordsman/PlayerCamera.limit_bottom = 616
+	$soldierV2/PlayerCamera.limit_left = -320
+	$soldierV2/PlayerCamera.limit_top = -736
+	$soldierV2/PlayerCamera.limit_right = 1408
+	$soldierV2/PlayerCamera.limit_bottom = 616
 
 # Function to clear tiles either up or down along the Y axis
 func clear_tiles_in_range(start_pos: Vector2, direction: String, num_tiles: int):
@@ -118,7 +118,7 @@ func player_hit_by_fireball():
 	player.health -= 10	
 
 func _physics_process(delta):
-	var actionables = $swordsman/player_hitbox.get_overlapping_areas()
+	var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
 	
 	for lavaArea in overlappingLava:
 		if (Global.findElement(actionables, lavaArea.name)) and ($OverlappingLava.get_cell_tile_data(0, $OverlappingLava.local_to_map(player.global_position)) != null):

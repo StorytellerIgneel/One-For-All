@@ -11,16 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://bcj7upjj3uhq5" path="res://resources/tilemap/volcanoe_tileset_and_assets/volcanoe_tiles.png" id="7_rrcy0"]
 [ext_resource type="Script" path="res://scenes/dummy.gd" id="10_pp6h1"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="10_rj0ss"]
-[ext_resource type="PackedScene" uid="uid://dmk7h18e25fs5" path="res://characters/char_swordsman/swordsman.tscn" id="11_ga1y8"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="11_sgtht"]
 [ext_resource type="PackedScene" uid="uid://b7wf7p32va5sm" path="res://characters/items/boulder.tscn" id="11_u2jqx"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer2.gd" id="14_bktnv"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="15_72ll3"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="16_8rhc3"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
 [ext_resource type="PackedScene" uid="uid://cjo01s4e0v4j" path="res://characters/items/puzzle_instructions.tscn" id="22_osslh"]
-[ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
+[ext_resource type="PackedScene" uid="uid://cqw3iey8mylo7" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
 [ext_resource type="Texture2D" uid="uid://cuom178b71rsu" path="res://resources/screenshots/volcanoMap.png" id="23_otj7w"]
+[ext_resource type="PackedScene" uid="uid://8qubgp1k533q" path="res://characters/char_swordsman/soldier_v2.tscn" id="23_r7h00"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="23_yywqx"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 
@@ -1855,12 +1855,7 @@ metadata/_edit_group_ = true
 scale = Vector2(1.00963, 1.02416)
 shape = SubResource("RectangleShape2D_smfkb")
 
-[node name="swordsman" parent="." instance=ExtResource("11_ga1y8")]
-visible = false
-position = Vector2(552, 584)
-
 [node name="volcanoShooters" parent="." instance=ExtResource("2_pbncq")]
-visible = false
 position = Vector2(581, 79)
 
 [node name="Boulder4" parent="." instance=ExtResource("11_u2jqx")]
@@ -1876,7 +1871,6 @@ position = Vector2(1048, 144)
 position = Vector2(960, 40)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)
 
@@ -1894,7 +1888,7 @@ offset_bottom = 100.304
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(200, 200)
-render_target_update_mode = 0
+render_target_update_mode = 4
 script = ExtResource("10_rj0ss")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
@@ -1904,43 +1898,36 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 
 [node name="elite_orc" parent="." instance=ExtResource("23_oq3pe")]
-visible = false
 position = Vector2(289, -447)
 scale = Vector2(5.23671, 5.23671)
 motion_mode = 1
 
 [node name="warewolf" parent="." instance=ExtResource("24_x7frq")]
-visible = false
 position = Vector2(403, 24)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf2" parent="." instance=ExtResource("24_x7frq")]
-visible = false
 position = Vector2(-232, -80)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf5" parent="." instance=ExtResource("24_x7frq")]
-visible = false
 position = Vector2(280, 192)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf3" parent="." instance=ExtResource("24_x7frq")]
-visible = false
 position = Vector2(246, 330)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="warewolf4" parent="." instance=ExtResource("24_x7frq")]
-visible = false
 position = Vector2(-188, 326)
 scale = Vector2(2.29935, 2.15789)
 motion_mode = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("14_bktnv")
 
 [node name="Hotbar" parent="CanvasLayer2" instance=ExtResource("15_72ll3")]
@@ -1957,7 +1944,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="InventoryGUI" parent="CanvasLayer2" instance=ExtResource("16_8rhc3")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1988,7 +1974,6 @@ offset = Vector2(150, 290)
 transform = Transform2D(1, 0, 0, 1, 150, 290)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer4"]
-visible = false
 anchors_preset = -1
 anchor_left = -0.13
 anchor_top = -0.448
@@ -2002,7 +1987,7 @@ offset_bottom = 198.304
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer4/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(200, 200)
-render_target_update_mode = 0
+render_target_update_mode = 4
 script = ExtResource("10_rj0ss")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
@@ -2010,3 +1995,6 @@ texture = ExtResource("23_otj7w")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
+
+[node name="soldierV2" parent="." instance=ExtResource("23_r7h00")]
+position = Vector2(560, 590)
