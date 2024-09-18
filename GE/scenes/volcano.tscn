@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bd5bioaja5a76"]
+[gd_scene load_steps=34 format=3 uid="uid://bd5bioaja5a76"]
 
 [ext_resource type="Script" path="res://scenes/volcano.gd" id="1_ej23f"]
 [ext_resource type="Texture2D" uid="uid://bbhomgtkiw5hj" path="res://resources/tilemap/island/volcanoe_tiles.png" id="1_i7sws"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="22_njpc2"]
 [ext_resource type="PackedScene" uid="uid://cjo01s4e0v4j" path="res://characters/items/puzzle_instructions.tscn" id="22_osslh"]
 [ext_resource type="PackedScene" path="res://characters/enemy_elite_orc/elite.orc.tscn" id="23_oq3pe"]
+[ext_resource type="Texture2D" uid="uid://cuom178b71rsu" path="res://resources/screenshots/volcanoMap.png" id="23_otj7w"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="23_yywqx"]
 [ext_resource type="PackedScene" uid="uid://bd5ia64ouv6it" path="res://characters/enemy_warewolf/warewolf.tscn" id="24_x7frq"]
 
@@ -1855,6 +1856,7 @@ scale = Vector2(1.00963, 1.02416)
 shape = SubResource("RectangleShape2D_smfkb")
 
 [node name="swordsman" parent="." instance=ExtResource("11_ga1y8")]
+visible = false
 position = Vector2(552, 584)
 
 [node name="volcanoShooters" parent="." instance=ExtResource("2_pbncq")]
@@ -1980,3 +1982,31 @@ offset_bottom = 38.0
 
 [node name="PuzzleInstructions" parent="." instance=ExtResource("22_osslh")]
 position = Vector2(920, 8)
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+offset = Vector2(150, 290)
+transform = Transform2D(1, 0, 0, 1, 150, 290)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer4"]
+visible = false
+anchors_preset = -1
+anchor_left = -0.13
+anchor_top = -0.448
+anchor_right = -0.13
+anchor_bottom = -0.448
+offset_left = 0.759995
+offset_top = -1.69598
+offset_right = 200.76
+offset_bottom = 198.304
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 0
+script = ExtResource("10_rj0ss")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
+texture = ExtResource("23_otj7w")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]

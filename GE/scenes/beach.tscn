@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ctsqks6453r08"]
+[gd_scene load_steps=34 format=3 uid="uid://ctsqks6453r08"]
 
 [ext_resource type="Script" path="res://scenes/beach.gd" id="1_g2ddp"]
 [ext_resource type="Texture2D" uid="uid://c1evruw1na0g2" path="res://resources/tilemap/beach_expansion_v1.1/assets.png" id="1_m3ncn"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/items/next_level.tscn" id="20_6tvd7"]
 [ext_resource type="PackedScene" uid="uid://bjr0ac1slekh" path="res://characters/npc_wizard/wizard.tscn" id="21_xd8kc"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="22_oh6e2"]
+[ext_resource type="Script" path="res://scenes/minimap.gd" id="23_f8hem"]
+[ext_resource type="Texture2D" uid="uid://b2fegb30dhb3y" path="res://resources/screenshots/beachMap.png" id="24_jnd6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5so0e"]
 texture = ExtResource("1_m3ncn")
@@ -2820,12 +2822,14 @@ layer_8/name = "collectables"
 layer_8/tile_data = PackedInt32Array(2228239, 4, 65536, 1966093, 4, 65536, 1835023, 4, 65536, 1638438, 4, 65536, 1703974, 4, 65536, 2031667, 4, 65536, 1441854, 4, 65536, 1704003, 4, 65536, 1966147, 4, 65536, 1703990, 4, 65536, 1048636, 4, 65536, 983093, 4, 65536, 786484, 4, 65536, 1179694, 4, 65536, 196643, 4, 65536, 983074, 4, 65536, 589855, 4, 65536, 917526, 4, 65536, 196629, 4, 65536, 262152, 4, 65536, 65541, 4, 65536, 2687012, 4, 131072)
 
 [node name="muddyRegion" type="Area2D" parent="BeachTileMap"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/muddyRegion"]
 position = Vector2(368, 402)
 shape = SubResource("RectangleShape2D_ya6rn")
 
 [node name="waterRegion" type="Area2D" parent="BeachTileMap"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeachTileMap/waterRegion"]
 position = Vector2(928.5, 96)
@@ -2837,6 +2841,7 @@ date_time = SubResource("Resource_xlegm")
 ticks_pr_second = 60
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TImeGui" parent="CanvasLayer2" instance=ExtResource("10_fs6n4")]
 anchors_preset = 1
@@ -2853,42 +2858,53 @@ light_mask = 3
 position = Vector2(848, 480)
 
 [node name="Node2D" parent="." instance=ExtResource("11_cx0xj")]
+visible = false
 z_index = 2
 position = Vector2(877, 358)
 
 [node name="orc" parent="." instance=ExtResource("15_wpkfl")]
+visible = false
 position = Vector2(347, 249)
 motion_mode = 1
 
 [node name="orc2" parent="." instance=ExtResource("15_wpkfl")]
+visible = false
 position = Vector2(472, 243)
 motion_mode = 1
 
 [node name="orc3" parent="." instance=ExtResource("15_wpkfl")]
+visible = false
 position = Vector2(551, 182)
 motion_mode = 1
 
 [node name="orc4" parent="." instance=ExtResource("15_wpkfl")]
+visible = false
 position = Vector2(433, 106)
 motion_mode = 1
 
 [node name="orc5" parent="." instance=ExtResource("15_wpkfl")]
+visible = false
 position = Vector2(309, 118)
 motion_mode = 1
 
 [node name="slimev3" parent="." instance=ExtResource("16_haa6r")]
+visible = false
 position = Vector2(981, 467)
 
 [node name="slimev4" parent="." instance=ExtResource("16_haa6r")]
+visible = false
 position = Vector2(1066, 270)
 
 [node name="slimev5" parent="." instance=ExtResource("16_haa6r")]
+visible = false
 position = Vector2(796, 377)
 
 [node name="slimev6" parent="." instance=ExtResource("16_haa6r")]
+visible = false
 position = Vector2(780, 260)
 
 [node name="OxygenLevel" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="OxygenLevel"]
 anchors_preset = 1
@@ -2936,12 +2952,42 @@ script = ExtResource("18_30pyt")
 [node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("8_twbmo")]
 
 [node name="NextLevel" parent="." instance=ExtResource("20_6tvd7")]
+visible = false
 position = Vector2(256, 24)
 
 [node name="wizard" parent="." instance=ExtResource("21_xd8kc")]
+visible = false
 z_index = 1
 position = Vector2(520, 368)
 
 [node name="soldierV2" parent="." instance=ExtResource("22_oh6e2")]
+visible = false
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+offset = Vector2(150, 290)
+transform = Transform2D(1, 0, 0, 1, 150, 290)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer4"]
+anchors_preset = -1
+anchor_left = -0.13
+anchor_top = -0.448
+anchor_right = -0.13
+anchor_bottom = -0.448
+offset_left = 0.759995
+offset_top = -1.69598
+offset_right = 200.76
+offset_bottom = 198.304
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+script = ExtResource("23_f8hem")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
+texture = ExtResource("24_jnd6b")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

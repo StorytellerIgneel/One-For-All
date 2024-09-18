@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b0if0mcwakx6y"]
+[gd_scene load_steps=38 format=3 uid="uid://b0if0mcwakx6y"]
 
 [ext_resource type="Script" path="res://scenes/plain.gd" id="1_rppv0"]
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="2_7o831"]
@@ -24,7 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="24_8k410"]
 [ext_resource type="PackedScene" uid="uid://ciidn6dx8qo5v" path="res://characters/items/chest.tscn" id="24_v6odg"]
 [ext_resource type="PackedScene" uid="uid://cktmruispklh2" path="res://characters/items/portal.tscn" id="25_ecsu5"]
+[ext_resource type="Script" path="res://scenes/minimap.gd" id="26_3045p"]
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/items/next_level.tscn" id="26_aqepa"]
+[ext_resource type="Texture2D" uid="uid://cjn78iiyx3npc" path="res://resources/screenshots/plainMap.png" id="27_tcgyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv40g"]
 resource_name = "CollisionBlock"
@@ -5784,6 +5786,7 @@ collision_layer = 17
 collision_mask = 17
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("17_eco0e")
 
 [node name="InventoryGUI" parent="CanvasLayer" instance=ExtResource("18_ilmd6")]
@@ -5814,6 +5817,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TImeGui" parent="CanvasLayer2" instance=ExtResource("20_xwfyy")]
 anchors_preset = 1
@@ -5834,6 +5838,7 @@ ticks_pr_second = 60
 position = Vector2(96, -32)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("23_b6yhv")
 
 [node name="SettingMenu" parent="CanvasLayer3" instance=ExtResource("24_8k410")]
@@ -5909,5 +5914,32 @@ position = Vector2(544, 320)
 
 [node name="Portal2" parent="." instance=ExtResource("25_ecsu5")]
 position = Vector2(544, -64)
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+offset = Vector2(150, 290)
+transform = Transform2D(1, 0, 0, 1, 150, 290)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer4"]
+anchors_preset = -1
+anchor_left = -0.13
+anchor_top = -0.448
+anchor_right = -0.13
+anchor_bottom = -0.448
+offset_left = 0.759995
+offset_top = -1.69598
+offset_right = 200.76
+offset_bottom = 198.304
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+script = ExtResource("26_3045p")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
+texture = ExtResource("27_tcgyj")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer4/SubViewportContainer/SubViewport"]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]
