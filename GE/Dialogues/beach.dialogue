@@ -2,6 +2,7 @@
 
 Mysterious Voice: Welcome to the beach map.
 Mysterious Voice: Beware of the muds! It can slow you down. 
+Mysterious Voice: Press O to create wooden blocks and build you way across the map!
 set Global.disablePlayerInput = false
 
 => END

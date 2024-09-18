@@ -2901,7 +2901,6 @@ offset_bottom = 27.0
 grow_horizontal = 0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("17_a27f7")
 
 [node name="Hotbar" parent="CanvasLayer3" instance=ExtResource("18_mdohb")]
@@ -2931,7 +2930,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("18_30pyt")
 
 [node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("8_twbmo")]
@@ -2942,6 +2940,8 @@ position = Vector2(256, 24)
 [node name="wizard" parent="." instance=ExtResource("21_xd8kc")]
 z_index = 1
 position = Vector2(520, 368)
+
+[node name="soldierV2" parent="." instance=ExtResource("22_oh6e2")]
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 offset = Vector2(150, 290)

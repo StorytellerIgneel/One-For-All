@@ -22,7 +22,7 @@ func _ready():
 	Global.currentTilemap = $IslandTileMap
 	player.set_water_region(water_region)
 	
-	#Global.trigger_dialogue("res://Dialogues/NewGame.dialogue", "start")
+	Global.trigger_dialogue("res://Dialogues/NewGame.dialogue", "start")
 	
 	player.InWaterRegion.connect(inWater)
 	player.OutWaterRegion.connect(outWater)
@@ -33,20 +33,6 @@ func _physics_process(delta):
 	if (Global.nextLevelBool == true):
 		await LoadManager.load_scene("res://scenes/beach.tscn")
 		Global.nextLevelBool = false
-	
-	#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
-	#
-	#if actionables.size() > 1:
-		#if (Global.findElement(actionables, "WaterRegion")):
-			#if (inWater_cooldown == false):
-				#inWater_cooldown = true
-				#$inWaterTimer.start()
-				#inWater()
-	#else: #in cooldown
-		#if (outWater_cooldown == false):
-			#outWater()
-			#outWater_cooldown = true
-			#$outWaterTimer.start()
 		
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -61,10 +47,6 @@ func _unhandled_input(event):
 			
 		get_tree().root.get_viewport().set_input_as_handled()
 		
-	# YAP TESTING SCENE, DONT TOUCH
-	if event.is_action_pressed("YAP_TESTING_SCENE"):
-		get_tree().change_scene_to_file("res://scenes/yap_testing_scene.tscn")
-		
 func inWater():
 	oxygenLevel.value = oxygenLevel.value + 10
 	if (oxygenLevel.value == 100):
@@ -75,12 +57,6 @@ func outWater():
 		oxygenLevel.value = oxygenLevel.value - 10
 		if (oxygenLevel.value < 0):
 			oxygenLevel.value = 0
-			
-# Inventory function
-#func _on_hurt_box_area_entered(area):
-	#if area.has_method("collect"):
-		#area.collect()
-		
 
 func initialize_camera_limit():
 	$soldierV2/PlayerCamera.limit_right = $IslandTileMap.get_used_rect().size.x * 16

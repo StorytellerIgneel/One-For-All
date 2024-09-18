@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b35poh5254vlo"]
+[gd_scene load_steps=37 format=3 uid="uid://b35poh5254vlo"]
 
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="1_qkvpo"]
 [ext_resource type="Texture2D" uid="uid://tcdnsdcasdfu" path="res://resources/tilemap/Snowy Asset Pack/spritesheet.png" id="1_r68rs"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/items/GoddessStatue.tscn" id="24_8ne5p"]
 [ext_resource type="PackedScene" uid="uid://ct3y7kf42else" path="res://characters/enemy_armored_orc/armored_orc.tscn" id="25_kxbsj"]
 [ext_resource type="PackedScene" uid="uid://c1cxnphvkbuo3" path="res://characters/char_knight_templar/soldier_v2.tscn" id="25_qmctf"]
+[ext_resource type="Script" path="res://scenes/minimap.gd" id="26_snysl"]
+[ext_resource type="Texture2D" uid="uid://vhtehkiocp17" path="res://resources/screenshots/winterfellMap.png" id="27_35xfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg06i"]
 texture = ExtResource("1_qkvpo")
@@ -1578,9 +1580,6 @@ position = Vector2(896, 520)
 position = Vector2(-136, 32)
 shape = SubResource("RectangleShape2D_yf4i4")
 
-[node name="TileMap2" type="TileMap" parent="."]
-format = 2
-
 [node name="IcePuzzleArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IcePuzzleArea"]
@@ -1699,7 +1698,6 @@ visible = false
 script = ExtResource("14_mlh1n")
 
 [node name="InventoryGUI" parent="CanvasLayer3" instance=ExtResource("15_i87my")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1726,7 +1724,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("21_8foe5")
 
 [node name="SettingMenu" parent="CanvasLayer4" instance=ExtResource("22_xhyk3")]
@@ -1747,7 +1744,34 @@ position = Vector2(867, 118)
 scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
 
-[node name="soldierV2" parent="." instance=ExtResource("25_qmctf")]
-position = Vector2(122, 355)
+[node name="soldierV2" parent="." instance=ExtResource("26_6vqn3")]
+position = Vector2(320, 576)
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+offset = Vector2(150, 290)
+transform = Transform2D(1, 0, 0, 1, 150, 290)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer5"]
+anchors_preset = -1
+anchor_left = -0.13
+anchor_top = -0.448
+anchor_right = -0.13
+anchor_bottom = -0.448
+offset_left = 0.759995
+offset_top = -1.69598
+offset_right = 200.76
+offset_bottom = 198.304
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer5/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+script = ExtResource("26_snysl")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer5/SubViewportContainer/SubViewport"]
+texture = ExtResource("27_35xfc")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer5/SubViewportContainer/SubViewport"]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

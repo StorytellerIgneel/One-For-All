@@ -5,10 +5,11 @@ Mysterious Voice: Here, you will go through an indellible adventure.
 Mysterious Voice: But first, are you an experienced warrior? Or a novice adventurer?
 - I'm new to this world. (Tutorial)
 	Mysterious Voice: WASD for movement. Space bar for interaction.
-	Mysterious Voice: Obviously we have no budget yet so yeah. Enjoy!
+	Mysterious Voice: P for minecraft mode to create a collision block in front of you. U for using items.
+	Mysterious Voice: Thats pretty much all of it. Enjoy your journey!
 	set Global.disablePlayerInput = false
 - I've kicked the ass of this world's boss. (Skip tutorial)
-	Mysterious Voice: Well... Enjoy then! Ciao
+	Mysterious Voice: Well... Enjoy then! Ciao~
 	set Global.disablePlayerInput = false
 
 => END
