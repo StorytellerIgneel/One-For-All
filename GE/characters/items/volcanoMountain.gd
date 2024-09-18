@@ -1,6 +1,6 @@
 extends Node2D
 
-const fireBallPath = preload("res://characters/fireball.tscn")
+const fireBallPath = preload("res://characters/items/fireball.tscn")
 
 signal playerHit2
 

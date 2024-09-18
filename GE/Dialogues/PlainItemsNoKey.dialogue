@@ -1,5 +1,6 @@
 ~ start
 
 Mysterious Voice: Unfortunately, there is nothing here. Better luck next time!
+set Global.disablePlayerInput = false
 
 => END

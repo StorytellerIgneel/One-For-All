@@ -5,11 +5,13 @@ var NextLevel: bool = false
 @onready var pause_menu = $CanvasLayer/InputSettings
 
 var game_paused = false
+#var inWater_cooldown = false
+#var outWater_cooldown = false
 
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var camera = $SubViewport/Camera2D
-@onready var tilemap = $TileMap
-@onready var water_region = $TileMap/WaterRegion
+@onready var tilemap = $IslandTileMap
+@onready var water_region = $IslandTileMap/WaterRegion
 @onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 @onready var Player = $knight
@@ -31,6 +33,20 @@ func _physics_process(delta):
 	if (Global.nextLevelBool == true):
 		await LoadManager.load_scene("res://scenes/beach.tscn")
 		Global.nextLevelBool = false
+	
+	#var actionables = $soldierV2/player_hitbox.get_overlapping_areas()
+	#
+	#if actionables.size() > 1:
+		#if (Global.findElement(actionables, "WaterRegion")):
+			#if (inWater_cooldown == false):
+				#inWater_cooldown = true
+				#$inWaterTimer.start()
+				#inWater()
+	#else: #in cooldown
+		#if (outWater_cooldown == false):
+			#outWater()
+			#outWater_cooldown = true
+			#$outWaterTimer.start()
 		
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):

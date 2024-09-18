@@ -4,5 +4,8 @@ Mysterious Voice: This is the plain, places where ruins of the past reside.
 Mysterious Voice: In order to activate the portal, you will need a key. Find them across this vast plain!
 Mysterious Voice: The first key hint would be:
 Mysterious Voice: "As the lava from the volcano consumes everything, having mercy only on tress behind in its wrath"
+Mysterious Voice: "In the center of all there is hope"
+#i know this is cringy but yeah
+set Global.disablePlayerInput = false
 
 => END
