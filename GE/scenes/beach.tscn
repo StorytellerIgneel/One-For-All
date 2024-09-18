@@ -2917,6 +2917,6 @@ position = Vector2(256, 24)
 position = Vector2(520, 368)
 
 [node name="knight" parent="." instance=ExtResource("21_x4yki")]
-position = Vector2(584, 408)
+position = Vector2(247, 586)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer2/TImeGui" method="_on_time_system_updated"]

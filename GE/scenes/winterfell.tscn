@@ -1733,7 +1733,7 @@ position = Vector2(808, 64)
 position = Vector2(576, 208)
 
 [node name="knight_templar" parent="." instance=ExtResource("9_gp5v7")]
-position = Vector2(883, 200)
+position = Vector2(73, 294)
 
 [node name="armored_axeman" parent="." instance=ExtResource("23_lv6ba")]
 position = Vector2(787, 167)
@@ -1741,7 +1741,7 @@ scale = Vector2(2.01743, 2.04165)
 motion_mode = 1
 
 [node name="armored_orc" parent="." instance=ExtResource("25_kxbsj")]
-position = Vector2(918, 287)
+position = Vector2(867, 118)
 scale = Vector2(1.93931, 1.96259)
 motion_mode = 1
 

@@ -5072,7 +5072,7 @@ position = Vector2(377, 263)
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(355, 333)
+position = Vector2(253, 563)
 
 [node name="knight" parent="." instance=ExtResource("18_54ev4")]
 position = Vector2(-155, 393)

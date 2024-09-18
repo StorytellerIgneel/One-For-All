@@ -14,8 +14,7 @@ var findingKey = 1
 var nextLevelBool = false
 
 var player_current_attack = false
-#var slime_current_attack = false
-var health = 1000
+var health = 100
 var dmg = 20
 
 func trigger_dialogue (dialogue_resource_path, dialogue_start):
