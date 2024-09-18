@@ -75,12 +75,12 @@ func _unhandled_input(event):
 	# Check if the player is overlapping with any areas
 		if actionables.size() > 1:
 		
-		# Check if the area contains a PortalArea and if the player has 3 keys
+		# Check if the area contains a PortalArea and if the player has 3 keyds
 			if Global.findElement(actionables, "PortalArea"):
 			
 				# Check inventory key amount
-				if player.inventory.get_total_keys() < 3:
-					print("You need 3 keys to teleport.")
+				if player.inventory.get_total_keys() < 1:
+					print("You need a key to teleport.")
 					return  # Exit if the player doesn't have 3 keys
 			
 				Global.trigger_dialogue("res://Dialogues/teleport.dialogue", "teleport")

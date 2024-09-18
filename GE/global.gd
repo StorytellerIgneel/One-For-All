@@ -14,7 +14,6 @@ var findingKey = 1
 var nextLevelBool = false
 
 var player_current_attack = false
-#var slime_current_attack = false
 var health = 100
 var dmg = 20
 

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dwufjavyieps3" path="res://resources/tilemap/collision.jpg" id="9_tehue"]
 [ext_resource type="PackedScene" uid="uid://bfngrqla7dqu8" path="res://collectables/lifepot.tscn" id="10_2qu8q"]
 [ext_resource type="PackedScene" uid="uid://cc4vy6vdcoly1" path="res://collectables/key.tscn" id="11_4wsnw"]
-[ext_resource type="PackedScene" path="res://collectables/building_block.tscn" id="12_5iwqa"]
+[ext_resource type="PackedScene" uid="uid://ldmah3utjqu5" path="res://collectables/building_block.tscn" id="12_5iwqa"]
 [ext_resource type="PackedScene" uid="uid://d3rnnyrkhevw5" path="res://characters/char_soldier/soldier_v2.tscn" id="14_pbl1e"]
 [ext_resource type="PackedScene" uid="uid://m4sfn5b4jp8x" path="res://characters/char_knight/knight.tscn" id="18_54ev4"]
 [ext_resource type="PackedScene" uid="uid://bbt04m1tvmehy" path="res://characters/GoddessStatue.tscn" id="20_hsoah"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://scenes/ss.gd" id="22_qtekk"]
 [ext_resource type="Script" path="res://scenes/minimap.gd" id="23_32isr"]
 [ext_resource type="Texture2D" uid="uid://cvfv0vmvxfeib" path="res://resources/screenshots/EnlargedMap.png" id="24_2yvvb"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="28_hq4ks"]
 [ext_resource type="PackedScene" uid="uid://d1fsqqtnxv5a7" path="res://UI/Setting/SettingMenu.tscn" id="29_dbkf0"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="31_iskdv"]
 [ext_resource type="PackedScene" uid="uid://ds4i37vfpu204" path="res://characters/next_level.tscn" id="31_o4yki"]
@@ -5068,7 +5068,7 @@ shape = SubResource("CapsuleShape2D_lgyuw")
 [node name="soldierV2" parent="." instance=ExtResource("14_pbl1e")]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(355, 333)
+position = Vector2(253, 563)
 
 [node name="knight" parent="." instance=ExtResource("18_54ev4")]
 position = Vector2(-155, 393)
