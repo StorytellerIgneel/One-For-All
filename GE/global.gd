@@ -27,7 +27,7 @@ func trigger_dialogue (dialogue_resource_path, dialogue_start):
 	
 	balloon = balloon_scene.instantiate()
 	get_tree().current_scene.add_child(balloon)
-	# Check if the balloon instance has the expected method
+
 	if balloon.has_method("start"):
 		balloon.start(dialogue_resource, dialogue_start)
 	else:

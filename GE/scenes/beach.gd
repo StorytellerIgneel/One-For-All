@@ -7,7 +7,7 @@ var game_paused = false
 @onready var viewport = get_parent().get_node("SubViewport1")
 @onready var tilemap = $BeachTileMap
 @onready var muddyRegion = $BeachTileMap/muddyRegion
-@onready var player = $knight
+@onready var player = $soldierV2
 @onready var oxygenLevel = $OxygenLevel/ProgressBar
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +18,7 @@ func _ready():
 	
 	player.set_water_region($BeachTileMap/waterRegion)
 	player.set_muddy_region($BeachTileMap/muddyRegion)
-	Global.trigger_dialogue("res://Dialogues/beach.dialogue", "beach_start")
+	Global.trigger_dialogue("res://Dialogues/beach.dialogue", "beach")
 
 	initialize_camera_limit()
 	
@@ -26,7 +26,6 @@ func _ready():
 	player.InWaterRegion.connect(inWater)
 	player.OutWaterRegion.connect(outWater)
 
-	#print("DateTime at scene start: ", TimeManager.date_time)
 
 
 func _on_time_system_updated(date_time: DateTime) -> void:
@@ -47,8 +46,8 @@ func _unhandled_input(event):
 		get_tree().root.get_viewport().set_input_as_handled()
 		
 func initialize_camera_limit():
-	$knight/PlayerCamera.limit_right = $BeachTileMap.get_used_rect().size.x * 16
-	$knight/PlayerCamera.limit_bottom = $BeachTileMap.get_used_rect().size.y * 16
+	$soldierV2/PlayerCamera.limit_right = $BeachTileMap.get_used_rect().size.x * 16
+	$soldierV2/PlayerCamera.limit_bottom = $BeachTileMap.get_used_rect().size.y * 16
 	
 func _physics_process(delta):
 	if (Global.nextLevelBool == true):
