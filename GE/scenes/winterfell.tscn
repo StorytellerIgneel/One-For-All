@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://UI/Setting/Time/date_time.gd" id="10_r1f3e"]
 [ext_resource type="Script" path="res://scenes/CanvasLayer3.gd" id="14_mlh1n"]
 [ext_resource type="PackedScene" uid="uid://b0u15b6j2y6ke" path="res://UI/HUD/Inventory/Inventory_gui.tscn" id="15_i87my"]
-[ext_resource type="PackedScene" uid="uid://ch108ccm12qex" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
+[ext_resource type="PackedScene" uid="uid://bqml7y5rvhfr" path="res://UI/HUD/Inventory/hotbar.tscn" id="16_0s0rt"]
 [ext_resource type="PackedScene" uid="uid://diirvvb5ib0gb" path="res://characters/enemy_slime/slimev_3.tscn" id="20_hvioc"]
 [ext_resource type="Script" path="res://scenes/CanvasLayerSetting.gd" id="21_8foe5"]
 [ext_resource type="PackedScene" uid="uid://bds83ulyfqxy1" path="res://characters/enemy_orc/orc.tscn" id="21_rxoen"]
